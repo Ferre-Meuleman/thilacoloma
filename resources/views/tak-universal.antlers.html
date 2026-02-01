@@ -1,0 +1,267 @@
+<div class="container">
+    <div class="page-section">
+        <div class="back-to-takken">
+            <a href="/takken" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
+            </a>
+        </div>
+        <h1>{{ title }}</h1>
+        <div class="section-intro">
+            {{ if content }}
+                {{ content }}
+            {{ else }}
+                <p>Welkom bij {{ title }}!</p>
+            {{ /if }}
+        </div>
+    </div>
+
+    {{ subtakken }}
+    <div class="page-section">
+        <h2>{{ naam }}</h2>
+        
+        <div class="grid-2">
+            {{ if afwezigheids_formulier }}
+            <div class="card compact-card">
+                <div class="card-content">
+                    <div class="card-left">
+                        <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
+                        <p>Je kan afwezigheden hier verwittigen</p>
+                    </div>
+                    <div class="card-right">
+                        <a href="{{ afwezigheids_formulier }}" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Formulier
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{ /if }}
+            
+            {{ if rekeningnummer }}
+            <div class="card compact-card">
+                <div class="card-content">
+                    <div class="card-left">
+                        <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
+                        <p>Overschrijven naar rekening</p>
+                    </div>
+                    <div class="card-right">
+                        <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                            <i class="fas fa-copy"></i> {{ rekeningnummer }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+
+        <div class="leiding-grid">
+            {{ leidingsploegen:leidingsploegen }}
+                {{ if tak_naam == naam && actief }}
+                    {{ leiding }}
+                        <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
+                            <div class="leiding-foto">
+                                {{ totem_parts = totem | explode: ' ' }}
+                                {{ animal_name = totem_parts | last }}
+                                <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                            </div>
+                            <div class="leiding-info">
+                                <h3><strong>{{ totem }}</strong></h3>
+                                {{ if functie == 'takleider' }}
+                                    <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
+                                {{ else }}
+                                    <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
+                                {{ /if }}
+                                <a href="mailto:{{ email }}" class="email">{{ email }}</a>
+                                {{ if functie == 'takleider' }}
+                                    <p class="telefoon">Telefoonnummer in de blauwe gids</p>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    {{ /leiding }}
+                {{ /if }}
+            {{ /leidingsploegen:leidingsploegen }}
+        </div>
+    </div>
+    {{ /subtakken }}
+</div>
+
+<style>
+    /* Section intro styling */
+    .page-section .section-intro {
+        text-align: center;
+        font-size: 1.1em;
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-xl);
+        max-width: 1050px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Main title styling */
+    .page-section h1 {
+        font-family: var(--font-title);
+        font-size: 2.5em;
+        color: var(--primary-color);
+        text-align: center;
+        margin: var(--spacing-md) 0 var(--spacing-md) 0;
+        font-weight: normal;
+    }
+
+    /* Section titles styling */
+    .page-section h2 {
+        font-family: var(--font-bold);
+        font-size: 2em;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 0 0 var(--spacing-md) 0;
+        font-weight: normal;
+    }
+
+    /* Back button styling */
+    .back-to-takken {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .back-to-takken .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Compact card styling */
+    .compact-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: var(--spacing-md);
+    }
+
+    .compact-card .card-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .compact-card .card-left h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+        color: var(--primary-color);
+    }
+
+    .compact-card .card-left p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    /* Leiding grid */
+    .leiding-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
+    }
+
+    .leiding-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .leiding-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .leiding-card.takleider {
+        border: 2px solid var(--primary-color);
+    }
+
+    .leiding-foto {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .leiding-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .leiding-info {
+        padding: var(--spacing-md);
+        text-align: center;
+    }
+
+    .leiding-info h3 {
+        margin: 0 0 8px 0;
+        color: var(--primary-color);
+        font-size: 1.2em;
+    }
+
+    .leiding-info .echte-naam {
+        margin: 0 0 8px 0;
+        color: #666;
+        font-size: 0.95em;
+    }
+
+    .leiding-info .email {
+        display: block;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 0.9em;
+        word-break: break-all;
+    }
+
+    .leiding-info .telefoon {
+        margin: 8px 0 0 0;
+        font-size: 0.85em;
+        color: #888;
+        font-style: italic;
+    }
+
+    /* Copy button styling */
+    .copy-btn {
+        white-space: nowrap;
+        font-size: 0.9em;
+    }
+
+    /* Grid layout */
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .compact-card .card-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .leiding-grid {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+    }
+</style>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        // Show feedback
+        const btn = event.target.closest('.copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Gekopieerd!';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
+</script>

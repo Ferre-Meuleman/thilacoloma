@@ -173,8 +173,8 @@ sync_push() {
         fi
     done
 
-    log "🧹 Clearing server caches..."
-    ssh "$SERVER" "cd $REMOTE_PATH && php please cache:clear && php please stache:clear && chown -R www-data:www-data content"
+    log "🧹 Fixing permissions and clearing server caches..."
+    ssh "$SERVER" "sudo chown -R www-data:www-data $REMOTE_PATH/content $REMOTE_PATH/storage $REMOTE_PATH/resources && sudo chmod -R 775 $REMOTE_PATH/content $REMOTE_PATH/storage && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please cache:clear && php please stache:clear && php please view:clear'"
     
     success "Push complete! Server content is now identical to Local."
 }
@@ -216,7 +216,7 @@ sync_pull() {
     rsync -av --delete -e ssh "$SERVER:$REMOTE_PATH/content/" content/
     
     log "🧹 Refreshing local cache..."
-    php please stache:clear 2>/dev/null || true
+    php please stache:clear 2>/dev/null || php artisan cache:clear 2>/dev/null || true
     
     success "Pull complete! Local content is now identical to Server."
     
@@ -301,6 +301,39 @@ full_sync() {
     echo "============================================"
 }
 
+# Deploy templates/views to server with proper permissions
+deploy_templates() {
+    check_connection
+    
+    log "📄 Deploying templates to server..."
+    
+    rsync -av --delete -e ssh "resources/views/" "$SERVER:$REMOTE_PATH/resources/views/"
+    rsync -av --delete -e ssh "resources/blueprints/" "$SERVER:$REMOTE_PATH/resources/blueprints/"
+    
+    log "🧹 Fixing permissions and clearing caches..."
+    ssh "$SERVER" "sudo chown -R www-data:www-data $REMOTE_PATH/resources && sudo chmod -R 775 $REMOTE_PATH/resources && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please view:clear && php please cache:clear && php please stache:clear'"
+    
+    success "Templates deployed! Changes are now live."
+}
+
+# Quick deploy single file with permission fix
+deploy_file() {
+    local file="$1"
+    if [ -z "$file" ]; then
+        error "Usage: ./sync-content.sh deploy-file <relative-path>"
+    fi
+    
+    check_connection
+    
+    log "📄 Deploying $file to server..."
+    scp "$file" "$SERVER:$REMOTE_PATH/$file"
+    
+    log "🧹 Fixing permissions..."
+    ssh "$SERVER" "sudo chown www-data:www-data $REMOTE_PATH/$file && sudo chmod 664 $REMOTE_PATH/$file && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please view:clear'"
+    
+    success "File deployed: $file"
+}
+
 show_status() {
     log "📊 Content Sync Status"
     echo ""
@@ -338,6 +371,8 @@ ${GREEN}Usage:${NC}
 ${GREEN}Commands:${NC}
     ${YELLOW}from-server${NC}     Pull content FROM server TO local
     ${YELLOW}to-server${NC}       Push content FROM local TO server
+    ${YELLOW}deploy-templates${NC} Deploy views & blueprints to server
+    ${YELLOW}deploy-file${NC}     Deploy single file (e.g. deploy-file resources/views/meer.antlers.html)
     ${YELLOW}--diff${NC}          Show differences without making changes
     ${YELLOW}--auto${NC}          Full auto-sync: GitHub → Local → Server
     ${YELLOW}full-sync${NC}       Check status and recommend sync direction
@@ -365,6 +400,8 @@ ${GREEN}Workflow:${NC}
 case "$1" in
     "to-server"|"--push") sync_push "$2" ;;
     "from-server"|"--pull") sync_pull "$2" ;;
+    "deploy-templates") deploy_templates ;;
+    "deploy-file") deploy_file "$2" ;;
     "--diff"|"diff") show_diff ;;
     "--auto"|"auto") sync_auto ;;
     "full-sync"|"sync") full_sync ;;

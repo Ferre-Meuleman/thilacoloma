@@ -1,0 +1,212 @@
+title: 'Meer Pagina'
+tabs:
+  # Tab 1: Visie
+  visie:
+    display: Visie
+    sections:
+      -
+        display: 'Onze Visie'
+        instructions: 'De centrale visie van Thila Coloma - wat scouting voor ons betekent'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+              default: 'Meer'
+          -
+            handle: visie_intro
+            field:
+              type: textarea
+              display: 'Visie Introductie'
+              instructions: 'Korte inleiding over de visie (2-3 zinnen)'
+          -
+            handle: visie_kernwaarden
+            field:
+              type: text
+              display: 'Kernwaarden'
+              instructions: 'Kommagescheiden lijst van kernwaarden (bijv. vriendschap, respect, inclusiviteit)'
+          -
+            handle: visie_tekst
+            field:
+              type: bard
+              display: 'Visie Tekst'
+              instructions: 'De volledige visie tekst met opmaak'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - unorderedlist
+                - orderedlist
+                - quote
+
+  # Tab 2: Groepsleiding
+  groepsleiding:
+    display: Groepsleiding
+    sections:
+      -
+        display: 'Groepsleiding Info'
+        fields:
+          -
+            handle: groepsleiding_intro
+            field:
+              type: textarea
+              display: 'Groepsleiding Introductie'
+              instructions: 'Korte intro over de groepsleiding'
+          -
+            handle: groepsleiding_scoutsjaar
+            field:
+              type: text
+              display: 'Scoutsjaar'
+              default: '2025-2026'
+          -
+            handle: groepsleiding_leden
+            field:
+              type: replicator
+              display: 'Groepsleiding Leden'
+              instructions: 'Voeg hier de groepsleidingsleden toe'
+              sets:
+                lid:
+                  display: 'Groepsleiding Lid'
+                  fields:
+                    -
+                      handle: totem
+                      field:
+                        type: text
+                        display: Totem
+                        required: true
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Volledige Naam'
+                        required: true
+                    -
+                      handle: foto
+                      field:
+                        type: assets
+                        display: Foto
+                        container: assets
+                        max_files: 1
+                    -
+                      handle: hoofdtaken
+                      field:
+                        type: text
+                        display: Hoofdtaken
+                    -
+                      handle: beschrijving
+                      field:
+                        type: textarea
+                        display: Beschrijving
+                    -
+                      handle: email
+                      field:
+                        type: text
+                        display: Email
+
+  # Tab 3: Inschrijvingen
+  inschrijvingen:
+    display: Inschrijvingen
+    sections:
+      -
+        display: 'Inschrijving Info'
+        fields:
+          -
+            handle: inschrijvingsformulier_link
+            field:
+              type: link
+              display: 'Inschrijvingsformulier Link'
+          -
+            handle: stamhoofd_link
+            field:
+              type: link
+              display: 'Stamhoofd Link'
+          -
+            handle: inschrijving_scoutsjaar
+            field:
+              type: text
+              display: 'Inschrijving Scoutsjaar'
+              default: '2025-2026'
+          -
+            handle: lidgeld_standaard
+            field:
+              type: text
+              display: 'Lidgeld Standaard'
+              default: '€70'
+          -
+            handle: lidgeld_verminderd
+            field:
+              type: text
+              display: 'Lidgeld Verminderd'
+              default: '€17'
+          -
+            handle: kampgeld_standaard
+            field:
+              type: text
+              display: 'Kampgeld Standaard'
+              default: '€160'
+          -
+            handle: kampgeld_verminderd
+            field:
+              type: text
+              display: 'Kampgeld Verminderd'
+              default: '€50'
+
+  # Tab 4: Uniform
+  uniform:
+    display: Uniform
+    sections:
+      -
+        display: 'Uniform Info'
+        fields:
+          -
+            handle: uniform_waarom
+            field:
+              type: textarea
+              display: 'Waarom Uniform?'
+              instructions: 'Uitleg over het belang van het uniform'
+          -
+            handle: uniform_benodigdheden
+            field:
+              type: replicator
+              display: 'Uniform Benodigdheden'
+              sets:
+                item:
+                  display: 'Uniform Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: Naam
+                    -
+                      handle: beschrijving
+                      field:
+                        type: text
+                        display: Beschrijving
+          -
+            handle: tak_kleuren
+            field:
+              type: replicator
+              display: 'Tak Kleuren'
+              sets:
+                kleur:
+                  display: 'Tak Kleur'
+                  fields:
+                    -
+                      handle: tak
+                      field:
+                        type: text
+                        display: Tak
+                    -
+                      handle: kleur
+                      field:
+                        type: text
+                        display: Kleur
+                    -
+                      handle: css_class
+                      field:
+                        type: text
+                        display: 'CSS Class'

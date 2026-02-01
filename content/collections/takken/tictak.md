@@ -2,47 +2,17 @@
 id: 3289b32d-5c26-4681-9976-dd24078fcce5
 blueprint: tak
 layout: layouts/page
-template: tictak
+template: tak-universal
 title: TicTak
 slug: tictak
 order: 6
-age_range: 18+ jaar
-meeting_day: Verschillende dagen
-meeting_time: Variabel
-leaders:
-- type: leader
-  enabled: true
-  name: Simon Peeters
-  role: takleider
-  photo: leidingfotos/onverstoorbare_salmo.jpg
-- type: leader
-  enabled: true
-  name: Sara Vandenbussche
-  role: leiding
-  photo: leidingfotos/gevatte_pony.jpg
-- type: leader
-  enabled: true
-  name: Jarno Maes
-  role: leiding
-  photo: leidingfotos/snaakse_stekelstaarteekhoorn.jpg
-- type: leader
-  enabled: true
-  name: Wout Festraets Willemen
-  role: leiding
-  photo: leidingfotos/toegewijde_orso.jpg
-- type: leader
-  enabled: true
-  name: Janne Cassaer
-  role: leiding
-  photo: leidingfotos/gewiekste_laridae.jpg
-- type: leader
-  enabled: true
-  name: Fien Pouliart
-  role: leiding
-  photo: leidingfotos/fidele_vesikoira.jpg
-- type: leader
-  enabled: true
-  name: Malou De Clercq
-  role: leiding
-  photo: leidingfotos/betrokken_koala.jpg
+age_range: 6+ (aangepaste scouts)
+tak_groep: tictak
+subtakken:
+  -
+    type: subtak
+    enabled: true
+    naam: TicTak
+    afwezigheids_formulier: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+    rekeningnummer: 'BE12 3456 7890 1234'
 ---

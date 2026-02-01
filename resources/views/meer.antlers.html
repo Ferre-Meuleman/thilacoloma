@@ -39,20 +39,11 @@
             <div class="card-content">
                 <h3><i class="fas fa-compass"></i> Onze Visie</h3>
                 
-                {{ meer_content:visie_intro }}
+                <p>{{ visie_intro }}</p>
                 
                 <div class="visie-content">
-                    <p>Het belangrijkste doel van scouting is jongeren te begeleiden naar zelfstandigheid en hen morele waarden bij te brengen. Dit bereiken we voornamelijk door ze zelf op pad te sturen. Scouting betekent dan ook verkennen in het Nederlands: het avontuur tegemoet. Spelen, ravotten, pranken, vallen en opstaan. Want al doende leert men. Of anders gezegd: <em>Scouting? Gewoon doen!</em> Het jaarthema van een decennium geleden was zo slecht nog niet. Op deze manier leren onze leden zichzelf, de ander en de wereld beter kennen.</p>
-                    
-                    <p>Geen zorgen, bij het hele ontdek-de-wereld-op-jezelf-narratief hoort natuurlijk de nodige begeleiding. Daarbij staat gelijkheid centraal, mét aandacht voor elkaars verschillen. Bij Thila Coloma passen we onze manier van leiding geven aan de noden van het kind aan. We streven naar gelijke kansen voor iedereen, waarbij het ultieme doel is dat elke scout plezier beleeft en zich volledig comfortabel en authentiek voelt. Daarom is het belangrijk om elkaars verschillen te erkennen en daar ook naar te handelen. Indien iemand nood heeft aan meer of juist minder begeleiding, luisteren wij graag. Het belangrijkste is dat we elkaar verstaan.</p>
-                    
-                    <p>Thila Coloma is een scoutsgroep, een netwerk van uiteenlopende profielen, maar bovenal een vriendengroep. Samen realiseren we zowel eenvoudige als uitdagende dingen, zoals een zware bergtocht of een totemisatie. Belangrijk daarbij is dat grenzen worden verlegd, maar nooit overschreden. Respect vormt de basis, niet alleen voor elkaar, maar ook voor het scoutsmateriaal, de natuur en de maatschappij.</p>
-                    
-                    <p>Scouts Thila Coloma kent een heleboel tradities die ons verbinden. Zo trekken we elke zondag ons uniform aan, beginnen en eindigen we elke vergadering met een formatie, legt elk TC-lid zijn welpenbelofte af en krijgen de eerstejaars verkenners hun totem op kamp. Op tocht vertrekken we alleen met kaart en kompas. Geen gps dus, wel even deconnecteren van de digitale wereld en de natuur weer opzoeken.</p>
-                    
-                    <p>De leiding draagt de verantwoordelijkheid om het scoutsgebeuren te onderhouden en verder uit te bouwen. Dit omvat de organisatie van evenementen, komen opdagen op groepsraden en werkvergaderingen, en de creatieve invulling van een zondagnamiddag om elk kind een onvergetelijke zondag te bezorgen.</p>
-                    
-                    <p><strong>Welkom bij Thila Coloma!</strong></p>
+                    {{ visie_tekst }}
+                    {{ visie_tekst }}
                 </div>
             </div>
         </div>
@@ -87,10 +78,10 @@
                 <div class="card-content">
                     <h3><i class="fas fa-users"></i> Groepsleiding</h3>
                     
-                    <p>{{ meer_content:groepsleiding_intro }}</p>
+                    <p>{{ groepsleiding_intro }}</p>
                     
                     <div class="groepsleiding-grid">
-                        {{ meer_content:groepsleiding_leden }}
+                        {{ groepsleiding_leden }}
                         <div class="leiding-member">
                             <div class="leiding-photo">
                                 <img src="{{ foto }}" alt="{{ totem }} - {{ naam }}">
@@ -102,7 +93,7 @@
                                 <a href="mailto:{{ email }}">{{ email }}</a>
                             </div>
                         </div>
-                        {{ /meer_content:groepsleiding_leden }}
+                        {{ /groepsleiding_leden }}
                     </div>
                 </div>
             </div>

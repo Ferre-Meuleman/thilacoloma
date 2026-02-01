@@ -1,105 +1,83 @@
-title: Scouts Tak
+title: 'Scouts Tak'
 sections:
   main:
-    display: Tak Informatie
+    display: 'Tak Informatie'
     fields:
       -
         handle: title
         field:
           type: text
           required: true
-          display: Tak Naam
+          display: 'Tak Naam'
       -
         handle: slug
         field:
           type: slug
           required: true
-          display: URL Slug
+          display: 'URL Slug'
       -
-        handle: order
+        handle: tak_groep
         field:
-          type: integer
+          type: select
+          display: 'Tak Groep'
+          instructions: 'De kleur/groep waartoe deze tak behoort'
+          options:
+            kapoenen: Kapoenen
+            welpen: Welpen
+            jongverkenners: Jongverkenners
+            verkenners: Verkenners
+            voortrekkers: Voortrekkers
+            tictak: Tictak
           required: true
-          display: Volgorde
-          instructions: 'Volgorde van weergave (1 = eerste)'
       -
         handle: age_range
         field:
           type: text
-          required: true
           display: Leeftijdsgroep
           instructions: 'Bijvoorbeeld: 6-8 jaar'
       -
-        handle: meeting_day
-        field:
-          type: text
-          required: true
-          display: Vergaderdag
-          instructions: 'Bijvoorbeeld: Zaterdag'
-      -
-        handle: meeting_time
-        field:
-          type: text
-          required: true
-          display: Vergadertijd
-          instructions: 'Bijvoorbeeld: 14:00 - 17:00'
-      -
-        handle: tak_image
-        field:
-          type: assets
-          container: assets
-          max_files: 1
-          display: 'Tak Afbeelding'
-          instructions: 'Hoofdafbeelding voor deze tak'
-      -
-        handle: description
+        handle: content
         field:
           type: bard
-          display: Beschrijving
+          display: 'Pagina Inhoud'
+          instructions: 'De hoofdtekst van de pagina'
           buttons:
             - h3
             - bold
             - italic
             - unorderedlist
             - orderedlist
-            - removeformat
             - quote
-          save_html: false
-          toolbar_mode: fixed
-          reading_time: false
-          fullscreen: true
+  
+  subtakken:
+    display: Subtakken
+    fields:
       -
-        handle: activities
-        field:
-          type: textarea
-          display: Activiteiten
-          instructions: 'Lijst van typische activiteiten voor deze tak'
-      -
-        handle: leaders
+        handle: subtakken
         field:
           type: replicator
-          display: Leiding
-          collapse: false
+          display: 'Subtakken'
+          instructions: 'Voeg hier de subtakken toe (bijv. Kapoenen 1, Kapoenen 2). De naam moet exact overeenkomen met de tak_naam in de leidingsploegen global!'
           sets:
-            leader:
-              display: Leidingslid
+            subtak:
+              display: Subtak
               fields:
                 -
-                  handle: name
+                  handle: naam
                   field:
                     type: text
                     display: Naam
                     required: true
+                    instructions: 'MOET exact overeenkomen met tak_naam in leidingsploegen (bijv. "Kapoenen 1")'
                 -
-                  handle: role
+                  handle: afwezigheids_formulier
+                  field:
+                    type: link
+                    display: 'Afwezigheidsformulier'
+                    instructions: 'Link naar het afwezigheidsformulier voor deze subtak'
+                -
+                  handle: rekeningnummer
                   field:
                     type: text
-                    display: Functie
-                    placeholder: 'Hoofdleiding, Adjunct, ...'
-                -
-                  handle: photo
-                  field:
-                    type: assets
-                    container: assets
-                    max_files: 1
-                    display: Foto
+                    display: Rekeningnummer
+                    instructions: 'Bankrekening voor deze subtak (bijv. BE83 9735 0413 6215)'
