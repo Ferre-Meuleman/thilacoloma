@@ -503,27 +503,60 @@ tabs:
                         type: text
                         display: 'Aantal'
                     -
-                      handle: capaciteit
+                      handle: usage_icons
                       field:
-                        type: text
-                        display: 'Capaciteit'
+                        type: replicator
+                        display: 'Gebruik Icons'
+                        sets:
+                          icon:
+                            display: 'Icon'
+                            fields:
+                              -
+                                handle: icon
+                                field:
+                                  type: text
+                                  display: 'Icon Class'
+                                  instructions: 'Font Awesome class (bijv. fas fa-bed)'
+                              -
+                                handle: tooltip
+                                field:
+                                  type: text
+                                  display: 'Tooltip'
                     -
-                      handle: afmetingen
+                      handle: specificaties
                       field:
-                        type: text
-                        display: 'Afmetingen'
+                        type: replicator
+                        display: 'Specificaties'
+                        sets:
+                          spec:
+                            display: 'Specificatie'
+                            fields:
+                              -
+                                handle: label
+                                field:
+                                  type: text
+                                  display: 'Label'
+                              -
+                                handle: waarde
+                                field:
+                                  type: text
+                                  display: 'Waarde'
                     -
-                      handle: prijs_weekend
+                      handle: prijzen
                       field:
-                        type: text
-                        display: 'Prijs Weekend'
-                    -
-                      handle: prijs_week
-                      field:
-                        type: text
-                        display: 'Prijs Week'
-                    -
-                      handle: waarborg
-                      field:
-                        type: text
-                        display: 'Waarborg'
+                        type: replicator
+                        display: 'Prijzen'
+                        sets:
+                          prijs:
+                            display: 'Prijs'
+                            fields:
+                              -
+                                handle: label
+                                field:
+                                  type: text
+                                  display: 'Label'
+                              -
+                                handle: prijs
+                                field:
+                                  type: text
+                                  display: 'Prijs'

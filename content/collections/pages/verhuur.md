@@ -235,174 +235,213 @@ tenten_sectie_titel: Tenten
 tenten_lijst:
   -
     id: tent_1
+    type: tent
     naam: Refter
     afbeelding: 27D97C43-C040-423A-929B-E72D55356A3B.png
     aantal: 1x
     usage_icons:
       -
         id: refter_icon_1
+        type: icon
         icon: 'fas fa-bed'
         tooltip: Slapen
       -
         id: refter_icon_2
+        type: icon
         icon: 'fas fa-boxes'
         tooltip: Opslag
       -
         id: refter_icon_3
+        type: icon
         icon: 'fas fa-utensils'
         tooltip: Eten
       -
         id: refter_icon_4
+        type: icon
         icon: 'fas fa-calendar-alt'
         tooltip: Evenementen
     specificaties:
       -
         id: refter_spec_1
+        type: spec
         label: Type
         waarde: 'Muurtent van 6 x 16m'
       -
         id: refter_spec_2
+        type: spec
         label: Opbouw
         waarde: 'Opzetbaar zonder muren'
       -
         id: refter_spec_3
+        type: spec
         label: Ondergrond
         waarde: 'Minimaal 10 x 20m zachte ondergrond nodig'
     prijzen:
       -
         id: refter_prijs_1
+        type: prijs
         label: 'Eerste dag'
         prijs: €200
       -
         id: refter_prijs_2
+        type: prijs
         label: 'Per extra dag'
         prijs: €20
       -
         id: refter_prijs_3
+        type: prijs
         label: Opzetten
         prijs: €300
       -
         id: refter_prijs_4
+        type: prijs
         label: Waarborg
         prijs: €250
   -
     id: tent_2
+    type: tent
     naam: Patrouille
     afbeelding: 27D97C43-C040-423A-929B-E72D55356A3B.png
     aantal: 4x
     usage_icons:
       -
         id: patrouille_icon_1
+        type: icon
         icon: 'fas fa-bed'
         tooltip: Slapen
     specificaties:
       -
         id: patrouille_spec_1
+        type: spec
         label: Type
         waarde: 'Patrouilletent met luifel'
       -
         id: patrouille_spec_2
+        type: spec
         label: Extra
         waarde: 'Grondzeil inbegrepen'
       -
         id: patrouille_spec_3
+        type: spec
         label: Ondergrond
         waarde: 'Enkel op zachte ondergrond'
     prijzen:
       -
         id: patrouille_prijs_1
+        type: prijs
         label: 'Eerste dag'
         prijs: €15
       -
         id: patrouille_prijs_2
+        type: prijs
         label: 'Per extra dag'
         prijs: €5
       -
         id: patrouille_prijs_3
+        type: prijs
         label: Opzetten
         prijs: 'Zelf op te zetten'
       -
         id: patrouille_prijs_4
+        type: prijs
         label: Waarborg
         prijs: €150
   -
     id: tent_3
+    type: tent
     naam: 'Amerikaanse leger tent'
     afbeelding: 27D97C43-C040-423A-929B-E72D55356A3B.png
     aantal: '?x'
     usage_icons:
       -
         id: amerikaans_icon_1
+        type: icon
         icon: 'fas fa-bed'
         tooltip: Slapen
       -
         id: amerikaans_icon_2
+        type: icon
         icon: 'fas fa-boxes'
         tooltip: Opslag
       -
         id: amerikaans_icon_3
+        type: icon
         icon: 'fas fa-utensils'
         tooltip: Eten
     specificaties:
       -
         id: amerikaans_spec_1
+        type: spec
         label: Type
         waarde: 'Amerikaanse leger tent'
       -
         id: amerikaans_spec_2
+        type: spec
         label: Info
         waarde: 'Details volgen nog'
     prijzen:
       -
         id: amerikaans_prijs_1
+        type: prijs
         label: Prijzen
         prijs: 'Volgen nog'
       -
         id: mel780yo
+        type: prijs
         label: test
         prijs: '5000000'
   -
     id: tent_4
+    type: tent
     naam: 'Party tent'
     afbeelding: 27D97C43-C040-423A-929B-E72D55356A3B.png
     aantal: 1x
     usage_icons:
       -
         id: party_icon_1
+        type: icon
         icon: 'fas fa-boxes'
         tooltip: Opslag
       -
         id: party_icon_2
+        type: icon
         icon: 'fas fa-utensils'
         tooltip: Eten
       -
         id: party_icon_3
+        type: icon
         icon: 'fas fa-calendar-alt'
         tooltip: Evenementen
     specificaties:
       -
         id: party_spec_1
+        type: spec
         label: Type
         waarde: 'Party tent van 3 x 6m'
       -
         id: party_spec_2
+        type: spec
         label: Ondergrond
         waarde: 'Opzetbaar op verharde ondergrond'
     prijzen:
       -
         id: party_prijs_1
+        type: prijs
         label: 'Eerste dag'
         prijs: €20
       -
         id: party_prijs_2
+        type: prijs
         label: 'Per extra dag'
         prijs: €5
       -
         id: party_prijs_3
+        type: prijs
         label: Opzetten
         prijs: 'Zelf op te zetten'
       -
         id: party_prijs_4
+        type: prijs
         label: Waarborg
         prijs: €50
 meta_description: 'Verhuur lokalen, materiaal en tenten bij Scouts Thila Coloma Mechelen. Ideaal voor groepen, kampen en evenementen.'
