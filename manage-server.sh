@@ -3,30 +3,33 @@
 # Quick server management script using SSH keys
 # Usage: ./manage-server.sh [command]
 
+SERVER="root@84.252.101.243"
+PROJECT_PATH="/var/www/thilacoloma"
+
 case $1 in
     "logs")
         echo "📋 Showing recent logs..."
-        ssh thilacoloma 'cd /var/www/thilacoloma && tail -50 storage/logs/laravel.log'
+        ssh $SERVER "cd $PROJECT_PATH && tail -50 storage/logs/laravel.log"
         ;;
     "status")
         echo "📊 Server status..."
-        ssh thilacoloma 'cd /var/www/thilacoloma && php please about && echo "✅ Statamic is running"'
+        ssh $SERVER "cd $PROJECT_PATH && php please about && echo '✅ Statamic is running'"
         ;;
     "fix")
         echo "🔧 Running permissions fix..."
-        ssh thilacoloma 'cd /var/www/thilacoloma && ./fix-permissions.sh'
+        ssh $SERVER "cd $PROJECT_PATH && chown -R www-data:www-data storage bootstrap/cache content resources && chmod -R 775 storage bootstrap/cache content resources"
         ;;
     "cache")
         echo "🧹 Clearing caches..."
-        ssh thilacoloma 'cd /var/www/thilacoloma && php please cache:clear && php please stache:clear'
+        ssh $SERVER "cd $PROJECT_PATH && php please cache:clear && php please stache:clear"
         ;;
     "connect")
         echo "🔗 Connecting to server..."
-        ssh thilacoloma
+        ssh $SERVER
         ;;
     "deploy")
-        echo "🚀 Running secure deployment..."
-        ./deploy-secure.sh
+        echo "🚀 Running deployment..."
+        ssh $SERVER "cd $PROJECT_PATH && git pull && composer install --no-dev && php please cache:clear"
         ;;
     *)
         echo "🛠️  Thilacoloma Server Management"

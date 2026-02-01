@@ -184,6 +184,19 @@ function performGitSync($trigger = 'manual', $user = 'system') {
     
     logMessage("Committed changes: $changeSummary", "INFO");
     
+    // Pull first to avoid conflicts (rebase strategy)
+    logMessage("Pulling latest changes from remote...", "INFO");
+    $pullResult = executeGitCommand("git pull --rebase origin HEAD", __DIR__);
+    if (!$pullResult['success']) {
+        logMessage("Pull failed, trying standard merge...", "WARNING");
+        // Fallback to merge if rebase fails
+        $pullResult = executeGitCommand("git pull origin HEAD --no-edit", __DIR__);
+        if (!$pullResult['success']) {
+             logMessage("Failed to pull remote changes: " . $pullResult['output'], "ERROR");
+             return ['success' => false, 'message' => 'Failed to pull remote changes (Conflict suspected)'];
+        }
+    }
+
     // Push to remote
     $result = executeGitCommand("git push origin HEAD", __DIR__);
     if (!$result['success']) {
