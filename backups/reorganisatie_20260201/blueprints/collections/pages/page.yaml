@@ -1,0 +1,101 @@
+title: Pagina
+sections:
+  main:
+    display: Hoofd
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          display: Titel
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          display: URL Slug
+      -
+        handle: hero_image
+        field:
+          type: assets
+          container: assets
+          max_files: 1
+          display: 'Hero Afbeelding'
+          instructions: 'Hoofdafbeelding voor de pagina'
+      -
+        handle: content
+        field:
+          type: markdown
+          display: Inhoud
+          instructions: 'Hoofdinhoud van de pagina'
+      -
+        handle: is_tak_page
+        field:
+          type: toggle
+          display: 'Is Tak Pagina'
+          instructions: 'Schakel in voor tak-specifieke velden'
+          default: false
+  tak_info:
+    display: 'Tak Informatie'
+    fields:
+      -
+        handle: tak_type
+        field:
+          type: select
+          display: 'Tak Type'
+          instructions: 'Selecteer het type tak'
+          options:
+            regulier: 'Reguliere Tak'
+            subtakken: 'Tak met Subtakken'
+            akabe: 'AKABE Tak'
+          if:
+            is_tak_page: 'equals true'
+      -
+        handle: formulier_link
+        field:
+          type: text
+          display: 'Afwezigheids Formulier'
+          instructions: 'Link naar het afwezigheidsformulier'
+          if:
+            tak_type: 'in regulier,akabe'
+      -
+        handle: rekeningnummer
+        field:
+          type: text
+          display: 'Rekeningnummer'
+          instructions: 'Rekeningnummer voor betalingen'
+          if:
+            tak_type: 'in regulier,akabe'
+      -
+        handle: subtakken_data
+        field:
+          type: textarea
+          display: 'Subtakken Data'
+          instructions: 'YAML data voor subtakken (alleen voor ontwikkelaars)'
+          if:
+            tak_type: 'equals subtakken'
+      -
+        handle: akabe_info
+        field:
+          type: markdown
+          display: 'AKABE Informatie'
+          instructions: 'Extra informatie specifiek voor AKABE tak'
+          if:
+            tak_type: 'equals akabe'
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: meta_description
+        field:
+          type: textarea
+          display: 'Meta Beschrijving'
+          instructions: 'Beschrijving voor zoekmachines (max 160 karakters)'
+          character_limit: 160
+      -
+        handle: meta_keywords
+        field:
+          type: text
+          display: 'Meta Keywords'
+          instructions: 'Keywords gescheiden door komma''s'

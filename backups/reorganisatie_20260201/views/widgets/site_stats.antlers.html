@@ -1,0 +1,51 @@
+{{-- Custom Site Statistics Widget for Thila Coloma Dashboard --}}
+
+<div class="card p-4 content">
+    <div class="space-y-4">
+        {{-- Quick Stats --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-blue-50 p-3 rounded">
+                <div class="text-sm font-medium text-blue-900">Pagina's</div>
+                <div class="text-xl font-bold text-blue-600">
+                    8
+                </div>
+                <div class="text-xs text-blue-700">Actieve pagina's</div>
+            </div>
+            
+            <div class="bg-green-50 p-3 rounded">
+                <div class="text-sm font-medium text-green-900">Nieuws Items</div>
+                <div class="text-xl font-bold text-green-600">
+                    3
+                </div>
+                <div class="text-xs text-green-700">Gepubliceerde artikelen</div>
+            </div>
+            
+            <div class="bg-orange-50 p-3 rounded">
+                <div class="text-sm font-medium text-orange-900">Takken</div>
+                <div class="text-xl font-bold text-orange-600">
+                    6
+                </div>
+                <div class="text-xs text-orange-700">Actieve takken</div>
+            </div>
+        </div>
+
+        {{-- Quick Actions --}}
+        <div class="border-t pt-3">
+            <h4 class="text-sm font-medium text-gray-900 mb-2">📋 Snelle Acties</h4>
+            <div class="grid grid-cols-2 gap-2">
+                <a href="/cp/collections/pages" class="p-2 bg-gray-100 rounded text-sm hover:bg-gray-200">
+                    📄 Beheer Pagina's
+                </a>
+                <a href="/cp/collections/news" class="p-2 bg-gray-100 rounded text-sm hover:bg-gray-200">
+                    📰 Nieuws Toevoegen
+                </a>
+                <a href="/cp/collections/takken" class="p-2 bg-gray-100 rounded text-sm hover:bg-gray-200">
+                    🏕️ Takken Bewerken
+                </a>
+                <a href="/cp/globals" class="p-2 bg-gray-100 rounded text-sm hover:bg-gray-200">
+                    ⚙️ Site Instellingen
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

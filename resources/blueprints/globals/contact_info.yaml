@@ -1,0 +1,65 @@
+title: 'Contact Informatie'
+sections:
+  main:
+    display: 'Algemene Info'
+    fields:
+      -
+        handle: organisatie_naam
+        field:
+          type: text
+          display: 'Organisatie Naam'
+          default: 'Thila Coloma Mechelen'
+          required: true
+      -
+        handle: adres_lijn_1
+        field:
+          type: text
+          display: 'Adres Lijn 1'
+          default: 'Jubellaan / Geerdegemstraat'
+      -
+        handle: adres_lijn_2
+        field:
+          type: text
+          display: 'Adres Lijn 2'
+          default: '2800 Mechelen'
+      -
+        handle: algemeen_email
+        field:
+          type: text
+          display: 'Algemeen Email'
+          validate: email
+          default: 'info@thilacoloma.be'
+  contact_emails:
+    display: 'Contact Emails'
+    fields:
+      -
+        handle: contact_adressen
+        field:
+          type: replicator
+          display: 'Email Adressen'
+          instructions: 'Lijst van contact email adressen die getoond worden op de website'
+          sets:
+            email_item:
+              display: 'Email'
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: 'Label'
+                    instructions: 'Beschrijving van dit email adres (bijv. "Algemene vragen")'
+                    required: true
+                -
+                  handle: email
+                  field:
+                    type: text
+                    display: 'Email Adres'
+                    validate: email
+                    required: true
+                -
+                  handle: icon
+                  field:
+                    type: text
+                    display: 'Icon Class'
+                    instructions: 'Font Awesome icon class (bijv. "fas fa-envelope")'
+                    default: 'fas fa-envelope'

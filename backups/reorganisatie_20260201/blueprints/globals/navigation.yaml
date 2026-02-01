@@ -1,0 +1,41 @@
+title: Navigatie
+sections:
+  main:
+    display: 'Hoofdnavigatie'
+    fields:
+      -
+        handle: nav_items
+        field:
+          type: replicator
+          display: 'Navigatie Items'
+          instructions: 'De menu items in de header navigatie'
+          sets:
+            nav_item:
+              display: 'Menu Item'
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: 'Label'
+                    instructions: 'Tekst die getoond wordt (bijv. "Thilala")'
+                    required: true
+                -
+                  handle: url
+                  field:
+                    type: text
+                    display: 'URL'
+                    instructions: 'Link naar de pagina (bijv. "/thilala")'
+                    required: true
+                -
+                  handle: icon
+                  field:
+                    type: text
+                    display: 'Icon bestand'
+                    instructions: 'Pad naar icon SVG (bijv. "/assets/images/icons/Asset 11thilala.svg")'
+                -
+                  handle: visible
+                  field:
+                    type: toggle
+                    display: 'Zichtbaar'
+                    default: true

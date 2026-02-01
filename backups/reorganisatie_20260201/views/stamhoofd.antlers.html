@@ -1,0 +1,305 @@
+<div class="page-section">
+    <h2>{{ title }}</h2>
+    
+    <!-- Stamhoofd Iframe Kaart -->
+    <div class="iframe-card">
+        <div class="iframe-card-header">
+            <div class="iframe-card-info">
+                <h2><i class="fas fa-users"></i> Stamhoofd Platform</h2>
+                <p>{{ intro_text ?? 'Hier kun je inschrijven, afwezigheden melden, medische fiches uploaden en betalingen bekijken voor onze scoutsgroep.' }}</p>
+            </div>
+            <a href="{{ stamhoofd_url ?? 'https://inschrijven.thilacoloma.be/' }}" class="iframe-fallback-toggle" target="_blank" style="text-decoration: none;">
+                <i class="fas fa-external-link-alt"></i>
+                <span>{{ button_text ?? 'Ga naar Stamhoofd' }}</span>
+            </a>
+        </div>
+        
+        <!-- Iframe container -->
+        <div class="iframe-container" id="stamhoofd-iframe-container">
+            <iframe 
+                id="stamhoofd-iframe" 
+                src="{{ stamhoofd_url ?? 'https://inschrijven.thilacoloma.be/' }}" 
+                title="Stamhoofd Platform">
+            </iframe>
+        </div>
+    </div>
+    
+    {{ if content }}
+    <!-- Extra content vanuit Statamic -->
+    <div class="page-content">
+        {{ content | markdown }}
+    </div>
+    {{ /if }}
+</div>
+
+<style>
+        /* Stamhoofd CSS - v20250912-2 */
+        /* Iframe Kaart Styling */
+        .iframe-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+            transition: box-shadow var(--transition-normal);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .iframe-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .iframe-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        .iframe-card-info {
+            flex: 1;
+            padding-right: var(--spacing-lg);
+        }
+        
+        .iframe-card-info h2 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            margin: 0 0 var(--spacing-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .iframe-card-info p {
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Fallback toggle button styling */
+        .iframe-fallback-toggle {
+            background: var(--primary-color);
+            color: white !important;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-medium);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            box-shadow: 0 2px 8px rgba(55, 71, 148, 0.2);
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:hover {
+            background: var(--dark-color) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:visited {
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:focus {
+            color: white !important;
+            text-decoration: none !important;
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+        
+        .iframe-fallback-toggle span {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            background: white;
+        }
+        
+        .iframe-container iframe {
+            width: 80vw;
+            height: 90vh;
+            border: none;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+        
+        /* Compacte fallback styling */
+        .stamhoofd-fallback-compact {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .fallback-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .fallback-header h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .fallback-header p {
+            color: var(--text-color);
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .fallback-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fallback-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-decoration: none !important;
+            font-family: var(--font-medium);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fallback-action i {
+            font-size: 1.5rem;
+        }
+        
+        .fallback-action span {
+            font-size: 0.9em;
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+        
+        .fallback-action.primary {
+            background: var(--primary-color);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .fallback-action.primary:hover {
+            background: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(55, 71, 148, 0.4);
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.primary:visited {
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.secondary {
+            background: white;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .fallback-action.secondary:hover {
+            background: var(--primary-color);
+            color: white !important;
+            transform: translateY(-3px);
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.secondary:visited {
+            color: var(--primary-color) !important;
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.tertiary {
+            background: var(--light-bg);
+            color: var(--dark-color) !important;
+            border: 2px solid var(--light-bg);
+        }
+        
+        .fallback-action.tertiary:hover {
+            background: var(--primary-color);
+            color: white !important;
+            transform: translateY(-3px);
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.tertiary:visited {
+            color: var(--dark-color) !important;
+            text-decoration: none !important;
+        }
+        
+        .fallback-action.tertiary:hover {
+            background: var(--dark-color);
+            color: white;
+            border-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Search highlight styling */
+        .search-highlight {
+            background-color: rgba(230, 166, 48, 0.3) !important;
+            border-radius: 3px;
+            padding: 1px 2px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Responsive voor stamhoofd */
+        @media (max-width: 768px) {
+            .stamhoofd-fallback-compact .fallback-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .stamhoofd-fallback-compact .fallback-action {
+                min-width: 140px;
+                flex-direction: row;
+                gap: var(--spacing-md);
+            }
+            
+            .iframe-card-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: stretch;
+            }
+            
+            .iframe-card-info {
+                padding-right: 0;
+            }
+            
+            .iframe-container iframe {
+                width: 95vw;
+                height: 70vh;
+            }
+        }
+    </style>

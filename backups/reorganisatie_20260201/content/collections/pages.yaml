@@ -1,0 +1,14 @@
+title: Pages
+route: '/{slug}'
+template: default
+sort_direction: asc
+blueprints:
+  - page
+  - stamhoofd
+  - takken_overzicht
+  - kalender
+revisions: true
+search_index: default
+date_behavior:
+  past: public
+  future: hidden

@@ -1,0 +1,48 @@
+---
+title: Navigatie
+id: navigation
+data:
+  nav_items:
+    -
+      id: nav-thilala
+      type: nav_item
+      label: Thilala
+      url: /thilala
+      icon: /assets/images/icons/Asset 11thilala.svg
+      visible: true
+    -
+      id: nav-stamhoofd
+      type: nav_item
+      label: Stamhoofd
+      url: /stamhoofd
+      icon: /assets/images/icons/Asset 1stamhoofd.svg
+      visible: true
+    -
+      id: nav-kalender
+      type: nav_item
+      label: Kalender
+      url: /kalender
+      icon: /assets/images/icons/Asset 12agenda.svg
+      visible: true
+    -
+      id: nav-takken
+      type: nav_item
+      label: Takken
+      url: /takken
+      icon: /assets/images/icons/Asset 7takken.svg
+      visible: true
+    -
+      id: nav-verhuur
+      type: nav_item
+      label: Verhuur
+      url: /verhuur
+      icon: /assets/images/icons/Asset 13verhuur.svg
+      visible: true
+    -
+      id: nav-meer
+      type: nav_item
+      label: Meer
+      url: /meer
+      icon: /assets/images/icons/Asset 19meer.svg
+      visible: true
+---
