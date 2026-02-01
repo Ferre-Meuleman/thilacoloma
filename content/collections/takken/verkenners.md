@@ -9,30 +9,24 @@ order: 4
 age_range: 14-17 jaar
 meeting_day: Zaterdag
 meeting_time: 14:00 - 17:00
-leaders:
-- type: leader
-  enabled: true
-  name: Nel De Landtsheer
-  role: takleider
-  photo: leidingfotos/toegewijde_beerkat.jpg
-- type: leader
-  enabled: true
-  name: Stijn Debelie
-  role: leiding
-  photo: leidingfotos/goedaardige_markoeb.jpg
-- type: leader
-  enabled: true
-  name: Hymne Van Impe
-  role: leiding
-  photo: leidingfotos/olijke_chimango.jpg
-- type: leader
-  enabled: true
-  name: Thomas Van De Sompel
-  role: leiding
-  photo: leidingfotos/gezellige_mpango.jpg
-- type: leader
-  enabled: true
-  name: Simon Beel
-  role: leiding
-  photo: leidingfotos/ongedwongen_coelho.jpg
+subtakken:
+  -
+    type: subtak
+    enabled: true
+    naam: 'Verkenners 1'
+    formulier_link: 'https://forms.gle/v1'
+    rekening_nummer: 'BE12 3456 7890 1234'
+  -
+    type: subtak
+    enabled: true
+    naam: 'Verkenners 2'
+    formulier_link: 'https://forms.gle/v2'
+    rekening_nummer: 'BE12 3456 7890 1234'
+  -
+    type: subtak
+    enabled: true
+    naam: 'Verkenners 3'
+    formulier_link: 'https://forms.gle/v3'
+    rekening_nummer: 'BE12 3456 7890 1234'
 ---
+De **Verkenners** zijn jongeren tussen 14 en 17 jaar die zelfstandig hun weg zoeken en bijzondere ervaringen beleven.

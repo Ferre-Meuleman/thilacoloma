@@ -8,31 +8,13 @@ slug: voortrekkers
 order: 5
 age_range: 17-21 jaar
 meeting_day: Zaterdag
-meeting_time: 19:00 - 22:00
-leaders:
-- type: leader
-  enabled: true
-  name: Yu-lan Elshout
-  role: takleider
-  photo: leidingfotos/volhardende_sambar.jpg
-- type: leader
-  enabled: true
-  name: Seppe Laurent
-  role: leiding
-  photo: leidingfotos/ondernemende_baya.jpg
-- type: leader
-  enabled: true
-  name: Bert De Landtsheer
-  role: leiding
-  photo: leidingfotos/opmerkzame_taipan.jpg
-- type: leader
-  enabled: true
-  name: Shayan Ghadiri
-  role: leiding
-  photo: leidingfotos/joviale_pumba.jpg
-- type: leader
-  enabled: true
-  name: Sofie Denoulet
-  role: leiding
-  photo: leidingfotos/hartelijke_albatros.jpg
+meeting_time: 14:00 - 17:00
+subtakken:
+  -
+    type: subtak
+    enabled: true
+    naam: Voortrekkers
+    formulier_link: 'https://forms.gle/vt'
+    rekening_nummer: 'BE12 3456 7890 1234'
 ---
+De **Voortrekkers** zijn de oudste scouts tussen 17 en 21 jaar die hun eigen projecten opzetten en de groep ondersteunen.
