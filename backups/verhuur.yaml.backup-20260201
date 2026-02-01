@@ -1,0 +1,197 @@
+title: 'Verhuur Pagina'
+tabs:
+  main:
+    display: Hoofdinhoud
+    sections:
+      -
+        display: 'Pagina Info'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+              default: 'Verhuur'
+          -
+            handle: intro_tekst
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              instructions: 'Korte intro voor de verhuur pagina'
+
+  lokalen:
+    display: 'Lokalen'
+    sections:
+      -
+        display: 'Kampas Reservatie'
+        fields:
+          -
+            handle: kampas_url
+            field:
+              type: link
+              display: 'Kampas URL'
+              instructions: 'Link naar Kampas reservatiesysteem'
+              default: 'https://www.kampas.be/nl/domein/scouts-thila-coloma'
+          -
+            handle: lokalen_contact_email
+            field:
+              type: text
+              display: 'Contact Email'
+              default: 'verhuur@thilacoloma.be'
+          -
+            handle: lokalen_waarschuwing
+            field:
+              type: textarea
+              display: 'Waarschuwing'
+              default: 'Let op: Wij verhuren niet voor fuiven of andere avondactiviteiten met luide muziek. GEEN LEIDINGSWEEKENDS'
+          -
+            handle: lokalen_beschrijving
+            field:
+              type: bard
+              display: 'Lokalen Beschrijving'
+              instructions: 'Beschrijving van de beschikbare lokalen en faciliteiten'
+              buttons:
+                - bold
+                - italic
+                - h3
+                - unorderedlist
+          -
+            handle: maps_embed_url
+            field:
+              type: textarea
+              display: 'Google Maps Embed URL'
+              instructions: 'De volledige embed URL voor Google Maps'
+
+  materiaal:
+    display: 'Materiaal'
+    sections:
+      -
+        display: 'Materiaal Verhuur'
+        fields:
+          -
+            handle: materiaal_contact_email
+            field:
+              type: text
+              display: 'Contact Email'
+              default: 'kantjil@thilacoloma.be'
+          -
+            handle: materiaal_waarschuwing
+            field:
+              type: textarea
+              display: 'Waarschuwing'
+              default: 'Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik.'
+          -
+            handle: materiaal_items
+            field:
+              type: replicator
+              display: 'Materiaal Items'
+              instructions: 'Voeg hier verhuurbaar materiaal toe'
+              sets:
+                item:
+                  display: 'Materiaal Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: Naam
+                        required: true
+                    -
+                      handle: categorie
+                      field:
+                        type: select
+                        display: Categorie
+                        options:
+                          transport: 'Transport'
+                          meubilair: 'Meubilair'
+                          koken: 'Kookbenodigdheden'
+                          koeling: 'Koeling'
+                          gereedschap: 'Gereedschap'
+                    -
+                      handle: afbeelding
+                      field:
+                        type: assets
+                        display: Afbeelding
+                        container: assets
+                        max_files: 1
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: Aantal
+                    -
+                      handle: prijs_per_dag
+                      field:
+                        type: text
+                        display: 'Prijs per dag'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: Waarborg
+
+  tenten:
+    display: 'Tenten'
+    sections:
+      -
+        display: 'Tenten Verhuur'
+        fields:
+          -
+            handle: tenten_info
+            field:
+              type: textarea
+              display: 'Tenten Info'
+              instructions: 'Algemene info over tentenverhuur'
+          -
+            handle: tenten_lijst
+            field:
+              type: replicator
+              display: 'Beschikbare Tenten'
+              sets:
+                tent:
+                  display: 'Tent'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Tent Naam'
+                        required: true
+                    -
+                      handle: afbeelding
+                      field:
+                        type: assets
+                        display: Afbeelding
+                        container: assets
+                        max_files: 1
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: 'Aantal'
+                    -
+                      handle: capaciteit
+                      field:
+                        type: text
+                        display: 'Capaciteit'
+                    -
+                      handle: afmetingen
+                      field:
+                        type: text
+                        display: 'Afmetingen'
+                    -
+                      handle: prijs_weekend
+                      field:
+                        type: text
+                        display: 'Prijs Weekend'
+                    -
+                      handle: prijs_week
+                      field:
+                        type: text
+                        display: 'Prijs Week'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: 'Waarborg'

@@ -162,51 +162,255 @@ tabs:
         display: 'Uniform Info'
         fields:
           -
-            handle: uniform_waarom
+            handle: uniform_content
+            field:
+              type: bard
+              display: 'Uniform Content'
+              instructions: 'Volledige uniform info: waarom, benodigdheden, waar te koop, kleuren per tak, badges, onderhoud'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - quote
+                - anchor
+                - image
+
+  # Tab 5: Praktisch
+  praktisch:
+    display: Praktisch
+    sections:
+      -
+        display: 'Praktische Info'
+        fields:
+          -
+            handle: praktisch_inschrijven
+            field:
+              type: bard
+              display: 'Inschrijven'
+              instructions: 'Info over inschrijvingen, wachtlijsten, procedure, AKABE, etc.'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: praktisch_betalingen
+            field:
+              type: bard
+              display: 'Betalingen & Lidgeld'
+              instructions: 'Info over lidgeld, samenstelling, verminderd tarief, mutualiteit'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: praktisch_kosten_overzicht
+            field:
+              type: bard
+              display: 'Financieel Overzicht'
+              instructions: 'Kostentabellen voor normale en extra kosten'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+
+  # Tab 6: Beleid
+  beleid:
+    display: Beleid
+    sections:
+      -
+        display: 'Beleidsdocumenten'
+        fields:
+          -
+            handle: beleid_veiligheid
+            field:
+              type: bard
+              display: 'Veiligheidsbeleid'
+              instructions: 'Volledige tekst veiligheidsbeleid met procedures en contactpersonen'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: beleid_pest_inclusie
+            field:
+              type: bard
+              display: 'Pest & Inclusie Beleid'
+              instructions: 'Pestbeleid en inclusiebeleid met procedures'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: beleid_integriteit
+            field:
+              type: bard
+              display: 'Integriteitsbeleid'
+              instructions: 'Integriteitsbeleid met waarden en meldingsmogelijkheden'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: beleid_privacy
+            field:
+              type: bard
+              display: 'Privacybeleid'
+              instructions: 'Privacybeleid en GDPR informatie'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
+          -
+            handle: beleid_gedragsregels
+            field:
+              type: bard
+              display: 'Gedragsregels'
+              instructions: 'Gedragsregels voor leden, ouders en leiding'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+
+  # Tab 7: FAQ
+  faq:
+    display: FAQ
+    sections:
+      -
+        display: 'Veelgestelde Vragen'
+        fields:
+          -
+            handle: faq_intro
             field:
               type: textarea
-              display: 'Waarom Uniform?'
-              instructions: 'Uitleg over het belang van het uniform'
+              display: 'FAQ Intro'
+              instructions: 'Korte introductie bovenaan de FAQ sectie'
           -
-            handle: uniform_benodigdheden
+            handle: faq_items
             field:
               type: replicator
-              display: 'Uniform Benodigdheden'
+              display: 'FAQ Items'
+              instructions: 'Voeg veelgestelde vragen en antwoorden toe'
               sets:
-                item:
-                  display: 'Uniform Item'
+                vraag:
+                  display: 'Vraag & Antwoord'
                   fields:
                     -
-                      handle: naam
+                      handle: vraag
                       field:
                         type: text
-                        display: Naam
+                        display: Vraag
+                        required: true
                     -
-                      handle: beschrijving
+                      handle: antwoord
                       field:
-                        type: text
-                        display: Beschrijving
+                        type: bard
+                        display: Antwoord
+                        buttons:
+                          - bold
+                          - italic
+                          - anchor
           -
-            handle: tak_kleuren
+            handle: faq_contact_tekst
             field:
-              type: replicator
-              display: 'Tak Kleuren'
-              sets:
-                kleur:
-                  display: 'Tak Kleur'
-                  fields:
-                    -
-                      handle: tak
-                      field:
-                        type: text
-                        display: Tak
-                    -
-                      handle: kleur
-                      field:
-                        type: text
-                        display: Kleur
-                    -
-                      handle: css_class
-                      field:
-                        type: text
-                        display: 'CSS Class'
+              type: textarea
+              display: 'FAQ Contact Tekst'
+              instructions: 'Tekst onder de FAQ voor extra vragen'
+          -
+            handle: faq_contact_email
+            field:
+              type: text
+              display: 'FAQ Contact Email'
+              default: 'groepsleiding@thilacoloma.be'
+
+  # Tab 8: Extra
+  extra:
+    display: Extra
+    sections:
+      -
+        display: 'Extra Info'
+        fields:
+          -
+            handle: extra_jaarthemas
+            field:
+              type: bard
+              display: 'Jaarthemas'
+              instructions: 'Info over jaarthemas en huidige thema'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+          -
+            handle: extra_liederen
+            field:
+              type: bard
+              display: 'Onze Liederen'
+              instructions: 'Groepsliederen en tak-specifieke liedjes'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+          -
+            handle: extra_geschiedenis
+            field:
+              type: bard
+              display: 'Onze Geschiedenis'
+              instructions: 'Geschiedenis en tijdlijn van Thila Coloma'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - image

@@ -4,7 +4,7 @@ tabs:
     display: Hoofdinhoud
     sections:
       -
-        display: 'Pagina Info'
+        display: 'Pagina Basis'
         fields:
           -
             handle: title
@@ -12,18 +12,73 @@ tabs:
               type: text
               required: true
               display: 'Pagina Titel'
+              width: 50
           -
             handle: intro_title
             field:
               type: text
               display: 'Intro Titel'
               default: 'Komende Evenementen'
+              width: 50
           -
             handle: intro_text
             field:
               type: textarea
               display: 'Intro Tekst'
-              instructions: 'Beschrijvende tekst voor de kalender pagina'
+              instructions: 'Korte introductie bovenaan de pagina. HTML toegestaan voor spans.'
+
+  slideshow:
+    display: Slideshow
+    sections:
+      -
+        display: 'Nieuws Slides'
+        instructions: 'Slides die bovenaan de kalender pagina worden getoond'
+        fields:
+          -
+            handle: news_slides
+            field:
+              type: replicator
+              display: 'Nieuws Items'
+              instructions: 'Voeg nieuws/evenement slides toe'
+              collapse: accordion
+              sets:
+                slide:
+                  display: 'Slide'
+                  icon: media-image-picture
+                  fields:
+                    -
+                      handle: title
+                      field:
+                        type: text
+                        display: 'Titel'
+                        required: true
+                        width: 50
+                    -
+                      handle: button_text
+                      field:
+                        type: text
+                        display: 'Knop Tekst'
+                        default: 'Meer info'
+                        width: 50
+                    -
+                      handle: content
+                      field:
+                        type: textarea
+                        display: 'Beschrijving'
+                    -
+                      handle: image
+                      field:
+                        type: assets
+                        display: 'Afbeelding'
+                        container: assets
+                        max_files: 1
+                        width: 50
+                    -
+                      handle: button_link
+                      field:
+                        type: link
+                        display: 'Knop Link'
+                        width: 50
 
   vergaderingen:
     display: Vergaderingen
@@ -32,58 +87,112 @@ tabs:
         display: 'Wekelijkse Vergaderingen'
         fields:
           -
-            handle: meetings_title
+            handle: vergaderingen_content
             field:
-              type: text
-              display: 'Vergaderingen Titel'
-              default: 'Wekelijkse Vergaderingen'
-          -
-            handle: meetings_description
-            field:
-              type: textarea
-              display: 'Vergaderingen Beschrijving'
-          -
-            handle: vergaderingen_jongsten_tijd
-            field:
-              type: text
-              display: 'Jongsten Tijdstip'
-              default: '14:00 tot 17:00'
-          -
-            handle: vergaderingen_jongsten_beschrijving
-            field:
-              type: text
-              display: 'Jongsten Beschrijving'
-              default: 'Kapoenen t/m seniorwelpen & tictak'
-          -
-            handle: vergaderingen_ouderen_tijd
-            field:
-              type: text
-              display: 'Ouderen Tijdstip'
-              default: '14:00 tot 18:00'
-          -
-            handle: vergaderingen_ouderen_beschrijving
-            field:
-              type: text
-              display: 'Ouderen Beschrijving'
-              default: "Jongverkenners t/m VT's"
-          -
-            handle: vergaderingen_locatie
-            field:
-              type: textarea
-              display: 'Locatie'
-              default: 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen'
-          -
-            handle: vergaderingen_afwezigheid_link
-            field:
-              type: link
-              display: 'Afwezigheid Link'
-              default: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+              type: bard
+              display: 'Vergaderingen Info'
+              instructions: 'Alle informatie over wekelijkse vergaderingen: tijdstippen, locatie, uitzonderingen, afwezigheid melden'
+              buttons:
+                - h3
+                - h4
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - anchor
+              sets:
+                info_card:
+                  display: 'Info Kaart'
+                  icon: information
+                  fields:
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon (FontAwesome)'
+                        default: 'fas fa-info-circle'
+                        width: 33
+                    -
+                      handle: card_title
+                      field:
+                        type: text
+                        display: 'Kaart Titel'
+                        width: 67
+                    -
+                      handle: card_content
+                      field:
+                        type: textarea
+                        display: 'Kaart Inhoud'
+                link_button:
+                  display: 'Link Knop'
+                  icon: hyperlink
+                  fields:
+                    -
+                      handle: button_text
+                      field:
+                        type: text
+                        display: 'Knop Tekst'
+                        width: 50
+                    -
+                      handle: button_url
+                      field:
+                        type: text
+                        display: 'URL'
+                        width: 50
+                    -
+                      handle: button_icon
+                      field:
+                        type: text
+                        display: 'Icon (optioneel)'
+                        default: 'fas fa-external-link-alt'
 
-  kalender:
-    display: Kalender
+  weekends:
+    display: 'Weekends & Kampen'
     sections:
       -
-        display: 'Google Kalender'
+        display: 'Weekends & Kampen Info'
+        fields:
+          -
+            handle: weekends_kampen_content
+            field:
+              type: bard
+              display: 'Weekends & Kampen'
+              instructions: 'Alle informatie over weekends (herfst, kerst, paas) en kampen (binnenlands, buitenlands)'
+              buttons:
+                - h3
+                - h4
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - anchor
+
+  inschrijvingen:
+    display: Inschrijvingen
+    sections:
+      -
+        display: 'Inschrijvingen Info'
+        fields:
+          -
+            handle: inschrijvingen_content
+            field:
+              type: bard
+              display: 'Inschrijvingen'
+              instructions: 'Alle informatie over inschrijvingen: proefperiode, groepsgrootte, wachtlijst, alternatieven'
+              buttons:
+                - h3
+                - h4
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - anchor
+
+  kalender_embed:
+    display: 'Google Kalender'
+    sections:
+      -
+        display: 'Kalender Instellingen'
         fields:
           -
             handle: google_calendar_url
@@ -95,5 +204,5 @@ tabs:
             handle: agenda_title
             field:
               type: text
-              display: 'Agenda Titel'
+              display: 'Agenda Sectie Titel'
               default: 'Agenda'

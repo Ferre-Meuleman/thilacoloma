@@ -1,27 +1,119 @@
 title: 'Site Instellingen'
-sections:
-  main:
-    display: Main
-    fields:
-      - 
-        handle: scoutsjaar
-        field:
-          type: text
-          display: 'Huidig scoutsjaar'
-          instructions: 'Het huidige scoutsjaar voor foto paths (bijv. "2024-2025")'
-          required: true
-          default: '2025-2026'
-      - 
-        handle: groepsleiding_email
-        field:
-          type: text
-          display: 'Algemene groepsleiding email'
-          validate: 'email'
-          default: 'groepsleiding@thilacoloma.be'
-      - 
-        handle: rekeningnummer
-        field:
-          type: text
-          display: 'Rekeningnummer'
-          instructions: 'Voor betalingen'
-          default: 'BE83 9735 0413 6215'
+tabs:
+  algemeen:
+    display: 'Algemeen'
+    sections:
+      -
+        display: 'Scouts Informatie'
+        fields:
+          -
+            handle: scoutsjaar
+            field:
+              type: text
+              display: 'Huidig scoutsjaar'
+              instructions: 'Het huidige scoutsjaar (bijv. "2025-2026")'
+              required: true
+              default: '2025-2026'
+          -
+            handle: organisatie_naam
+            field:
+              type: text
+              display: 'Organisatie Naam'
+              default: 'Thila Coloma Mechelen'
+          -
+            handle: rekeningnummer
+            field:
+              type: text
+              display: 'Rekeningnummer'
+              instructions: 'Voor betalingen'
+              default: 'BE83 9735 0413 6215'
+
+  contact:
+    display: 'Contact'
+    sections:
+      -
+        display: 'Adres'
+        fields:
+          -
+            handle: adres_lijn_1
+            field:
+              type: text
+              display: 'Adres Lijn 1'
+              default: 'Jubellaan / Geerdegemstraat'
+          -
+            handle: adres_lijn_2
+            field:
+              type: text
+              display: 'Adres Lijn 2'
+              default: '2800 Mechelen'
+      -
+        display: 'Email Adressen'
+        fields:
+          -
+            handle: algemeen_email
+            field:
+              type: text
+              display: 'Algemeen Email'
+              input_type: email
+              default: 'info@thilacoloma.be'
+          -
+            handle: groepsleiding_email
+            field:
+              type: text
+              display: 'Groepsleiding Email'
+              input_type: email
+              default: 'groepsleiding@thilacoloma.be'
+          -
+            handle: contact_adressen
+            field:
+              type: replicator
+              display: 'Extra Contact Adressen'
+              instructions: 'Voor footer en contact pagina'
+              sets:
+                adres:
+                  display: 'Contact Adres'
+                  fields:
+                    -
+                      handle: label
+                      field:
+                        type: text
+                        display: 'Label'
+                    -
+                      handle: email
+                      field:
+                        type: text
+                        display: 'Email'
+                        input_type: email
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon Class'
+                        default: 'fas fa-envelope'
+
+  social:
+    display: 'Social Media'
+    sections:
+      -
+        display: 'Social Media Links'
+        fields:
+          -
+            handle: facebook_url
+            field:
+              type: link
+              display: 'Facebook URL'
+          -
+            handle: instagram_url
+            field:
+              type: link
+              display: 'Instagram URL'
+          -
+            handle: youtube_url
+            field:
+              type: link
+              display: 'YouTube URL'
+          -
+            handle: tiktok_url
+            field:
+              type: link
+              display: 'TikTok URL'

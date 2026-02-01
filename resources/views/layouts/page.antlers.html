@@ -206,24 +206,24 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>{{ contact_info:organisatie_naam }}</p>
-                <p>{{ contact_info:adres_lijn_1 }}</p>
-                <p>Email: {{ contact_info:algemeen_email }}</p>
+                <p>{{ site_instellingen:organisatie_naam }}</p>
+                <p>{{ site_instellingen:adres_lijn_1 }}</p>
+                <p>Email: {{ site_instellingen:algemeen_email }}</p>
             </div>
             <div class="footer-section">
                 <h3>Sociale Media</h3>
                 <div class="social-links">
-                    {{ if social_media:facebook_url }}
-                        <a href="{{ social_media:facebook_url }}" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                    {{ if site_instellingen:facebook_url }}
+                        <a href="{{ site_instellingen:facebook_url }}" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
                     {{ /if }}
-                    {{ if social_media:instagram_url }}
-                        <a href="{{ social_media:instagram_url }}" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    {{ if site_instellingen:instagram_url }}
+                        <a href="{{ site_instellingen:instagram_url }}" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                     {{ /if }}
-                    {{ if social_media:youtube_url }}
-                        <a href="{{ social_media:youtube_url }}" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+                    {{ if site_instellingen:youtube_url }}
+                        <a href="{{ site_instellingen:youtube_url }}" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
                     {{ /if }}
-                    {{ if social_media:tiktok_url }}
-                        <a href="{{ social_media:tiktok_url }}" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    {{ if site_instellingen:tiktok_url }}
+                        <a href="{{ site_instellingen:tiktok_url }}" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
                     {{ /if }}
                 </div>
             </div>
@@ -234,7 +234,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ now format="Y" }} {{ contact_info:organisatie_naam }}</p>
+            <p>&copy; {{ now format="Y" }} {{ site_instellingen:organisatie_naam }}</p>
         </div>
     </footer>
 

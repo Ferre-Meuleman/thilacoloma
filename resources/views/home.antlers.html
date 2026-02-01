@@ -10,8 +10,8 @@
         <div class="container-upper-right">
         <h1>{{ news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
         <div class="upper-right box" id="slideshow">
-            {{ if slideshow_content:news_slides }}
-                {{ slideshow_content:news_slides }}
+            {{ if news_slides }}
+                {{ news_slides }}
                     <div class="slide">
                         {{ if image }}
                             <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
@@ -28,38 +28,14 @@
                             {{ /if }}
                         </div>
                     </div>
-                {{ /slideshow_content:news_slides }}
+                {{ /news_slides }}
             {{ else }}
-                <!-- Fallback content als er geen slides zijn -->
+                <!-- Fallback als er geen slides zijn -->
                 <div class="slide">
-                    <img src="/assets/images/slideshow/1image.jpg" alt="Pizzabak evenement">
+                    <img src="/assets/images/slideshow/1image.jpg" alt="Evenement">
                     <div class="slide-text">
-                        <h2>Pizzabak</h2>
-                        <p>TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders.</p>
-                        <button class="meer-button">Meer info</button>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="/assets/images/slideshow/2image.jpg" alt="Belofteweekend">
-                    <div class="slide-text">
-                        <h2>Belofteweekend</h2>
-                        <p>Het belofteweekend komt er weer aan!
-                            Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.
-                        </p>
-                        <button class="meer-button">Meer info</button>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="/assets/images/slideshow/3image.jpg" alt="TC's Cadeaupakket">
-                    <div class="slide-text">
-                        <h2>TC's Cadeaupakket</h2>
-                        <p>Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen! 🎁
-                        Samen met @sjolaa en de @broodbroeders stelden we dit heerlijke pakket samen, met voor ieder wat wils.
-                        Het pakket bevat:
-                        Een fles Blonde Thilaan
-                        Een doosje Mechelse maantjes
-                        Een zakje Mechelse torentjes
-                        Bestel snel en eenvoudig via onze webshop en maak van deze feestdagen iets extra bijzonders!</p>
+                        <h2>Nieuws komt binnenkort</h2>
+                        <p>Voeg slides toe in het Control Panel onder Home pagina.</p>
                         <button class="meer-button">Meer info</button>
                     </div>
                 </div>
@@ -67,14 +43,12 @@
             <!-- Add more slides as needed -->
         </div>
         <div class="slideshow-dots">
-            {{ if slideshow_content:news_slides }}
-                {{ slideshow_content:news_slides }}
-                    <span class="dot" data-slide="{{ index }}"></span>
-                {{ /slideshow_content:news_slides }}
+            {{ if news_slides }}
+                {{ news_slides }}
+                    <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
+                {{ /news_slides }}
             {{ else }}
-                <span class="dot" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
+                <span class="dot active" data-slide="0"></span>
             {{ /if }}
         </div>
 

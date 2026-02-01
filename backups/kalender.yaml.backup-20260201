@@ -1,0 +1,99 @@
+title: 'Kalender Pagina'
+tabs:
+  main:
+    display: Hoofdinhoud
+    sections:
+      -
+        display: 'Pagina Info'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+          -
+            handle: intro_title
+            field:
+              type: text
+              display: 'Intro Titel'
+              default: 'Komende Evenementen'
+          -
+            handle: intro_text
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              instructions: 'Beschrijvende tekst voor de kalender pagina'
+
+  vergaderingen:
+    display: Vergaderingen
+    sections:
+      -
+        display: 'Wekelijkse Vergaderingen'
+        fields:
+          -
+            handle: meetings_title
+            field:
+              type: text
+              display: 'Vergaderingen Titel'
+              default: 'Wekelijkse Vergaderingen'
+          -
+            handle: meetings_description
+            field:
+              type: textarea
+              display: 'Vergaderingen Beschrijving'
+          -
+            handle: vergaderingen_jongsten_tijd
+            field:
+              type: text
+              display: 'Jongsten Tijdstip'
+              default: '14:00 tot 17:00'
+          -
+            handle: vergaderingen_jongsten_beschrijving
+            field:
+              type: text
+              display: 'Jongsten Beschrijving'
+              default: 'Kapoenen t/m seniorwelpen & tictak'
+          -
+            handle: vergaderingen_ouderen_tijd
+            field:
+              type: text
+              display: 'Ouderen Tijdstip'
+              default: '14:00 tot 18:00'
+          -
+            handle: vergaderingen_ouderen_beschrijving
+            field:
+              type: text
+              display: 'Ouderen Beschrijving'
+              default: "Jongverkenners t/m VT's"
+          -
+            handle: vergaderingen_locatie
+            field:
+              type: textarea
+              display: 'Locatie'
+              default: 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen'
+          -
+            handle: vergaderingen_afwezigheid_link
+            field:
+              type: link
+              display: 'Afwezigheid Link'
+              default: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+
+  kalender:
+    display: Kalender
+    sections:
+      -
+        display: 'Google Kalender'
+        fields:
+          -
+            handle: google_calendar_url
+            field:
+              type: text
+              display: 'Google Calendar Embed URL'
+              instructions: 'De volledige URL voor de Google Calendar embed'
+          -
+            handle: agenda_title
+            field:
+              type: text
+              display: 'Agenda Titel'
+              default: 'Agenda'

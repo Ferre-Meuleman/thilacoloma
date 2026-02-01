@@ -1,125 +1,255 @@
 title: 'Verhuur Pagina'
 tabs:
-  main:
-    display: Hoofdinhoud
-    sections:
-      -
-        display: 'Pagina Info'
-        fields:
-          -
-            handle: title
-            field:
-              type: text
-              required: true
-              display: 'Pagina Titel'
-              default: 'Verhuur'
-          -
-            handle: intro_tekst
-            field:
-              type: textarea
-              display: 'Intro Tekst'
-              instructions: 'Korte intro voor de verhuur pagina'
-
   lokalen:
     display: 'Lokalen'
     sections:
       -
-        display: 'Kampas Reservatie'
+        display: 'Reservaties'
         fields:
+          -
+            handle: kampas_titel
+            field:
+              type: text
+              display: 'Kampas Titel'
+              default: 'Beschikbaarheid & Reservaties'
+          -
+            handle: kampas_beschrijving
+            field:
+              type: textarea
+              display: 'Kampas Beschrijving'
           -
             handle: kampas_url
             field:
               type: link
               display: 'Kampas URL'
-              instructions: 'Link naar Kampas reservatiesysteem'
               default: 'https://www.kampas.be/nl/domein/scouts-thila-coloma'
+      -
+        display: 'Contact'
+        fields:
           -
-            handle: lokalen_contact_email
+            handle: contact_titel
+            field:
+              type: text
+              display: 'Contact Titel'
+              default: 'Contact'
+          -
+            handle: contact_persoon
+            field:
+              type: text
+              display: 'Contact Persoon'
+          -
+            handle: contact_email
             field:
               type: text
               display: 'Contact Email'
+              input_type: email
               default: 'verhuur@thilacoloma.be'
           -
-            handle: lokalen_waarschuwing
+            handle: contact_beschrijving
+            field:
+              type: textarea
+              display: 'Contact Beschrijving'
+          -
+            handle: waarschuwing_tekst
             field:
               type: textarea
               display: 'Waarschuwing'
-              default: 'Let op: Wij verhuren niet voor fuiven of andere avondactiviteiten met luide muziek. GEEN LEIDINGSWEEKENDS'
+              instructions: 'Belangrijke waarschuwing voor bezoekers'
+      -
+        display: 'Lokalen Info'
+        fields:
           -
-            handle: lokalen_beschrijving
+            handle: lokalen_titel
             field:
-              type: bard
-              display: 'Lokalen Beschrijving'
-              instructions: 'Beschrijving van de beschikbare lokalen en faciliteiten'
-              buttons:
-                - bold
-                - italic
-                - h3
-                - unorderedlist
+              type: text
+              display: 'Lokalen Titel'
+              default: 'Beschikbare Lokalen'
+          -
+            handle: polyvalent_lokaal
+            field:
+              type: group
+              display: 'Polyvalent Lokaal'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Titel'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                -
+                  handle: faciliteiten
+                  field:
+                    type: textarea
+                    display: 'Faciliteiten'
+          -
+            handle: slaaplokalen
+            field:
+              type: group
+              display: 'Slaaplokalen'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Titel'
+                    default: 'Slaaplokalen'
+                -
+                  handle: gelijkvloers
+                  field:
+                    type: text
+                    display: 'Gelijkvloers'
+                -
+                  handle: eerste_verdieping
+                  field:
+                    type: text
+                    display: 'Eerste Verdieping'
+          -
+            handle: sanitair
+            field:
+              type: group
+              display: 'Sanitair'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Titel'
+                    default: 'Sanitair'
+                -
+                  handle: toiletten
+                  field:
+                    type: text
+                    display: 'Toiletten'
+                -
+                  handle: douches
+                  field:
+                    type: text
+                    display: 'Douches'
+      -
+        display: 'Locatie'
+        fields:
+          -
+            handle: locatie_titel
+            field:
+              type: text
+              display: 'Locatie Titel'
+              default: 'Locatie & Omgeving'
+          -
+            handle: adres
+            field:
+              type: text
+              display: 'Adres'
           -
             handle: maps_embed_url
             field:
               type: textarea
               display: 'Google Maps Embed URL'
-              instructions: 'De volledige embed URL voor Google Maps'
+          -
+            handle: locatie_info
+            field:
+              type: replicator
+              display: 'Locatie Info Punten'
+              sets:
+                punt:
+                  display: 'Info Punt'
+                  fields:
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon Class'
+                        default: 'fas fa-info'
+                    -
+                      handle: tekst
+                      field:
+                        type: text
+                        display: 'Tekst'
 
   materiaal:
     display: 'Materiaal'
     sections:
       -
-        display: 'Materiaal Verhuur'
+        display: 'Materiaal Contact'
         fields:
+          -
+            handle: materiaal_titel
+            field:
+              type: text
+              display: 'Materiaal Titel'
+              default: 'Materiaal'
+          -
+            handle: materiaal_contact_titel
+            field:
+              type: text
+              display: 'Contact Titel'
+          -
+            handle: materiaal_contact_persoon
+            field:
+              type: text
+              display: 'Contact Persoon'
           -
             handle: materiaal_contact_email
             field:
               type: text
               display: 'Contact Email'
-              default: 'kantjil@thilacoloma.be'
+              input_type: email
+          -
+            handle: materiaal_contact_beschrijving
+            field:
+              type: textarea
+              display: 'Contact Beschrijving'
+          -
+            handle: materiaal_info_tekst
+            field:
+              type: textarea
+              display: 'Extra Info'
           -
             handle: materiaal_waarschuwing
             field:
               type: textarea
               display: 'Waarschuwing'
-              default: 'Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik.'
           -
-            handle: materiaal_items
+            handle: materiaal_prijzen_info
+            field:
+              type: textarea
+              display: 'Prijzen Info'
+              instructions: 'HTML toegestaan'
+      -
+        display: 'Transport'
+        fields:
+          -
+            handle: materiaal_transport
             field:
               type: replicator
-              display: 'Materiaal Items'
-              instructions: 'Voeg hier verhuurbaar materiaal toe'
+              display: 'Transport Items'
               sets:
                 item:
-                  display: 'Materiaal Item'
+                  display: 'Item'
                   fields:
                     -
                       handle: naam
                       field:
                         type: text
-                        display: Naam
-                        required: true
-                    -
-                      handle: categorie
-                      field:
-                        type: select
-                        display: Categorie
-                        options:
-                          transport: 'Transport'
-                          meubilair: 'Meubilair'
-                          koken: 'Kookbenodigdheden'
-                          koeling: 'Koeling'
-                          gereedschap: 'Gereedschap'
+                        display: 'Naam'
                     -
                       handle: afbeelding
                       field:
-                        type: assets
-                        display: Afbeelding
-                        container: assets
-                        max_files: 1
+                        type: text
+                        display: 'Afbeelding Bestandsnaam'
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon Class'
                     -
                       handle: aantal
                       field:
                         type: text
-                        display: Aantal
+                        display: 'Aantal'
                     -
                       handle: prijs_per_dag
                       field:
@@ -129,25 +259,230 @@ tabs:
                       handle: waarborg
                       field:
                         type: text
-                        display: Waarborg
+                        display: 'Waarborg'
+      -
+        display: 'Meubilair'
+        fields:
+          -
+            handle: materiaal_meubilair
+            field:
+              type: replicator
+              display: 'Meubilair Items'
+              sets:
+                item:
+                  display: 'Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Naam'
+                    -
+                      handle: afbeelding
+                      field:
+                        type: text
+                        display: 'Afbeelding'
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon'
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: 'Aantal'
+                    -
+                      handle: prijs_per_dag
+                      field:
+                        type: text
+                        display: 'Prijs per dag'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: 'Waarborg'
+      -
+        display: 'Kookbenodigdheden'
+        fields:
+          -
+            handle: materiaal_kookbenodigdheden
+            field:
+              type: replicator
+              display: 'Kookbenodigdheden Items'
+              sets:
+                item:
+                  display: 'Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Naam'
+                    -
+                      handle: afbeelding
+                      field:
+                        type: text
+                        display: 'Afbeelding'
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon'
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: 'Aantal'
+                    -
+                      handle: prijs_per_dag
+                      field:
+                        type: text
+                        display: 'Prijs per dag'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: 'Waarborg'
+      -
+        display: 'Koeling & Gereedschap'
+        fields:
+          -
+            handle: materiaal_koeling
+            field:
+              type: replicator
+              display: 'Koeling Items'
+              sets:
+                item:
+                  display: 'Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Naam'
+                    -
+                      handle: afbeelding
+                      field:
+                        type: text
+                        display: 'Afbeelding'
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon'
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: 'Aantal'
+                    -
+                      handle: prijs_per_dag
+                      field:
+                        type: text
+                        display: 'Prijs per dag'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: 'Waarborg'
+          -
+            handle: materiaal_gereedschap
+            field:
+              type: replicator
+              display: 'Gereedschap Items'
+              sets:
+                item:
+                  display: 'Item'
+                  fields:
+                    -
+                      handle: naam
+                      field:
+                        type: text
+                        display: 'Naam'
+                    -
+                      handle: afbeelding
+                      field:
+                        type: text
+                        display: 'Afbeelding'
+                    -
+                      handle: icon
+                      field:
+                        type: text
+                        display: 'Icon'
+                    -
+                      handle: aantal
+                      field:
+                        type: text
+                        display: 'Aantal'
+                    -
+                      handle: prijs_per_dag
+                      field:
+                        type: text
+                        display: 'Prijs per dag'
+                    -
+                      handle: waarborg
+                      field:
+                        type: text
+                        display: 'Waarborg'
 
   tenten:
     display: 'Tenten'
     sections:
       -
-        display: 'Tenten Verhuur'
+        display: 'Tenten Contact'
         fields:
           -
-            handle: tenten_info
+            handle: tenten_titel
+            field:
+              type: text
+              display: 'Tenten Titel'
+              default: 'Tenten'
+          -
+            handle: tenten_contact_titel
+            field:
+              type: text
+              display: 'Contact Titel'
+          -
+            handle: tenten_contact_persoon
+            field:
+              type: text
+              display: 'Contact Persoon'
+          -
+            handle: tenten_contact_email
+            field:
+              type: text
+              display: 'Contact Email'
+              input_type: email
+          -
+            handle: tenten_contact_beschrijving
             field:
               type: textarea
-              display: 'Tenten Info'
-              instructions: 'Algemene info over tentenverhuur'
+              display: 'Contact Beschrijving'
+          -
+            handle: tenten_info_tekst
+            field:
+              type: textarea
+              display: 'Info Tekst'
+          -
+            handle: tenten_waarschuwing
+            field:
+              type: textarea
+              display: 'Waarschuwing'
+          -
+            handle: tenten_prijzen_info
+            field:
+              type: textarea
+              display: 'Prijzen Info'
+              instructions: 'HTML toegestaan'
+      -
+        display: 'Beschikbare Tenten'
+        fields:
           -
             handle: tenten_lijst
             field:
               type: replicator
-              display: 'Beschikbare Tenten'
+              display: 'Tenten Lijst'
               sets:
                 tent:
                   display: 'Tent'
@@ -156,15 +491,12 @@ tabs:
                       handle: naam
                       field:
                         type: text
-                        display: 'Tent Naam'
-                        required: true
+                        display: 'Naam'
                     -
                       handle: afbeelding
                       field:
-                        type: assets
-                        display: Afbeelding
-                        container: assets
-                        max_files: 1
+                        type: text
+                        display: 'Afbeelding'
                     -
                       handle: aantal
                       field:

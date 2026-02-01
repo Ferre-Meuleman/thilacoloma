@@ -4,4 +4,38 @@ id: site_instellingen
 scoutsjaar: '2025-2026'
 groepsleiding_email: groepsleiding@thilacoloma.be
 rekeningnummer: 'BE83 9735 0413 6215'
+organisatie_naam: 'Thila Coloma Mechelen'
+adres_lijn_1: 'Jubellaan / Geerdegemstraat'
+adres_lijn_2: '2800 Mechelen'
+algemeen_email: 'info@thilacoloma.be'
+contact_adressen:
+  -
+    id: contact-groepsleiding
+    label: 'Algemene vragen'
+    email: groepsleiding@thilacoloma.be
+    icon: 'fas fa-users'
+  -
+    id: contact-werkjes
+    label: 'Werkjes & klussen'
+    email: werkjes@thilacoloma.be
+    icon: 'fas fa-hammer'
+  -
+    id: contact-verhuur
+    label: 'Verhuur materiaal'
+    email: verhuur@thilacoloma.be
+    icon: 'fas fa-campground'
+  -
+    id: contact-kantjil
+    label: 'Kantjil (materiaalmeester)'
+    email: kantjil@thilacoloma.be
+    icon: 'fas fa-box'
+  -
+    id: contact-site
+    label: 'Website & technisch'
+    email: site@thilacoloma.be
+    icon: 'fas fa-laptop-code'
+facebook_url: 'https://www.facebook.com/thilacoloma'
+instagram_url: 'https://www.instagram.com/thilacoloma'
+youtube_url: ''
+tiktok_url: ''
 ---

@@ -59,12 +59,12 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <strong>Algemeen:</strong><br>
-                            <a href="mailto:{{ contact_info:algemeen_email }}" class="email-link">{{ contact_info:algemeen_email }}</a>
+                            <a href="mailto:{{ site_instellingen:algemeen_email }}" class="email-link">{{ site_instellingen:algemeen_email }}</a>
                         </div>
                         <div class="contact-item">
                             <strong>Adres:</strong><br>
-                            <span>{{ contact_info:adres_lijn_1 }}</span><br>
-                            <span>{{ contact_info:adres_lijn_2 }}</span>
+                            <span>{{ site_instellingen:adres_lijn_1 }}</span><br>
+                            <span>{{ site_instellingen:adres_lijn_2 }}</span>
                         </div>
                     </div>
                     
@@ -102,95 +102,11 @@
 
     <!-- UNIFORM TAB -->
     <div id="uniform" class="tab-content">
-        
-        <!-- Scoutsuniform -->
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-tshirt"></i> Scoutsuniform</h3>
-                
-                <div class="grid-2">
-                    <div>
-                        <h4>Waarom een uniform?</h4>
-                        <p>Het scoutsuniform zorgt voor gelijkheid en verbondenheid binnen de groep. Het toont ook naar buiten toe dat je bij de scouts hoort en creëert een gevoel van saamhorigheid.</p>
-                        
-                        <h4>Wat heb je nodig?</h4>
-                        <ul class="uniform-list">
-                            <li><strong>Scoutshemd:</strong> Beige hemd met groepsnaam en tak-kleur</li>
-                            <li><strong>Scoutsdas:</strong> Unieke groepskleuren van Thila Coloma</li>
-                            <li><strong>Broek/Rok:</strong> Donkere scoutsbroek of rok</li>
-                            <li><strong>Schoenen:</strong> Stevige wandelschoenen of laarzen</li>
-                            <li><strong>Riem:</strong> Donkere riem met scoutsgesp</li>
-                        </ul>
-                        
-                        <h4>Kleuren per tak</h4>
-                        <div class="tak-kleuren">
-                            <div class="kleur-item">
-                                <span class="kleur-badge kapoenen-kleur"></span>
-                                <span>Kapoenen: Groen</span>
-                            </div>
-                            <div class="kleur-item">
-                                <span class="kleur-badge welpen-kleur"></span>
-                                <span>Welpen: Blauw</span>
-                            </div>
-                            <div class="kleur-item">
-                                <span class="kleur-badge jv-kleur"></span>
-                                <span>Jongverkenners: Rood</span>
-                            </div>
-                            <div class="kleur-item">
-                                <span class="kleur-badge verkenners-kleur"></span>
-                                <span>Verkenners: Bruin</span>
-                            </div>
-                            <div class="kleur-item">
-                                <span class="kleur-badge vt-kleur"></span>
-                                <span>Voortrekkers: Bordeaux</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Waar te verkrijgen?</h4>
-                        <p>Het uniform kan besteld worden via verschillende kanalen:</p>
-                        <ul>
-                            <li><strong>Via de leiding:</strong> Vraag informatie aan je takleiding</li>
-                            <li><strong>Scoutsshops:</strong> In verschillende steden beschikbaar</li>
-                            <li><strong>Online:</strong> Via officiële leveranciers</li>
-                        </ul>
-                        
-                        <div class="cta-section">
-                            <a href="#" class="btn btn-primary">
-                                <i class="fas fa-download"></i>
-                                Bestelformulier Downloaden
-                            </a>
-                        </div>
-                        
-                        <h4>Badges & Insignes</h4>
-                        <p>Op het uniform worden verschillende badges gedragen:</p>
-                        <ul>
-                            <li><strong>Groepsinsigne:</strong> Logo van Thila Coloma</li>
-                            <li><strong>Takinsigne:</strong> Badge van je specifieke tak</li>
-                            <li><strong>Functie-insignes:</strong> Voor speciale rollen</li>
-                            <li><strong>Activiteitenbadges:</strong> Voor behaalde prestaties</li>
-                            <li><strong>Kampbadges:</strong> Herinneringen aan kampen</li>
-                        </ul>
-                        
-                        <h4>Onderhoud</h4>
-                        <p>Tips voor het verzorgen van je uniform:</p>
-                        <ul>
-                            <li>Was het uniform op 30°C</li>
-                            <li>Badges zijn wasbaar, maar controleer eerst</li>
-                            <li>Strijk op lage temperatuur</li>
-                            <li>Bewaar netjes opgehangen</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="uniform-info-box">
-                    <div class="info-content">
-                        <i class="fas fa-info-circle"></i>
-                        <div>
-                            <h4>Let op!</h4>
-                            <p>Nieuwe leden hoeven niet meteen een volledig uniform te hebben. Je kan beginnen met het hemd en de das, de rest kan je geleidelijk aanvullen. Vraag je takleiding om advies!</p>
-                        </div>
-                    </div>
+                <div class="bard-content">
+                    {{ uniform_content }}
                 </div>
             </div>
         </div>
@@ -204,19 +120,15 @@
             <div class="card-content">
                 <h3><i class="fas fa-user-plus"></i> Inschrijven</h3>
                 
-                <div class="simple-tip">
-                    <p><strong>Voor huidige leden:</strong> Jullie moeten je niet opnieuw inschrijven aangezien dit automatisch verloopt.</p>
-                </div>
-                
                 <div class="grid-2">
                     <div class="card compact-card">
                         <div class="card-content">
                             <div class="card-left">
-                                <h4><i class="fas fa-external-link-alt"></i> Inschrijven Scoutsjaar 2024-2025</h4>
+                                <h4><i class="fas fa-external-link-alt"></i> Inschrijven Scoutsjaar {{ inschrijving_scoutsjaar }}</h4>
                                 <p>De inschrijvingen zijn geopend via onderstaande link</p>
                             </div>
                             <div class="card-right">
-                                <a href="https://forms.gle/ogqkK2dpaUZmzS7u7" target="_blank" class="btn btn-primary">
+                                <a href="{{ inschrijvingsformulier_link }}" target="_blank" class="btn btn-primary">
                                     <i class="fas fa-external-link-alt"></i> Inschrijvingsformulier
                                 </a>
                             </div>
@@ -226,67 +138,21 @@
                     <div class="card compact-card">
                         <div class="card-content">
                             <div class="card-left">
-                                <h4><i class="fas fa-envelope"></i> Vragen over inschrijvingen</h4>
-                                <p>Contacteer Mustela voor meer informatie</p>
+                                <h4><i class="fas fa-external-link-alt"></i> Inschrijven via Stamhoofd</h4>
+                                <p>De inschrijvingen voor het scoutsjaar {{ inschrijving_scoutsjaar }} zijn geopend</p>
                             </div>
                             <div class="card-right">
-                                <a href="mailto:mustela@thilacoloma.be" class="btn btn-primary">
-                                    <i class="fas fa-envelope"></i> mustela@thilacoloma.be
+                                <a href="{{ stamhoofd_link }}" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt"></i> Stamhoofd
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <h3>Extra informatie over de inschrijvingen</h3>
-                <p>Elk jaar komt er van <strong>1 juli tot en met 15 augustus</strong> hier een link te staan naar een formulier. Na 15 augustus bekijkt Mustela alle inschrijvingen. Als er meer dan 35 inschrijvingen zijn, worden de beschikbare plekken verloot. Voor meer uitleg hierover zie hieronder.</p>
-
-                <h3>Hoe werken de inschrijvingen?</h3>
-                <p>Eerst en vooral: <strong>het is absoluut niet belangrijk om zo snel mogelijk of als eerste te registreren!</strong> Registreren kan tot en met 15 augustus. Nadien gaat de groepsleiding (GRL) aan de slag met de registraties en krijg je een melding of er al dan niet plaats is. Doorgaans neemt dit 2 weken in beslag. Als je hierna nog geen mail hebt ontvangen, mag je zelf een mail sturen naar <a href="mailto:mustela@thilacoloma.be">Mustela</a> (mustela@thilacoloma.be).</p>
-
-                <p>Je kan je kind inschrijven vanaf de leeftijd van <strong>6 jaar</strong>. Voor volgend scoutsjaar wil dat dus zeggen vanaf het <strong>geboortejaar 2018</strong>.</p>
-
-                <p>Wens je nog te kunnen aansluiten doorheen het scoutsjaar, kan je je nog inschrijven tot <strong>eind december</strong> van dat scoutsjaar. Dat doe je door een mailtje te sturen naar <a href="mailto:mustela@thilacoloma.be">mustela@thilacoloma.be</a>.</p>
-
-                <h3>Beschikbaarheid per geboortejaar</h3>
-                <p><strong>Opgelet, voor de volgende geboortejaren is er dit jaar reeds een wachtlijst:</strong></p>
-                <p><strong>2018 – VOLZET</strong> (jammer genoeg maak je geen kans om op de wachtlijst te verschijnen voor het jaar '23-'24. Je inschrijving zal verder niet verwerkt worden.)</p>
-                <p><strong>2017 – Enkele plekken vrij op de wachtlijst</strong></p>
-                <p><strong>2016 – Enkele plekken vrij op de wachtlijst</strong></p>
-                <p><strong>2015 – Plek vrij in de scouts</strong></p>
-                <p><strong>2014 – Plek vrij in de scouts</strong></p>
-                <p><strong>2013 – Plek vrij in de scouts</strong></p>
-                <p><strong>2012 – Enkele plekken vrij op de wachtlijst</strong></p>
-                
-                <p>Voor de geboortejaren <strong>2011 en ouder</strong> zijn er momenteel geen wachtlijsten. Ook voor onze <strong>Akabe-groep</strong> (zie verder) zijn er momenteel wachtlijsten.</p>
-                
-                <p><em>*1 of meerdere plaatsen beschikbaar op de lijst? = Afhankelijk van het aantal inschrijvingen voor het geboortejaar kan je kind op die wachtlijst verschijnen. Dit wordt steeds door de groepsleiding bevestigd per mail.</em></p>
-
-                <h3>35 leden per geboortejaar</h3>
-                <p>Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot <strong>35 leden</strong>. In afwachting van dat aantal hanteren we enkele voorrangsregels voor nieuwe leden:</p>
-                <ol>
-                    <li>(plus) broertjes of (plus)zusjes van leden die reeds bij ons in de groep zitten;</li>
-                    <li>kinderen van oud-leiding;</li>
-                    <li>kinderen die wonen in de volgende straten: Geerdegemstraat, Barbarastraat, Boterbloemstraat, Klaverstraat en de Rietstraat.</li>
-                </ol>
-                <p>Deze voorrang geldt dus enkel indien een groep niet meer dan 35 leden telt. Vol = vol eens de 35 bereikt is.</p>
-
-                <h3>Loting bij geboortejaar 2018</h3>
-                <p>Van zodra er meer dan 35 kinderen registreerden voor het geboortejaar 2018 en de voorrangsregels zijn reeds toegepast, doen we beroep op de volgende procedure:</p>
-                <p>We loten willekeurig namen van de overige leden die geregistreerd zijn gedurende de aanmeldingsperiode. Deze leden kunnen dus alsnog aansluiten bij het geboortejaar 2018. Als de tak dan vol is, trekken we nog 5 extra namen voor de wachtlijst. Die wachtlijst gaat mee tot deze volledig leeg is (over de jaren heen, degene op de wachtlijst moeten zich niet opnieuw registreren als een scoutsjaar afloopt).</p>
-                <p>Indien er in de periode van september tot december 2023 nog een lid stopt krijgt het eerste kind op de wachtlijst een plaats, daarna werken we chronologisch de lijst af. Vanaf januari laten we de takken onaangeroerd en laten we niemand meer instromen. Dit geeft de groep de kans om goed te vormen met het oog op het grote kamp. Bovendien is het verzekeringstechnisch nog moeilijk om een nieuw lid te verzekeren bij Scouts en Gidsen Vlaanderen voor een kortere periode.</p>
-
-                <h3>AKABE: een scoutservaring voor kinderen met een verstandelijke beperking</h3>
-                <p>Al jarenlang organiseert onze scoutsvereniging activiteiten voor kinderen met een verstandelijke handicap. Voor hen willen we waar mogelijk een echte scoutservaring aanbieden met een enthousiaste leidingsploeg die meer aandacht heeft voor individuele zorgnoden. Als groep zijn we flexibeler bij het inschrijven van nieuwe AKABE-kinderen en kunnen zij nagenoeg op elk moment van een scoutsjaar aansluiten. We vragen daarom om rechtstreeks contact op te nemen per mail via <a href="mailto:groepsleiding@thilacoloma.be">groepsleiding@thilacoloma.be</a> of <a href="mailto:mustela@thilacoloma.be">mustela@thilacoloma.be</a>. Voor het jaar 2023-2024 zit onze AKABE-groep vol en nemen we geen nieuwe leden aan zodat we een kwaliteitvolle scoutservaring kunnen aanbieden. Wel kan u zich inschrijven op de wachtlijst.</p>
-
-                <h3>Goesting om leiding te geven?</h3>
-                <p>Sinds kort krijgen we ook aanvragen van jongeren of zij bij onze scoutsgroep mogen aansluiten als leiding. Het is fijn om zo'n vraag te krijgen want jeugdwerk is een ervaring voor het leven. Jammer genoeg aanvaarden we momenteel geen nieuwe leiding bij onze vereniging. We vallen terug op een bijzonder sterke doorgroei van lid tot leiding binnen onze eigen vereniging. Onze leidingsploeg telt ieder jaar opnieuw rond een 70-tal enthousiaste jongeren waarmee we de werking perfect kunnen garanderen.</p>
-                <p>We verwijzen je graag door naar andere jeugdverenigingen binnen Mechelen.</p>
-
-                <h3>Inloopperiode</h3>
-                <p>Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een inloopperiode. Kinderen kunnen steeds <strong>3 zondagen komen proberen</strong>. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en een telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.</p>
-
-                <p><strong>Voor zij die uiteindelijk geen plaatsje weten te bemachtigen:</strong> er zijn nog 6 andere scoutsgroepen rondom Mechelen, die een gelijkwaardige scouts ervaring bieden. Meer informatie daarover vindt je op de pagina van Stad Mechelen (Mechelen – Jeugdwerk op een kaart) of de pagina van de gemeente Zemst (Zemst – Jeugdverenigingen). Wij hopen dat jullie daar de jeugdbeweging vinden waarnaar jullie op zoek zijn.</p>
+                <div class="bard-content">
+                    {{ praktisch_inschrijven }}
+                </div>
             </div>
         </div>
 
@@ -294,86 +160,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
-                
-                <h3>Lidgeld</h3>
-                <p>Om de inschrijving volledig te maken moet er lidgeld betaald worden. Het grootste deel van dit lidgeld gaat rechtstreeks naar Scouts en Gidsen Vlaanderen en dient vooral voor de verzekeringspolissen die ongevallen en burgerlijke aansprakelijkheid van alle scoutsleden dekken. Daarnaast gebruikt Scouts en Gidsen Vlaanderen dit geld ook om de lokale scoutswerkingen te ondersteunen, vormingen voor de leiding te organiseren, etc.</p>
-                
-                <p>Het lidgeld bedraagt in totaal <strong>€70</strong> (of <strong>€17 verminderd tarief</strong>: uitleg volgt hieronder).</p>
-                
-                <div class="grid-2">
-                    <div class="card compact-card">
-                        <div class="card-content">
-                            <div class="card-left">
-                                <h4><i class="fas fa-external-link-alt"></i> Inschrijven via Stamhoofd</h4>
-                                <p>De inschrijvingen voor het scoutsjaar 2024-2025 zijn geopend</p>
-                            </div>
-                            <div class="card-right">
-                                <a href="https://inschrijven.thilacoloma.be/" target="_blank" class="btn btn-primary">
-                                    <i class="fas fa-external-link-alt"></i> Stamhoofd
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card compact-card">
-                        <div class="card-content">
-                            <div class="card-left">
-                                <h4><i class="fas fa-envelope"></i> Vragen over financiën</h4>
-                                <p>Contacteer Pumba voor meer informatie</p>
-                            </div>
-                            <div class="card-right">
-                                <a href="mailto:pumba@thilacoloma.be" class="btn btn-primary">
-                                    <i class="fas fa-envelope"></i> pumba@thilacoloma.be
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bard-content">
+                    {{ praktisch_betalingen }}
                 </div>
-
-                <h4>Samenstelling lidgeld</h4>
-                <div class="cost-table">
-                    <div class="cost-header">
-                        <div class="cost-item-name">Onderdeel</div>
-                        <div class="cost-standard">Bedrag</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Lidgeld SGV</div>
-                        <div class="cost-standard">€42</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Bijdrage aan de groepskas</div>
-                        <div class="cost-standard">€28</div>
-                    </div>
-                    <div class="cost-row total">
-                        <div class="cost-item-name"><strong>Totaal</strong></div>
-                        <div class="cost-standard"><strong>€70</strong></div>
-                    </div>
-                </div>
-
-                <h4>Terugbetaling via mutualiteit</h4>
-                <p>Bij je mutualiteit krijg je vaak een deel van het lidgeld (en ook een deel van het inschrijvingsgeld voor een kamp) terug. Het universeel formulier van de Stad Mechelen dat je hiervoor moet invullen voor de mutualiteit kan je op onze site terugvinden. Dit is één formulier voor alle mutualiteiten. Gelieve daarom ook dit document te gebruiken, dit is voor ons handiger dan de verschillende formulieren van de verschillende mutualiteiten.</p>
-                
-                <p>Op onze site kan je de formulieren downloaden, afdrukken en aanvullen. Wanneer ze ingevuld zijn, kan je ze 's zondags laten ondertekenen in de Fiskehytte op de scouts. Hier staan voor en na de vergadering verantwoordelijke leiders die deze documenten zullen tekenen voor jullie.</p>
-
-                <h3>Verminderd tarief</h3>
-                <p>Omdat scouting niet voor iedereen financieel even evident is, kunnen leden binnen TC een aanvraag indienen om beroep te doen op het systeem van verminderd tarief. Dit houdt in dat je dan minder lid-, weekend- en kampgeld betaalt en ook korting krijgt op de aankoop van een uniform. Concreet komt dit er meestal op neer dat je (afgerond) een derde van de standaardprijs betaalt. Het resterende bedrag wordt betaald door Scouts en Gidsen Vlaanderen (1/3) en onze scouts of je tak afhankelijk van de activiteit (1/3). Voor het lidgeld geldt dat je <strong>€17 betaalt in plaats van €70</strong>.</p>
-                
-                <p>Twijfel je of je in aanmerking komt voor het verminderd tarief of heb je een vraag hieromtrent? Aarzel dan niet en stuur geheel vrijblijvend een mail naar <a href="mailto:pumba@thilacoloma.be">Pumba (Shayan Ghadiri)</a>. Wij gaan discreet om met deze informatie: <a href="mailto:groepsleiding@thilacoloma.be">groepsleiding@thilacoloma.be</a> of <a href="mailto:pumba@thilacoloma.be">pumba@thilacoloma.be</a>.</p>
-                
-                <p><strong>Belangrijke voetnoot:</strong> het is niet zo dat omdat u dit jaar beroep wenst te doen op het verminderd tarief, dit het volgende jaar ook zo hoort te zijn. U mag het altijd laten weten wanneer u uit dit systeem wenst te stappen. Indien er niets verandert, loopt dit systeem automatisch door. U hoeft dus niet elk jaar een nieuwe mail te versturen hiervoor.</p>
-
-                <h3>Verhoogde tegemoetkoming: lidgeld, kamp, uniform</h3>
-                <p>Binnen de scouts doen we het mogelijke om ouders met een moeilijkere financiële situatie te helpen, zodat hun kinderen toch naar de scouts kunnen komen. Deze informatie wordt telkens ook vermeld in andere informatieblokken en pagina's op deze site, maar wordt hier nog eens samen gezet.</p>
-                
-                <p>Je kan je kind jaarlijks inschrijven met verminderd lidgeld. Normaal betalen we per lid ongeveer €42 voor verzekering aan Scouts en Gidsen Vlaanderen, maar zij voorzien een verhoogde tegemoetkoming voor wie het nodig heeft, waardoor wij maar €10,7 moeten betalen voor de verzekering van dat lid. De €23 die er nog bij komt, en het jaarlijks lidgeld voor onze scouts op €65 brengt laten we vallen voor leden met verminderd tarief. De enige kost is de €10,7 die we voor de verzekering doorstorten aan Scouts en Gidsen Vlaanderen. Om verminderd lidgeld aan te vragen stuur je gewoon een mailtje naar de <a href="mailto:groepsleiding@thilacoloma.be">groepsleiding</a> en dan wordt dat in discretie geregeld.</p>
-                
-                <p>We hanteren ook een regel voor verminderd kampgeld. Je betaalt dan 1/3 van de kampprijs. De som van €125 wordt in drie verdeeld, afgerond geeft dit: €42 voor het lid, €42 voor de scouts en €42 tegemoetkoming door Scouts en Gidsen Vlaanderen (als we dit aanvragen, anders draagt de scouts deze kost ook). Leden de recht hebben op verminder lidgeld hebben automatisch ook recht op verminderd kampgeld. Als de inschrijvingen en de betalingsvraag voor het kamp online komen melden we dit zeker aan de ouders van de gezinnen die er recht op hebben.</p>
-                
-                <p>Voor het uniform is er een tweedehands systeem: ouders kunnen steeds uniformstukken die niet meer gedragen worden binnenbrengen, deze verkopen we dan aan goedkope prijzen. De prijzen en andere informatie hierover vind je op deze pagina: Uniform, of door te klikken in het hoofdmenu.</p>
-                
-                <p>Voor het belofteweekend en andere takweekends hanteren we de regel dat het verminderd weekendgeld slechts 1/3 van de prijs bedraagt. Het belofteweekend kost 35 euro wat wil zeggen dat het verminderd tarief afgerond 12 euro bedraagt. Voor takweekends contacteert de takleiding ouders die recht hebben op een verminderd tarief om de aangepaste prijzen mee te delen.</p>
-                
-                <p>Belangrijk is dat je na het betalen van het lidgeld of na het kamp steeds een document indient bij de mutualiteit (ziekenfonds). Mutualiteiten betalen vaak ook deel van deze kosten terug. Meer informatie hierover vind je op deze pagina: Formulieren mutualiteit, of door te klikken in het menu 'Belangrijk voor ouders'.</p>
             </div>
         </div>
 
@@ -381,85 +170,11 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-calculator"></i> Financieel Overzicht</h3>
-                <p>Helaas is ook de scouts geen gratis hobby. In de onderstaande tabel vind je een overzicht van de geschatte kosten voor 1 scoutsjaar. De eerste tabel geeft de normale kosten weer die bij elke tak voorkomen. De tweede tabel bevat de extra kosten. Niet elke tak doet deze activiteiten, dus het zou kunnen dat niet alle extra kosten op u van toepassing zijn.</p>
-                
-                <p>Let wel op dat dit slechts schattingen zijn en hier en daar wijzigingen kunnen voorkomen, al is het wel de bedoeling deze prijzen zoveel mogelijk te hanteren. Onder de tabel worden de belangrijkste begrippen ook nog even verduidelijkt.</p>
-
-                <h4>Normale kosten</h4>
-                <div class="cost-table">
-                    <div class="cost-header">
-                        <div class="cost-item-name">Activiteit</div>
-                        <div class="cost-standard">Standaard prijs</div>
-                        <div class="cost-reduced">Verminderd tarief</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Lidgeld</div>
-                        <div class="cost-standard">€70</div>
-                        <div class="cost-reduced">€17</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Takweekend oktober</div>
-                        <div class="cost-standard">€30</div>
-                        <div class="cost-reduced">€10</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Belofteweekend</div>
-                        <div class="cost-standard">€40</div>
-                        <div class="cost-reduced">€13</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Takweekend april</div>
-                        <div class="cost-standard">€30</div>
-                        <div class="cost-reduced">€10</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Sportdag</div>
-                        <div class="cost-standard">€5</div>
-                        <div class="cost-reduced">€0</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Binnenlands kamp</div>
-                        <div class="cost-standard">€160</div>
-                        <div class="cost-reduced">€50</div>
-                    </div>
-                    <div class="cost-row total">
-                        <div class="cost-item-name"><strong>Totaal</strong></div>
-                        <div class="cost-standard"><strong>€335</strong></div>
-                        <div class="cost-reduced"><strong>€100</strong></div>
-                    </div>
-                </div>
-
-                <h4>Extra kosten</h4>
-                <div class="cost-table">
-                    <div class="cost-header">
-                        <div class="cost-item-name">Activiteit</div>
-                        <div class="cost-standard">Standaard prijs</div>
-                        <div class="cost-reduced">Verminderd tarief</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">24-uursvergadering</div>
-                        <div class="cost-standard">€15</div>
-                        <div class="cost-reduced">€5</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Speciale vergaderingen</div>
-                        <div class="cost-standard">€10</div>
-                        <div class="cost-reduced">€3</div>
-                    </div>
-                    <div class="cost-row">
-                        <div class="cost-item-name">Uniform</div>
-                        <div class="cost-standard">€90</div>
-                        <div class="cost-reduced">€30</div>
-                    </div>
+                <div class="bard-content">
+                    {{ praktisch_kosten_overzicht }}
                 </div>
             </div>
         </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <!-- BELEID TAB -->
@@ -469,7 +184,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-shield-alt"></i> Veiligheidsbeleid</h3>
-                <p>Hier komt het volledige veiligheidsbeleid te staan met procedures, contactpersonen en richtlijnen.</p>
+                <div class="bard-content">
+                    {{ beleid_veiligheid }}
+                </div>
             </div>
         </div>
 
@@ -477,7 +194,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-hands-helping"></i> Pest & Inclusie Beleid</h3>
-                <p>Hier komt het pestbeleid en inclusiebeleid te staan met procedures en contactinformatie.</p>
+                <div class="bard-content">
+                    {{ beleid_pest_inclusie }}
+                </div>
             </div>
         </div>
 
@@ -485,7 +204,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-certificate"></i> Integriteitsbeleid</h3>
-                <p>Hier komt het integriteitsbeleid te staan met waarden, procedures en meldingsmogelijkheden.</p>
+                <div class="bard-content">
+                    {{ beleid_integriteit }}
+                </div>
             </div>
         </div>
 
@@ -493,7 +214,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-user-secret"></i> Privacybeleid</h3>
-                <p>Hier komt het privacybeleid te staan met informatie over gegevensbescherming en rechten.</p>
+                <div class="bard-content">
+                    {{ beleid_privacy }}
+                </div>
             </div>
         </div>
 
@@ -501,7 +224,9 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-handshake"></i> Gedragsregels</h3>
-                <p>Hier komen de gedragsregels te staan voor leden, ouders en leiding.</p>
+                <div class="bard-content">
+                    {{ beleid_gedragsregels }}
+                </div>
             </div>
         </div>
     </div>
@@ -511,114 +236,25 @@
         <div class="card">
             <div class="card-content">
                 <h3><i class="fas fa-question-circle"></i> Veelgestelde Vragen (FAQ)</h3>
-                <p>Vind snel antwoord op de <strong>meest gestelde vragen</strong> over Thila Coloma.</p>
+                <p>{{ faq_intro }}</p>
                 
                 <div class="faq-container">
+                    {{ faq_items }}
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Vanaf welke leeftijd kan mijn kind lid worden?</h4>
+                            <h4>{{ vraag }}</h4>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Kinderen kunnen lid worden vanaf <strong>6 jaar</strong> bij de Kapoenen. Er is geen maximum leeftijd - ook volwassenen kunnen nog aansluiten als leiding!</p>
+                            {{ antwoord }}
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Wanneer zijn de vergaderingen?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Alle takken vergaderen elke <strong>zaterdag van 14:00 tot 17:00</strong>. Tijdens schoolvakanties kunnen de tijden aangepast worden.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Wat kost het lidmaatschap?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Het <strong>lidgeld bedraagt €120 per jaar</strong>. Dit dekt alle wekelijkse activiteiten. Kampen en weekends hebben een aparte kost.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Heeft mijn kind een uniform nodig?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Ja, elk lid draagt het <strong>officiële scoutsuniform</strong> tijdens vergaderingen. Dit kun je bestellen via het stamhoofd na inschrijving.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Kan mijn kind een proefvergadering bijwonen?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Natuurlijk! Nieuwe kinderen kunnen <strong>2 gratis proefvergaderingen</strong> bijwonen om te kijken of scouts iets voor hen is.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Wat als mijn kind allergieën of medische problemen heeft?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Bij inschrijving vragen we naar <strong>medische informatie</strong>. Onze leiding is opgeleid om hiermee om te gaan en neemt alle nodige voorzorgen.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Hoe kan ik als ouder helpen?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Er zijn vele manieren om te helpen: <strong>werkjes</strong>, <strong>transport bij kampen</strong>, <strong>evenementen organiseren</strong> of gewoon als <strong>vrijwilliger</strong> bij activiteiten.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Wat gebeurt er bij slecht weer?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Bij scouts gaan activiteiten <strong>door bij alle weertypes</strong>! We hebben overdekte ruimtes en passen activiteiten aan het weer aan. "Er bestaat geen slecht weer, alleen slechte kledij!"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Wanneer zijn er kampen en wat kosten ze?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Elk jaar organiseren we een <strong>paasweekendje</strong> en een <strong>zomerkamp</strong>. De kostprijs varieert tussen <strong>€50-150</strong> afhankelijk van de duur en locatie.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <h4>Hoe kan ik mijn kind inschrijven?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Inschrijven kan via het <strong>inschrijvingsformulier</strong> op onze website of door contact op te nemen met het stamhoofd. Je kan ook eerst langskomen bij een vergadering!</p>
-                        </div>
-                    </div>
+                    {{ /faq_items }}
                 </div>
                 
                 <div class="faq-contact">
-                    <h4>Jouw vraag staat er niet bij?</h4>
-                    <p>Geen probleem! Contacteer ons voor meer informatie.</p>
-                    <a href="mailto:groepsleiding@thilacoloma.be" class="btn btn-primary">
+                    <h4>{{ faq_contact_tekst }}</h4>
+                    <a href="mailto:{{ faq_contact_email }}" class="btn btn-primary">
                         <i class="fas fa-envelope"></i>
                         Stel je vraag
                     </a>
@@ -633,27 +269,27 @@
         <!-- Jaarthema's -->
         <div class="card">
             <div class="card-content">
-                <h3><i class="fas fa-calendar-alt"></i> Jaarthema's</h3>
-                <p>Elk scoutsjaar werken we rond een centraal thema dat alle activiteiten en spelletjes doorloopt.</p>
-                <p><em>Meer informatie over onze jaarthema's volgt binnenkort...</em></p>
+                <div class="bard-content">
+                    {{ extra_jaarthemas }}
+                </div>
             </div>
         </div>
 
         <!-- Onze liederen -->
         <div class="card">
             <div class="card-content">
-                <h3><i class="fas fa-music"></i> Onze liederen</h3>
-                <p>Zingen hoort bij scouting! We hebben verschillende groepsliederen en tak-specifieke liedjes.</p>
-                <p><em>Liedteksten en meer informatie volgen binnenkort...</em></p>
+                <div class="bard-content">
+                    {{ extra_liederen }}
+                </div>
             </div>
         </div>
 
         <!-- Onze geschiedenis -->
         <div class="card">
             <div class="card-content">
-                <h3><i class="fas fa-history"></i> Onze geschiedenis</h3>
-                <p>Scouts Thila Coloma heeft een rijke geschiedenis sinds de oprichting in 1985.</p>
-                <p><em>Uitgebreide geschiedenis en tijdlijn volgen binnenkort...</em></p>
+                <div class="bard-content">
+                    {{ extra_geschiedenis }}
+                </div>
             </div>
         </div>
         
