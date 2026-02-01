@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaarplanning Thila Coloma - A3 Print</title>
+    <style>
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #4a7c59;
+            --accent-color: #f0f8f0;
+            --text-dark: #2c3e50;
+            --text-light: #666;
+            --border-light: #eee;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --font-size-xs: 0.7rem;
+            --font-size-sm: 0.8rem;
+            --font-size-md: 0.9rem;
+            --font-size-lg: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: var(--spacing-md);
+            font-size: var(--font-size-md);
+            line-height: 1.3;
+            color: var(--text-dark);
+        }
+
+        @media print {
+            @page {
+                size: A3 landscape;
+                margin: 8mm;
+            }
+            
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: var(--font-size-sm);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: var(--font-size-lg);
+        }
+
+        .calendar-table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-size-sm);
+        }
+
+        .calendar-table th {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-sm);
+            font-weight: bold;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .calendar-table th:last-child {
+            border-right: none;
+        }
+
+        .calendar-table td {
+            border: 1px solid var(--border-light);
+            padding: 2px;
+            vertical-align: top;
+            text-align: center;
+            height: 35px;
+            position: relative;
+        }
+
+        .day-number {
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            font-size: var(--font-size-xs);
+        }
+
+        .day-cell {
+            min-height: 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .day-cell.has-event {
+            background: var(--accent-color);
+        }
+
+        .event-marker {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 2px;
+            padding: 1px 3px;
+            font-size: 0.6rem;
+            margin: 1px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-light);
+        }
+
+        .error {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: #d32f2f;
+            background: #ffebee;
+            border-radius: 8px;
+            margin: var(--spacing-lg);
+        }
+
+        .legend {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .legend h3 {
+            color: var(--primary-color);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+            font-weight: bold;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: var(--spacing-xs) 0;
+            font-size: var(--font-size-sm);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            margin-right: var(--spacing-sm);
+            border-radius: 2px;
+            background: var(--primary-color);
+        }
+
+        @media print {
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .calendar-table {
+                font-size: var(--font-size-xs);
+            }
+            
+            .calendar-table th,
+            .calendar-table td {
+                padding: 1px;
+            }
+            
+            .event-marker {
+                font-size: 0.5rem;
+                padding: 0px 2px;
+            }
+            
+            .day-number {
+                font-size: 0.6rem;
+            }
+            
+            .legend {
+                font-size: var(--font-size-xs);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Jaarplanning Thila Coloma</h1>
+        <p>Scoutsjaar 2024-2025</p>
+    </div>
+
+    <div id="loading" class="loading">
+        Evenementen laden...
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+        <p>⚠️ Kon evenementen niet laden. Probeer later opnieuw.</p>
+    </div>
+
+    <div class="calendar-table-container" id="calendarContainer" style="display: none;">
+        <table class="calendar-table" id="yearTable">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Dag</th>
+                    <th>Sept</th>
+                    <th>Okt</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mrt</th>
+                    <th>Apr</th>
+                    <th>Mei</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="legend">
+        <h3>Legenda</h3>
+        <div class="legend-item">
+            <div class="legend-color"></div>
+            <span>Speciale evenementen en activiteiten</span>
+        </div>
+    </div>
+
+    <script>
+        // Google Calendar ICS URL
+        const GOOGLE_CALENDAR_URL = 'https://calendar.google.com/calendar/ical/c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com/public/basic.ics';
+        
+        // Month names in Dutch (short for table headers)
+        const monthNames = [
+            'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni',
+            'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'
+        ];
+        
+        // Scouts year month order (September to August) - matching table headers
+        const scoutsYearMonths = [8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7]; // Sep, Oct, Nov, Dec, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug
+        
+        // Get current scouts year (starts in September)
+        function getCurrentScoutsYear() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const currentMonth = today.getMonth();
+            
+            // If we're before September, we're in the second half of the scouts year
+            return currentMonth < 8 ? currentYear - 1 : currentYear;
+        }
+
+        // Get events from Google Calendar
+        async function fetchGoogleCalendarEvents() {
+            try {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(GOOGLE_CALENDAR_URL)}`;
+                const response = await fetch(proxyUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return parseICS(data.contents);
+            } catch (error) {
+                console.error('Error fetching calendar:', error);
+                throw error;
+            }
+        }
+
+        // Parse ICS calendar data
+        function parseICS(icsData) {
+            const events = [];
+            const lines = icsData.split('\n');
+            let currentEvent = null;
+            let inEvent = false;
+            
+            for (let line of lines) {
+                line = line.trim();
+                
+                if (line === 'BEGIN:VEVENT') {
+                    inEvent = true;
+                    currentEvent = {};
+                } else if (line === 'END:VEVENT' && inEvent) {
+                    if (currentEvent.dtstart && currentEvent.summary) {
+                        events.push(currentEvent);
+                    }
+                    currentEvent = null;
+                    inEvent = false;
+                } else if (inEvent && line.includes(':')) {
+                    const [key, ...valueParts] = line.split(':');
+                    const value = valueParts.join(':');
+                    
+                    if (key === 'SUMMARY') {
+                        currentEvent.summary = value;
+                    } else if (key.startsWith('DTSTART')) {
+                        currentEvent.dtstart = parseICSDate(value);
+                    } else if (key.startsWith('DTEND')) {
+                        currentEvent.dtend = parseICSDate(value);
+                    } else if (key === 'DESCRIPTION') {
+                        currentEvent.description = value;
+                    }
+                }
+            }
+            
+            return events;
+        }
+
+        // Parse ICS date format
+        function parseICSDate(dateString) {
+            // Format: YYYYMMDD or YYYYMMDDTHHMMSS or YYYYMMDDTHHMMSSZ
+            const cleanDate = dateString.replace(/[TZ]/g, '');
+            const year = parseInt(cleanDate.substring(0, 4));
+            const month = parseInt(cleanDate.substring(4, 6)) - 1; // JavaScript months are 0-indexed
+            const day = parseInt(cleanDate.substring(6, 8));
+            
+            return new Date(year, month, day);
+        }
+
+        // Generate the year table with events
+        function generateYearTable(events) {
+            const scoutsYear = getCurrentScoutsYear();
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            // Create event lookup by date
+            const eventsByDate = {};
+            events.forEach(event => {
+                if (event.dtstart) {
+                    const dateKey = formatDateKey(event.dtstart);
+                    if (!eventsByDate[dateKey]) {
+                        eventsByDate[dateKey] = [];
+                    }
+                    eventsByDate[dateKey].push(event);
+                }
+            });
+            
+            // Generate rows for each day (1-31)
+            for (let day = 1; day <= 31; day++) {
+                const row = document.createElement('tr');
+                
+                // Day number column
+                const dayCell = document.createElement('td');
+                dayCell.innerHTML = `<div class="day-number">${day}</div>`;
+                dayCell.style.fontWeight = 'bold';
+                dayCell.style.backgroundColor = '#f8f9fa';
+                row.appendChild(dayCell);
+                
+                // Month columns (Sep through Aug)
+                scoutsYearMonths.forEach(monthIndex => {
+                    const cell = document.createElement('td');
+                    const cellDiv = document.createElement('div');
+                    cellDiv.className = 'day-cell';
+                    
+                    // Calculate the correct year for this month
+                    let year = scoutsYear;
+                    if (monthIndex < 8) { // Jan-Jul are in the next calendar year
+                        year = scoutsYear + 1;
+                    }
+                    
+                    // Check if this day exists in this month
+                    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+                    if (day <= daysInMonth) {
+                        const dateKey = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                        const dayEvents = eventsByDate[dateKey] || [];
+                        
+                        if (dayEvents.length > 0) {
+                            cellDiv.classList.add('has-event');
+                            dayEvents.forEach(event => {
+                                const eventMarker = document.createElement('div');
+                                eventMarker.className = 'event-marker';
+                                eventMarker.textContent = event.summary.substring(0, 15) + (event.summary.length > 15 ? '...' : '');
+                                eventMarker.title = event.summary;
+                                cellDiv.appendChild(eventMarker);
+                            });
+                        }
+                    } else {
+                        // Day doesn't exist in this month, make cell empty and gray
+                        cell.style.backgroundColor = '#f5f5f5';
+                    }
+                    
+                    cell.appendChild(cellDiv);
+                    row.appendChild(cell);
+                });
+                
+                tbody.appendChild(row);
+            }
+        }
+
+        // Format date as key for lookup
+        function formatDateKey(date) {
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        }
+
+        // Main function to load and display calendar
+        async function loadCalendar() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const container = document.getElementById('calendarContainer');
+            
+            try {
+                // Show loading
+                loading.style.display = 'block';
+                error.style.display = 'none';
+                container.style.display = 'none';
+                
+                // Fetch events
+                const events = await fetchGoogleCalendarEvents();
+                
+                // Generate table
+                generateYearTable(events);
+                
+                // Show calendar
+                loading.style.display = 'none';
+                container.style.display = 'block';
+                
+                console.log(`✅ Loaded ${events.length} events successfully`);
+                
+            } catch (err) {
+                console.error('Failed to load calendar:', err);
+                
+                // Show error
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                
+                // Load demo events as fallback
+                const demoEvents = createDemoEvents();
+                generateYearTable(demoEvents);
+                container.style.display = 'block';
+            }
+        }
+
+        // Create demo events for fallback
+        function createDemoEvents() {
+            const scoutsYear = getCurrentScoutsYear();
+            return [
+                {
+                    summary: 'Start scoutsjaar',
+                    dtstart: new Date(scoutsYear, 8, 10)
+                },
+                {
+                    summary: 'Herfstweekend',
+                    dtstart: new Date(scoutsYear, 9, 14)
+                },
+                {
+                    summary: 'Overlevingsweekend',
+                    dtstart: new Date(scoutsYear, 9, 28)
+                },
+                {
+                    summary: 'Belofteweekend',
+                    dtstart: new Date(scoutsYear, 11, 22)
+                },
+                {
+                    summary: 'Kluisweekend',
+                    dtstart: new Date(scoutsYear + 1, 2, 30)
+                },
+                {
+                    summary: 'Kamp',
+                    dtstart: new Date(scoutsYear + 1, 6, 5)
+                }
+            ];
+        }
+
+        // Load calendar when page is ready
+        document.addEventListener('DOMContentLoaded', loadCalendar);
+    </script>
+        function getCurrentScoutsYear() {
+            const now = new Date();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            
+            // If we're in Sep-Dec, scouts year is current calendar year
+            // If we're in Jan-Aug, scouts year is previous calendar year
+            return currentMonth >= 8 ? currentYear : currentYear - 1;
+        }
+        
+        // Event type detection (same logic as website)
+        function getEventType(title, description) {
+            const titleLower = title.toLowerCase();
+            const descLower = (description || '').toLowerCase();
+            
+            if (titleLower.includes('kamp') || titleLower.includes('bk') || titleLower.includes('voorkamp') || titleLower.includes('nakamp')) {
+                return 'kamp';
+            }
+            if (titleLower.includes('weekend')) {
+                return 'weekend';
+            }
+            if (titleLower.includes('vergadering') || titleLower.includes('inclusie')) {
+                return 'vergadering';
+            }
+            if (titleLower.includes('verkoop') || titleLower.includes('marspein') || titleLower.includes('pizzabak') || titleLower.includes('bingo')) {
+                return 'verkoop';
+            }
+            return 'activiteit';
+        }
+        
+        // Parse ICS date format (same as website)
+        function parseICSDate(dateStr) {
+            if (!dateStr) return null;
+            
+            console.log('Parsing date string:', dateStr);
+            
+            // Remove any VALUE=DATE or TZID parameters and get the actual date
+            let cleanDateStr = dateStr;
+            if (dateStr.includes(':')) {
+                cleanDateStr = dateStr.split(':').pop();
+            } else if (dateStr.includes('=')) {
+                cleanDateStr = dateStr.split('=').pop();
+            }
+            
+            // Remove any trailing characters
+            cleanDateStr = cleanDateStr.replace(/[^0-9T]/g, '');
+            
+            console.log('Clean date string:', cleanDateStr);
+            
+            try {
+                // Handle different date formats
+                if (cleanDateStr.length === 8) {
+                    // YYYYMMDD format (all-day event)
+                    const year = parseInt(cleanDateStr.substring(0, 4));
+                    const month = parseInt(cleanDateStr.substring(4, 6)) - 1;
+                    const day = parseInt(cleanDateStr.substring(6, 8));
+                    const result = new Date(year, month, day);
+                    console.log('Parsed as all-day:', result);
+                    return result;
+                } else if (cleanDateStr.length >= 15) {
+                    // YYYYMMDDTHHMMSS format (timed event)
+                    const year = parseInt(cleanDateStr.substring(0, 4));
+                    const month = parseInt(cleanDateStr.substring(4, 6)) - 1;
+                    const day = parseInt(cleanDateStr.substring(6, 8));
+                    const hour = parseInt(cleanDateStr.substring(9, 11));
+                    const minute = parseInt(cleanDateStr.substring(11, 13));
+                    const result = new Date(year, month, day, hour, minute);
+                    console.log('Parsed as timed event:', result);
+                    return result;
+                } else if (cleanDateStr.length >= 13) {
+                    // YYYYMMDDTHHMMZ format 
+                    const year = parseInt(cleanDateStr.substring(0, 4));
+                    const month = parseInt(cleanDateStr.substring(4, 6)) - 1;
+                    const day = parseInt(cleanDateStr.substring(6, 8));
+                    const hour = parseInt(cleanDateStr.substring(9, 11));
+                    const minute = parseInt(cleanDateStr.substring(11, 13));
+                    const result = new Date(year, month, day, hour, minute);
+                    console.log('Parsed as timed event (Z):', result);
+                    return result;
+                }
+            } catch (error) {
+                console.error('Error parsing date:', dateStr, error);
+            }
+            
+            console.log('Could not parse date:', dateStr);
+            return null;
+        }
+        
+        // Parse ICS data (same logic as website)
+        function parseICS(icsData) {
+            console.log('Parsing ICS data, first 500 chars:', icsData.substring(0, 500));
+            const events = [];
+            const lines = icsData.split(/\r?\n/); // Handle both \r\n and \n line endings
+            let currentEvent = null;
+            
+            // Debug: search for all November 16 related lines first
+            const nov16Lines = lines.filter((line, index) => {
+                return line.includes('20251116') || 
+                       (line.includes('SUMMARY') && lines.slice(Math.max(0, index-10), index+10).some(l => l.includes('20251116')));
+            });
+            console.log('🔍 All lines containing November 16 data:', nov16Lines);
+            
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i].trim();
+                
+                // Track all Scoutsvergadering events for debugging
+                if (line.includes('SUMMARY:') && line.toLowerCase().includes('scoutsvergadering')) {
+                    console.log('📋 Found scoutsvergadering summary at line', (i+1), ':', line);
+                    // Look for nearby date information
+                    for (let j = Math.max(0, i-5); j <= Math.min(lines.length-1, i+5); j++) {
+                        if (lines[j].includes('DTSTART')) {
+                            console.log('   📅 Associated date at line', (j+1), ':', lines[j]);
+                            // Check if this is November 9 or 16
+                            if (lines[j].includes('20251109') || lines[j].includes('20251116')) {
+                                console.log('   🎯 IMPORTANT: This is a November Scoutsvergadering!');
+                            }
+                        }
+                    }
+                }
+                
+                // Handle multi-line values (lines starting with space or tab)
+                while (i + 1 < lines.length && (lines[i + 1].startsWith(' ') || lines[i + 1].startsWith('\t'))) {
+                    i++;
+                    line += lines[i].trim();
+                }
+                
+                if (line === 'BEGIN:VEVENT') {
+                    // Create a completely fresh event object
+                    currentEvent = {
+                        summary: null,
+                        description: null,
+                        dtstart: null,
+                        dtend: null
+                    };
+                    console.log('Starting new event at line', i);
+                } else if (line === 'END:VEVENT' && currentEvent) {
+                    if (currentEvent.dtstart && currentEvent.summary) {
+                        // Create a copy of the event to avoid reference issues
+                        const eventToAdd = {
+                            summary: currentEvent.summary,
+                            description: currentEvent.description,
+                            dtstart: currentEvent.dtstart,
+                            dtend: currentEvent.dtend
+                        };
+                        events.push(eventToAdd);
+                        console.log('Added event:', eventToAdd.summary, eventToAdd.dtstart);
+                        
+                        // Extra debugging for November events  
+                        if (eventToAdd.dtstart.getMonth() === 10 && eventToAdd.dtstart.getFullYear() === 2025) {
+                            console.log('🔍 FOUND November event:', {
+                                summary: eventToAdd.summary,
+                                date: eventToAdd.dtstart,
+                                day: eventToAdd.dtstart.getDate()
+                            });
+                        }
+                    } else {
+                        console.log('⚠️ Skipped incomplete event at line', i, ':', {
+                            summary: currentEvent.summary,
+                            dtstart: currentEvent.dtstart,
+                            hasStart: !!currentEvent.dtstart,
+                            hasSummary: !!currentEvent.summary
+                        });
+                    }
+                    currentEvent = null;
+                } else if (currentEvent) {
+                    if (line.startsWith('DTSTART')) {
+                        const dateStr = line.split(':')[1] || line.split('=')[line.split('=').length - 1];
+                        currentEvent.dtstart = parseICSDate(dateStr);
+                        console.log('Parsed start date:', dateStr, '->', currentEvent.dtstart);
+                        
+                        // Track what summary this date gets linked to
+                        if (currentEvent.summary) {
+                            console.log(`🔗 Date ${currentEvent.dtstart.toDateString()} linked to "${currentEvent.summary}"`);
+                        } else {
+                            console.log(`🔗 Date ${currentEvent.dtstart.toDateString()} set - waiting for summary`);
+                        }
+                        
+                        // Track November events specifically
+                        if (currentEvent.dtstart && currentEvent.dtstart.getMonth() === 10 && currentEvent.dtstart.getFullYear() === 2025) {
+                            console.log(`🗓️ NOVEMBER 2025 event: "${currentEvent.summary || 'No summary yet'}" on day ${currentEvent.dtstart.getDate()}`);
+                        }
+                    } else if (line.startsWith('DTEND')) {
+                        const dateStr = line.split(':')[1] || line.split('=')[line.split('=').length - 1];
+                        currentEvent.dtend = parseICSDate(dateStr);
+                    } else if (line.startsWith('SUMMARY:')) {
+                        currentEvent.summary = line.substring(8).trim();
+                        // Decode common escape sequences
+                        currentEvent.summary = currentEvent.summary
+                            .replace(/\\n/g, ' ')
+                            .replace(/\\,/g, ',')
+                            .replace(/\\;/g, ';')
+                            .replace(/\\\\/g, '\\');
+                        
+                        console.log(`📝 Set summary "${currentEvent.summary}" at line ${i+1}`);
+                        
+                        // Debug logging for events containing "vergadering"
+                        if (currentEvent.summary.toLowerCase().includes('vergadering')) {
+                            console.log('📋 Found vergadering event:', currentEvent.summary);
+                        }
+                        
+                        // Special tracking for scoutsvergadering
+                        if (currentEvent.summary.toLowerCase().includes('scoutsvergadering')) {
+                            console.log('🎯 SCOUTSVERGADERING SUMMARY set at line', i+1, '- will get date from next DTSTART');
+                        }
+                    } else if (line.startsWith('DESCRIPTION:')) {
+                        currentEvent.description = line.substring(12).trim();
+                        // Decode common escape sequences
+                        currentEvent.description = currentEvent.description
+                            .replace(/\\n/g, '\n')
+                            .replace(/\\,/g, ',')
+                            .replace(/\\;/g, ';')
+                            .replace(/\\\\/g, '\\');
+                    }
+                }
+            }
+            
+            console.log(`Parsed ${events.length} events total`);
+            return events;
+        }
+        
+        // Get days in month
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+        
+        // Get first day of month (0=Sunday, 1=Monday, etc.)
+        function getFirstDayOfMonth(year, month) {
+            const firstDay = new Date(year, month, 1).getDay();
+            return firstDay === 0 ? 6 : firstDay - 1; // Convert to Monday = 0
+        }
+        
+        // Check if date is weekend
+        function isWeekend(date) {
+            const day = date.getDay();
+            return day === 0 || day === 6; // Sunday or Saturday
+        }
+        
+        // Check if date is today
+        function isToday(date) {
+            const today = new Date();
+            return date.getDate() === today.getDate() &&
+                   date.getMonth() === today.getMonth() &&
+                   date.getFullYear() === today.getFullYear();
+        }
+        
+        // Generate calendar for a specific month
+        function generateMonthCalendar(year, month, events) {
+            const monthContainer = document.createElement('div');
+            monthContainer.className = 'month-container';
+            
+            // Month header
+            const monthHeader = document.createElement('div');
+            monthHeader.className = 'month-header';
+            monthHeader.textContent = `${monthNames[month]} ${year}`;
+            monthContainer.appendChild(monthHeader);
+            
+            // Calendar grid
+            const monthCalendar = document.createElement('div');
+            monthCalendar.className = 'month-calendar';
+            
+            // Add weekday headers
+            dayNames.forEach(dayName => {
+                const weekdayHeader = document.createElement('div');
+                weekdayHeader.className = 'weekday-header';
+                weekdayHeader.textContent = dayName;
+                monthCalendar.appendChild(weekdayHeader);
+            });
+            
+            // Get month info
+            const daysInMonth = getDaysInMonth(year, month);
+            const firstDay = getFirstDayOfMonth(year, month);
+            const daysInPrevMonth = getDaysInMonth(year, month === 0 ? 11 : month - 1);
+            
+            // Add empty cells for previous month
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day other-month';
+                
+                const dayNumber = document.createElement('span');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = daysInPrevMonth - i;
+                dayCell.appendChild(dayNumber);
+                
+                monthCalendar.appendChild(dayCell);
+            }
+            
+            // Add days of current month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day';
+                
+                if (isWeekend(date)) {
+                    dayCell.classList.add('weekend');
+                }
+                
+                if (isToday(date)) {
+                    dayCell.classList.add('today');
+                }
+                
+                const dayNumber = document.createElement('span');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day;
+                dayCell.appendChild(dayNumber);
+                
+                // Add events for this day
+                const dayEvents = events.filter(event => {
+                    const eventDate = event.dtstart;
+                    return eventDate.getDate() === day &&
+                           eventDate.getMonth() === month &&
+                           eventDate.getFullYear() === year;
+                });
+                
+                // Debug logging for specific dates
+                if (month === 10 && day === 16) { // November 16th
+                    console.log(`Debug November 16: Found ${dayEvents.length} events:`, dayEvents);
+                }
+                
+                // Sort events by time for better display
+                dayEvents.sort((a, b) => {
+                    const timeA = a.dtstart.getHours() * 60 + a.dtstart.getMinutes();
+                    const timeB = b.dtstart.getHours() * 60 + b.dtstart.getMinutes();
+                    return timeA - timeB;
+                });
+                
+                dayEvents.forEach((event, index) => {
+                    const eventElement = document.createElement('div');
+                    eventElement.className = `event ${getEventType(event.summary, event.description)}`;
+                    
+                    // Truncate very long event names for display
+                    let displayText = event.summary;
+                    if (displayText.length > 25) {
+                        displayText = displayText.substring(0, 22) + '...';
+                    }
+                    
+                    eventElement.textContent = displayText;
+                    eventElement.title = `${event.summary}${event.description ? '\n' + event.description : ''}`;
+                    
+                    // Add time info for timed events in tooltip
+                    if (event.dtstart.getHours() !== 0 || event.dtstart.getMinutes() !== 0) {
+                        const timeStr = event.dtstart.toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+                        eventElement.title = `${timeStr} - ${event.summary}${event.description ? '\n' + event.description : ''}`;
+                    }
+                    
+                    dayCell.appendChild(eventElement);
+                });
+                
+                monthCalendar.appendChild(dayCell);
+            }
+            
+            // Add empty cells for next month
+            const totalCells = monthCalendar.children.length - 7; // Subtract weekday headers
+            const remainingCells = 42 - totalCells; // 6 weeks * 7 days - current cells
+            
+            for (let day = 1; day <= remainingCells; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day other-month';
+                
+                const dayNumber = document.createElement('span');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day;
+                dayCell.appendChild(dayNumber);
+                
+                monthCalendar.appendChild(dayCell);
+            }
+            
+            monthContainer.appendChild(monthCalendar);
+            return monthContainer;
+        }
+        
+        // Load and display calendar
+        async function loadCalendar() {
+            try {
+                const loadingElement = document.getElementById('loading');
+                const errorElement = document.getElementById('error');
+                const calendarContainer = document.getElementById('calendar-container');
+                
+                loadingElement.style.display = 'block';
+                errorElement.style.display = 'none';
+                calendarContainer.style.display = 'none';
+                
+                let allEvents = [];
+                
+                try {
+                    // DIAGNOSTIC: Test if URL is accessible and what we get
+                    console.log('🔍 CALENDAR URL DIAGNOSTICS');
+                    console.log('Current URL:', GOOGLE_CALENDAR_URL);
+                    
+                    // Test alternative URL formats
+                    console.log('Testing alternative URL formats...');
+                    const testUrls = [
+                        'https://calendar.google.com/calendar/ical/c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b@group.calendar.google.com/public/basic.ics',
+                        'https://calendar.google.com/calendar/ical/c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com/public/full.ics'
+                    ];
+                    
+                    for (let i = 0; i < testUrls.length; i++) {
+                        try {
+                            console.log(`Testing URL ${i+1}: ${testUrls[i]}`);
+                            const testResponse = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(testUrls[i])}`);
+                            if (testResponse.ok) {
+                                const testData = await testResponse.json();
+                                console.log(`URL ${i+1} response length:`, testData.contents ? testData.contents.length : 0);
+                                if (testData.contents && testData.contents.includes('BEGIN:VCALENDAR')) {
+                                    console.log(`✅ URL ${i+1} contains valid calendar data!`);
+                                }
+                            }
+                        } catch (e) {
+                            console.log(`URL ${i+1} failed:`, e.message);
+                        }
+                    }
+                    
+                    // Try to load from Google Calendar using different methods
+                    let icsData = '';
+                    console.log('Attempting to load calendar from:', GOOGLE_CALENDAR_URL);
+                    
+                    // Method 1: Try direct fetch with no-cors mode first
+                    try {
+                        const response = await fetch(GOOGLE_CALENDAR_URL, {
+                            mode: 'no-cors',
+                            headers: {
+                                'Accept': 'text/calendar,text/plain,*/*'
+                            }
+                        });
+                        console.log('Direct fetch response:', response.status);
+                    } catch (noCorsError) {
+                        console.log('No-cors fetch failed:', noCorsError.message);
+                    }
+                    
+                    // Method 2: Try direct fetch with CORS
+                    if (!icsData) {
+                        try {
+                            const response = await fetch(GOOGLE_CALENDAR_URL, {
+                                mode: 'cors',
+                                headers: {
+                                    'Accept': 'text/calendar,text/plain,*/*'
+                                }
+                            });
+                            if (response.ok) {
+                                icsData = await response.text();
+                                console.log('CORS fetch successful, data length:', icsData.length);
+                            }
+                        } catch (corsError) {
+                            console.log('CORS fetch failed:', corsError.message);
+                        }
+                    }
+                    
+                    // Method 3: Try using CORS proxy
+                    if (!icsData) {
+                        try {
+                            console.log('Trying CORS proxy...');
+                            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(GOOGLE_CALENDAR_URL)}`;
+                            const response = await fetch(proxyUrl);
+                            if (response.ok) {
+                                const data = await response.json();
+                                let rawData = data.contents;
+                                
+                                // Check if the data is base64 encoded (starts with data:text/calendar;base64,)
+                                if (rawData && rawData.startsWith('data:text/calendar')) {
+                                    console.log('Data is base64 encoded, decoding...');
+                                    const base64Data = rawData.split(',')[1];
+                                    icsData = atob(base64Data);
+                                    console.log('Base64 decoded, data length:', icsData.length);
+                                } else {
+                                    icsData = rawData;
+                                }
+                                
+                                console.log('Proxy fetch successful, final data length:', icsData ? icsData.length : 0);
+                            }
+                        } catch (proxyError) {
+                            console.log('Proxy fetch failed:', proxyError.message);
+                        }
+                    }
+                    
+                    // Method 4: Try alternative proxy
+                    if (!icsData || icsData.length < 1000) {
+                        try {
+                            console.log('Trying alternative proxy...');
+                            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(GOOGLE_CALENDAR_URL)}`;
+                            const response = await fetch(proxyUrl);
+                            if (response.ok) {
+                                let rawData = await response.text();
+                                
+                                // Check if this is also base64 encoded
+                                if (rawData && rawData.startsWith('data:text/calendar')) {
+                                    console.log('Alternative proxy data is base64 encoded, decoding...');
+                                    const base64Data = rawData.split(',')[1];
+                                    icsData = atob(base64Data);
+                                    console.log('Alternative proxy base64 decoded, data length:', icsData.length);
+                                } else {
+                                    icsData = rawData;
+                                }
+                                
+                                console.log('Alternative proxy successful, final data length:', icsData.length);
+                            }
+                        } catch (altProxyError) {
+                            console.log('Alternative proxy failed:', altProxyError.message);
+                        }
+                    }
+                    
+                    // Parse the data or show demo
+                    if (!icsData || icsData.length < 100) {
+                        console.log('No valid ICS data found, showing demo calendar');
+                        allEvents = createDemoEvents();
+                    } else {
+                        console.log('Parsing ICS data...');
+                        
+                        // Debug: show raw data around November 16
+                        const lines = icsData.split(/\r?\n/);
+                        const nov16LineIndex = lines.findIndex(line => line.includes('20251116'));
+                        if (nov16LineIndex >= 0) {
+                            console.log('🔍 Raw ICS data around November 16 (lines', nov16LineIndex-5, 'to', nov16LineIndex+15, '):');
+                            const contextLines = lines.slice(Math.max(0, nov16LineIndex-5), nov16LineIndex+16);
+                            contextLines.forEach((line, index) => {
+                                const actualLineNum = Math.max(0, nov16LineIndex-5) + index;
+                                console.log(`${actualLineNum}: ${line}`);
+                            });
+                        }
+                        
+                        allEvents = parseICS(icsData);
+                        console.log('Parsed events count:', allEvents.length);
+                        
+                        // If parsing succeeded but no events found, still show demo
+                        if (allEvents.length === 0) {
+                            console.log('No events found in ICS data, showing demo calendar');
+                            allEvents = createDemoEvents();
+                        }
+                    }
+                } catch (fetchError) {
+                    console.log('Calendar fetch error:', fetchError);
+                    allEvents = createDemoEvents();
+                }
+                
+                // Get current scouts year
+                const scoutsYear = getCurrentScoutsYear();
+                
+                // Update title
+                document.getElementById('calendar-title').textContent = 'Thila Coloma Jaarplanning';
+                const subtitle = allEvents.length > 0 ? 
+                    `Scoutsjaar ${scoutsYear}-${scoutsYear + 1}` : 
+                    `Scoutsjaar ${scoutsYear}-${scoutsYear + 1} (Demo data)`;
+                document.getElementById('calendar-subtitle').textContent = subtitle;
+                
+                // Filter events for the scouts year (September to August)
+                const yearEvents = allEvents.filter(event => {
+                    const eventDate = event.dtstart;
+                    const eventYear = eventDate.getFullYear();
+                    const eventMonth = eventDate.getMonth();
+                    
+                    const isInScoutsYear = (eventYear === scoutsYear && eventMonth >= 8) ||
+                           (eventYear === scoutsYear + 1 && eventMonth <= 7);
+                    
+                    return isInScoutsYear;
+                });
+                
+                console.log(`Total events: ${allEvents.length}, Events in scouts year ${scoutsYear}-${scoutsYear + 1}: ${yearEvents.length}`);
+                
+                // Debug: show all November events with full details
+                const novemberEvents = yearEvents.filter(event => {
+                    const eventDate = event.dtstart;
+                    return eventDate.getMonth() === 10 && eventDate.getFullYear() === 2025;
+                });
+                console.log('November 2025 events:', novemberEvents.map(e => `${e.dtstart.getDate()}: ${e.summary}`));
+                
+                // Debug: show ALL parsed events on November 16 (from all events, not just filtered)
+                const nov16AllEvents = allEvents.filter(event => {
+                    const eventDate = event.dtstart;
+                    return eventDate.getDate() === 16 && 
+                           eventDate.getMonth() === 10 && 
+                           eventDate.getFullYear() === 2025;
+                });
+                console.log('ALL November 16 events (unfiltered):', nov16AllEvents.map(e => ({
+                    summary: e.summary,
+                    date: e.dtstart,
+                    description: e.description || 'No description'
+                })));
+                
+                // Generate calendar
+                const yearCalendar = document.getElementById('year-calendar');
+                yearCalendar.innerHTML = '';
+                
+                scoutsYearMonths.forEach(monthIndex => {
+                    const year = monthIndex >= 8 ? scoutsYear : scoutsYear + 1;
+                    const monthEvents = yearEvents.filter(event => {
+                        const eventDate = event.dtstart;
+                        return eventDate.getMonth() === monthIndex && eventDate.getFullYear() === year;
+                    });
+                    
+                    // Debug logging for November
+                    if (monthIndex === 10) {
+                        console.log(`November ${year} events for calendar:`, monthEvents.map(e => `${e.dtstart.getDate()}: ${e.summary}`));
+                    }
+                    
+                    const monthCalendar = generateMonthCalendar(year, monthIndex, monthEvents);
+                    yearCalendar.appendChild(monthCalendar);
+                });
+                
+                loadingElement.style.display = 'none';
+                calendarContainer.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error loading calendar:', error);
+                
+                // Show demo calendar instead of just error
+                const allEvents = createDemoEvents();
+                const scoutsYear = getCurrentScoutsYear();
+                
+                document.getElementById('calendar-title').textContent = 'Thila Coloma Jaarplanning';
+                document.getElementById('calendar-subtitle').textContent = `Scoutsjaar ${scoutsYear}-${scoutsYear + 1} (Demo data)`;
+                
+                // Filter events for the scouts year (September to August)
+                const yearEvents = allEvents.filter(event => {
+                    const eventDate = event.dtstart;
+                    const eventYear = eventDate.getFullYear();
+                    const eventMonth = eventDate.getMonth();
+                    
+                    return (eventYear === scoutsYear && eventMonth >= 8) ||
+                           (eventYear === scoutsYear + 1 && eventMonth <= 7);
+                });
+                
+                // Generate calendar
+                const yearCalendar = document.getElementById('year-calendar');
+                yearCalendar.innerHTML = '';
+                
+                scoutsYearMonths.forEach(monthIndex => {
+                    const year = monthIndex >= 8 ? scoutsYear : scoutsYear + 1;
+                    const monthEvents = yearEvents.filter(event => {
+                        const eventDate = event.dtstart;
+                        return eventDate.getMonth() === monthIndex && eventDate.getFullYear() === year;
+                    });
+                    
+                    const monthCalendar = generateMonthCalendar(year, monthIndex, monthEvents);
+                    yearCalendar.appendChild(monthCalendar);
+                });
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('calendar-container').style.display = 'block';
+            }
+        }
+        
+        // Load calendar when page loads
+        document.addEventListener('DOMContentLoaded', loadCalendar);
+    </script>
+</body>
+</html>

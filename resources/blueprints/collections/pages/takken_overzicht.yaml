@@ -42,10 +42,9 @@ sections:
                 -
                   handle: logo
                   field:
-                    type: assets
+                    type: text
                     display: 'Logo'
-                    max_files: 1
-                    container: assets
+                    instructions: 'Path to logo image (bijv. "/assets/images/takken/Takteken_kapoenen-zeehondjes_hr_rgb.jpg")'
                 -
                   handle: beschrijving
                   field:

@@ -26,28 +26,63 @@ sections:
       -
         handle: content
         field:
-          type: bard
+          type: markdown
           display: Inhoud
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-          save_html: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
+          instructions: 'Hoofdinhoud van de pagina'
+      -
+        handle: is_tak_page
+        field:
+          type: toggle
+          display: 'Is Tak Pagina'
+          instructions: 'Schakel in voor tak-specifieke velden'
+          default: false
+  tak_info:
+    display: 'Tak Informatie'
+    fields:
+      -
+        handle: tak_type
+        field:
+          type: select
+          display: 'Tak Type'
+          instructions: 'Selecteer het type tak'
+          options:
+            regulier: 'Reguliere Tak'
+            subtakken: 'Tak met Subtakken'
+            akabe: 'AKABE Tak'
+          if:
+            is_tak_page: 'equals true'
+      -
+        handle: formulier_link
+        field:
+          type: text
+          display: 'Afwezigheids Formulier'
+          instructions: 'Link naar het afwezigheidsformulier'
+          if:
+            tak_type: 'in regulier,akabe'
+      -
+        handle: rekeningnummer
+        field:
+          type: text
+          display: 'Rekeningnummer'
+          instructions: 'Rekeningnummer voor betalingen'
+          if:
+            tak_type: 'in regulier,akabe'
+      -
+        handle: subtakken_data
+        field:
+          type: textarea
+          display: 'Subtakken Data'
+          instructions: 'YAML data voor subtakken (alleen voor ontwikkelaars)'
+          if:
+            tak_type: 'equals subtakken'
+      -
+        handle: akabe_info
+        field:
+          type: markdown
+          display: 'AKABE Informatie'
+          instructions: 'Extra informatie specifiek voor AKABE tak'
+          if:
+            tak_type: 'equals akabe'
   seo:
     display: SEO
     fields:

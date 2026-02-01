@@ -48,8 +48,13 @@ log_message "🗑️ Cleaning up root-owned cache files..."
 find $WEBSITE_DIR/storage/framework/cache/data/stache/ -user root -delete 2>/dev/null || true
 find $WEBSITE_DIR/bootstrap/cache/ -user root -delete 2>/dev/null || true
 
+# Force remove and recreate problematic directories that often remain root-owned
+log_message "🔧 Force recreating stache index directories..."
+rm -rf $WEBSITE_DIR/storage/framework/cache/data/stache/indexes/entries 2>/dev/null || true
+rm -rf $WEBSITE_DIR/storage/framework/cache/data/stache/indexes/collections 2>/dev/null || true
+
 # Ensure Stache cache directories exist with correct ownership
-mkdir -p /var/www/thilacoloma/storage/framework/cache/data/stache/indexes/{collections,taxonomies,navs,globals,assets,forms,users}
+mkdir -p /var/www/thilacoloma/storage/framework/cache/data/stache/indexes/{collections,taxonomies,navs,globals,assets,forms,users,entries/news,entries/pages}
 chown -R www-data:www-data /var/www/thilacoloma/storage/framework/cache/data/stache/
 chmod -R 775 /var/www/thilacoloma/storage/framework/cache/data/stache/
 

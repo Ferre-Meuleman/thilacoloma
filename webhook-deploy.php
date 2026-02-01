@@ -52,7 +52,7 @@ $commands = [
     'php artisan route:cache 2>&1',
     'php artisan view:cache 2>&1',
     'php artisan statamic:stache:clear 2>&1',
-    'php artisan statamic:stache:warm 2>&1',
+    'php artisan statamic:stache:clear 2>&1',
     'chmod -R 755 storage bootstrap/cache 2>&1'
 ];
 

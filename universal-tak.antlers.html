@@ -1,0 +1,514 @@
+---
+title: '{{ title }}'
+layout: layouts/page
+---
+
+    <div class="page-section">
+        <div class="back-to-takken">
+            <a href="/takken" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
+            </a>
+        </div>
+        <h1>{{ title }}</h1>
+        
+        {{ if content }}
+            <div class="section-intro">
+                {{ content }}
+            </div>
+        {{ /if }}
+    </div>
+
+    {{ if is_tak_page }}
+        <!-- REGULIERE TAK (bijv. Kapoenen, Verkenners) -->
+        {{ if tak_type == "regulier" }}
+            <div class="page-section">
+                <h2>Praktische Informatie</h2>
+                
+                <div class="grid-2">
+                    <div class="card compact-card">
+                        <div class="card-content">
+                            <div class="card-left">
+                                <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
+                                <p>Je kan afwezigheden hier verwittigen</p>
+                            </div>
+                            <div class="card-right">
+                                {{ if formulier_link }}
+                                    <a href="{{ formulier_link }}" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-external-link-alt"></i> Formulier
+                                    </a>
+                                {{ else }}
+                                    <span class="btn btn-disabled">Geen formulier</span>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card compact-card">
+                        <div class="card-content">
+                            <div class="card-left">
+                                <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
+                                <p>Overschrijven naar rekening</p>
+                            </div>
+                            <div class="card-right">
+                                {{ if rekeningnummer }}
+                                    <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                                        <i class="fas fa-copy"></i> {{ rekeningnummer }}
+                                    </button>
+                                {{ else }}
+                                    <span class="btn btn-disabled">Geen rekening</span>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leiding-grid">
+                    {{ leidingsploegen:leidingsploegen }}
+                        {{ if tak_naam == title && actief }}
+                            {{ leiding }}
+                                <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
+                                    <div class="leiding-foto">
+                                        {{ totem_parts = totem | explode: ' ' }}
+                                        {{ animal_name = totem_parts | last }}
+                                        <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                    </div>
+                                    <div class="leiding-info">
+                                        <h3><strong>{{ totem }}</strong></h3>
+                                        {{ if functie == 'takleider' }}
+                                            <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
+                                        {{ else }}
+                                            <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
+                                        {{ /if }}
+                                        <a href="mailto:{{ email }}" class="email">{{ email }}</a>
+                                        {{ if functie == 'takleider' }}
+                                            <p class="telefoon">Telefoonnummer in de blauwe gids</p>
+                                        {{ /if }}
+                                    </div>
+                                </div>
+                            {{ /leiding }}
+                        {{ /if }}
+                    {{ /leidingsploegen:leidingsploegen }}
+                </div>
+            </div>
+        {{ /if }}
+
+        <!-- TAK MET SUBTAKKEN (bijv. Welpen) -->
+        {{ if tak_type == "subtakken" && subtakken }}
+            {{ subtakken }}
+                <div class="page-section">
+                    <h2>{{ naam }}</h2>
+                    
+                    <div class="grid-2">
+                        <div class="card compact-card">
+                            <div class="card-content">
+                                <div class="card-left">
+                                    <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
+                                    <p>Je kan afwezigheden hier verwittigen</p>
+                                </div>
+                                <div class="card-right">
+                                    {{ if formulier_link }}
+                                        <a href="{{ formulier_link }}" target="_blank" class="btn btn-primary">
+                                            <i class="fas fa-external-link-alt"></i> Formulier
+                                        </a>
+                                    {{ else }}
+                                        <span class="btn btn-disabled">Geen formulier</span>
+                                    {{ /if }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card compact-card">
+                            <div class="card-content">
+                                <div class="card-left">
+                                    <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
+                                    <p>Overschrijven naar rekening</p>
+                                </div>
+                                <div class="card-right">
+                                    {{ if rekeningnummer }}
+                                        <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                                            <i class="fas fa-copy"></i> {{ rekeningnummer }}
+                                        </button>
+                                    {{ else }}
+                                        <span class="btn btn-disabled">Geen rekening</span>
+                                    {{ /if }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ if extra_info }}
+                        <div class="subtak-extra">
+                            {{ extra_info }}
+                        </div>
+                    {{ /if }}
+
+                    <div class="leiding-grid">
+                        {{ leidingsploegen:leidingsploegen }}
+                            {{ if tak_naam == naam && actief }}
+                                {{ leiding }}
+                                    <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
+                                        <div class="leiding-foto">
+                                            {{ totem_parts = totem | explode: ' ' }}
+                                            {{ animal_name = totem_parts | last }}
+                                            <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                        </div>
+                                        <div class="leiding-info">
+                                            <h3><strong>{{ totem }}</strong></h3>
+                                            {{ if functie == 'takleider' }}
+                                                <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
+                                            {{ else }}
+                                                <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
+                                            {{ /if }}
+                                            <a href="mailto:{{ email }}" class="email">{{ email }}</a>
+                                            {{ if functie == 'takleider' }}
+                                                <p class="telefoon">Telefoonnummer in de blauwe gids</p>
+                                            {{ /if }}
+                                        </div>
+                                    </div>
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:leidingsploegen }}
+                    </div>
+                </div>
+            {{ /subtakken }}
+        {{ /if }}
+
+        <!-- AKABE TAK (Tictak) -->
+        {{ if tak_type == "akabe" && akabe_info }}
+            <div class="page-section">
+                <h2>Praktische Informatie</h2>
+                
+                <div class="grid-3">
+                    <div class="card compact-card">
+                        <div class="card-content">
+                            <div class="card-left">
+                                <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
+                                <p>Je kan afwezigheden hier verwittigen</p>
+                            </div>
+                            <div class="card-right">
+                                {{ if akabe_info:formulier_link }}
+                                    <a href="{{ akabe_info:formulier_link }}" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-external-link-alt"></i> Formulier
+                                    </a>
+                                {{ else }}
+                                    <span class="btn btn-disabled">Geen formulier</span>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card compact-card">
+                        <div class="card-content">
+                            <div class="card-left">
+                                <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
+                                <p>Overschrijven naar rekening</p>
+                            </div>
+                            <div class="card-right">
+                                {{ if akabe_info:rekeningnummer }}
+                                    <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ akabe_info:rekeningnummer }}')" title="Klik om te kopiëren">
+                                        <i class="fas fa-copy"></i> {{ akabe_info:rekeningnummer }}
+                                    </button>
+                                {{ else }}
+                                    <span class="btn btn-disabled">Geen rekening</span>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ if akabe_info:infobrochure_link }}
+                        <div class="card compact-card">
+                            <div class="card-content">
+                                <div class="card-left">
+                                    <h3><i class="fas fa-info-circle"></i> Infobrochure</h3>
+                                    <p>Download onze infobrochure</p>
+                                </div>
+                                <div class="card-right">
+                                    <a href="{{ akabe_info:infobrochure_link }}" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-download"></i> Download
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {{ /if }}
+                </div>
+
+                <div class="leiding-grid">
+                    {{ leidingsploegen:leidingsploegen }}
+                        {{ if tak_naam == "Tictak" && actief }}
+                            {{ leiding }}
+                                <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
+                                    <div class="leiding-foto">
+                                        {{ totem_parts = totem | explode: ' ' }}
+                                        {{ animal_name = totem_parts | last }}
+                                        <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                    </div>
+                                    <div class="leiding-info">
+                                        <h3><strong>{{ totem }}</strong></h3>
+                                        {{ if functie == 'takleider' }}
+                                            <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
+                                        {{ else }}
+                                            <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
+                                        {{ /if }}
+                                        <a href="mailto:{{ email }}" class="email">{{ email }}</a>
+                                        {{ if functie == 'takleider' }}
+                                            <p class="telefoon">Telefoonnummer in de blauwe gids</p>
+                                        {{ /if }}
+                                    </div>
+                                </div>
+                            {{ /leiding }}
+                        {{ /if }}
+                    {{ /leidingsploegen:leidingsploegen }}
+                </div>
+            </div>
+
+            <!-- AKABE Specifieke Secties -->
+            <div class="page-section">
+                <h2>Over AKABE</h2>
+                
+                <div class="info-content">
+                    {{ if akabe_info:missie_tekst }}
+                        <div class="card info-card">
+                            <div class="card-content">
+                                <h3><i class="fas fa-heart"></i> Onze Missie</h3>
+                                {{ akabe_info:missie_tekst }}
+                            </div>
+                        </div>
+                    {{ /if }}
+
+                    {{ if akabe_info:vlaanderen_tekst }}
+                        <div class="card info-card">
+                            <div class="card-content">
+                                <h3><i class="fas fa-users"></i> AKABE in Vlaanderen</h3>
+                                {{ akabe_info:vlaanderen_tekst }}
+                            </div>
+                        </div>
+                    {{ /if }}
+
+                    {{ if akabe_info:wat_is_akabe_tekst }}
+                        <div class="card info-card">
+                            <div class="card-content">
+                                <h3><i class="fas fa-star"></i> Akabe is...</h3>
+                                {{ akabe_info:wat_is_akabe_tekst }}
+                            </div>
+                        </div>
+                    {{ /if }}
+                </div>
+            </div>
+        {{ /if }}
+    {{ else }}
+        <!-- Fallback voor niet-tak paginas -->
+        {{ if content }}
+            <div class="page-section">
+                {{ content }}
+            </div>
+        {{ /if }}
+    {{ /if }}
+
+    <style>
+        /* Section intro styling */
+        .page-section .section-intro {
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .page-section .section-intro span {
+            font-weight: bold;
+            color: var(--primary-color, #3747a0);
+        }
+
+        /* Back button styling */
+        .back-to-takken {
+            margin-bottom: 1rem;
+        }
+
+        .back-to-takken .btn {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-takken .btn:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        /* Leiding grid styling */
+        .leiding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .leiding-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .leiding-card.takleider {
+            border-left: 4px solid var(--primary-color, #3747a0);
+        }
+
+        .leiding-foto {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .leiding-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leiding-info h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            color: var(--primary-color, #3747a0);
+        }
+
+        .leiding-info .echte-naam {
+            margin: 0 0 0.25rem 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .leiding-info .email {
+            font-size: 0.85em;
+            color: var(--primary-color, #3747a0);
+            text-decoration: none;
+        }
+
+        .leiding-info .telefoon {
+            margin: 0.25rem 0 0 0;
+            font-size: 0.8em;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Grid and card styling */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .card-left {
+            flex: 1;
+        }
+
+        .card-left h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            color: var(--primary-color, #3747a0);
+        }
+
+        .card-left p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .copy-btn {
+            font-family: monospace;
+            font-size: 0.8em;
+        }
+
+        .btn-disabled {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+            cursor: not-allowed;
+        }
+
+        .subtak-extra {
+            margin: 1rem 0 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-color, #3747a0);
+        }
+
+        /* AKABE specific styling */
+        .info-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+        }
+
+        .info-card h3 {
+            margin: 0 0 1rem 0;
+            color: var(--primary-color, #3747a0);
+            font-size: 1.1rem;
+        }
+
+        .info-card h3 i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .leiding-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Show success feedback
+                const button = event.target.closest('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Gekopieerd!';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+    </script>

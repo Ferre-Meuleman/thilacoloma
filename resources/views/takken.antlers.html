@@ -15,11 +15,7 @@
             <div class="tak-card card">
                 <div class="card-content">
                     <div class="tak-header">
-                        {{ if logo }}
-                            <img src="{{ glide:logo width='100' height='100' fit='crop' }}" alt="{{ naam }} logo" class="tak-logo">
-                        {{ else }}
-                            <img src="/assets/images/takken/default-tak-logo.jpg" alt="{{ naam }} logo" class="tak-logo">
-                        {{ /if }}
+                        <img src="{{ logo }}" alt="{{ naam }} logo" class="tak-logo" style="max-width: 100px;">
                         <h3>{{ naam }}</h3>
                     </div>
                     <div class="tak-leeftijd">{{ leeftijd_range | dynamic_age_range }}</div>

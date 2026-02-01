@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaarplanning 2025 - Adobe Ready</title>
+    <style>
+        /* Adobe-friendly styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: white;
+            color: #333;
+            padding: 20mm;
+        }
+
+        .page-container {
+            width: 380mm; /* A3 width minus margins */
+            height: 257mm; /* A3 height minus margins */
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10mm;
+        }
+
+        .header h1 {
+            font-size: 18pt;
+            color: #374794;
+            font-weight: bold;
+            margin-bottom: 5mm;
+        }
+
+        .calendar-table {
+            width: 100%;
+            height: 235mm;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .calendar-table th {
+            background-color: #374794;
+            color: white;
+            padding: 2mm;
+            font-size: 14pt;
+            font-weight: bold;
+            text-align: center;
+            border: 0.5pt solid #ddd;
+            height: 10mm;
+        }
+
+        .calendar-table td {
+            border: 0.5pt solid #ddd;
+            padding: 1mm;
+            vertical-align: top;
+            height: 10mm;
+            font-size: 11pt;
+            position: relative;
+        }
+
+        .day-number {
+            font-weight: bold;
+            background-color: #f8f9fa;
+            text-align: center;
+            width: 20mm;
+            font-size: 12pt;
+        }
+
+        .day-cell {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .event {
+            font-size: 10pt;
+            color: #374794;
+            margin-bottom: 0.5mm;
+            line-height: 1.1;
+        }
+
+        .weekend-indicator {
+            position: absolute;
+            top: 1mm;
+            right: 1mm;
+            width: 3mm;
+            height: 3mm;
+            background-color: #374794;
+            border-radius: 50%;
+        }
+
+        .vacation-day {
+            background-color: rgba(55, 71, 148, 0.1);
+        }
+
+        .non-existent-day {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 1mm,
+                #ccc 1mm,
+                #ccc 2mm
+            );
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            .page-container {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">
+            <h1>Jaarplanning 2025 - Scouts Thila Coloma</h1>
+        </div>
+
+        <table class="calendar-table" id="calendar">
+            <!-- Table will be populated by JavaScript -->
+        </table>
+    </div>
+
+    <script>
+        // Same calendar data loading as original
+        const GOOGLE_CALENDAR_URL = 'https://calendar.google.com/calendar/ical/c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com/public/basic.ics';
+        
+        const monthNames = [
+            'September', 'Oktober', 'November', 'December',
+            'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus'
+        ];
+        
+        const scoutsYearMonths = [8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7];
+        
+        function getCurrentScoutsYear() {
+            return { startYear: 2024, endYear: 2025 };
+        }
+
+        // ICS parsing functions (same as original)
+        function parseICS(icsContent) {
+            const events = [];
+            const lines = icsContent.split('\n');
+            let currentEvent = null;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+
+                if (line === 'BEGIN:VEVENT') {
+                    currentEvent = {};
+                } else if (line === 'END:VEVENT' && currentEvent) {
+                    if (currentEvent.summary && currentEvent.startDate) {
+                        events.push(currentEvent);
+                    }
+                    currentEvent = null;
+                } else if (currentEvent) {
+                    if (line.startsWith('SUMMARY:')) {
+                        currentEvent.summary = decodeURIComponent(line.substring(8).replace(/\\n/g, ' ').replace(/\\,/g, ',').replace(/\\\\/g, '\\'));
+                    } else if (line.startsWith('DTSTART')) {
+                        const dateMatch = line.match(/(\d{8})/);
+                        if (dateMatch) {
+                            const dateStr = dateMatch[1];
+                            currentEvent.startDate = `${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`;
+                        }
+                    } else if (line.startsWith('DTEND')) {
+                        const dateMatch = line.match(/(\d{8})/);
+                        if (dateMatch) {
+                            const dateStr = dateMatch[1];
+                            const endDate = new Date(`${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`);
+                            // For all-day events, ICS DTEND is exclusive (one day after the last day)
+                            // Check if this is an all-day event (no time component in line)
+                            const isAllDay = !line.includes('T');
+                            if (isAllDay) {
+                                endDate.setDate(endDate.getDate() - 1);
+                            }
+                            currentEvent.endDate = endDate.toISOString().split('T')[0];
+                        }
+                    }
+                }
+            }
+            return events;
+        }
+
+        async function loadCalendarData() {
+            try {
+                const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(GOOGLE_CALENDAR_URL)}`);
+                const data = await response.json();
+                return parseICS(data.contents);
+            } catch (error) {
+                console.error('Error loading calendar:', error);
+                return [];
+            }
+        }
+
+        function isWeekend(date) {
+            const day = date.getDay();
+            return day === 0 || day === 6;
+        }
+
+        function isVacationPeriod(date) {
+            const month = date.getMonth();
+            const dayOfMonth = date.getDate();
+            
+            return (
+                (month === 6 && dayOfMonth >= 1) || month === 7 ||
+                (month === 11 && dayOfMonth >= 23) || (month === 0 && dayOfMonth <= 6) ||
+                (month === 1 && dayOfMonth >= 19 && dayOfMonth <= 25) ||
+                (month === 3 && dayOfMonth >= 1 && dayOfMonth <= 15)
+            );
+        }
+
+        function createCalendarTable(events) {
+            const table = document.getElementById('calendar');
+            const { startYear, endYear } = getCurrentScoutsYear();
+
+            // Create header
+            const thead = table.createTHead();
+            const headerRow = thead.insertRow();
+            
+            // Day numbers column
+            const dayHeader = document.createElement('th');
+            dayHeader.textContent = 'Dag';
+            dayHeader.style.width = '20mm';
+            headerRow.appendChild(dayHeader);
+
+            // Month headers
+            scoutsYearMonths.forEach(monthIndex => {
+                const th = document.createElement('th');
+                th.textContent = monthNames[scoutsYearMonths.indexOf(monthIndex)];
+                th.style.width = `${(380-20)/12}mm`;
+                headerRow.appendChild(th);
+            });
+
+            // Create body
+            const tbody = table.createTBody();
+
+            // Create rows for each day (1-31)
+            for (let day = 1; day <= 31; day++) {
+                const row = tbody.insertRow();
+                
+                // Day number cell
+                const dayCell = row.insertCell();
+                dayCell.textContent = day;
+                dayCell.className = 'day-number';
+
+                // Month cells
+                scoutsYearMonths.forEach(monthIndex => {
+                    const cell = row.insertCell();
+                    const year = (monthIndex >= 8) ? startYear : endYear;
+                    const date = new Date(year, monthIndex, day);
+
+                    if (date.getMonth() === monthIndex) {
+                        // Valid day
+                        const dayDiv = document.createElement('div');
+                        dayDiv.className = 'day-cell';
+
+                        // Add weekend indicator
+                        if (isWeekend(date)) {
+                            const weekendIndicator = document.createElement('div');
+                            weekendIndicator.className = 'weekend-indicator';
+                            dayDiv.appendChild(weekendIndicator);
+                        }
+
+                        // Add vacation styling
+                        if (isVacationPeriod(date)) {
+                            cell.classList.add('vacation-day');
+                        }
+
+                        // Add events
+                        const dateStr = date.toISOString().split('T')[0];
+                        const dayEvents = events.filter(event => {
+                            return event.startDate <= dateStr && event.endDate >= dateStr;
+                        });
+
+                        dayEvents.slice(0, 4).forEach(event => {
+                            const eventDiv = document.createElement('div');
+                            eventDiv.className = 'event';
+                            eventDiv.textContent = event.summary;
+                            dayDiv.appendChild(eventDiv);
+                        });
+
+                        cell.appendChild(dayDiv);
+                    } else {
+                        // Invalid day
+                        cell.classList.add('non-existent-day');
+                    }
+                });
+            }
+        }
+
+        // Initialize calendar
+        async function init() {
+            const events = await loadCalendarData();
+            window.parsedEvents = events;
+            createCalendarTable(events);
+        }
+
+        init();
+    </script>
+</body>
+</html>

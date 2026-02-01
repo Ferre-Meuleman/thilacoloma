@@ -7,5 +7,3 @@ template: meer
 layout: page
 ---
 Meer informatie over Thila Coloma, onze geschiedenis en extra services.
-
-**Test wijziging voor sync systeem - {{ date('Y-m-d H:i:s') }}**

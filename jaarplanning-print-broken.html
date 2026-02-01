@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaarplanning Thila Coloma - A3 Print</title>
+    <style>
+        :root {
+            /* Official Thila Coloma colors - clean and minimal */
+            --primary-color: #374794;
+            --light-bg: #F5F6FF;
+            --text-color: #333;
+            --border-color: #ddd;
+            --weekend-color: #e53935;
+            --kamp-color: #ff9800;
+            --activiteit-color: #9c27b0;
+            --vergadering-color: #4caf50;
+            
+            /* Typography */
+            --font-regular: 'Edmondsans Regular', Arial, sans-se                    } else {
+                        // Day doesn't exist in this month, make cell empty with diagonal stripes
+                        cellDiv.classList.add('empty-day');
+                        console.log(`📅 Empty day: day ${day} in month ${monthIndex + 1} (${year}) - doesn't exist`);
+                    }if;
+            --font-medium: 'Edmondsans Medium', Arial, sans-serif;
+            --font-bold: 'Edmondsans Bold', Arial, sans-serif;
+            --font-title: 'acier-bat-solid', Arial, sans-serif;
+        }
+
+        @import url('https://use.typekit.net/rae0xxq.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-regular);
+            background: white;
+            padding: 15px;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        @media print {
+            @page {
+                size: A3 landscape;
+                margin: 15mm;
+            }
+            
+            body {
+                padding: 0;
+                background: white;
+                margin: 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .calendar-table {
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            .calendar-table th {
+                padding: 10px 6px;
+                font-size: 12px;
+            }
+            
+            .calendar-table th:first-child {
+                font-size: 11px;
+            }
+            
+            .calendar-table td {
+                height: 160px;
+            }
+            
+            .calendar-table td:first-child {
+                font-size: 12px;
+                line-height: 160px;
+            }
+            
+            .day-cell {
+                height: 158px;
+                padding: 6px;
+            }
+            
+            .event-marker {
+                font-size: 12px;
+                padding: 6px 8px;
+                line-height: 1.3;
+                margin-bottom: 3px;
+                min-height: 22px;
+                border-radius: 6px;
+            }
+            
+            .legend {
+                padding: 10px;
+            }
+            
+            .legend-item {
+                font-size: 11px;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin: 20px 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-family: var(--font-bold);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .header p {
+            font-family: var(--font-medium);
+            font-size: 1rem;
+            color: #666;
+            margin: 5px 0 0 0;
+        }
+        
+        body {
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-regular);
+        }
+        
+        /* A3 page setup and optimization */
+        .calendar-table-container {
+            background: #ffffff;
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: none;
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-regular);
+            table-layout: fixed;
+        }
+
+                .calendar-table th {
+            background: #ffffff;
+            color: var(--primary-color);
+            padding: 12px 8px;
+            text-align: center;
+            font-family: var(--font-bold);
+            font-size: 12px;
+            border-right: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            font-weight: bold;
+            width: 8.33%;
+        }
+
+        .calendar-table th:first-child {
+            background: #ffffff;
+            color: var(--primary-color);
+            width: 4%;
+            font-size: 11px;
+            border-right: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+        
+        .calendar-table th:last-child {
+            border-right: none;
+        }
+
+        .calendar-table th:last-child {
+            border-right: none;
+        }
+
+        .calendar-table td {
+            border-right: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            padding: 0;
+            vertical-align: top;
+            height: 200px;
+            background: #ffffff !important;
+            width: 8.33%;
+        }
+
+        .calendar-table td:first-child {
+            background: #ffffff !important;
+            text-align: center;
+            font-family: var(--font-bold);
+            color: var(--primary-color);
+            font-size: 12px;
+            padding: 0;
+            line-height: 200px;
+            border-right: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            width: 4%;
+        }
+        
+        .calendar-table td:last-child {
+            border-right: none;
+        }
+        
+        .calendar-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .day-cell {
+            height: 198px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            overflow: visible;
+        }
+
+        .day-cell.empty-day {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 4px,
+                rgba(52, 144, 220, 0.25) 4px,
+                rgba(52, 144, 220, 0.25) 5px
+            ) !important;
+        }
+        
+        /* Weekend pattern - small dots */
+        .weekend-day {
+            background: white !important;
+            background-image: radial-gradient(circle, rgba(52, 144, 220, 0.6) 0.8px, transparent 0.8px) !important;
+            background-size: 5px 5px !important;
+            background-repeat: repeat !important;
+        }
+        
+        /* Vacation background - solid 10% fill */
+        .vacation-day {
+            background: rgba(52, 144, 220, 0.1) !important;
+        }
+        
+        /* Weekend + Vacation combination - 10% fill + stronger dots */
+        .weekend-day.vacation-day {
+            background: rgba(52, 144, 220, 0.1) !important;
+            background-image: radial-gradient(circle, rgba(52, 144, 220, 0.8) 0.8px, transparent 0.8px) !important;
+            background-size: 5px 5px !important;
+            background-repeat: repeat !important;
+        }
+
+        .event-marker {
+            display: block;
+            padding: 8px 10px;
+            color: white;
+            font-family: var(--font-medium);
+            font-size: 14px;
+            line-height: 1.4;
+            font-weight: 500;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            white-space: normal;
+            margin-bottom: 4px;
+            min-height: 28px;
+            overflow: visible;
+            border-radius: 8px;
+        }
+        
+        /* Clean event colors - no arrows or decorations */
+        .event-marker.weekend,
+        .event-marker.kamp,
+        .event-marker.activiteit,
+        .event-marker.vergadering,
+        .event-marker.default {
+            background: var(--primary-color);
+        }
+        
+        /* TC pink for special events */
+        .event-marker.evenement {
+            background: var(--accent-color);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-family: var(--font-medium);
+            font-size: 14px;
+        }
+
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #d32f2f;
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            margin: 20px 0;
+            font-family: var(--font-medium);
+            border-radius: 4px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 15px;
+            border-top: 1px solid var(--primary-color);
+            background: white;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-medium);
+            font-size: 11px;
+            color: var(--primary-color);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 8px;
+        }
+        
+        .legend-color.weekend,
+        .legend-color.kamp,
+        .legend-color.activiteit,
+        .legend-color.vergadering,
+        .legend-color.default {
+            background: var(--primary-color);
+        }
+        
+        .legend-color.evenement {
+            background: var(--accent-color);
+        }
+
+        @media print {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .header p {
+                font-size: 0.8rem;
+            }
+            
+            .calendar-table th {
+                padding: 8px 4px;
+                font-size: 11px;
+            }
+            
+            .calendar-table th:first-child {
+                font-size: 9px;
+            }
+            
+            .calendar-table td {
+                height: 140px;
+            }
+            
+            .calendar-table td:first-child {
+                font-size: 11px;
+                line-height: 140px;
+            }
+            
+            .day-cell {
+                height: 138px;
+                padding: 4px;
+            }
+            
+            .event-marker {
+                font-size: 10px;
+                padding: 4px 6px;
+                line-height: 1.3;
+                margin-bottom: 2px;
+                min-height: 18px;
+            }            .legend {
+                padding: 10px;
+            }
+            
+            .legend-item {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Jaarplanning Thila Coloma</h1>
+        <p>Scoutsjaar 2025-2026</p>
+    </div>
+
+    <div id="loading" class="loading">
+        Evenementen laden...
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+        <p>⚠️ Kon evenementen niet laden. Probeer later opnieuw.</p>
+    </div>
+
+    <div class="calendar-table-container" id="calendarContainer" style="display: none;">
+        <table class="calendar-table" id="yearTable">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Dag</th>
+                    <th>Sept</th>
+                    <th>Okt</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mrt</th>
+                    <th>Apr</th>
+                    <th>Mei</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color default"></div>
+            <span>Activiteiten</span>
+        </div>
+                    <div class="legend-item">
+                <div class="legend-color weekend-day vacation-day" style="background: rgba(52, 144, 220, 0.1); background-image: radial-gradient(circle, rgba(52, 144, 220, 0.7) 1px, transparent 1px); background-size: 6px 6px; background-repeat: repeat;"></div>
+                <span>Weekend in vakantie</span>
+            </div>
+        <div class="legend-item">
+            <div style="width: 12px; height: 8px; background: white; background-image: radial-gradient(circle, rgba(52, 144, 220, 0.6) 0.8px, transparent 0.8px); background-size: 5px 5px; background-repeat: repeat; border: 1px solid var(--primary-color);"></div>
+            <span>Weekends</span>
+        </div>
+        <div class="legend-item">
+            <div style="width: 12px; height: 8px; background: rgba(52, 144, 220, 0.1); border: 1px solid var(--primary-color);"></div>
+            <span>Schoolvakanties</span>
+        </div>
+    </div>
+
+    <script>
+        // Google Calendar ICS URL
+        const GOOGLE_CALENDAR_URL = 'https://calendar.google.com/calendar/ical/c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com/public/basic.ics';
+        
+        // Month names in Dutch (short for table headers)
+        const monthNames = [
+            'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni',
+            'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'
+        ];
+        
+        // Scouts year month order (September to August) - matching table headers
+        const scoutsYearMonths = [8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7]; // Sep, Oct, Nov, Dec, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug
+        
+        // Get current scouts year (starts in September)
+        function getCurrentScoutsYear() {
+            // Force 2025-2026 scouts year
+            return 2025;
+        }
+
+        // Get events from Google Calendar
+        async function fetchGoogleCalendarEvents() {
+            try {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(GOOGLE_CALENDAR_URL)}`;
+                const response = await fetch(proxyUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                let icsData = data.contents;
+                
+                console.log('🔍 Raw data type:', typeof icsData);
+                console.log('🔍 Raw data preview:', icsData.substring(0, 100));
+                
+                // Handle base64 encoded data
+                if (icsData.startsWith('data:text/calendar') && icsData.includes('base64,')) {
+                    console.log('📦 Detected base64 encoded data, decoding...');
+                    const base64Part = icsData.split('base64,')[1];
+                    icsData = atob(base64Part);
+                    console.log('✅ Decoded length:', icsData.length);
+                    console.log('✅ Decoded preview:', icsData.substring(0, 200));
+                }
+                
+                return parseICS(icsData);
+            } catch (error) {
+                console.error('Error fetching calendar:', error);
+                throw error;
+            }
+        }
+
+        // Parse ICS calendar data
+        function parseICS(icsData) {
+            console.log('🔍 Parsing ICS data, length:', icsData.length);
+            console.log('First 300 chars:', icsData.substring(0, 300));
+            
+            const events = [];
+            const lines = icsData.split('\n');
+            let currentEvent = null;
+            let inEvent = false;
+            let eventCount = 0;
+            
+            for (let line of lines) {
+                line = line.trim();
+                
+                if (line === 'BEGIN:VEVENT') {
+                    inEvent = true;
+                    currentEvent = {};
+                    eventCount++;
+                    console.log(`📅 Starting event ${eventCount}`);
+                } else if (line === 'END:VEVENT' && inEvent) {
+                    console.log('Event data:', {
+                        summary: currentEvent.summary,
+                        dtstart: currentEvent.dtstart,
+                        hasStart: !!currentEvent.dtstart,
+                        hasSummary: !!currentEvent.summary
+                    });
+                    
+                    if (currentEvent.dtstart && currentEvent.summary) {
+                        events.push(currentEvent);
+                        console.log(`✅ Added event: ${currentEvent.summary} on ${currentEvent.dtstart}`);
+                    } else {
+                        console.log(`❌ Skipped incomplete event`);
+                    }
+                    currentEvent = null;
+                    inEvent = false;
+                } else if (inEvent && line.includes(':')) {
+                    const [key, ...valueParts] = line.split(':');
+                    const value = valueParts.join(':');
+                    
+                    if (key === 'SUMMARY') {
+                        currentEvent.summary = value;
+                        console.log(`  📝 Summary: ${value}`);
+                    } else if (key.startsWith('DTSTART')) {
+                        currentEvent.dtstart = parseICSDate(value);
+                        console.log(`  📅 Start: ${value} -> ${currentEvent.dtstart}`);
+                    } else if (key.startsWith('DTEND')) {
+                        currentEvent.dtend = parseICSDate(value);
+                    } else if (key === 'DESCRIPTION') {
+                        currentEvent.description = value;
+                    }
+                }
+            }
+            
+            console.log(`🎯 Parsing complete: ${events.length} total events found`);
+            return events;
+        }
+
+        // Parse ICS date format
+        function parseICSDate(dateString) {
+            if (!dateString) return null;
+            
+            console.log('🗓️ Parsing date:', dateString);
+            
+            // Format: YYYYMMDD or YYYYMMDDTHHMMSS or YYYYMMDDTHHMMSSZ
+            // Remove timezone and time info for simplicity
+            let cleanDate = dateString.replace(/[TZ]/g, '').replace(/VALUE=DATE:/g, '');
+            
+            try {
+                if (cleanDate.length >= 8) {
+                    const year = parseInt(cleanDate.substring(0, 4));
+                    const month = parseInt(cleanDate.substring(4, 6)) - 1; // JavaScript months are 0-indexed
+                    const day = parseInt(cleanDate.substring(6, 8));
+                    
+                    const result = new Date(year, month, day);
+                    console.log(`   ✅ Parsed: ${dateString} -> ${result.toDateString()}`);
+                    return result;
+                }
+            } catch (error) {
+                console.error('   ❌ Parse error:', error);
+            }
+            
+            console.log('   ❌ Could not parse date:', dateString);
+            return null;
+        }
+
+        // Generate the year table with events
+        function generateYearTable(events) {
+            const scoutsYear = getCurrentScoutsYear();
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            // Expand multi-day events first
+            const expandedEvents = expandMultiDayEvents(events);
+            
+            // Create event lookup by date
+            const eventsByDate = {};
+            expandedEvents.forEach(event => {
+                if (event.dtstart) {
+                    const dateKey = formatDateKey(event.dtstart);
+                    if (!eventsByDate[dateKey]) {
+                        eventsByDate[dateKey] = [];
+                    }
+                    eventsByDate[dateKey].push(event);
+                }
+            });
+            
+            // Generate rows for each day (1-31)
+            for (let day = 1; day <= 31; day++) {
+                const row = document.createElement('tr');
+                
+                // Day number column
+                const dayCell = document.createElement('td');
+                dayCell.innerHTML = `<div class="day-number">${day}</div>`;
+                dayCell.style.fontWeight = 'bold';
+                dayCell.style.backgroundColor = '#f8f9fa';
+                row.appendChild(dayCell);
+                
+                // Month columns (Sep through Aug)
+                scoutsYearMonths.forEach(monthIndex => {
+                    const cell = document.createElement('td');
+                    const cellDiv = document.createElement('div');
+                    cellDiv.className = 'day-cell';
+                    
+                    // Calculate the correct year for this month (2025-2026 scouts year)
+                    let year = 2025; // Default for Sep-Dec 2025
+                    if (monthIndex >= 0 && monthIndex <= 7) { // Jan(0)-Aug(7) are in 2026
+                        year = 2026;
+                    }
+                    
+                    console.log(`Month ${monthIndex + 1} (index ${monthIndex}), using year ${year}`);
+                    
+                    // Check if this day exists in this month
+                    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+                    if (day <= daysInMonth) {
+                        const currentDate = new Date(year, monthIndex, day);
+                        const dayOfWeek = currentDate.getDay(); // 0 = Sunday, 6 = Saturday
+                        const dateKey = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                        const dayEvents = eventsByDate[dateKey] || [];
+                        
+                        // Highlight weekends with TC blue dots
+                        if (dayOfWeek === 0 || dayOfWeek === 6) {
+                            cellDiv.classList.add('weekend-day');
+                            console.log(`🌅 Weekend detected: ${dateKey} (day ${dayOfWeek})`);
+                        }
+                        
+                        // Check for vacation periods
+                        if (isVacationPeriod(currentDate)) {
+                            cellDiv.classList.add('vacation-day');
+                            console.log(`Vacation detected: ${dateKey}`);
+                        }
+                        
+                        if (dayEvents.length > 0) {
+                            dayEvents.forEach(event => {
+                                const eventMarker = document.createElement('div');
+                                eventMarker.className = 'event-marker ' + getEventType(event.summary);
+                                
+                                // Fix encoding issues and clean up text
+                                let eventText = event.summary;
+                                
+                                // Fix common encoding problems
+                                eventText = eventText.replace(/â/g, "'")      // Fix apostrophes
+                                                   .replace(/Ã/g, "e")       // Fix accented e
+                                                   .replace(/Ã©/g, "é")      // Fix é
+                                                   .replace(/Ã¨/g, "è")      // Fix è
+                                                   .replace(/Ã¡/g, "á")      // Fix á
+                                                   .replace(/Ã /g, "à")      // Fix à
+                                                   .replace(/â€™/g, "'")     // Fix smart quotes
+                                                   .replace(/â€œ/g, '"')     // Fix smart quotes
+                                                   .replace(/â€/g, '"')      // Fix smart quotes
+                                                   .replace(/â€¦/g, '...')   // Fix ellipsis
+                                                   .replace(/Ã§/g, 'ç');     // Fix ç
+                                
+                                // NO abbreviations - show full text
+                                // Only fix encoding issues
+                                eventText = eventText.replace(/â/g, "'")
+                                                   .replace(/Ã/g, "e")
+                                                   .replace(/Ã©/g, "é")
+                                                   .replace(/Ã¨/g, "è")
+                                                   .replace(/Ã¡/g, "á")
+                                                   .replace(/Ã /g, "à")
+                                                   .replace(/â€™/g, "'")
+                                                   .replace(/â€œ/g, '"')
+                                                   .replace(/â€/g, '"')
+                                                   .replace(/â€¦/g, '...')
+                                                   .replace(/Ã§/g, 'ç');
+                                
+                                // Clean up extra spaces only
+                                eventText = eventText.replace(/\s+/g, ' ').trim();
+                                
+                                // Set cleaned text
+                                eventMarker.textContent = eventText;
+                                eventMarker.title = event.summary; // Original text on hover
+                                cellDiv.appendChild(eventMarker);
+                            });
+                        }
+                    } else {\n                        // Day doesn't exist in this month, make cell empty with diagonal stripes\n                        cellDiv.classList.add('empty-day');\n                        console.log(`📅 Empty day: day ${day} in month ${monthIndex + 1} (${year}) - doesn't exist`);\n                    }
+                    
+                    cell.appendChild(cellDiv);
+                    row.appendChild(cell);
+                });
+                
+                tbody.appendChild(row);
+            }
+        }
+
+        // Determine event type based on event name
+        function getEventType(eventName) {
+            const name = eventName.toLowerCase();
+            
+            // Special events get TC pink (evenement)
+            if (name.includes('evenement') || name.includes('feest') || name.includes('gala') || 
+                name.includes('show') || name.includes('optreden') || name.includes('concert')) {
+                return 'evenement';
+            }
+            
+            // Everything else gets TC blue (default)
+            return 'default';
+        }
+
+        // Check if a date falls within Flemish school vacation periods
+        function isVacationPeriod(date) {
+            const month = date.getMonth() + 1; // 1-12
+            const day = date.getDate();
+            const year = date.getFullYear();
+            
+            console.log(`Checking vacation for: ${year}-${month}-${day}`);
+            
+            // Flemish school vacation periods for 2025-2026
+            // Herfstvakantie (Autumn break) - 27 Oct - 2 Nov 2025
+            if (year === 2025 && month === 10 && day >= 27) {
+                console.log('✅ Herfstvakantie detected!');
+                return true;
+            }
+            if (year === 2025 && month === 11 && day <= 2) {
+                console.log('✅ Herfstvakantie detected!');
+                return true;
+            }
+            
+            // Kerstvakantie (Christmas break) - 22 Dec 2025 - 5 Jan 2026
+            if ((year === 2025 && month === 12 && day >= 22) || (year === 2026 && month === 1 && day <= 5)) {
+                console.log('✅ Kerstvakantie detected!');
+                return true;
+            }
+            
+            // Krokusvakantie (Spring break) - 23 Feb - 1 Mar 2026
+            if (year === 2026 && month === 2 && day >= 23) {
+                console.log('✅ Krokusvakantie detected!');
+                return true;
+            }
+            if (year === 2026 && month === 3 && day <= 1) {
+                console.log('✅ Krokusvakantie detected!');
+                return true;
+            }
+            
+            // Paasvakantie (Easter break) - 30 Mar - 12 Apr 2026
+            if (year === 2026 && month === 3 && day >= 30) {
+                console.log('✅ Paasvakantie detected!');
+                return true;
+            }
+            if (year === 2026 && month === 4 && day <= 12) {
+                console.log('✅ Paasvakantie detected!');
+                return true;
+            }
+            
+            // Zomervakantie (Summer break) - 1 Jul - 31 Aug 2026
+            if (year === 2026 && (month === 7 || month === 8)) {
+                console.log('✅ Zomervakantie detected!');
+                return true;
+            }
+            
+            return false;
+        }
+
+        // Expand multi-day events across date range
+        function expandMultiDayEvents(events) {
+            const expandedEvents = [];
+            
+            events.forEach(event => {
+                if (event.dtstart && event.dtend) {
+                    // Multi-day event - create entry for each day
+                    const startDate = new Date(event.dtstart);
+                    const endDate = new Date(event.dtend);
+                    const currentDate = new Date(startDate);
+                    
+                    while (currentDate <= endDate) {
+                        const expandedEvent = {
+                            ...event,
+                            dtstart: new Date(currentDate),
+                            isMultiDay: true,
+                            isFirst: currentDate.getTime() === startDate.getTime(),
+                            isLast: currentDate.getTime() === endDate.getTime()
+                        };
+                        
+                        expandedEvents.push(expandedEvent);
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                } else {
+                    // Single day event
+                    expandedEvents.push({...event, isMultiDay: false});
+                }
+            });
+            
+            return expandedEvents;
+        }
+
+        // Format date as key for lookup
+        function formatDateKey(date) {
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        }
+
+        // Main function to load and display calendar
+        async function loadCalendar() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const container = document.getElementById('calendarContainer');
+            
+            try {
+                // Show loading
+                loading.style.display = 'block';
+                error.style.display = 'none';
+                container.style.display = 'none';
+                
+                console.log('🚀 Starting calendar load...');
+                
+                // Fetch events
+                const events = await fetchGoogleCalendarEvents();
+                console.log(`📊 Fetched ${events.length} total events`);
+                
+                // Log some sample events
+                events.slice(0, 5).forEach((event, i) => {
+                    console.log(`Event ${i+1}: ${event.summary} on ${event.dtstart ? event.dtstart.toDateString() : 'no date'}`);
+                });
+                
+                // Filter for scouts year
+                const scoutsYear = getCurrentScoutsYear();
+                console.log(`🎯 Current scouts year: ${scoutsYear}-${scoutsYear + 1}`);
+                
+                const scoutsYearEvents = events.filter(event => {
+                    if (!event.dtstart) return false;
+                    
+                    const eventYear = event.dtstart.getFullYear();
+                    const eventMonth = event.dtstart.getMonth();
+                    
+                    const inScoutsYear = (eventYear === scoutsYear && eventMonth >= 8) ||
+                                       (eventYear === scoutsYear + 1 && eventMonth <= 7);
+                    
+                    if (inScoutsYear) {
+                        console.log(`✅ Event in scouts year: ${event.summary} (${event.dtstart.toDateString()})`);
+                    }
+                    
+                    return inScoutsYear;
+                });
+                
+                console.log(`🎯 Filtered to ${scoutsYearEvents.length} scouts year events`);
+                
+                // Generate table
+                generateYearTable(scoutsYearEvents);
+                
+                // Show calendar
+                loading.style.display = 'none';
+                container.style.display = 'block';
+                
+                console.log(`✅ Loaded ${scoutsYearEvents.length} events successfully`);
+                
+            } catch (err) {
+                console.error('Failed to load calendar:', err);
+                
+                // Show error
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                
+                // Load demo events as fallback
+                console.log('🔄 Loading demo events as fallback...');
+                const demoEvents = createDemoEvents();
+                generateYearTable(demoEvents);
+                container.style.display = 'block';
+            }
+        }
+
+        // Create demo events for fallback
+        function createDemoEvents() {
+            const scoutsYear = getCurrentScoutsYear();
+            return [
+                {
+                    summary: 'Start scoutsjaar',
+                    dtstart: new Date(scoutsYear, 8, 10)
+                },
+                {
+                    summary: 'Herfstweekend',
+                    dtstart: new Date(scoutsYear, 9, 14)
+                },
+                {
+                    summary: 'Overlevingsweekend',
+                    dtstart: new Date(scoutsYear, 9, 28)
+                },
+                {
+                    summary: 'Belofteweekend',
+                    dtstart: new Date(scoutsYear, 11, 22)
+                },
+                {
+                    summary: 'Kluisweekend',
+                    dtstart: new Date(scoutsYear + 1, 2, 30)
+                },
+                {
+                    summary: 'Kamp',
+                    dtstart: new Date(scoutsYear + 1, 6, 5)
+                }
+            ];
+        }
+
+        // Load calendar when page is ready
+        document.addEventListener('DOMContentLoaded', loadCalendar);
+    </script>
+</body>
+</html>

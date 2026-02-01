@@ -82,7 +82,7 @@ sync_push() {
     done
 
     log "🧹 Clearing server caches..."
-    ssh "$SERVER" "cd $REMOTE_PATH && php please cache:clear && php please stache:refresh && chown -R www-data:www-data content"
+    ssh "$SERVER" "cd $REMOTE_PATH && php please cache:clear && php please stache:clear && chown -R www-data:www-data content"
     
     success "Push complete! Server is now identical to Local."
 }
@@ -107,7 +107,7 @@ sync_pull() {
     rsync -av --delete -e ssh "$SERVER:$REMOTE_PATH/content/" content/
     
     log "🧹 Refreshing local cache..."
-    php please stache:refresh
+    php please stache:clear
     
     success "Pull complete! Local is now identical to Server."
 }

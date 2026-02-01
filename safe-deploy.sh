@@ -54,7 +54,7 @@ echo ""
 echo "5️⃣ Updating dependencies and cache..."
 ssh thilacoloma "cd /var/www/thilacoloma && COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader"
 ssh thilacoloma "cd /var/www/thilacoloma && php artisan config:clear && php artisan cache:clear && php artisan view:clear"
-ssh thilacoloma "cd /var/www/thilacoloma && php artisan statamic:stache:clear && php artisan statamic:stache:warm"
+ssh thilacoloma "cd /var/www/thilacoloma && php artisan statamic:stache:clear && php artisan cache:clear"
 
 echo ""
 echo "🎉 SAFE DEPLOYMENT COMPLETE!"

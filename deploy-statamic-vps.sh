@@ -364,7 +364,7 @@ optimize_application() {
     
     # Statamic specific optimizations
     php please stache:clear
-    php please stache:refresh
+    php please stache:clear
     
     log_success "Application optimized"
 }
