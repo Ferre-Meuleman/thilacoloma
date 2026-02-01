@@ -1,6 +1,8 @@
 ---
 id: 86587346-ae97-462b-95d9-6f00b176b24a
 blueprint: tak
+layout: layouts/app
+template: kapoenen
 title: Kapoenen
 slug: kapoenen
 order: 1

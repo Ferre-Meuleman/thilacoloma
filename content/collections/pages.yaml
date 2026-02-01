@@ -1,10 +1,5 @@
 title: Pages
-structure:
-  root: true
-  max_depth: 3
 route: '/{slug}'
-mount: home
-propagate: true
 template: default
 sort_direction: asc
 blueprints:

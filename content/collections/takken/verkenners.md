@@ -1,6 +1,8 @@
 ---
 id: e67918a4-7947-466b-a235-7bf761c2a73c
 blueprint: tak
+layout: layouts/app
+template: verkenners
 title: Verkenners
 slug: verkenners
 order: 4

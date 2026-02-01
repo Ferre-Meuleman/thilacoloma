@@ -11,10 +11,6 @@ Route::statamic('/', 'home', [
    'layout' => 'layouts/app'
 ]);
 
-// Route::statamic('example', 'example-view', [
-//    'title' => 'Example'
-// ]);
-
 Route::statamic('test-globals', 'test-globals', [
    'title' => 'Test Globals'
 ]);

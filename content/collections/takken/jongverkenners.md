@@ -1,6 +1,8 @@
 ---
 id: 95ac6b9c-4ede-47e6-b770-a68520652a51
 blueprint: tak
+layout: layouts/app
+template: jongverkenners
 title: Jongverkenners
 slug: jongverkenners
 order: 3
