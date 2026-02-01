@@ -1,7 +1,7 @@
 ---
 id: e67918a4-7947-466b-a235-7bf761c2a73c
 blueprint: tak
-layout: layouts/app
+layout: layouts/page
 template: verkenners
 title: Verkenners
 slug: verkenners

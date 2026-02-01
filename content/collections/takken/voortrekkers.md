@@ -1,7 +1,7 @@
 ---
 id: f90cd898-ee4b-498e-b5ca-b54781a1aeeb
 blueprint: tak
-layout: layouts/app
+layout: layouts/page
 template: voortrekkers
 title: Voortrekkers
 slug: voortrekkers

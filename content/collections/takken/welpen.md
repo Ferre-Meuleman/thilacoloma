@@ -1,7 +1,7 @@
 ---
 id: 299a3112-e9e0-4393-8f41-87157fd2596f
 blueprint: tak
-layout: layouts/app
+layout: layouts/page
 template: welpen
 title: Welpen
 slug: welpen

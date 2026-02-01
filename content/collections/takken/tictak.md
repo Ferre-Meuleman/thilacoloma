@@ -1,7 +1,7 @@
 ---
 id: 3289b32d-5c26-4681-9976-dd24078fcce5
 blueprint: tak
-layout: layouts/app
+layout: layouts/page
 template: tictak
 title: TicTak
 slug: tictak
