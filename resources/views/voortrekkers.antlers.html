@@ -1,22 +1,17 @@
-
-
-
-
-    
-        <div class="page-section">
+<div class="container">
+    <div class="page-section">
             <div class="back-to-takken">
                 <a href="/takken" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
                 </a>
             </div>
-            <h1>Voortrekkers</h1>
-            <p class="section-intro">
-                <span>Jins (Jij en Ik Noodzaak) zijn 18 jaar</span> en beleven hun laatste scoutsjaar als "kindje", voor ze leiding worden. In TC gebruiken we de oude benaming voor Jins: <span>Voortrekkers</span>. De Vt's zijn <span>zoekers</span>. Met open ogen en een grote gulzigheid staan ze in het leven. Keuzes zijn er bij de vleet: pedagogie of informatica, Leuven of Gent, scouting of basket. Vt's proberen hun eigen doelen en verwachtingen te realiseren en genieten van de <span>vrijheid en zelfstandigheid</span> die ze in hun tak krijgen. Het is een veilige plek waar ruimte is voor fouten en waar de mafste ideeën worden gerealiseerd. Bij TC staan de Vt's een keer per maand bij een andere tak in leiding, om al eens van het <span>leiding-zijn te kunnen proeven</span>. In juli gaan de Vt's op hun eigen <span>buitenlands kamp</span>.
-            </p>
+            <h1>{{ title }}</h1>
+            <div class="section-intro">{{ content | markdown }}</div>
         </div>
 
+        {{ subtakken }}
         <div class="page-section">
-            <h2>VT Leiding</h2>
+            <h2>{{ naam }}</h2>
             
             <div class="grid-2">
                 <div class="card compact-card">
@@ -26,7 +21,7 @@
                             <p>Je kan afwezigheden hier verwittigen</p>
                         </div>
                         <div class="card-right">
-                            <a href="https://forms.gle/VGQmCEXsWPknHNr9A" target="_blank" class="btn btn-primary">
+                            <a href="{{ afwezigheids_formulier }}" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Formulier
                             </a>
                         </div>
@@ -40,8 +35,8 @@
                             <p>Overschrijven naar rekening</p>
                         </div>
                         <div class="card-right">
-                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE09 3630 9890 2957')" title="Klik om te kopiëren">
-                                <i class="fas fa-copy"></i> BE09 3630 9890 2957
+                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                                <i class="fas fa-copy"></i> {{ rekeningnummer }}
                             </button>
                         </div>
                     </div>
@@ -60,7 +55,7 @@
 
             <div class="leiding-grid">
                 {{ leidingsploegen:leidingsploegen }}
-                    {{ if tak_naam == "Voortrekkers" && actief }}
+                    {{ if tak_naam == naam && actief }}
                         {{ leiding }}
                             <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                                 <div class="leiding-foto">
@@ -86,19 +81,19 @@
                 {{ /leidingsploegen:leidingsploegen }}
             </div>
         </div>
-    
-
+        {{ /subtakken }}
+</div>
 
     <style>
-        /* Section intro styling */
+        /* Section intro styling - IMPORTANT: Override default styles */
         .page-section .section-intro {
-            text-align: center;
-            font-size: 1.1em;
-            color: var(--dark-color);
-            margin-bottom: var(--spacing-xl);
-            max-width: 1050px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center !important;
+            font-size: 1.1em !important;
+            color: #1e5faa !important;
+            margin-bottom: var(--spacing-xl) !important;
+            max-width: 1050px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         /* Main title styling - H1 with H2 style */

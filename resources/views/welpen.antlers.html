@@ -1,22 +1,19 @@
-
-
-
-
-    
-        <div class="page-section">
+<div class="container">
+    <div class="page-section">
             <div class="back-to-takken">
                 <a href="/takken" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
                 </a>
             </div>
-            <h1>Welpen</h1>
-            <p class="section-intro">
-                Is het leven van een welp (8-11 jaar) een <span>jungle of een speeltuin</span>? Welpen beleven op de scouts hun grootste avonturen. In bomen klimmen, kampen bouwen, vuil worden en <span>10 dagen kamp</span>! Her leren om samen plezier te maker in groep staat centraal bij de welpen. In TC is de welpentak een beetje speciaal, ze is namelijk in <span>3 verschillende takken verdeeld</span>, op basis van leeftijd. Kinderen uit het 3de leerjaar zitten bij de <span>Jongwelpen</span>, kinderen uit het 4de leerjaar zitten bij de <span>Welpen</span> en kinderen uit het 5de leerjaar zitten bij de <span>Seniorwelpen</span>.
-            </p>
+            <h1>{{ title }}</h1>
+            <div class="section-intro">
+                {{ content | markdown }}
+            </div>
         </div>
 
+        {{ subtakken }}
         <div class="page-section">
-            <h2>Jongwelpen</h2>
+            <h2>{{ naam }}</h2>
             
             <div class="grid-2">
                 <div class="card compact-card">
@@ -26,7 +23,7 @@
                             <p>Je kan afwezigheden hier verwittigen</p>
                         </div>
                         <div class="card-right">
-                            <a href="https://forms.gle/Wr4Gdq68D5o2TECC6" target="_blank" class="btn btn-primary">
+                            <a href="{{ formulier_link }}" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Formulier
                             </a>
                         </div>
@@ -40,8 +37,8 @@
                             <p>Overschrijven naar rekening</p>
                         </div>
                         <div class="card-right">
-                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE75 6512 2428 7951')" title="Klik om te kopiëren">
-                                <i class="fas fa-copy"></i> BE75 6512 2428 7951
+                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                                <i class="fas fa-copy"></i> {{ rekeningnummer }}
                             </button>
                         </div>
                     </div>
@@ -50,7 +47,7 @@
 
             <div class="leiding-grid">
                 {{ leidingsploegen:leidingsploegen }}
-                    {{ if tak_naam == "Jongwelpen" && actief }}
+                    {{ if tak_naam == naam && actief }}
                         {{ leiding }}
                             <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                                 <div class="leiding-foto">
@@ -76,139 +73,16 @@
                 {{ /leidingsploegen:leidingsploegen }}
             </div>
         </div>
-
-        <div class="page-section">
-            <h2>Welpen</h2>
-            
-            <div class="grid-2">
-                <div class="card compact-card">
-                    <div class="card-content">
-                        <div class="card-left">
-                            <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
-                            <p>Je kan afwezigheden hier verwittigen</p>
-                        </div>
-                        <div class="card-right">
-                            <a href="https://forms.gle/mNxXfeaSHAGddduu5" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt"></i> Formulier
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card compact-card">
-                    <div class="card-content">
-                        <div class="card-left">
-                            <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
-                            <p>Overschrijven naar rekening</p>
-                        </div>
-                        <div class="card-right">
-                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE87 7380 4430 7194')" title="Klik om te kopiëren">
-                                <i class="fas fa-copy"></i> BE87 7380 4430 7194
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="leiding-grid">
-                {{ leidingsploegen:leidingsploegen }}
-                    {{ if tak_naam == "Welpen" && actief }}
-                        {{ leiding }}
-                            <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
-                                <div class="leiding-foto">
-                                    {{ totem_parts = totem | explode: ' ' }}
-                                    {{ animal_name = totem_parts | last }}
-                                    <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
-                                </div>
-                                <div class="leiding-info">
-                                    <h3><strong>{{ totem }}</strong></h3>
-                                    {{ if functie == 'takleider' }}
-                                        <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
-                                    {{ else }}
-                                        <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
-                                    {{ /if }}
-                                    <a href="mailto:{{ email }}" class="email">{{ email }}</a>
-                                    {{ if functie == 'takleider' }}
-                                        <p class="telefoon">Telefoonnummer in de blauwe gids</p>
-                                    {{ /if }}
-                                </div>
-                            </div>
-                        {{ /leiding }}
-                    {{ /if }}
-                {{ /leidingsploegen:leidingsploegen }}
-            </div>
-        </div>
-
-        <div class="page-section">
-            <h2>Seniorwelpen</h2>
-            
-            <div class="grid-2">
-                <div class="card compact-card">
-                    <div class="card-content">
-                        <div class="card-left">
-                            <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
-                            <p>Je kan afwezigheden hier verwittigen</p>
-                        </div>
-                        <div class="card-right">
-                            <a href="https://forms.gle/hEus6iNXnY8AkQuL7" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt"></i> Formulier
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card compact-card">
-                    <div class="card-content">
-                        <div class="card-left">
-                            <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
-                            <p>Overschrijven naar rekening</p>
-                        </div>
-                        <div class="card-right">
-                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE47 7350 6876 2880')" title="Klik om te kopiëren">
-                                <i class="fas fa-copy"></i> BE47 7350 6876 2880
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="leiding-grid">
-                {{ leidingsploegen:leidingsploegen }}
-                    {{ if tak_naam == "Seniorwelpen" && actief }}
-                        {{ leiding }}
-                            <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
-                                <div class="leiding-foto">
-                                    {{ totem_parts = totem | explode: ' ' }}
-                                    {{ animal_name = totem_parts | last }}
-                                    <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
-                                </div>
-                                <div class="leiding-info">
-                                    <h3><strong>{{ totem }}</strong></h3>
-                                    {{ if functie == 'takleider' }}
-                                        <p class="echte-naam">{{ voornaam }} {{ achternaam }} – Takleider</p>
-                                    {{ else }}
-                                        <p class="echte-naam">{{ voornaam }} {{ achternaam }}</p>
-                                    {{ /if }}
-                                    <a href="mailto:{{ email }}" class="email">{{ email }}</a>
-                                    {{ if functie == 'takleider' }}
-                                        <p class="telefoon">Telefoonnummer in de blauwe gids</p>
-                                    {{ /if }}
-                                </div>
-                            </div>
-                        {{ /leiding }}
-                    {{ /if }}
-                {{ /leidingsploegen:leidingsploegen }}
-            </div>
-        </div>
-    
-
+        {{ /subtakken }}
+    </div>
+</div>
 
     <style>
-        /* Section intro styling */
+        /* Section intro styling - force center and blue color */
         .page-section .section-intro {
-            text-align: center;
+            text-align: center !important;
             font-size: 1.1em;
-            color: var(--dark-color);
+            color: var(--primary-color) !important;
             margin-bottom: var(--spacing-xl);
             max-width: 1050px;
             margin-left: auto;

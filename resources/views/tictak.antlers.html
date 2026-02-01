@@ -1,18 +1,17 @@
+{{#
+    Tictak Template - Hybrid approach
+    Preserves original AKABE-specific styling while using Statamic content management
+#}}
 
-
-
-
-    
-        <div class="page-section">
+<div class="container">
+    <div class="page-section">
             <div class="back-to-takken">
                 <a href="/takken" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
                 </a>
             </div>
-            <h1>Tictak</h1>
-            <p class="section-intro">
-                <span>Scouting voor personen met een handicap: AKABE (Anders Kan Best)</span>. Bij de scouts is er plaats voor iedereen, verschillen zien we als een plus. Scouting is nagenoeg de enige jeugdbeweging met een aanbod voor kinderen en jongeren met een handicap. In TC noemen we de Akabe-groep de <span>Tictak</span>, dat staat voor <span>Thila Coloma Tak Akabe</span>. De Tictak werd opgericht in <span>1997</span> en organiseert dezelfde scoutsactiviteiten als voor kinderen zonder een beperking: pleinspelen, tochtjes, slapen in tenten en nog veel meer!
-            </p>
+            <h1>{{ title }}</h1>
+            <div class="section-intro">{{ content | markdown }}</div>
         </div>
 
         <div class="page-section">
@@ -26,7 +25,7 @@
                             <p>Je kan afwezigheden hier verwittigen</p>
                         </div>
                         <div class="card-right">
-                            <a href="https://forms.gle/UdMkCcVawddRkHRt5" target="_blank" class="btn btn-primary">
+                            <a href="{{ formulier_link }}" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Formulier
                             </a>
                         </div>
@@ -40,30 +39,81 @@
                             <p>Overschrijven naar rekening</p>
                         </div>
                         <div class="card-right">
-                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE77 6512 2332 6742')" title="Klik om te kopiëren">
-                                <i class="fas fa-copy"></i> BE77 6512 2332 6742
+                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('{{ rekeningnummer }}')" title="Klik om te kopiëren">
+                                <i class="fas fa-copy"></i> {{ rekeningnummer }}
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- AKABE-specific information sections -->
             <div class="info-section">
-                <div class="card info-card">
-                    <div class="card-content">
-                        <h3><i class="fas fa-info-circle"></i> Infobrochure</h3>
-                        <p>Voor meer informatie over de Tictak kan je een kijkje nemen in onze infobrochure.</p>
-                        <a href="#" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-file-pdf"></i> Infobrochure (2024-2025)
-                        </a>
+                <div class="info-card special-info">
+                    <div class="info-content">
+                        <h3><i class="fas fa-heart"></i> Wat maakt AKABE bijzonder?</h3>
+                        <p><strong>AKABE</strong> staat voor <strong>A</strong>nders <strong>K</strong>an <strong>B</strong>est <strong>E</strong>venement. Het is scouting aangepast voor kinderen en jongeren met een beperking. Elke activiteit wordt zorgvuldig aangepast aan de individuele noden en mogelijkheden van elk lid.</p>
+                        <p>Bij <strong>Thila Coloma</strong> noemen we deze groep de <strong>Tictak</strong> - een naam die staat voor <strong>T</strong>hila <strong>C</strong>oloma <strong>T</strong>ak <strong>A</strong>ka<strong>b</strong>e.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="page-section">
-            <h2>Onze Leiding</h2>
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-content">
+                        <h3><i class="fas fa-calendar-alt"></i> Wanneer & Waar?</h3>
+                        <p><strong>Wanneer:</strong> Elke zaterdag van 14:00 tot 17:00 (behalve tijdens schoolvakanties)</p>
+                        <p><strong>Waar:</strong> Lokaal Thila Coloma, Jubellaan/Geerdegemstraat, Mechelen</p>
+                        <p><strong>Leeftijd:</strong> Voor kinderen en jongeren met een beperking (alle leeftijden welkom)</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="info-section">
+                <div class="info-card highlight-info">
+                    <div class="info-content">
+                        <h3><i class="fas fa-users"></i> Inclusief & Ondersteunend</h3>
+                        <p>Onze AKABE-leiding is speciaal opgeleid om kinderen en jongeren met verschillende beperkingen te begeleiden. We werken nauw samen met ouders en verzorgers om elke activiteit zo leuk en veilig mogelijk te maken.</p>
+                        <p><strong>Individuele begeleiding</strong> zorgt ervoor dat iedereen op zijn eigen tempo kan meegenieten van het scoutsavontuur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-content">
+                        <h3><i class="fas fa-gamepad"></i> Onze Activiteiten</h3>
+                        <div class="activity-grid">
+                            <div class="activity-item">
+                                <i class="fas fa-campfire"></i>
+                                <span>Kampvuren & Verhalen</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Creatieve Workshops</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-hiking"></i>
+                                <span>Natuurwandelingen</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-music"></i>
+                                <span>Zingen & Dansen</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-cookie-bite"></i>
+                                <span>Koken & Bakken</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-futbol"></i>
+                                <span>Aangepaste Spellen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leidingsploeg section -->
             <div class="leiding-grid">
                 {{ leidingsploegen:leidingsploegen }}
                     {{ if tak_naam == "Tictak" && actief }}
@@ -92,46 +142,18 @@
                 {{ /leidingsploegen:leidingsploegen }}
             </div>
         </div>
-
-        <div class="page-section">
-            <h2>Over AKABE</h2>
-            
-            <div class="info-content">
-                <div class="card info-card">
-                    <div class="card-content">
-                        <h3><i class="fas fa-heart"></i> Onze Missie</h3>
-                        <p>Wij zijn een scoutsgroep, wij zorgen dus niet enkel voor bezigheid maar wij streven ernaar dezelfde scoutsactiviteiten te organiseren als de activiteiten voor kinderen zonder een beperking. Pleinspelen, tochtjes, slapen in tenten en dergelijke zijn ons dus niet vreemd.</p>
-                    </div>
-                </div>
-
-                <div class="card info-card">
-                    <div class="card-content">
-                        <h3><i class="fas fa-users"></i> AKABE in Vlaanderen</h3>
-                        <p>In Vlaanderen zijn er ongeveer 25 Akabe-groepen voor kinderen en jongeren met en zonder handicap. Daarnaast zijn er nog ongeveer 20 Akabe-takken. Het totale ledenaantal schommelt rond 1500 ingeschreven leden met een beperking, ondersteund door circa 500 vrijwillige leiders.</p>
-                    </div>
-                </div>
-
-                <div class="card info-card">
-                    <div class="card-content">
-                        <h3><i class="fas fa-star"></i> Akabe is...</h3>
-                        <p>Plezier hebben, vrienden leren kennen, activiteiten doen en ook wel vaak dingen leren. Verschillen zien we als een plus en er is plaats voor iedereen bij de scouts!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-
+</div>
 
     <style>
-        /* Section intro styling */
+        /* Section intro styling - IMPORTANT: Override default styles */
         .page-section .section-intro {
-            text-align: center;
-            font-size: 1.1em;
-            color: var(--dark-color);
-            margin-bottom: var(--spacing-xl);
-            max-width: 1050px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center !important;
+            font-size: 1.1em !important;
+            color: var(--primary-color) !important;
+            margin-bottom: var(--spacing-xl) !important;
+            max-width: 1050px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         /* Main title styling - H1 with H2 style */
@@ -154,18 +176,77 @@
             font-weight: normal;
         }
         
-        
-        
-        
-        /* Responsive search */
-        @media (max-width: 1024px) {
-            
+        /* Info section styling */
+        .info-section {
+            margin: var(--spacing-xl) 0;
         }
-        
-        @media (max-width: 768px) {
-            
-            
-            
+
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+        }
+
+        .special-info {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+        }
+
+        .highlight-info {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #fff, #f8fff9);
+        }
+
+        .info-content h3 {
+            font-family: var(--font-bold);
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin: 0 0 var(--spacing-md) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .info-content p {
+            font-family: var(--font-regular);
+            line-height: 1.6;
+            color: var(--dark-color);
+            margin: 0 0 var(--spacing-md) 0;
+        }
+
+        .info-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-content strong {
+            font-family: var(--font-medium);
+            color: var(--primary-color);
+        }
+
+        /* Activity grid styling */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--light-bg-color);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-medium);
+            color: var(--dark-color);
+        }
+
+        .activity-item i {
+            color: var(--primary-color);
+            font-size: 1.2em;
         }
 
         /* Compact card styling */
@@ -210,53 +291,6 @@
         .copy-btn:active {
             transform: translateY(0);
             background: var(--primary-color);
-        }
-
-        /* Info section styling */
-        .info-section {
-            margin-top: var(--spacing-lg);
-        }
-
-        .info-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-        }
-
-        .info-card {
-            background: white;
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            border-color: var(--primary-color);
-        }
-
-        .info-card .card-content {
-            padding: var(--spacing-lg);
-        }
-
-        .info-card h3 {
-            font-family: var(--font-bold);
-            font-size: 1.2em;
-            margin: 0 0 var(--spacing-sm) 0;
-            color: var(--primary-color);
-        }
-
-        .info-card h3 i {
-            margin-right: var(--spacing-xs);
-        }
-
-        .info-card p {
-            margin: 0 0 var(--spacing-md) 0;
-            color: var(--text-color);
-            line-height: 1.6;
         }
 
         /* Leiding grid styling */
@@ -372,25 +406,10 @@
             transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background: var(--dark-color);
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            transform: translateY(-1px);
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .leiding-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: var(--spacing-md);
-            }
-
-            .info-content {
-                grid-template-columns: 1fr;
                 gap: var(--spacing-md);
             }
             
@@ -403,6 +422,11 @@
             
             .copy-btn {
                 font-size: 0.8em;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
             }
         }
     </style>
