@@ -17,7 +17,7 @@ takken_groepen:
   type: tak_groep
   naam: Kapoenen
   leeftijd_range: 7-8
-  logo: images/takken/Takteken_kapoenen-zeehondjes_hr_rgb.jpg
+  logo: /assets/images/takken/Takteken_kapoenen-zeehondjes_hr_rgb.jpg
   beschrijving: 'Het leven van een kapoen (6-8 jaar) is er één vol spel, fantasie,
     creativiteit en expressie. Spelenderwijs en ongedwongen ontdekken we samen met
     hen de wereld. De leiding gaat hierbij uit van het kind zelf, van wat hen boeit
@@ -74,7 +74,7 @@ takken_groepen:
     email: seniorwelpen@thilacoloma.be
     enabled: true
   enabled: true
-  logo: images/takken/Takteken_(zee)kabouters-welpen_hr_rgb.jpg
+  logo: /assets/images/takken/Takteken_(zee)kabouters-welpen_hr_rgb.jpg
 - id: 69UB5ezx
   type: tak_groep
   naam: Tictak (Akabe)
@@ -94,7 +94,7 @@ takken_groepen:
     email: salmo@thilacoloma.be
     enabled: true
   enabled: true
-  logo: images/takken/Takteken_akabe1_lr_kl web2020.jpg
+  logo: /assets/images/takken/Takteken_akabe1_lr_kl web2020.jpg
 - id: HYDKpdZB
   type: tak_groep
   naam: Jongverkenners
@@ -126,7 +126,7 @@ takken_groepen:
     email: jv3@thilacoloma.be
     enabled: true
   enabled: true
-  logo: images/takken/Takteken_jonggidsen-jongverkenners-scheepsmakkers_hr_rgb web
+  logo: /assets/images/takken/Takteken_jonggidsen-jongverkenners-scheepsmakkers_hr_rgb web
     2020.jpg
 - id: yPRO0J5q
   type: tak_groep
@@ -159,7 +159,7 @@ takken_groepen:
     email: v3@thilacoloma.be
     enabled: true
   enabled: true
-  logo: images/takken/Takteken_(zee)gidsen-verkenners_hr_rgb web2020.jpg
+  logo: /assets/images/takken/Takteken_(zee)gidsen-verkenners_hr_rgb web2020.jpg
 - id: xbr58GRO
   type: tak_groep
   naam: Voortrekkers
@@ -183,7 +183,7 @@ takken_groepen:
     email: sambar@thilacoloma.be
     enabled: true
   enabled: true
-  logo: images/takken/Takteken_jins-loodsen_hr_rgb web2020.jpg
+  logo: /assets/images/takken/Takteken_jins-loodsen_hr_rgb web2020.jpg
 updated_by: 490dab97-40bc-46ac-8e07-29cd20111226
 updated_at: 1755679093
 ---
