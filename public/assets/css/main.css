@@ -101,9 +101,9 @@ h1 {
 .containerVoorpagina {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    flex: 2; /* Neem alle beschikbare ruimte van body */
+    overflow: hidden;
 }
 
 .box {
@@ -118,7 +118,8 @@ h1 {
 /* Upper Section */
 .upper {
     display: flex;
-    flex: 2.5; /* Compromis tussen 2 en 3 */
+    flex: 0 0 auto;
+    max-height: 50vh;
 }
 
 .upper-left {
@@ -195,8 +196,7 @@ h1 {
 .lower {
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
-    min-height: 300px;
+    flex: 1 1 auto;
     padding: 0 var(--spacing-md);
     background-color: var(--broken-white);
 }
