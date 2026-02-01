@@ -5,10 +5,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    min-height: 200px;
     height: 75%;
     background-color: var(--primary-color);
     box-shadow: 0 0px 10px rgba(34, 11, 77, 0.3);
-    flex: 1 1 calc(0% - 40px);
+    flex: 1 1 calc(16.666% - 40px);
     margin: var(--spacing-md);
     border-radius: var(--border-radius-md);
     color: var(--broken-white);
