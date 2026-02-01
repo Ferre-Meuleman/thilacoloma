@@ -59,9 +59,15 @@
                     {{ leiding }}
                         <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                             <div class="leiding-foto">
-                                {{ totem_parts = totem | explode: ' ' }}
-                                {{ animal_name = totem_parts | last }}
-                                <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                {{ if foto }}
+                                    {{# Use explicit foto field if available #}}
+                                    <img src="{{ foto }}" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                {{ else }}
+                                    {{# Fallback: parse totem to get animal name for photo #}}
+                                    {{ totem_parts = totem | explode: ' ' }}
+                                    {{ animal_name = totem_parts | last }}
+                                    <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                {{ /if }}
                             </div>
                             <div class="leiding-info">
                                 <h3><strong>{{ totem }}</strong></h3>

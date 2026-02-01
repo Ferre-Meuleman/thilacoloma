@@ -71,7 +71,15 @@ fields:
                         field:
                           type: text
                           display: 'Totem'
-                          instructions: 'Optioneel'
+                          instructions: 'Volledige totem (bijv. "Zachtaardige Coscoroba")'
+                      -
+                        handle: foto
+                        field:
+                          type: assets
+                          display: 'Foto'
+                          instructions: 'Profielfoto van deze leider. Als leeg, wordt de foto gezocht op basis van de totem.'
+                          max_files: 1
+                          container: assets
                       -
                         handle: functie
                         field:
