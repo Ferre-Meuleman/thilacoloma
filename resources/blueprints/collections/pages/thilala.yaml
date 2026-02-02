@@ -35,15 +35,67 @@ tabs:
               instructions: 'The main heading displayed on the page'
               validate:
                 - required
+      -
+        display: 'Info Sectie (Links)'
+        instructions: 'De informatie die links op de pagina verschijnt'
+        fields:
+          -
+            handle: thilala_info_title
+            field:
+              type: text
+              display: 'Info Titel'
+              instructions: 'Titel van de info sectie (bijv. "Over de Thilala")'
+              default: 'Over de Thilala'
+          -
+            handle: thilala_info_text
+            field:
+              type: markdown
+              display: 'Info Tekst'
+              instructions: 'De uitleg over wat de Thilala is. Je kan markdown gebruiken voor opmaak.'
+              default: |
+                De Thilala is het maandelijks uitgegeven online boekje waarin alle informatie voor die maand staat. Aan het begin van het boekje zullen zaken terug te vinden zijn die de hele scouts aangaan, tegen het einde zijn de maandschorsen per tak te vinden.
+                
+                **Het is belangrijk dat je de Thilala op tijd leest**, zodat je niet voor verrassingen komt te staan. Mocht je de Thilala niet kunnen lezen, neem dan contact op met **Coelho** ([coelho@thilacoloma.be](mailto:coelho@thilacoloma.be)).
+      -
+        display: 'Blauwe Gids'
+        instructions: 'Upload hier de Blauwe Gids (verschijnt links onderaan)'
+        fields:
+          -
+            handle: blauwe_gids
+            field:
+              type: assets
+              container: documents
+              max_files: 1
+              display: 'Blauwe Gids PDF'
+              instructions: 'Upload de Blauwe Gids. Maximum file size: 50MB.'
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: false
+          -
+            handle: blauwe_gids_title
+            field:
+              type: text
+              display: 'Blauwe Gids Titel'
+              default: 'Blauwe Gids'
+              instructions: 'Titel boven de download knop'
+          -
+            handle: blauwe_gids_description
+            field:
+              type: textarea
+              display: 'Blauwe Gids Beschrijving'
+              instructions: 'Korte uitleg over de Blauwe Gids (optioneel)'
+              rows: 2
+      -
+        display: 'NIET MEER GEBRUIKEN - Oude Velden'
+        instructions: 'Deze velden worden niet meer gebruikt, alles gebeurt via de Thilala collection'
+        fields:
           -
             handle: intro_text
             field:
               type: markdown
-              display: 'Introduction Text'
-              instructions: 'Short description about Thilala magazine. You can use markdown formatting and links.'
-              default: 'Lees hier de nieuwste editie van ons **clubblad Thilala**. Ontdek verhalen van onze **scouts**, foto''s van **activiteiten** en alle nieuwtjes van de groep.'
-              validate:
-                - required
+              display: '[DEPRECATED] Introduction Text'
+              instructions: 'DIT VELD WORDT NIET MEER GEBRUIKT'
           -
             handle: current_pdf
             field:
