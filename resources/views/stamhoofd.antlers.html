@@ -24,16 +24,117 @@
         </div>
     </div>
     
-    {{ if content }}
-    <!-- Extra content vanuit Statamic -->
-    <div class="page-content">
-        {{ content | markdown }}
+    <!-- Content in 2 kolommen -->
+    <div class="two-column-layout">
+        <!-- Linker kolom: Wat kun je doen -->
+        <div class="info-card">
+            <div class="info-card-header">
+                <h3>{{ content_left_title ?? 'Wat kun je doen via Stamhoofd?' }}</h3>
+            </div>
+            <div class="info-card-body">
+                {{ content_left ?? content }}
+            </div>
+        </div>
+        
+        <!-- Rechter kolom: Hulp nodig -->
+        {{ if content_right }}
+        <div class="info-card">
+            <div class="info-card-header">
+                <h3>{{ content_right_title ?? 'Hulp nodig?' }}</h3>
+            </div>
+            <div class="info-card-body">
+                {{ content_right }}
+            </div>
+        </div>
+        {{ /if }}
     </div>
-    {{ /if }}
 </div>
 
 <style>
         /* Stamhoofd CSS - v20250912-2 */
+        
+        /* Two Column Layout */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Info Card */
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .info-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .info-card-header {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        .info-card-header h3 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.4em;
+            margin: 0;
+        }
+        
+        .info-card-body {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-family: var(--font-regular);
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: var(--dark-color);
+        }
+        
+        .info-card-body p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .info-card-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-card-body ul,
+        .info-card-body ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .info-card-body li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .info-card-body strong {
+            font-family: var(--font-bold);
+            color: var(--primary-color);
+        }
+        
+        .info-card-body a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        
+        .info-card-body a:hover {
+            color: var(--dark-color);
+        }
+        
         /* Iframe Kaart Styling */
         .iframe-card {
             background: white;

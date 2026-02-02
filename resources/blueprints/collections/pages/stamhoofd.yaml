@@ -32,8 +32,34 @@ sections:
           instructions: 'Tekst op de knop naar stamhoofd'
           default: 'Ga naar Stamhoofd'
       - 
+        handle: content_left_title
+        field:
+          type: text
+          display: 'Linker box titel'
+          instructions: 'Titel voor de linker info box'
+          default: 'Wat kun je doen via Stamhoofd?'
+      - 
+        handle: content_left
+        field:
+          type: markdown
+          display: 'Linker box content'
+          instructions: 'Content voor de linker info box (bijv. lijst met functies)'
+      - 
+        handle: content_right_title
+        field:
+          type: text
+          display: 'Rechter box titel'
+          instructions: 'Titel voor de rechter info box'
+          default: 'Hulp nodig?'
+      - 
+        handle: content_right
+        field:
+          type: markdown
+          display: 'Rechter box content'
+          instructions: 'Content voor de rechter info box (bijv. contact info)'
+      - 
         handle: content
         field:
           type: markdown
-          display: 'Pagina content'
-          instructions: 'Extra content voor de stamhoofd pagina'
+          display: '[DEPRECATED] Pagina content'
+          instructions: 'Niet meer gebruiken - gebruik content_left en content_right'
