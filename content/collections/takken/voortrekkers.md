@@ -14,7 +14,7 @@ subtakken:
     id: vt08
     type: subtak
     enabled: true
-    naam: "VT'08"
+    naam: Voortrekkers
     afwezigheids_formulier: 'https://forms.gle/VGQmCEXsWPknHNr9A'
     rekeningnummer: 'BE09 3630 9890 2957'
 ---

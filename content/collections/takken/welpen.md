@@ -15,21 +15,21 @@ subtakken:
     id: welp1
     type: subtak
     enabled: true
-    naam: 'Welpen 1'
+    naam: Jongwelpen
     afwezigheids_formulier: 'https://forms.gle/WELPEN1'
     rekeningnummer: 'BE12 3456 7890 1234'
   -
     id: welp2
     type: subtak
     enabled: true
-    naam: 'Welpen 2'
+    naam: Welpen
     afwezigheids_formulier: 'https://forms.gle/WELPEN2'
     rekeningnummer: 'BE23 4567 8901 2345'
   -
     id: welp3
     type: subtak
     enabled: true
-    naam: 'Welpen 3'
+    naam: Seniorwelpen
     afwezigheids_formulier: 'https://forms.gle/WELPEN3'
     rekeningnummer: 'BE34 5678 9012 3456'
 ---
