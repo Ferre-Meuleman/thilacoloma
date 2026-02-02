@@ -38,16 +38,9 @@ sections:
       -
         handle: content
         field:
-          type: bard
+          type: markdown
           display: 'Pagina Inhoud'
-          instructions: 'De hoofdtekst van de pagina'
-          buttons:
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - quote
+          instructions: 'De hoofdtekst van de pagina (markdown)'
   
   subtakken:
     display: Subtakken
