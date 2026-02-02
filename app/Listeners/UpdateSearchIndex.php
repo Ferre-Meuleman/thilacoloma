@@ -16,7 +16,8 @@ class UpdateSearchIndex
      */
     public function handleEntrySaved(EntrySaved $event)
     {
-        $this->updateSearchIndex('Entry saved: ' . $event->entry->title());
+        $title = $event->entry->get('title', $event->entry->slug());
+        $this->updateSearchIndex('Entry saved: ' . $title);
     }
 
     /**
