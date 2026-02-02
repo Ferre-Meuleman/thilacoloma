@@ -10,7 +10,7 @@ tabs:
             field:
               type: replicator
               display: Groepsleiding
-              collapse: true
+              collapsed: false
               max_items: 1
               sets:
                 leidingsploeg:
@@ -41,7 +41,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -88,7 +88,7 @@ tabs:
             field:
               type: replicator
               display: 'Kapoenen takken'
-              collapse: true
+              collapsed: false
               sets:
                 leidingsploeg:
                   display: Leidingsploeg
@@ -118,7 +118,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -165,7 +165,7 @@ tabs:
             field:
               type: replicator
               display: 'Welpen takken'
-              collapse: true
+              collapsed: false
               sets:
                 leidingsploeg:
                   display: Leidingsploeg
@@ -195,7 +195,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -242,7 +242,7 @@ tabs:
             field:
               type: replicator
               display: 'Tictak leiding'
-              collapse: true
+              collapsed: false
               max_items: 1
               sets:
                 leidingsploeg:
@@ -273,7 +273,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -319,7 +319,7 @@ tabs:
             field:
               type: replicator
               display: 'Jongverkenners takken'
-              collapse: true
+              collapsed: false
               sets:
                 leidingsploeg:
                   display: Leidingsploeg
@@ -349,7 +349,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -396,7 +396,7 @@ tabs:
             field:
               type: replicator
               display: 'Verkenners takken'
-              collapse: true
+              collapsed: false
               sets:
                 leidingsploeg:
                   display: Leidingsploeg
@@ -426,7 +426,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
@@ -473,7 +473,7 @@ tabs:
             field:
               type: replicator
               display: 'Voortrekker leiding'
-              collapse: true
+              collapsed: false
               max_items: 1
               sets:
                 leidingsploeg:
@@ -504,7 +504,7 @@ tabs:
                       field:
                         type: replicator
                         display: Leidingsteam
-                        collapse: true
+                        collapsed: false
                         sets:
                           leider:
                             display: Leider
