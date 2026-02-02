@@ -7,7 +7,7 @@ data:
       enabled: true
       title: Test
       content: "TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders."
-      image: images/27D97C43-C040-423A-929B-E72D55356A3B.png
+      image: /assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png
       button_text: 'Meer info'
     -
       id: henKKsWU
