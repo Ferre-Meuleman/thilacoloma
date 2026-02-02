@@ -8,6 +8,7 @@ organisatie_naam: 'Thila Coloma Mechelen'
 adres_lijn_1: 'Jubellaan / Geerdegemstraat'
 adres_lijn_2: '2800 Mechelen'
 algemeen_email: 'info@thilacoloma.be'
+blauwe_gids: ''
 contact_adressen:
   -
     id: contact-groepsleiding

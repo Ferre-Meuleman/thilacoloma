@@ -1,0 +1,62 @@
+title: 'Thilala Editie'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Editie Informatie'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: 'Titel'
+              instructions: 'Bijvoorbeeld: Thilala Februari 2026'
+              width: 50
+          -
+            handle: publication_date
+            field:
+              type: date
+              required: true
+              validate:
+                - required
+              display: 'Publicatiedatum'
+              instructions: 'Datum van deze editie (gebruikt voor sortering)'
+              time_enabled: false
+              width: 50
+          -
+            handle: pdf_file
+            field:
+              type: assets
+              container: documents
+              max_files: 1
+              display: 'Thilala PDF'
+              instructions: 'Upload de Thilala PDF. Maximum bestandsgrootte: 50MB.'
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: textarea
+              display: 'Beschrijving'
+              instructions: 'Korte samenvatting van deze editie (optioneel)'
+              rows: 3
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              generate: true
+              validate:
+                - required

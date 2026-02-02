@@ -1,0 +1,9 @@
+title: Thilala
+template: thilala/show
+layout: layouts/page
+revisions: false
+sort_by: publication_date
+sort_dir: desc
+date_behavior:
+  past: public
+  future: private

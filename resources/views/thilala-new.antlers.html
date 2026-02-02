@@ -1,0 +1,335 @@
+<div class="page-section thilala-page">
+    <h2>Thilala Maandblad</h2>
+    
+    {{ collection:thilala sort="publication_date:desc" limit="1" }}
+        {{ if no_results }}
+            <!-- Geen Thilala beschikbaar -->
+            <div class="iframe-card">
+                <div class="iframe-card-header">
+                    <div class="iframe-card-info">
+                        <h2><i class="fas fa-file-pdf"></i> Nieuwste Thilala</h2>
+                        <p>Er is momenteel geen Thilala beschikbaar. Upload een nieuwe editie via het Control Panel.</p>
+                    </div>
+                    <a href="/cp/collections/thilala/create" class="iframe-fallback-toggle" target="_blank" style="text-decoration: none;">
+                        <i class="fas fa-upload"></i>
+                        <span>Upload Thilala</span>
+                    </a>
+                </div>
+            </div>
+        {{ else }}
+            <!-- Nieuwste Thilala PDF -->
+            <div class="iframe-card">
+                <div class="iframe-card-header">
+                    <div class="iframe-card-info">
+                        <h2><i class="fas fa-file-pdf"></i> {{ title }}</h2>
+                        <p class="thilala-date">{{ publication_date format="j F Y" }}</p>
+                        {{ if description }}
+                            <p>{{ description }}</p>
+                        {{ /if }}
+                    </div>
+                    <a href="{{ pdf_file }}" download class="iframe-fallback-toggle" style="text-decoration: none;">
+                        <i class="fas fa-download"></i>
+                        <span>Download PDF</span>
+                    </a>
+                </div>
+                
+                <!-- PDF iframe container -->
+                <div class="iframe-container" id="thilala-iframe-container">
+                    <iframe 
+                        id="thilala-iframe" 
+                        src="{{ pdf_file }}" 
+                        title="Thilala PDF Viewer">
+                    </iframe>
+                </div>
+            </div>
+        {{ /if }}
+    {{ /collection:thilala }}
+
+    <!-- Blauwe Gids (Algemene Info) -->
+    <div class="special-guide">
+        <div class="guide-card blue-guide">
+            <div class="guide-header">
+                <i class="fas fa-book"></i>
+                <h3>Blauwe Gids</h3>
+            </div>
+            <p>De algemene infogids met alle praktische informatie over Thila Coloma</p>
+            {{ globals:site_instellingen }}
+                {{ if blauwe_gids }}
+                    <a href="{{ blauwe_gids }}" target="_blank" class="guide-button">
+                        <i class="fas fa-file-pdf"></i>
+                        Open Blauwe Gids
+                    </a>
+                {{ else }}
+                    <p class="no-guide">Momenteel niet beschikbaar</p>
+                {{ /if }}
+            {{ /globals:site_instellingen }}
+        </div>
+    </div>
+
+    <!-- Archief: Vorige Edities -->
+    {{ collection:thilala sort="publication_date:desc" offset="1" limit="10" }}
+        {{ if total_results > 0 }}
+            <div class="page-section archive-section">
+                <h3>Vorige Edities</h3>
+                <div class="archive-grid">
+                    {{ results }}
+                        <div class="archive-item">
+                            <div class="archive-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h4>{{ title }}</h4>
+                            <p class="archive-date">{{ publication_date format="F Y" }}</p>
+                            {{ if description }}
+                                <p class="archive-description">{{ description }}</p>
+                            {{ /if }}
+                            <div class="archive-actions">
+                                <a href="{{ pdf_file }}" target="_blank" class="archive-link">
+                                    <i class="fas fa-eye"></i>
+                                    Bekijken
+                                </a>
+                                <a href="{{ pdf_file }}" download class="archive-link download">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    {{ /results }}
+                </div>
+            </div>
+        {{ /if }}
+    {{ /collection:thilala }}
+
+    <!-- Info over Thilala -->
+    <div class="thilala-info">
+        <h3>Over de Thilala</h3>
+        <p>De Thilala is het maandelijks uitgegeven online boekje waarin alle informatie voor die maand staat. Aan het begin van het boekje zullen zaken terug te vinden zijn die de hele scouts aangaan, tegen het einde zijn de maandschorsen per tak te vinden. Hier kunt u lezen wat elke tak die maand zal doen en wat ze hier voor nodig hebben.</p>
+        
+        <p>Soms kan het gebeuren dat leiding per ongeluk zaken vergeet te vermelden of last minute wijzigingen maakt. Dit is niet de bedoeling, maar wel menselijk. Het kan dus zijn dat er soms wat van deze planning afgeweken wordt, maar dan hoort u het tijdig via andere kanalen. In de Thilala kunt u ook een algemenere agenda vinden van wat er de volgende maanden op de planning staat.</p>
+        
+        <p><strong>Het is belangrijk dat je de Thilala op tijd leest</strong>, zodat je niet voor verrassingen komt te staan en zo een vergadering mist. Dat zou spijtig zijn. Als een tak bijvoorbeeld een vergadering op verplaatsing inplant, zal het hier ook altijd worden vermeld.</p>
+        
+        <p>Mocht het gebeuren dat je de Thilala niet kan lezen op de site, mag je dit aan <strong>Coelho</strong> (<a href="mailto:coelho@thilacoloma.be">coelho@thilacoloma.be</a>) laten weten, dan wordt er naar een oplossing gezocht.</p>
+    </div>
+</div>
+
+<style>
+    .thilala-page {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .thilala-date {
+        color: var(--primary-color);
+        font-family: var(--font-medium);
+        font-size: 1.1em;
+        margin: var(--spacing-xs) 0;
+    }
+
+    /* Special Guide Section (Blauwe Gids) */
+    .special-guide {
+        margin: var(--spacing-xl) 0;
+    }
+
+    .guide-card {
+        background: linear-gradient(135deg, #374794 0%, #282471 100%);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-xl);
+        color: white;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .guide-header {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .guide-header i {
+        font-size: 2.5em;
+        opacity: 0.9;
+    }
+
+    .guide-header h3 {
+        font-family: var(--font-bold);
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .guide-card p {
+        font-family: var(--font-regular);
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.95;
+    }
+
+    .guide-button {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        background: white;
+        color: var(--primary-color);
+        padding: var(--spacing-md) var(--spacing-xl);
+        border-radius: var(--border-radius-md);
+        text-decoration: none;
+        font-family: var(--font-bold);
+        font-size: 1.1em;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .guide-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .no-guide {
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+    /* Archive Section Styling */
+    .archive-section {
+        margin-top: var(--spacing-xxl);
+        padding: var(--spacing-xl);
+        background: white;
+        border-radius: var(--border-radius-md);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .archive-section h3 {
+        font-family: var(--font-bold);
+        font-size: 2em;
+        color: var(--dark-color);
+        margin-bottom: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .archive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .archive-item {
+        background: white;
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-lg);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .archive-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-color);
+    }
+
+    .archive-icon {
+        font-size: 2.5em;
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .archive-item h4 {
+        font-family: var(--font-bold);
+        font-size: 1.4em;
+        color: var(--dark-color);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .archive-date {
+        color: var(--primary-color);
+        font-family: var(--font-medium);
+        font-size: 1em;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .archive-description {
+        color: var(--medium-color);
+        font-family: var(--font-regular);
+        line-height: 1.5;
+        margin-bottom: var(--spacing-md);
+        font-size: 0.95em;
+    }
+
+    .archive-actions {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .archive-link {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-xs);
+        color: white;
+        background: var(--primary-color);
+        text-decoration: none;
+        font-family: var(--font-medium);
+        font-size: 0.95em;
+        transition: background 0.3s ease;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+    }
+
+    .archive-link:hover {
+        background: var(--dark-color);
+    }
+
+    .archive-link.download {
+        background: var(--dark-color);
+    }
+
+    .archive-link.download:hover {
+        background: var(--primary-color);
+    }
+
+    /* Thilala Info Section */
+    .thilala-info {
+        margin-top: var(--spacing-xxl);
+        padding: var(--spacing-xl);
+        background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+        border-radius: var(--border-radius-lg);
+        border-left: 5px solid var(--primary-color);
+    }
+
+    .thilala-info h3 {
+        font-family: var(--font-bold);
+        font-size: 1.8em;
+        color: var(--dark-color);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .thilala-info p {
+        font-family: var(--font-regular);
+        font-size: 1.05em;
+        line-height: 1.7;
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .thilala-info a {
+        color: var(--dark-color);
+        text-decoration: underline;
+    }
+
+    .thilala-info a:hover {
+        color: var(--primary-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .archive-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .guide-header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
