@@ -9,11 +9,9 @@
             <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
             <div class="upper-right box" id="slideshow">
                 {{ slideshow_content:news_slides }}
-                    <div class="slide">
+                    <div class="slide {{ if image }}{{ else }}no-image{{ /if }}">
                         {{ if image }}
                             <img src="{{ image }}" alt="{{ title }} evenement">
-                        {{ else }}
-                            <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
                         {{ /if }}
                         <div class="slide-text">
                             <h2>{{ title }}</h2>

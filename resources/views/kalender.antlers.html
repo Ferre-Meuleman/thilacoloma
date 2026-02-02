@@ -12,11 +12,9 @@
                 <div id="kalender-slideshow" class="kalender-slideshow">
                     {{ if news_slides }}
                         {{ news_slides }}
-                            <div class="slide">
+                            <div class="slide {{ if image }}{{ else }}no-image{{ /if }}">
                                 {{ if image }}
                                     <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
-                                {{ else }}
-                                    <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
                                 {{ /if }}
                                 <div class="slide-text">
                                     <h2>{{ title }}</h2>
