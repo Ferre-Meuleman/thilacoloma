@@ -1,4 +1,5 @@
-title: Pages
+title: 'Algemene Paginas'
+handle: algemene_paginas
 route: '/{slug}'
 template: default
 sort_direction: asc

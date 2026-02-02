@@ -2,7 +2,7 @@ title: Takken
 handle: takken
 sort_direction: asc
 sort_field: order
-route: '/takken/{slug}'
+route: '/{slug}'
 blueprints:
   - tak
 sites:

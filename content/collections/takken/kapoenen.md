@@ -1,39 +1,24 @@
 ---
-id: 86587346-ae97-462b-95d9-6f00b176b24a
-blueprint: tak
+blueprint: tak_pagina
+id: 9cjfil9-def0-b123-4567-89abcdef0123
 layout: layouts/page
-template: tak-universal
-title: Kapoenen
 slug: kapoenen
-order: 1
-age_range: 6-8 jaar
+template: kapoenen
+title: Kapoenen
 tak_groep: kapoenen
+content: |
+  Het leven van een kapoen (6-8 jaar) is er één vol **spel, fantasie, creativiteit en expressie**. Spelenderwijs en ongedwongen ontdekken we samen met hen de wereld. De leiding gaat hierbij uit van het kind zelf, van wat hen boeit en aanspreekt. Het hoogtepunt in een kapoenenleven? Voor de eerste keer op **kamp**! Bij TC zijn de kapoenen in twee takken gesplitst: **kapoenen 1 en kapoenen 2**, dit is echter geen opdeling op leeftijd. Als kapoen blijf je dus 2 jaar in dezelfde tak zitten.
 subtakken:
   -
+    id: subtak-kap1
     type: subtak
-    enabled: true
     naam: 'Kapoenen 1'
-    afwezigheids_formulier: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+    afwezigheids_formulier: 'https://forms.gle/ruA1gjdBv7wAdCjR7'
     rekeningnummer: 'BE83 9735 0413 6215'
   -
+    id: subtak-kap2
     type: subtak
-    enabled: true
     naam: 'Kapoenen 2'
-    afwezigheids_formulier: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+    afwezigheids_formulier: 'https://forms.gle/tcpBRZM56iYyuWA57'
     rekeningnummer: 'BE29 1030 9346 8864'
 ---
-De **Kapoenen** zijn onze jongste scouts. In deze tak leren kinderen tussen 6 en 8 jaar spelenderwijs samen te werken, vriendschappen te sluiten en plezier te hebben in de natuur.
-
-## Wat doen we?
-
-- Spelletjes in de natuur
-- Knutselen en creatieve activiteiten  
-- Verhalen en liedjes
-- Kleine uitstapjes
-- Kennismaken met scouting waarden
-
-## Onze activiteiten
-
-Elke zaterdagnamiddag van 14:00 tot 16:00 komen onze kapoenen samen voor 2 uur vol plezier. We spelen spelletjes, gaan op ontdekking in het bos, knutselen samen en leren belangrijke waarden zoals respectvol samenleven.
-
-De kapoenen leren ook de basis van scouting: samen sterk zijn, elkaar helpen en plezier maken in een veilige omgeving.
