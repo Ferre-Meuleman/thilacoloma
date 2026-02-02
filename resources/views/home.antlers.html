@@ -11,7 +11,7 @@
                 {{ slideshow_content:news_slides }}
                     <div class="slide">
                         {{ if image }}
-                            <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
+                            <img src="{{ image }}" alt="{{ title }} evenement">
                         {{ else }}
                             <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
                         {{ /if }}
@@ -61,5 +61,4 @@
     </nav>
 </div>
 
-<script src="/assets/js/slideshow.js"></script>
 <script src="/assets/js/news-slideshow.js"></script>

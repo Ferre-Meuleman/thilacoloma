@@ -103,6 +103,7 @@ h1 {
     flex-direction: column;
     width: 100%;
     overflow: hidden;
+    height: 100vh;
 }
 
 .box {
