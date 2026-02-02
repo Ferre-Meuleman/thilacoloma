@@ -1,0 +1,59 @@
+title: Stamhoofd
+sections:
+  main:
+    display: Main
+    fields:
+      - 
+        handle: title
+        field:
+          type: text
+          required: true
+          validate: 'required'
+      - 
+        handle: intro_text
+        field:
+          type: textarea
+          display: 'Intro tekst'
+          instructions: 'Korte beschrijving van de stamhoofd functionaliteit'
+          default: 'Hier kun je inschrijven, afwezigheden melden, medische fiches uploaden en betalingen bekijken voor onze scoutsgroep.'
+      - 
+        handle: stamhoofd_url
+        field:
+          type: text
+          display: 'Stamhoofd URL'
+          instructions: 'De URL naar het stamhoofd platform'
+          default: 'https://inschrijven.thilacoloma.be/'
+          validate: 'required|url'
+      - 
+        handle: button_text
+        field:
+          type: text
+          display: 'Button tekst'
+          instructions: 'Tekst op de knop naar stamhoofd'
+          default: 'Ga naar Stamhoofd'
+      - 
+        handle: content_left_title
+        field:
+          type: text
+          display: 'Linker box titel'
+          instructions: 'Titel voor de linker info box'
+          default: 'Wat kun je doen via Stamhoofd?'
+      - 
+        handle: content_left
+        field:
+          type: markdown
+          display: 'Linker box content'
+          instructions: 'Content voor de linker info box (bijv. lijst met functies)'
+      - 
+        handle: content_right_title
+        field:
+          type: text
+          display: 'Rechter box titel'
+          instructions: 'Titel voor de rechter info box'
+          default: 'Hulp nodig?'
+      - 
+        handle: content_right
+        field:
+          type: markdown
+          display: 'Rechter box content'
+          instructions: 'Content voor de rechter info box (bijv. contact info)'
