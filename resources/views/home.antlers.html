@@ -3,53 +3,55 @@
         <div class="upper-left box">
             <div class="titel"><h1><mark>{{ intro_title ?? 'Thila Coloma' }}</mark></h1><!-- <img src="/assets/images/Logo_TC_ WIT.png" alt="Thila Coloma Logo"> -->
             </div>
-            <p><mark>{{ intro_text | markdown | strip_tags:'p' | raw }}<br><br>
-            {{ intro_extra_text | markdown | strip_tags:'p' | raw }}</mark>
-            </p>
+            <p><mark>{{ intro_text | markdown | strip_tags:'p' | raw }}</mark></p>
         </div>
         <div class="container-upper-right">
-        <h1>{{ news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
+        <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
         <div class="upper-right box" id="slideshow">
-            {{ if news_slides }}
-                {{ news_slides }}
-                    <div class="slide">
-                        {{ if image }}
-                            <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
-                        {{ else }}
-                            <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
-                        {{ /if }}
-                        <div class="slide-text">
-                            <h2>{{ title }}</h2>
-                            <p>{{ content | nl2br }}</p>
-                            {{ if button_link }}
-                                <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
+            {{ slideshow_content:news_slides }}
+                {{ if news_slides }}
+                    {{ news_slides }}
+                        <div class="slide">
+                            {{ if image }}
+                                <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
                             {{ else }}
-                                <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                                <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
                             {{ /if }}
+                            <div class="slide-text">
+                                <h2>{{ title }}</h2>
+                                <p>{{ content | nl2br }}</p>
+                                {{ if button_link }}
+                                    <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
+                                {{ else }}
+                                    <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    {{ /news_slides }}
+                {{ else }}
+                    <!-- Fallback als er geen slides zijn -->
+                    <div class="slide">
+                        <img src="/assets/images/slideshow/1image.jpg" alt="Evenement">
+                        <div class="slide-text">
+                            <h2>Nieuws komt binnenkort</h2>
+                            <p>Voeg slides toe in het Control Panel onder Slideshow Content global.</p>
+                            <button class="meer-button">Meer info</button>
                         </div>
                     </div>
-                {{ /news_slides }}
-            {{ else }}
-                <!-- Fallback als er geen slides zijn -->
-                <div class="slide">
-                    <img src="/assets/images/slideshow/1image.jpg" alt="Evenement">
-                    <div class="slide-text">
-                        <h2>Nieuws komt binnenkort</h2>
-                        <p>Voeg slides toe in het Control Panel onder Home pagina.</p>
-                        <button class="meer-button">Meer info</button>
-                    </div>
-                </div>
-            {{ /if }}
+                {{ /if }}
+            {{ /slideshow_content:news_slides }}
             <!-- Add more slides as needed -->
         </div>
         <div class="slideshow-dots">
-            {{ if news_slides }}
-                {{ news_slides }}
-                    <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
-                {{ /news_slides }}
-            {{ else }}
-                <span class="dot active" data-slide="0"></span>
-            {{ /if }}
+            {{ slideshow_content:news_slides }}
+                {{ if news_slides }}
+                    {{ news_slides }}
+                        <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
+                    {{ /news_slides }}
+                {{ else }}
+                    <span class="dot active" data-slide="0"></span>
+                {{ /if }}
+            {{ /slideshow_content:news_slides }}
         </div>
 
         <script>
