@@ -6,69 +6,46 @@
             <p><mark>{{ intro_text | markdown | strip_tags:'p' | raw }}</mark></p>
         </div>
         <div class="container-upper-right">
-        <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
-        <div class="upper-right box" id="slideshow">
-            {{ slideshow_content:news_slides }}
-                {{ if news_slides }}
-                    {{ news_slides }}
-                        <div class="slide">
-                            {{ if image }}
-                                <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
-                            {{ else }}
-                                <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
-                            {{ /if }}
-                            <div class="slide-text">
-                                <h2>{{ title }}</h2>
-                                <p>{{ content | nl2br }}</p>
-                                {{ if button_link }}
-                                    <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
-                                {{ else }}
-                                    <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
-                                {{ /if }}
-                            </div>
-                        </div>
-                    {{ /news_slides }}
-                {{ else }}
-                    <!-- Fallback als er geen slides zijn -->
+            <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
+            <div class="upper-right box" id="slideshow">
+                {{ slideshow_content:news_slides }}
                     <div class="slide">
-                        <img src="/assets/images/slideshow/1image.jpg" alt="Evenement">
+                        {{ if image }}
+                            <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
+                        {{ else }}
+                            <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
+                        {{ /if }}
                         <div class="slide-text">
-                            <h2>Nieuws komt binnenkort</h2>
-                            <p>Voeg slides toe in het Control Panel onder Slideshow Content global.</p>
-                            <button class="meer-button">Meer info</button>
+                            <h2>{{ title }}</h2>
+                            <p>{{ content | nl2br }}</p>
+                            {{ if button_link }}
+                                <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
+                            {{ else }}
+                                <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                            {{ /if }}
                         </div>
                     </div>
-                {{ /if }}
-            {{ /slideshow_content:news_slides }}
-            <!-- Add more slides as needed -->
-        </div>
-        <div class="slideshow-dots">
-            {{ slideshow_content:news_slides }}
-                {{ if news_slides }}
-                    {{ news_slides }}
-                        <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
-                    {{ /news_slides }}
-                {{ else }}
-                    <span class="dot active" data-slide="0"></span>
-                {{ /if }}
-            {{ /slideshow_content:news_slides }}
-        </div>
+                {{ /slideshow_content:news_slides }}
+            </div>
+            
+            <div class="slideshow-dots">
+                {{ slideshow_content:news_slides }}
+                    <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
+                {{ /slideshow_content:news_slides }}
+            </div>
 
-        <script>
-            // Add click handlers to slideshow dots
-            document.addEventListener('DOMContentLoaded', function() {
-                const dots = document.querySelectorAll('.slideshow-dots .dot');
-                dots.forEach(dot => {
-                    dot.addEventListener('click', function() {
-                        const slideIndex = parseInt(this.getAttribute('data-slide'));
-                        currentSlide(slideIndex);
+            <script>
+                // Add click handlers to slideshow dots
+                document.addEventListener('DOMContentLoaded', function() {
+                    const dots = document.querySelectorAll('.slideshow-dots .dot');
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', function() {
+                            const slideIndex = parseInt(this.getAttribute('data-slide'));
+                            currentSlide(slideIndex);
+                        });
                     });
                 });
-            });
-        </script>
-            <!-- Add more dots as needed -->
-        </div>
-        </div>
+            </script>
         </div>
     </div>
     
