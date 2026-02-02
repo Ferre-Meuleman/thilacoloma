@@ -143,6 +143,21 @@ h1 {
     color: var(--primary-color);
 }
 
+/* Intro content wrapper for markdown */
+.intro-content {
+    font-family: var(--font-regular);
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.intro-content p {
+    margin: 0 0 1em 0;
+}
+
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
 /* Normalize markdown generated paragraphs in intro */
 .upper-left p p {
     margin: 0;

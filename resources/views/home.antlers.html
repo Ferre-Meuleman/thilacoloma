@@ -3,7 +3,7 @@
         <div class="upper-left box">
             <div class="titel"><h1><mark>{{ intro_title ?? 'Thila Coloma' }}</mark></h1><!-- <img src="/assets/images/Logo_TC_ WIT.png" alt="Thila Coloma Logo"> -->
             </div>
-            <p><mark>{{ intro_text | markdown | strip_tags:'p' | raw }}</mark></p>
+            <div class="intro-content"><mark>{{ intro_text | markdown | raw }}</mark></div>
         </div>
         <div class="container-upper-right">
             <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
