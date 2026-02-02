@@ -31,7 +31,7 @@
                     
                     <div class="tak-leiding">
                         <strong style="color: var(--primary-color);">Takleiders:</strong><br>
-                        {{ leidingsploegen:kapoenen }}{{ leidingsploegen:welpen }}{{ leidingsploegen:jongverkenners }}{{ leidingsploegen:verkenners }}{{ leidingsploegen:voortrekkers }}{{ leidingsploegen:tictak }}
+                        {{ leidingsploegen:kapoenen }}
                             {{ if actief && tak_groep == naam | slugify }}
                                 {{ leiding }}
                                     {{ if functie == 'takleider' }}
@@ -40,7 +40,57 @@
                                     {{ /if }}
                                 {{ /leiding }}
                             {{ /if }}
-                        {{ /leidingsploegen:kapoenen }}{{ /leidingsploegen:welpen }}{{ /leidingsploegen:jongverkenners }}{{ /leidingsploegen:verkenners }}{{ /leidingsploegen:voortrekkers }}{{ /leidingsploegen:tictak }}
+                        {{ /leidingsploegen:kapoenen }}
+                        {{ leidingsploegen:welpen }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                    {{ /if }}
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:welpen }}
+                        {{ leidingsploegen:jongverkenners }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                    {{ /if }}
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:jongverkenners }}
+                        {{ leidingsploegen:verkenners }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                    {{ /if }}
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:verkenners }}
+                        {{ leidingsploegen:voortrekkers }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                    {{ /if }}
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:voortrekkers }}
+                        {{ leidingsploegen:tictak }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                    {{ /if }}
+                                {{ /leiding }}
+                            {{ /if }}
+                        {{ /leidingsploegen:tictak }}
                     </div>
                     
                     <div class="tak-links">
