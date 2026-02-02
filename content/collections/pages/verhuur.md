@@ -34,22 +34,27 @@ maps_embed_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5022.0078
 locatie_info:
   -
     id: jYfxZevT
+    type: punt
     icon: 'fas fa-car'
     tekst: 'Via korte aardweg bereikbaar'
   -
     id: 7Y6NsC6Y
+    type: punt
     icon: 'fas fa-tree'
     tekst: 'Groot terrein en bos aangrenzend'
   -
     id: wdegceac
+    type: punt
     icon: 'fas fa-train'
     tekst: 'Transport: 4 km van het station en ook met de bus bereikbaar'
   -
     id: KlOmn8zI
+    type: punt
     icon: 'fas fa-swimmer'
     tekst: 'Bloso-domein: Op 2,5 km (met zwemvijver, strand en bos)'
   -
     id: gidc4PRn
+    type: punt
     icon: 'fas fa-shopping-cart'
     tekst: 'Voorzieningen: Bakker, supermarkt... liggen allemaal heel dicht in de buurt'
 materiaal_contact_titel: 'Contact Materiaal'
@@ -63,6 +68,7 @@ materiaal_titel: Materiaal
 materiaal_transport:
   -
     id: transport_1
+    type: item
     naam: 'Aanhang&shy;wagen'
     afbeelding: aanhangwagen-150x150.jpg
     icon: 'fas fa-trailer'
@@ -71,6 +77,7 @@ materiaal_transport:
     waarborg: €50
   -
     id: transport_2
+    type: item
     naam: Kar
     afbeelding: kar-e1711706509574-150x150.jpg
     icon: 'fas fa-dolly'
@@ -80,6 +87,7 @@ materiaal_transport:
 materiaal_meubilair:
   -
     id: meubilair_1
+    type: item
     naam: Tafel
     afbeelding: tafel-150x150.jpg
     icon: 'fas fa-table'
@@ -88,6 +96,7 @@ materiaal_meubilair:
     waarborg: €6
   -
     id: meubilair_2
+    type: item
     naam: Bank
     afbeelding: bank-150x150.png
     icon: 'fas fa-chair'
@@ -97,6 +106,7 @@ materiaal_meubilair:
 materiaal_kookbenodigdheden:
   -
     id: kook_1
+    type: item
     naam: Gasbekken
     afbeelding: gasbekken-150x150.jpg
     icon: 'fas fa-fire'
@@ -105,6 +115,7 @@ materiaal_kookbenodigdheden:
     waarborg: €10
   -
     id: kook_2
+    type: item
     naam: 'Gasfles (propaan)'
     afbeelding: gasfles-e1711706727392-150x150.jpg
     icon: 'fas fa-fire'
@@ -113,6 +124,7 @@ materiaal_kookbenodigdheden:
     waarborg: €30
   -
     id: kook_3
+    type: item
     naam: Bakplaat
     afbeelding: bakplaat-150x150.jpg
     icon: 'fas fa-burn'
@@ -121,6 +133,7 @@ materiaal_kookbenodigdheden:
     waarborg: €50
   -
     id: kook_4
+    type: item
     naam: Braadslee
     afbeelding: braadslee-150x150.jpg
     icon: 'fas fa-utensils'
@@ -129,6 +142,7 @@ materiaal_kookbenodigdheden:
     waarborg: €3
   -
     id: kook_5
+    type: item
     naam: Kookpotten
     afbeelding: kookpot-150x150.jpg
     icon: 'fas fa-utensils'
@@ -138,6 +152,7 @@ materiaal_kookbenodigdheden:
 materiaal_koeling:
   -
     id: koeling_1
+    type: item
     naam: Koelkast
     afbeelding: koelkast-150x150.jpg
     icon: 'fas fa-thermometer-quarter'
@@ -146,6 +161,7 @@ materiaal_koeling:
     waarborg: €20
   -
     id: koeling_2
+    type: item
     naam: Diepvries
     afbeelding: diepvries-e1711706627479-150x150.jpg
     icon: 'fas fa-snowflake'
@@ -154,6 +170,7 @@ materiaal_koeling:
     waarborg: €20
   -
     id: koeling_3
+    type: item
     naam: Koelbox
     afbeelding: koelbox-150x150.jpg
     icon: 'fas fa-box'
@@ -163,6 +180,7 @@ materiaal_koeling:
 materiaal_gereedschap:
   -
     id: gereedschap_1
+    type: item
     naam: Ladder
     afbeelding: ladder-150x150.jpg
     icon: 'fas fa-tools'
@@ -171,6 +189,7 @@ materiaal_gereedschap:
     waarborg: €5
   -
     id: gereedschap_2
+    type: item
     naam: Grondboor
     afbeelding: grondboor-e1711705260133-150x150.jpg
     icon: 'fas fa-cog'
@@ -179,6 +198,7 @@ materiaal_gereedschap:
     waarborg: €6
   -
     id: gereedschap_3
+    type: item
     naam: Bijl
     afbeelding: bijl-e1711705422749-150x150.jpg
     icon: 'fas fa-cut'
@@ -187,6 +207,7 @@ materiaal_gereedschap:
     waarborg: €5
   -
     id: gereedschap_4
+    type: item
     naam: Pikhouweel
     afbeelding: pickhouweel-150x150.jpg
     icon: 'fas fa-tools'
@@ -195,6 +216,7 @@ materiaal_gereedschap:
     waarborg: €6
   -
     id: gereedschap_5
+    type: item
     naam: Zagen
     afbeelding: zaag-150x150.jpg
     icon: 'fas fa-cut'
@@ -203,6 +225,7 @@ materiaal_gereedschap:
     waarborg: €5
   -
     id: gereedschap_6
+    type: item
     naam: Tonhamer
     afbeelding: tonhamer-e1711706104345-150x150.jpg
     icon: 'fas fa-hammer'
@@ -217,18 +240,22 @@ tenten_waarschuwing: 'Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 
 tenten_prijzen_info:
   -
     id: tenten_prijs_1
+    type: info
     label: Transport
     tekst: '€0,5/km met een minimumprijs van €20'
   -
     id: tenten_prijs_2
+    type: info
     label: Opzetten
     tekst: 'Mogelijk voor de meeste tenten, prijs verschilt per tent'
   -
     id: tenten_prijs_3
+    type: info
     label: Korting
     tekst: 'Leiding, oud leiding en huurders van de scouts lokalen huren aan halve prijs (behalve transport en opzetkosten)'
   -
     id: tenten_prijs_4
+    type: info
     label: Langdurig/grootschalig
     tekst: 'Er valt te onderhandelen over de prijs'
 tenten_sectie_titel: Tenten

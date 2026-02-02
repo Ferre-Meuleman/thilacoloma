@@ -472,9 +472,23 @@ tabs:
           -
             handle: tenten_prijzen_info
             field:
-              type: textarea
+              type: replicator
               display: 'Prijzen Info'
-              instructions: 'HTML toegestaan'
+              instructions: 'Info over prijzen en transport'
+              sets:
+                info:
+                  display: 'Info Item'
+                  fields:
+                    -
+                      handle: label
+                      field:
+                        type: text
+                        display: 'Label'
+                    -
+                      handle: tekst
+                      field:
+                        type: text
+                        display: 'Tekst'
       -
         display: 'Beschikbare Tenten'
         fields:
