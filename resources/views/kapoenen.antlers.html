@@ -46,8 +46,9 @@
             </div>
 
             <div class="leiding-grid">
-                {{ leidingsploegen | merge_leidingsploegen }}
+                {{ leidingsploegen:kapoenen }}
                     {{ if tak_naam == naam && actief }}
+                        {{ leiding }}
                         {{ leiding }}
                             <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                                 <div class="leiding-foto">
@@ -70,7 +71,7 @@
                             </div>
                         {{ /leiding }}
                     {{ /if }}
-                {{ /leidingsploegen }}
+                {{ /leidingsploegen:kapoenen }}
             </div>
         </div>
         {{ /subtakken }}

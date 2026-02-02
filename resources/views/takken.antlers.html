@@ -31,65 +31,16 @@
                     
                     <div class="tak-leiding">
                         <strong style="color: var(--primary-color);">Takleiders:</strong><br>
-                        {{ leidingsploegen | merge_leidingsploegen }}
-                            {{ if actief && tak_naam != "Groepsleiding" }}
-                                {{ if naam == "Kapoenen" }}
-                                    {{ if tak_naam == "Kapoenen 1" || tak_naam == "Kapoenen 2" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
+                        {{ leidingsploegen:kapoenen }}{{ leidingsploegen:welpen }}{{ leidingsploegen:jongverkenners }}{{ leidingsploegen:verkenners }}{{ leidingsploegen:voortrekkers }}{{ leidingsploegen:tictak }}
+                            {{ if actief && tak_groep == naam | slugify }}
+                                {{ leiding }}
+                                    {{ if functie == 'takleider' }}
+                                        {{ totem }}<br>
+                                        <a href="mailto:{{ email }}">{{ email }}</a><br>
                                     {{ /if }}
-                                {{ elseif naam == "Welpen" }}
-                                    {{ if tak_naam == "Jongwelpen" || tak_naam == "Welpen" || tak_naam == "Seniorwelpen" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
-                                    {{ /if }}
-                                {{ elseif naam == "Jongverkenners" }}
-                                    {{ if tak_naam == "Jongverkenners 1" || tak_naam == "Jongverkenners 2" || tak_naam == "Jongverkenners 3" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
-                                    {{ /if }}
-                                {{ elseif naam == "Verkenners" }}
-                                    {{ if tak_naam == "Verkenners 1" || tak_naam == "Verkenners 2" || tak_naam == "Verkenners 3" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
-                                    {{ /if }}
-                                {{ elseif naam == "Tictak (Akabe)" }}
-                                    {{ if tak_naam == "Tictak" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
-                                    {{ /if }}
-                                {{ elseif naam == "Voortrekkers" }}
-                                    {{ if tak_naam == "Voortrekkers" }}
-                                        {{ leiding }}
-                                            {{ if functie == 'takleider' }}
-                                                {{ totem }}<br>
-                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
-                                            {{ /if }}
-                                        {{ /leiding }}
-                                    {{ /if }}
-                                {{ /if }}
+                                {{ /leiding }}
                             {{ /if }}
-                        {{ /leidingsploegen }}
+                        {{ /leidingsploegen:kapoenen }}{{ /leidingsploegen:welpen }}{{ /leidingsploegen:jongverkenners }}{{ /leidingsploegen:verkenners }}{{ /leidingsploegen:voortrekkers }}{{ /leidingsploegen:tictak }}
                     </div>
                     
                     <div class="tak-links">

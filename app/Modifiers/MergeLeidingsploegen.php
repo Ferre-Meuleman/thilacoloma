@@ -17,6 +17,19 @@ class MergeLeidingsploegen extends Modifier
      */
     public function index($value): array
     {
+        // Debug: log what we receive
+        \Log::info('MergeLeidingsploegen received:', ['type' => gettype($value), 'value' => $value]);
+        
+        // If value is null or empty, return empty array
+        if (empty($value)) {
+            return [];
+        }
+        
+        // If it's already a simple array with numeric keys, it might be the old merged structure
+        if (is_array($value) && isset($value[0])) {
+            return $value;
+        }
+
         // If it's already a flat array (old structure), return as is
         if (isset($value['leidingsploegen']) && is_array($value['leidingsploegen'])) {
             return $value['leidingsploegen'];
@@ -28,9 +41,12 @@ class MergeLeidingsploegen extends Modifier
 
         foreach ($takGroepen as $groep) {
             if (isset($value[$groep]) && is_array($value[$groep])) {
+                \Log::info("Merging {$groep}:", ['count' => count($value[$groep])]);
                 $merged = array_merge($merged, $value[$groep]);
             }
         }
+        
+        \Log::info('MergeLeidingsploegen result:', ['count' => count($merged)]);
 
         return $merged;
     }
