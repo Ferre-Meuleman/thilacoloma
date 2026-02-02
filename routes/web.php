@@ -16,16 +16,10 @@ Route::get('/', function() {
         abort(404);
     }
     
-    // Load globals
-    $globals = \Statamic\Facades\GlobalSet::all()->mapWithKeys(function($set) {
-        return [$set->handle() => $set->inDefaultSite()];
-    })->all();
-    
     return (new \Statamic\View\View)
         ->template('home')
         ->layout('layouts/app')
         ->cascadeContent($entry)
-        ->with($globals)
         ->render();
 });
 
