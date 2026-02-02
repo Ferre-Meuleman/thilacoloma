@@ -14,7 +14,6 @@ tabs:
               validate:
                 - required
               display: 'Titel'
-              instructions: 'Bijvoorbeeld: Thilala Februari 2026'
               width: 50
           -
             handle: publication_date
