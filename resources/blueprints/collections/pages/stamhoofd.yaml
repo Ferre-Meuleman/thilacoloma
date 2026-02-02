@@ -57,9 +57,3 @@ sections:
           type: markdown
           display: 'Rechter box content'
           instructions: 'Content voor de rechter info box (bijv. contact info)'
-      - 
-        handle: content
-        field:
-          type: markdown
-          display: '[DEPRECATED] Pagina content'
-          instructions: 'Niet meer gebruiken - gebruik content_left en content_right'
