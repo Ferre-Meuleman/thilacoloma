@@ -146,12 +146,13 @@ h1 {
 /* Intro content wrapper for markdown */
 .intro-content {
     font-family: var(--font-regular);
-    font-size: 1.2em;
+    font-size: 1em;
     color: var(--primary-color);
+    line-height: 1.6;
 }
 
 .intro-content p {
-    margin: 0 0 1em 0;
+    margin: 0 0 1.2em 0;
 }
 
 .intro-content p:last-child {
