@@ -7,7 +7,11 @@
             </div>
             <h1>{{ title }}</h1>
             <div class="section-intro">
-                {{ content | markdown }}
+                {{ if content is string }}
+                    {{ content | markdown }}
+                {{ else }}
+                    {{ content }}
+                {{ /if }}
             </div>
         </div>
 
