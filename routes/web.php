@@ -9,7 +9,7 @@ use App\Http\Controllers\LiveSearchController;
 Route::get('/', function() {
     $entry = \Statamic\Facades\Entry::query()
         ->where('slug', 'home')
-        ->where('collection', 'pages')
+        ->where('collection', 'algemene_paginas')
         ->first();
     
     if (!$entry) {

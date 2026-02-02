@@ -10,6 +10,11 @@ blueprints:
   - kalender
 revisions: true
 search_index: default
+structure:
+  root: true
+  tree:
+    -
+      entry: home
 date_behavior:
   past: public
   future: hidden
