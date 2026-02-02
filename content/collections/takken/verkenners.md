@@ -1,5 +1,5 @@
 ---
-blueprint: page
+blueprint: tak
 id: a2b3c4d5-6e7f-8a9b-0c1d-2e3f4g5h6i7j
 layout: layouts/page
 template: verkenners

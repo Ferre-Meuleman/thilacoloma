@@ -1,5 +1,5 @@
 ---
-blueprint: page
+blueprint: tak
 id: b3c4d5e6-7f8a-9b0c-1d2e-3f4g5h6i7j8k
 layout: layouts/page
 template: voortrekkers

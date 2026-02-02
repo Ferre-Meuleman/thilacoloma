@@ -1,5 +1,5 @@
 ---
-blueprint: tak_pagina
+blueprint: tak
 id: 9cjfil9-def0-b123-4567-89abcdef0123
 layout: layouts/page
 slug: kapoenen

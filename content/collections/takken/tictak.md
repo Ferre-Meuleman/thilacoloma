@@ -1,6 +1,6 @@
 ---
 id: c4d5e6f7-8a9b-0c1d-2e3f-4g5h6i7j8k9l
-blueprint: page
+blueprint: tak
 title: Tictak
 template: tictak
 layout: layouts/page

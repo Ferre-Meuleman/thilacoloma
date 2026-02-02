@@ -1,5 +1,5 @@
 ---
-blueprint: page
+blueprint: tak
 id: adkgjm0-ef01-c234-5678-9abcdef01234
 layout: layouts/page
 slug: welpen
