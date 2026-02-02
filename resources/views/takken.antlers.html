@@ -31,7 +31,7 @@
                     
                     <div class="tak-leiding">
                         <strong style="color: var(--primary-color);">Takleiders:</strong><br>
-                        {{ leidingsploegen:leidingsploegen }}
+                        {{ leidingsploegen | merge_leidingsploegen }}
                             {{ if actief && tak_naam != "Groepsleiding" }}
                                 {{ if naam == "Kapoenen" }}
                                     {{ if tak_naam == "Kapoenen 1" || tak_naam == "Kapoenen 2" }}
