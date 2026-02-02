@@ -27,22 +27,6 @@ takken_groepen:
     tak zitten.'
   takken_lijst: Kapoenen 1, 2 & 3
   vergadertijd: 14-17u
-  takleiders:
-  - id: kap1
-    type: takleider
-    naam: Janne De Coster
-    email: roodborstje@thilacoloma.be
-    enabled: true
-  - id: kap2
-    type: takleider
-    naam: Kapoen 2 leiding
-    email: kapoenen2@thilacoloma.be
-    enabled: true
-  - id: kap3
-    type: takleider
-    naam: Kapoen 3 leiding
-    email: kapoenen3@thilacoloma.be
-    enabled: true
   enabled: true
 - id: fg17c8tY
   type: tak_groep
@@ -57,22 +41,6 @@ takken_groepen:
     uit het 5de leerjaar zitten bij de Seniorwelpen.'
   takken_lijst: Jongwelpen, Welpen & Seniorwelpen
   vergadertijd: 14-17u
-  takleiders:
-  - id: jw1
-    type: takleider
-    naam: Vighor De Cock
-    email: bernesi@thilacoloma.be
-    enabled: true
-  - id: w1
-    type: takleider
-    naam: Welpen leiding
-    email: welpen@thilacoloma.be
-    enabled: true
-  - id: sw1
-    type: takleider
-    naam: Seniorwelpen leiding
-    email: seniorwelpen@thilacoloma.be
-    enabled: true
   enabled: true
   logo: /assets/images/takken/Takteken_(zee)kabouters-welpen_hr_rgb.jpg
 - id: 69UB5ezx
@@ -87,12 +55,6 @@ takken_groepen:
     pleinspelen, tochtjes, slapen in tenten zijn ons niet vreemd.'
   takken_lijst: Tictak
   vergadertijd: 14-17u
-  takleiders:
-  - id: tt1
-    type: takleider
-    naam: Simon Peeters
-    email: salmo@thilacoloma.be
-    enabled: true
   enabled: true
   logo: /assets/images/takken/Takteken_akabe1_lr_kl web2020.jpg
 - id: HYDKpdZB
@@ -109,22 +71,6 @@ takken_groepen:
     TC hebben we 3 JV-takken met ongeveer 35 leden.
   takken_lijst: JV1, JV2 & JV3
   vergadertijd: 14-18u
-  takleiders:
-  - id: jv1
-    type: takleider
-    naam: Maya Van Den Bossche
-    email: kolibrie@thilacoloma.be
-    enabled: true
-  - id: jv2
-    type: takleider
-    naam: JV2 leiding
-    email: jv2@thilacoloma.be
-    enabled: true
-  - id: jv3
-    type: takleider
-    naam: JV3 leiding
-    email: jv3@thilacoloma.be
-    enabled: true
   enabled: true
   logo: /assets/images/takken/Takteken_jonggidsen-jongverkenners-scheepsmakkers_hr_rgb web
     2020.jpg
@@ -142,22 +88,6 @@ takken_groepen:
     kamp... We hebben 3 Verkennergroepen met elk ongeveer 30 leden.
   takken_lijst: V1, V2 & V3
   vergadertijd: 14-18u
-  takleiders:
-  - id: v1
-    type: takleider
-    naam: Laurens Maddens
-    email: aloeatta@thilacoloma.be
-    enabled: true
-  - id: v2
-    type: takleider
-    naam: V2 leiding
-    email: v2@thilacoloma.be
-    enabled: true
-  - id: v3
-    type: takleider
-    naam: V3 leiding
-    email: v3@thilacoloma.be
-    enabled: true
   enabled: true
   logo: /assets/images/takken/Takteken_(zee)gidsen-verkenners_hr_rgb web2020.jpg
 - id: xbr58GRO
@@ -176,12 +106,6 @@ takken_groepen:
     juli gaan de Vt''s op hun eigen buitenlands kamp.'
   takken_lijst: VT's
   vergadertijd: 14-18u
-  takleiders:
-  - id: vt1
-    type: takleider
-    naam: Yu-lan Elshout
-    email: sambar@thilacoloma.be
-    enabled: true
   enabled: true
   logo: /assets/images/takken/Takteken_jins-loodsen_hr_rgb web2020.jpg
 updated_by: 490dab97-40bc-46ac-8e07-29cd20111226
