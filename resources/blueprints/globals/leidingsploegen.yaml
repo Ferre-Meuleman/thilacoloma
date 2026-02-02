@@ -1,103 +1,542 @@
 title: Leidingsploegen
-fields:
-  -
-    handle: leidingsploegen
-    field:
-      type: replicator
-      display: 'Leidingsploegen'
-      instructions: 'Beheer alle leidingsploegen centraal'
-      sets:
-        leidingsploeg:
-          display: 'Leidingsploeg'
-          fields:
-            -
-              handle: tak_naam
-              field:
-                type: text
-                display: 'Tak naam'
-                instructions: 'Naam van de tak (bijv. "Kapoenen 1", "Jongwelpen")'
-                required: true
-            -
-              handle: tak_groep
-              field:
-                type: select
-                display: 'Tak groep'
-                instructions: 'Hoofdgroep waartoe deze tak behoort'
-                options:
-                  kapoenen: Kapoenen
-                  welpen: Welpen
-                  jongverkenners: Jongverkenners  
-                  verkenners: Verkenners
-                  voortrekkers: Voortrekkers
-                  tictak: Tictak
-                required: true
-            -
-              handle: takleider
-              field:
-                type: text
-                display: 'Takleider'
-                instructions: 'Naam van de hoofdtakleider'
-                required: true
-            -
-              handle: takleider_email
-              field:
-                type: text
-                display: 'Takleider email'
-                validate: 'email'
-                required: true
-            -
-              handle: leiding
-              field:
-                type: replicator
-                display: 'Leidingsteam'
-                instructions: 'Alle leiding van deze tak'
-                sets:
-                  leider:
-                    display: 'Leider'
-                    fields:
-                      -
-                        handle: voornaam
-                        field:
-                          type: text
-                          display: 'Voornaam'
-                          required: true
-                      -
-                        handle: achternaam
-                        field:
-                          type: text
-                          display: 'Achternaam'
-                      -
-                        handle: totem
-                        field:
-                          type: text
-                          display: 'Totem'
-                          instructions: 'Volledige totem (bijv. "Zachtaardige Coscoroba")'
-                      -
-                        handle: foto
-                        field:
-                          type: assets
-                          display: 'Foto'
-                          instructions: 'Profielfoto van deze leider. Als leeg, wordt de foto gezocht op basis van de totem.'
-                          max_files: 1
-                          container: assets
-                      -
-                        handle: functie
-                        field:
-                          type: select
-                          display: 'Functie'
-                          options:
-                            takleider: Takleider
-                            leiding: Leiding
-                            jin: Jin
-                          default: leiding
-                      -
-                        handle: email
-                        field:
-                          type: text
-                          display: 'Email'
-                          validate: 'email'
-            -
-              handle: groepsfoto
+tabs:
+  groepsleiding:
+    display: Groepsleiding
+    sections:
+      -
+        fields:
+          -
+            handle: groepsleiding
+            field:
+              type: replicator
+              display: 'Groepsleiding'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        default: 'Groepsleiding'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'groepsleiding'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                                  instructions: 'Volledige totem (bijv. "Zachtaardige Coscoroba")'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  kapoenen:
+    display: Kapoenen
+    sections:
+      -
+        fields:
+          -
+            handle: kapoenen
+            field:
+              type: replicator
+              display: 'Kapoenen takken'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        instructions: 'Bijv. "Kapoenen 1"'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'kapoenen'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                    jin: Jin
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  welpen:
+    display: Welpen
+    sections:
+      -
+        fields:
+          -
+            handle: welpen
+            field:
+              type: replicator
+              display: 'Welpen takken'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        instructions: 'Bijv. "Jongwelpen", "Welpen", "Seniorwelpen"'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'welpen'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                    jin: Jin
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  tictak:
+    display: Tictak
+    sections:
+      -
+        fields:
+          -
+            handle: tictak
+            field:
+              type: replicator
+              display: 'Tictak leiding'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        default: 'Tictak'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'tictak'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  jongverkenners:
+    display: Jongverkenners
+    sections:
+      -
+        fields:
+          -
+            handle: jongverkenners
+            field:
+              type: replicator
+              display: 'Jongverkenner takken'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        instructions: 'Bijv. "Jongverkenners 1"'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'jongverkenners'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                    jin: Jin
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  verkenners:
+    display: Verkenners
+    sections:
+      -
+        fields:
+          -
+            handle: verkenners
+            field:
+              type: replicator
+              display: 'Verkenner takken'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        instructions: 'Bijv. "Verkenners 1"'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'verkenners'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                    jin: Jin
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
+  voortrekkers:
+    display: Voortrekkers
+    sections:
+      -
+        fields:
+          -
+            handle: voortrekkers
+            field:
+              type: replicator
+              display: 'Voortrekker leiding'
+              collapse: true
+              sets:
+                leidingsploeg:
+                  display: 'Leidingsploeg'
+                  fields:
+                    -
+                      handle: tak_naam
+                      field:
+                        type: text
+                        display: 'Tak naam'
+                        default: 'Voortrekkers'
+                        required: true
+                    -
+                      handle: tak_groep
+                      field:
+                        type: text
+                        display: 'Tak groep'
+                        default: 'voortrekkers'
+                        disabled: true
+                    -
+                      handle: actief
+                      field:
+                        type: toggle
+                        display: 'Actief'
+                        default: true
+                    -
+                      handle: leiding
+                      field:
+                        type: replicator
+                        display: 'Leidingsteam'
+                        collapse: true
+                        sets:
+                          leider:
+                            display: 'Leider'
+                            fields:
+                              -
+                                handle: voornaam
+                                field:
+                                  type: text
+                                  display: 'Voornaam'
+                                  required: true
+                              -
+                                handle: achternaam
+                                field:
+                                  type: text
+                                  display: 'Achternaam'
+                              -
+                                handle: totem
+                                field:
+                                  type: text
+                                  display: 'Totem'
+                              -
+                                handle: functie
+                                field:
+                                  type: select
+                                  display: 'Functie'
+                                  options:
+                                    takleider: Takleider
+                                    leiding: Leiding
+                                  default: leiding
+                              -
+                                handle: email
+                                field:
+                                  type: text
+                                  display: 'Email'
+                                  validate: 'email'
               field:
                 type: assets
                 display: 'Groepsfoto'
