@@ -45,7 +45,7 @@ takken_groepen:
   logo: /assets/images/takken/Takteken_(zee)kabouters-welpen_hr_rgb.jpg
 - id: 69UB5ezx
   type: tak_groep
-  naam: Tictak (Akabe)
+  naam: Tictak
   leeftijd_range: 7-25
   beschrijving: 'Bij de scouts is er plaats voor iedereen, verschillen zien we als
     een plus. Scouting is nagenoeg de enige jeugdbeweging met een aanbod voor kinderen
