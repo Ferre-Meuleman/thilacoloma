@@ -478,11 +478,18 @@
                     .sort((a, b) => new Date(a.dtstart) - new Date(b.dtstart))
                     .slice(0, 4); // Neem de eerste 4 events
                 
+                console.log('Total events:', events.length);
+                console.log('Upcoming events:', upcomingEvents.length);
+                if (events.length > 0) {
+                    const lastEvent = events[events.length - 1];
+                    console.log('Last event date:', new Date(lastEvent.dtstart));
+                }
+                
                 if (upcomingEvents.length === 0) {
                     agendaContainer.innerHTML = `
                         <div class="agenda-item">
-                            <div class="agenda-item-title">Geen komende evenementen</div>
-                            <div class="agenda-item-summary">${AGENDA_EMPTY_MESSAGE}</div>
+                            <div class="agenda-item-title">Geen komende evenementen in kalender</div>
+                            <div class="agenda-item-summary">De Google Calendar bevat ${events.length} events, maar geen toekomstige activiteiten. Voeg nieuwe events toe aan de kalender of check of de juiste kalender gekoppeld is.</div>
                         </div>
                     `;
                     return;
