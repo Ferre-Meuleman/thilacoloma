@@ -10,7 +10,6 @@ intro_text: 'Hier vind je een overzicht van alle <span>kampen</span> en <span>we
 google_calendar_url: 'https://calendar.google.com/calendar/embed?src=c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com&ctz=Europe%2FBrussels'
 agenda_title: Agenda
 
-# Slideshow items (verplaatst van global)
 news_slides:
   -
     id: slide-1
@@ -35,7 +34,6 @@ news_slides:
     content: 'Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen!'
     button_text: 'Meer info'
 
-# Vergaderingen - Bard content
 vergaderingen_content:
   -
     type: heading
@@ -170,7 +168,6 @@ vergaderingen_content:
         button_url: 'https://stamhoofd.thilacoloma.be/afwezigheid'
         button_icon: 'fas fa-calendar-times'
 
-# Weekends & Kampen - Bard content
 weekends_kampen_content:
   -
     type: heading
@@ -339,7 +336,6 @@ weekends_kampen_content:
             type: italic
         text: 'De inschrijvingstool voor het kamp komt steeds in april online op de site.'
 
-# Inschrijvingen - Bard content
 inschrijvingen_content:
   -
     type: heading
