@@ -329,6 +329,13 @@
         
         // Initialize slideshow
         setupSlides();
+        
+        // Add click event listeners to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide(index);
+            });
+        });
 
         // Load evenementen data and display
         async function loadEvenementen() {
