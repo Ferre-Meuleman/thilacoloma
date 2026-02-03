@@ -93,30 +93,6 @@ tabs:
               type: markdown
               display: 'Kampen Content'
               instructions: 'Info over binnenlands en buitenlands kamp'
-  inschrijvingen:
-    display: Inschrijvingen
-    sections:
-      -
-        display: 'Inschrijvingen Sectie'
-        fields:
-          -
-            handle: inschrijvingen_title
-            field:
-              type: text
-              display: 'Inschrijvingen Titel'
-              default: 'Inschrijvingen'
-          -
-            handle: inschrijvingen_intro
-            field:
-              type: textarea
-              display: 'Inschrijvingen Intro'
-              default: 'Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot 35 leden. Het online aanmeldingssysteem komt elke zomervakantie beschikbaar - het is niet belangrijk om als eerste te kunnen registreren, maar het is wel belangrijk om de deadline niet te missen!'
-          -
-            handle: inschrijvingen_content
-            field:
-              type: markdown
-              display: 'Inschrijvingen Content'
-              instructions: 'Proefperiode, groepsgrootte & voorrang, wachtlijst, en alternatieven'
   calendar:
     display: Kalender
     sections:

@@ -77,28 +77,6 @@ kampen_content: |
   Om de drie jaar trekken we met de verkenners, VT's, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer **drie weken**. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!
   
   _De inschrijvingstool voor het kamp komt steeds in april online op de site._
-inschrijvingen_title: Inschrijvingen
-inschrijvingen_intro: 'Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot 35 leden. Het online aanmeldingssysteem komt elke zomervakantie beschikbaar - het is niet belangrijk om als eerste te kunnen registreren, maar het is wel belangrijk om de deadline niet te missen!'
-inschrijvingen_content: |
-  ### Proefperiode
-  
-  Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een **inloopperiode**. Kinderen kunnen **3 zondagen gratis** komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.
-  
-  ### Groepsgrootte & Voorrang
-  
-  Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met **voorrang** een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.
-  
-  ### Wachtlijst Systeem
-  
-  Als een tak vol zit, trekken we nog **5 extra namen** voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.
-  
-  ### Alternatieven
-  
-  Als jouw kind op de wachtlijst terechtkomt, kan je altijd proberen bij de scoutsgroep van jullie wijk. In Mechelen zijn er nog scouts bij:
-  
-  - Sint-Rombout
-  - Onze-Lieve-Vrouw-Waver
-  - FOS Open Scouting
 updated_by: 490dab97-40bc-46ac-8e07-29cd20111226
 updated_at: 1757600275
 ---

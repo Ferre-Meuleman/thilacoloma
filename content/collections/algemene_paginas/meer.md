@@ -675,6 +675,73 @@ praktisch_inschrijven:
       -
         type: text
         text: '. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen.'
+  -
+    type: heading
+    attrs:
+      level: 4
+    content:
+      -
+        type: text
+        text: 'Wachtlijst Systeem'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Als een tak vol zit, trekken we nog '
+      -
+        type: text
+        marks:
+          -
+            type: bold
+        text: '5 extra namen'
+      -
+        type: text
+        text: ' voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.'
+  -
+    type: heading
+    attrs:
+      level: 4
+    content:
+      -
+        type: text
+        text: 'Alternatieven'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Als jouw kind op de wachtlijst terechtkomt, kan je altijd proberen bij de scoutsgroep van jullie wijk. In Mechelen zijn er nog scouts bij:'
+  -
+    type: bulletList
+    content:
+      -
+        type: listItem
+        content:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'Sint-Rombout'
+      -
+        type: listItem
+        content:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'Onze-Lieve-Vrouw-Waver'
+      -
+        type: listItem
+        content:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'FOS Open Scouting'
 
 praktisch_betalingen:
   -
