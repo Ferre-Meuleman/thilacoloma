@@ -9,11 +9,11 @@
             <div class="nieuws-sectie">
                 <h3>Nieuws &amp; Activiteiten</h3>
                 <div id="kalender-slideshow" class="kalender-slideshow">
-                    {{ if news_slides }}
-                        {{ news_slides }}
-                            <div class="slide {{ if image }}{{ else }}no-image{{ /if }}">
+                    {{ if slideshow_content:news_slides }}
+                        {{ slideshow_content:news_slides }}
+                            <div class="slide">
                                 {{ if image }}
-                                    <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
+                                    <img src="{{ image }}" alt="{{ title }} evenement">
                                 {{ /if }}
                                 <div class="slide-text">
                                     <h2>{{ title }}</h2>
@@ -25,10 +25,9 @@
                                     {{ /if }}
                                 </div>
                             </div>
-                        {{ /news_slides }}
+                        {{ /slideshow_content:news_slides }}
                     {{ else }}
                         <div class="slide">
-                            <img src="/assets/images/slideshow/1image.jpg" alt="Evenement">
                             <div class="slide-text">
                                 <h2>Nieuws komt binnenkort</h2>
                                 <p>Voeg slides toe in het Control Panel.</p>
@@ -38,9 +37,9 @@
                     {{ /if }}
                 </div>
                 <div class="slideshow-dots kalender-dots">
-                    {{ news_slides }}
+                    {{ slideshow_content:news_slides }}
                         <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
-                    {{ /news_slides }}
+                    {{ /slideshow_content:news_slides }}
                 </div>
             </div>
             
@@ -58,7 +57,7 @@
     <div class="page-section">
         <h2>Wekelijkse Vergaderingen</h2>
         <div class="bard-content">
-            {{{ vergaderingen_content }}}
+            {{{ meetings_content }}}
         </div>
     </div>
 

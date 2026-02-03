@@ -87,7 +87,7 @@ tabs:
         display: 'Wekelijkse Vergaderingen'
         fields:
           -
-            handle: vergaderingen_content
+            handle: meetings_content
             field:
               type: bard
               display: 'Vergaderingen Info'

@@ -10,31 +10,7 @@ intro_text: 'Hier vind je een overzicht van alle <span>kampen</span> en <span>we
 google_calendar_url: 'https://calendar.google.com/calendar/embed?src=c_0b7694ffe57801b2d61a0815a1138f0a1edf463dc0d5072490f1a10b9338aa7b%40group.calendar.google.com&ctz=Europe%2FBrussels'
 agenda_title: Agenda
 
-news_slides:
-  -
-    id: slide-1
-    type: slide
-    enabled: true
-    title: Pizzabak
-    content: "TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts."
-    image: images/slideshow/1image.jpg
-    button_text: 'Meer info'
-  -
-    id: slide-2
-    type: slide
-    enabled: true
-    title: Belofteweekend
-    content: 'Het belofteweekend komt er weer aan! Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.'
-    button_text: 'Meer info'
-  -
-    id: slide-3
-    type: slide
-    enabled: true
-    title: "TC's Cadeaupakket"
-    content: 'Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen!'
-    button_text: 'Meer info'
-
-vergaderingen_content:
+meetings_content:
   -
     type: heading
     attrs:
