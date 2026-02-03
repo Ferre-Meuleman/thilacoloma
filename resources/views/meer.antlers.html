@@ -64,7 +64,7 @@
                     <div class="contact-emails-list">
                         {{ contact_emails }}
                         <div class="contact-email-item">
-                            <strong><i class="fas {{ icon ?? 'fa-envelope' }}"></i> {{ label }}:</strong>
+                            <strong><i class="fas {{ icon or 'fa-envelope' }}"></i> {{ label }}:</strong>
                             <a href="mailto:{{ email }}" class="email-link">{{ email }}</a>
                         </div>
                         {{ /contact_emails }}
