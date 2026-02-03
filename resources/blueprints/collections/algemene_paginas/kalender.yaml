@@ -64,34 +64,6 @@ tabs:
               type: textarea
               display: 'Afwezigheid Content (Markdown)'
               instructions: 'Markdown content voor afwezigheid card. Gebruik [link text](url) voor links'
-              display: 'Afwezigheid Titel'
-              default: 'Afwezigheid'
-          -
-            handle: vergaderingen_afwezigheid_tekst
-            field:
-              type: textarea
-              display: 'Afwezigheid Tekst'
-              default: 'Kan je niet komen? Verwittig op tijd (vóór zondag!) zodat de takleiding daar rekening mee kan houden voor de activiteit.'
-          -
-            handle: vergaderingen_afwezigheid_uitleg
-            field:
-              type: textarea
-              display: 'Afwezigheid Uitleg'
-              default: 'Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.'
-          -
-            handle: vergaderingen_afwezigheid_link
-            field:
-              type: text
-              display: 'Afwezigheid Link'
-              default: 'https://stamhoofd.thilacoloma.be/afwezigheid'
-              validate:
-                - url
-          -
-            handle: vergaderingen_afwezigheid_link_tekst
-            field:
-              type: text
-              display: 'Afwezigheid Link Tekst'
-              default: 'Afwezigheid melden'
   weekends_kampen:
     display: 'Weekends & Kampen'
     sections:
