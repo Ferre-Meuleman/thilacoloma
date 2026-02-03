@@ -55,16 +55,16 @@
                     
                     {{ if contact_takleiding_tip }}
                     <p class="contact-info-text">
-                        {{ contact_takleiding_tip | replace:'Blauwe Gids':'<a href="/thilala" class="text-link">Blauwe Gids</a>' | replace:'takleiding':'<a href="/takken" class="text-link">takleiding</a>' }}
+                        Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de <a href="/takken" class="text-link">takleiding</a>. Deze contactgegevens zijn te vinden in de <a href="/thilala" class="text-link">Blauwe Gids</a>. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
                     </p>
                     {{ /if }}
                     
                     {{ if contact_emails }}
                     <h4>Specifieke vragen:</h4>
-                    <div class="contact-list">
+                    <div class="contact-emails-list">
                         {{ contact_emails }}
-                        <div class="contact-list-item">
-                            <strong><i class="fas {{ icon }}"></i> {{ label }}:</strong>
+                        <div class="contact-email-item">
+                            <strong><i class="fas {{ icon ?? 'fa-envelope' }}"></i> {{ label }}:</strong>
                             <a href="mailto:{{ email }}" class="email-link">{{ email }}</a>
                         </div>
                         {{ /contact_emails }}
@@ -1703,40 +1703,34 @@ blockquote {
     color: var(--dark-color);
 }
 
-.contact-list {
+.contact-emails-list {
     margin-top: 1rem;
     display: grid;
     gap: 0.75rem;
 }
 
-.contact-list-item {
+.contact-email-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: white;
-    border: 1px solid var(--color-border, #e0e0e0);
+    padding: 1rem;
+    background: var(--color-light-bg, #f8f9fa);
     border-radius: var(--border-radius-sm, 8px);
-    transition: all 0.2s ease;
+    border-bottom: 1px dashed var(--color-border, #e0e0e0);
 }
 
-.contact-list-item:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.contact-list-item strong {
+.contact-email-item strong {
+    color: var(--primary-color);
     min-width: 150px;
-    color: var(--dark-color);
 }
 
-.contact-list-item .email-link {
+.contact-email-item .email-link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
 
-.contact-list-item .email-link:hover {
+.contact-email-item .email-link:hover {
     text-decoration: underline;
 }
-</style>
+
