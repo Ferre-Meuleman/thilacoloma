@@ -5,74 +5,114 @@ title: Meer
 slug: meer
 template: meer
 layout: layouts/page
-visie_intro: 'Waar sta jij voor als scout? Dat is de vraag waarmee we afgelopen jaar op zoek gingen naar een algemene visie van wat scouting voor Thila Coloma inhoudt. Uiteindelijk kwamen we uit op drie basispijlers die wij als Thilanen centraal willen stellen in onze werking: vriendschap, respect en inclusiviteit. Deze kernwaarden willen wij als scouts uitdragen en hoe we dat doen, ontdek je hier.'
-visie_kernwaarden: 'vriendschap, respect en inclusiviteit'
+visie_intro: 'Waar sta jij voor als scout? Dat is de vraag waarmee we afgelopen jaar
+  op zoek gingen naar een algemene visie van wat scouting voor Thila Coloma inhoudt.
+  Uiteindelijk kwamen we uit op drie basispijlers die wij als Thilanen centraal willen
+  stellen in onze werking: vriendschap, respect en inclusiviteit. Deze kernwaarden
+  willen wij als scouts uitdragen en hoe we dat doen, ontdek je hier.'
+visie_kernwaarden: vriendschap, respect en inclusiviteit
 visie_tekst:
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Het belangrijkste doel van scouting is jongeren te begeleiden naar zelfstandigheid en hen morele waarden bij te brengen. Dit bereiken we voornamelijk door ze zelf op pad te sturen. Scouting betekent dan ook verkennen in het Nederlands: het avontuur tegemoet. Spelen, ravotten, pranken, vallen en opstaan. Want al doende leert men. Of anders gezegd: '
-      -
-        type: text
-        marks:
-          -
-            type: italic
-        text: 'Scouting? Gewoon doen!'
-      -
-        type: text
-        text: ' Het jaarthema van een decennium geleden was zo slecht nog niet. Op deze manier leren onze leden zichzelf, de ander en de wereld beter kennen.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Geen zorgen, bij het hele ontdek-de-wereld-op-jezelf-narratief hoort natuurlijk de nodige begeleiding. Daarbij staat gelijkheid centraal, mét aandacht voor elkaars verschillen. Bij Thila Coloma passen we onze manier van leiding geven aan de noden van het kind aan. We streven naar gelijke kansen voor iedereen, waarbij het ultieme doel is dat elke scout plezier beleeft en zich volledig comfortabel en authentiek voelt. Daarom is het belangrijk om elkaars verschillen te erkennen en daar ook naar te handelen. Indien iemand nood heeft aan meer of juist minder begeleiding, luisteren wij graag. Het belangrijkste is dat we elkaar verstaan.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Thila Coloma is een scoutsgroep, een netwerk van uiteenlopende profielen, maar bovenal een vriendengroep. Samen realiseren we zowel eenvoudige als uitdagende dingen, zoals een zware bergtocht of een totemisatie. Belangrijk daarbij is dat grenzen worden verlegd, maar nooit overschreden. Respect vormt de basis, niet alleen voor elkaar, maar ook voor het scoutsmateriaal, de natuur en de maatschappij.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Scouts Thila Coloma kent een heleboel tradities die ons verbinden. Zo trekken we elke zondag ons uniform aan, beginnen en eindigen we elke vergadering met een formatie, legt elk TC-lid zijn welpenbelofte af en krijgen de eerstejaars verkenners hun totem op kamp. Op tocht vertrekken we alleen met kaart en kompas. Geen gps dus, wel even deconnecteren van de digitale wereld en de natuur weer opzoeken.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'De leiding draagt de verantwoordelijkheid om het scoutsgebeuren te onderhouden en verder uit te bouwen. Dit omvat de organisatie van evenementen, komen opdagen op groepsraden en werkvergaderingen, en de creatieve invulling van een zondagnamiddag om elk kind een onvergetelijke zondag te bezorgen.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        marks:
-          -
-            type: bold
-        text: 'Welkom bij Thila Coloma!'
-groepsleiding_intro: 'De groepsleiding bestaat uit Orso, Koala, Walloewie, Kantjil en Coelho (onze totems). Hieronder vind je de taakverdeling. Afhankelijk van je vraag kan je ons gericht contacteren.'
-groepsleiding_algemeen_tekst: 'Voor algemene vragen kan je terecht bij de groepsleiding. De groepsleiding bestaat uit vijf leden. Hieronder vind je de taakverdeling van het huidige scoutsjaar. Afhankelijk van je vraag kan je ons gericht contacteren.'
-groepsleiding_email: 'groepsleiding@thilacoloma.be'
-groepsleiding_scoutsjaar: '2025-2026'
-contact_takleiding_tip: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
-contact_werkjes_email: 'werkjes@thilacoloma.be'
-contact_verhuur_lokalen_email: 'verhuur@thilacoloma.be'
-contact_verhuur_tenten_email: 'kantjil@thilacoloma.be'
-inschrijvingsformulier_link: 'https://forms.gle/ogqkK2dpaUZmzS7u7'
-stamhoofd_link: 'https://inschrijven.thilacoloma.be/'
-inschrijving_scoutsjaar: '2025-2026'
-lidgeld_standaard: '€70'
-lidgeld_verminderd: '€17'
-kampgeld_standaard: '€160'
-kampgeld_verminderd: '€50'
-
-# --- UNIFORM TAB ---
+- type: paragraph
+  content:
+  - type: text
+    text: 'Het belangrijkste doel van scouting is jongeren te begeleiden naar zelfstandigheid
+      en hen morele waarden bij te brengen. Dit bereiken we voornamelijk door ze zelf
+      op pad te sturen. Scouting betekent dan ook verkennen in het Nederlands: het
+      avontuur tegemoet. Spelen, ravotten, pranken, vallen en opstaan. Want al doende
+      leert men. Of anders gezegd: '
+  - type: text
+    marks:
+    - type: italic
+    text: Scouting? Gewoon doen!
+  - type: text
+    text: ' Het jaarthema van een decennium geleden was zo slecht nog niet. Op deze
+      manier leren onze leden zichzelf, de ander en de wereld beter kennen.'
+- type: paragraph
+  content:
+  - type: text
+    text: Geen zorgen, bij het hele ontdek-de-wereld-op-jezelf-narratief hoort natuurlijk
+      de nodige begeleiding. Daarbij staat gelijkheid centraal, mét aandacht voor
+      elkaars verschillen. Bij Thila Coloma passen we onze manier van leiding geven
+      aan de noden van het kind aan. We streven naar gelijke kansen voor iedereen,
+      waarbij het ultieme doel is dat elke scout plezier beleeft en zich volledig
+      comfortabel en authentiek voelt. Daarom is het belangrijk om elkaars verschillen
+      te erkennen en daar ook naar te handelen. Indien iemand nood heeft aan meer
+      of juist minder begeleiding, luisteren wij graag. Het belangrijkste is dat we
+      elkaar verstaan.
+- type: paragraph
+  content:
+  - type: text
+    text: Thila Coloma is een scoutsgroep, een netwerk van uiteenlopende profielen,
+      maar bovenal een vriendengroep. Samen realiseren we zowel eenvoudige als uitdagende
+      dingen, zoals een zware bergtocht of een totemisatie. Belangrijk daarbij is
+      dat grenzen worden verlegd, maar nooit overschreden. Respect vormt de basis,
+      niet alleen voor elkaar, maar ook voor het scoutsmateriaal, de natuur en de
+      maatschappij.
+- type: paragraph
+  content:
+  - type: text
+    text: Scouts Thila Coloma kent een heleboel tradities die ons verbinden. Zo trekken
+      we elke zondag ons uniform aan, beginnen en eindigen we elke vergadering met
+      een formatie, legt elk TC-lid zijn welpenbelofte af en krijgen de eerstejaars
+      verkenners hun totem op kamp. Op tocht vertrekken we alleen met kaart en kompas.
+      Geen gps dus, wel even deconnecteren van de digitale wereld en de natuur weer
+      opzoeken.
+- type: paragraph
+  content:
+  - type: text
+    text: De leiding draagt de verantwoordelijkheid om het scoutsgebeuren te onderhouden
+      en verder uit te bouwen. Dit omvat de organisatie van evenementen, komen opdagen
+      op groepsraden en werkvergaderingen, en de creatieve invulling van een zondagnamiddag
+      om elk kind een onvergetelijke zondag te bezorgen.
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: bold
+    text: Welkom bij Thila Coloma!
+groepsleiding_intro: De groepsleiding bestaat uit Orso, Koala, Walloewie, Kantjil
+  en Coelho (onze totems). Hieronder vind je de taakverdeling. Afhankelijk van je
+  vraag kan je ons gericht contacteren.
+groepsleiding_algemeen_tekst: Voor algemene vragen kan je terecht bij de groepsleiding.
+  De groepsleiding bestaat uit vijf leden. Hieronder vind je de taakverdeling van
+  het huidige scoutsjaar. Afhankelijk van je vraag kan je ons gericht contacteren.
+groepsleiding_email: groepsleiding@thilacoloma.be
+groepsleiding_scoutsjaar: 2025-2026
+contact_takleiding_tip: Voor vragen over een activiteit, van de tak van je kind, contacteer
+  je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe
+  Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je
+  kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
+contact_werkjes_email: werkjes@thilacoloma.be
+contact_verhuur_lokalen_email: verhuur@thilacoloma.be
+contact_verhuur_tenten_email: kantjil@thilacoloma.be
+inschrijvingsformulier_link: https://forms.gle/ogqkK2dpaUZmzS7u7
+stamhoofd_link: https://inschrijven.thilacoloma.be/
+inschrijving_scoutsjaar: 2025-2026
+lidgeld_standaard: €70
+lidgeld_verminderd: €17
+kampgeld_standaard: €160
+kampgeld_verminderd: €50
+contact_emails:
+- id: db35269a-730f-4fff-91b8-67bcca0c9034
+  enabled: true
+  type: email
+  label: Werkjes
+  icon: fa-tools
+  email: werkjes@thilacoloma.be
+- id: da16fb79-c2e7-4c08-b451-cb8ddc2a37af
+  enabled: true
+  type: email
+  label: Verhuur lokalen
+  icon: fa-home
+  email: verhuur@thilacoloma.be
+- id: 165b12d0-a40b-48f7-8510-ffe775930011
+  enabled: true
+  type: email
+  label: Verhuur tenten
+  icon: fa-campground
+  email: kantjil@thilacoloma.be
+---
+ UNIFORM TAB ---
 uniform_content:
   -
     type: heading
