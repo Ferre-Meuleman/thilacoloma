@@ -126,35 +126,7 @@
                         </div>
                     </div>
                     
-                    {{ if contact_takleiding_tip }}
-                    <div class="contact-note simple-tip">
-                      <p><strong>Tip:</strong> {{ contact_takleiding_tip }}</p>
-                    </div>
-                    {{ /if }}
-                    
-                    {{ if contact_werkjes_email || contact_verhuur_lokalen_email || contact_verhuur_tenten_email }}
-                    <div class="contact-emails">
-                        <h4>Specifieke vragen:</h4>
-                        {{ if contact_werkjes_email }}
-                        <div class="contact-item">
-                            <strong>Werkjes:</strong>
-                            <a href="mailto:{{ contact_werkjes_email }}" class="email-link">{{ contact_werkjes_email }}</a>
-                        </div>
-                        {{ /if }}
-                        {{ if contact_verhuur_lokalen_email }}
-                        <div class="contact-item">
-                            <strong>Verhuur lokalen:</strong>
-                            <a href="mailto:{{ contact_verhuur_lokalen_email }}" class="email-link">{{ contact_verhuur_lokalen_email }}</a>
-                        </div>
-                        {{ /if }}
-                        {{ if contact_verhuur_tenten_email }}
-                        <div class="contact-item">
-                            <strong>Verhuur tenten:</strong>
-                            <a href="mailto:{{ contact_verhuur_tenten_email }}" class="email-link">{{ contact_verhuur_tenten_email }}</a>
-                        </div>
-                        {{ /if }}
-                    </div>
-                    {{ /if }}
+
                 </div>
             </div>
 
