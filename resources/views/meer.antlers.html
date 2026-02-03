@@ -54,9 +54,9 @@
                     </div>
                     
                     {{ if contact_takleiding_tip }}
-                    <div class="info-note">
-                        <strong><i class="fas fa-lightbulb"></i> Tip:</strong> {{ contact_takleiding_tip }}
-                    </div>
+                    <p class="contact-info-text">
+                        {{ contact_takleiding_tip | replace:'Blauwe Gids':'<a href="/thilala" class="text-link">Blauwe Gids</a>' | replace:'takleiding':'<a href="/takken" class="text-link">takleiding</a>' }}
+                    </p>
                     {{ /if }}
                     
                     {{ if contact_emails }}
@@ -1686,16 +1686,21 @@ blockquote {
     color: var(--primary-color);
 }
 
-.info-note {
-    padding: 1rem;
-    background: #fff8e1;
-    border-left: 4px solid #ffc107;
-    border-radius: var(--border-radius-sm, 8px);
+.contact-info-text {
     margin: 1.5rem 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--dark-color);
 }
 
-.info-note strong {
-    color: #f57c00;
+.contact-info-text .text-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.contact-info-text .text-link:hover {
+    color: var(--dark-color);
 }
 
 .contact-list {
