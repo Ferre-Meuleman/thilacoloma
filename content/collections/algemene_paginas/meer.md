@@ -56,54 +56,14 @@ visie_tekst:
           -
             type: bold
         text: 'Welkom bij Thila Coloma!'
-groepsleiding_intro: 'De groepsleiding bestaat uit Mustela, Coelho, Pumba, Kantjil en Taipan (onze totems). Hieronder vind je de taakverdeling. Afhankelijk van je vraag kan je ons gericht contacteren.'
+groepsleiding_intro: 'De groepsleiding bestaat uit Orso, Koala, Walloewie, Kantjil en Coelho (onze totems). Hieronder vind je de taakverdeling. Afhankelijk van je vraag kan je ons gericht contacteren.'
+groepsleiding_algemeen_tekst: 'Voor algemene vragen kan je terecht bij de groepsleiding. De groepsleiding bestaat uit vijf leden. Hieronder vind je de taakverdeling van het huidige scoutsjaar. Afhankelijk van je vraag kan je ons gericht contacteren.'
+groepsleiding_email: 'groepsleiding@thilacoloma.be'
 groepsleiding_scoutsjaar: '2025-2026'
-groepsleiding_leden:
-  -
-    id: gl-mustela
-    type: lid
-    totem: Mustela
-    naam: 'Luca Fancello'
-    foto: '/assets/images/leidingfotos/Mustela.jpg'
-    hoofdtaken: 'Administratie, Inschrijvingen en Verzekeringen'
-    beschrijving: 'Ik ben Mustela, ik sta in voor de administratie. Dat zijn de ledenlijsten en aanwezigheden, maar ook verzekeringen, mails, mutualiteit en fiscale attesten. Daarnaast ben ik ook verantwoordelijk voor het zoeken naar kampterreinen.'
-    email: mustela@thilacoloma.be
-  -
-    id: gl-pumba
-    type: lid
-    totem: Pumba
-    naam: 'Shayan Ghadiri'
-    foto: '/assets/images/leidingfotos/Pumba.jpg'
-    hoofdtaken: 'Financiën, subsidies en opvolging leiding'
-    beschrijving: 'Mijn taak als groepsleiding is voornamelijk de financiën regelen van de scouts. Dit houdt in om al onze inkomsten en uitgaven bij te houden alsook subsidies op te volgen. Verder volg ik ook gezinnen of ouders die recht hebben op een verminderd tarief op.'
-    email: pumba@thilacoloma.be
-  -
-    id: gl-coelho
-    type: lid
-    totem: Coelho
-    naam: 'Simon Beel'
-    foto: '/assets/images/leidingfotos/Coelho.jpg'
-    hoofdtaken: 'Communicatie en inclusiviteit'
-    beschrijving: 'Als student Grafisch Ontwerp wil ik mijn passie voor creativiteit en communicatie graag inzetten bij Thila Coloma. Mijn belangrijkste taken bestaan uit communicatie en inclusie. Daarnaast leid ik team inclusief, een werkgroep met als doel een omgeving te creëren waarin elk lid zich welkom en gewaardeerd voelt.'
-    email: coelho@thilacoloma.be
-  -
-    id: gl-taipan
-    type: lid
-    totem: Taipan
-    naam: 'Bert De Landtsheer'
-    foto: '/assets/images/leidingfotos/Taipan.jpg'
-    hoofdtaken: 'Verslagen maken, Kamp en VZW'
-    beschrijving: 'Mijn taak is om onze maandelijkse vergadering met de leiding voor te bereiden en hen op de hoogte te houden van alle zaken die binnen onze scouts gebeuren. Dit jaar zal ik me onder andere bezig houden met het plannen van ons jubileum en ons binnenlands kamp.'
-    email: taipan@thilacoloma.be
-  -
-    id: gl-kantjil
-    type: lid
-    totem: Kantjil
-    naam: 'Ferre Meuleman'
-    foto: '/assets/images/leidingfotos/Kantjil.jpg'
-    hoofdtaken: 'Materiaal, lokalen, verhuur en VZW'
-    beschrijving: 'Als toegewijde Kantjil ben ik verantwoordelijk voor het beheer, onderhoud en verhuur van onze materialen, tenten en gebouwen. Ook zet ik mij in onze VZW in om onze gebouwen te blijven onderhouden en vernieuwen. Ik zet mezelf dus voornamelijk achter de schermen in om alles zo soepel mogelijk te laten verlopen.'
-    email: kantjil@thilacoloma.be
+contact_takleiding_tip: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
+contact_werkjes_email: 'werkjes@thilacoloma.be'
+contact_verhuur_lokalen_email: 'verhuur@thilacoloma.be'
+contact_verhuur_tenten_email: 'kantjil@thilacoloma.be'
 inschrijvingsformulier_link: 'https://forms.gle/ogqkK2dpaUZmzS7u7'
 stamhoofd_link: 'https://inschrijven.thilacoloma.be/'
 inschrijving_scoutsjaar: '2025-2026'
