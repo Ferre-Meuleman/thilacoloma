@@ -1,9 +1,8 @@
-{{ section:content }}
-    <div class="page-section" style="overflow: visible;">
-        <h2>{{ intro_title ?? 'Komende Evenementen' }}</h2>
-        <p class="section-intro">
-            {{ intro_text ?? 'Hier vind je een overzicht van alle <span>kampen</span> en <span>weekends</span>. We vergaderen elke zondag (behalve de eerste zondag van de maand)!' | raw }}
-        </p>
+<div class="page-section" style="overflow: visible;">
+    <h2>{{ intro_title ?? 'Komende Evenementen' }}</h2>
+    <p class="section-intro">
+        {{ intro_text ?? 'Hier vind je een overzicht van alle <span>kampen</span> en <span>weekends</span>. We vergaderen elke zondag (behalve de eerste zondag van de maand)!' | raw }}
+    </p>
         
         <div class="evenementen-layout">
             <!-- Links: Slideshow kaarten -->
@@ -105,9 +104,7 @@
             </div>
         </div>
     </div>
-{{ /section:content }}
 
-{{ section:scripts }}
 <script>
     // Slideshow
     let currentSlideIndex = 0;
@@ -338,9 +335,7 @@
         setTimeout(loadAgendaItems, 500);
     });
 </script>
-{{ /section:scripts }}
 
-{{ section:styles }}
 <style>
     .evenementen-layout { display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-xxl); align-items: start; margin-bottom: var(--spacing-xxl); }
     .nieuws-sectie h3, .agenda-sectie h3 { color: var(--primary-color); font-family: var(--font-bold); margin: 0 0 var(--spacing-lg) 0; padding-bottom: var(--spacing-md); border-bottom: 3px solid var(--primary-color); font-size: 1.4em; }
@@ -388,4 +383,3 @@
     @media (max-width: 1024px) { .evenementen-layout { grid-template-columns: 1fr; gap: var(--spacing-lg); } .kalender-slideshow { height: 350px; } .kalender-slideshow .slide-text h2 { font-size: 1.6em; } }
     @media (max-width: 768px) { .kalender-slideshow { height: 280px; overflow: hidden; } .kalender-slideshow .slide { flex-direction: column; } .kalender-slideshow .slide img { width: 100%; flex: none; height: 40%; } .kalender-slideshow .slide-text { flex: none; height: 60%; padding: var(--spacing-sm); margin-left: 0; } .kalender-slideshow .slide-text h2 { font-size: 1.3em; } .kalender-slideshow .slide-text p { font-size: 0.9em; } }
 </style>
-{{ /section:styles }}
