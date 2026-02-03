@@ -18,7 +18,7 @@ class CalendarController extends Controller
         try {
             // Get the Google Calendar URL from the kalender page content
             $kalenderPage = Entry::query()
-                ->where('collection', 'pages')
+                ->where('collection', 'algemene_paginas')
                 ->where('slug', 'kalender')
                 ->first();
             $icsUrl = null;
