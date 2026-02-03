@@ -81,10 +81,10 @@ tabs:
           -
             handle: contact_takleiding_tip
             field:
-              type: textarea
+              type: markdown
               display: 'Tip Takleiding Contact'
-              instructions: 'Tekst over hoe ouders de takleiding kunnen contacteren'
-              default: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
+              instructions: 'Tekst over hoe ouders de takleiding kunnen contacteren. Je kan hier links toevoegen met markdown syntax: [tekst](/link)'
+              default: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de [takleiding](/takken). Deze contactgegevens zijn te vinden in de [Blauwe Gids](/thilala). Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
           -
             handle: contact_emails
             field:

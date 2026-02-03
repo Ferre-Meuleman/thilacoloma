@@ -54,9 +54,9 @@
                     </div>
                     
                     {{ if contact_takleiding_tip }}
-                    <p class="contact-info-text">
-                        Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de <a href="/takken" class="text-link">takleiding</a>. Deze contactgegevens zijn te vinden in de <a href="/thilala" class="text-link">Blauwe Gids</a>. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
-                    </p>
+                    <div class="contact-info-text">
+                        {{ contact_takleiding_tip | markdown }}
+                    </div>
                     {{ /if }}
                     
                     {{ if contact_emails }}
@@ -1615,13 +1615,15 @@ blockquote {
     color: var(--dark-color);
 }
 
-.contact-info-text .text-link {
+.contact-info-text .text-link,
+.contact-info-text a {
     color: var(--primary-color);
     text-decoration: underline;
     font-weight: 500;
 }
 
-.contact-info-text .text-link:hover {
+.contact-info-text .text-link:hover,
+.contact-info-text a:hover {
     color: var(--dark-color);
 }
 

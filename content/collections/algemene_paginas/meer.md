@@ -78,10 +78,8 @@ groepsleiding_algemeen_tekst: Voor algemene vragen kan je terecht bij de groepsl
   het huidige scoutsjaar. Afhankelijk van je vraag kan je ons gericht contacteren.
 groepsleiding_email: groepsleiding@thilacoloma.be
 groepsleiding_scoutsjaar: 2025-2026
-contact_takleiding_tip: Voor vragen over een activiteit, van de tak van je kind, contacteer
-  je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe
-  Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je
-  kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
+contact_takleiding_tip: |
+  Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de [takleiding](/takken). Deze contactgegevens zijn te vinden in de [Blauwe Gids](/thilala). Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
 contact_werkjes_email: werkjes@thilacoloma.be
 contact_verhuur_lokalen_email: verhuur@thilacoloma.be
 contact_verhuur_tenten_email: kantjil@thilacoloma.be
