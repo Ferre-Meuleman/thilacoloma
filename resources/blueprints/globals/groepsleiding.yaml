@@ -4,48 +4,6 @@ tabs:
     display: Groepsleiding
     sections:
       -
-        display: 'Groepsleiding Algemeen'
-        instructions: 'Algemene informatie over de groepsleiding'
-        fields:
-          -
-            handle: groepsleiding_scoutsjaar
-            field:
-              type: text
-              display: 'Scoutsjaar'
-              instructions: 'Bijvoorbeeld: 2025-2026'
-          -
-            handle: groepsleiding_algemeen_tekst
-            field:
-              type: textarea
-              display: 'Algemene Tekst'
-              instructions: 'Introductietekst over de groepsleiding'
-          -
-            handle: groepsleiding_email
-            field:
-              type: text
-              display: 'Groepsleiding Email'
-              instructions: 'Algemeen contactadres van de groepsleiding'
-          -
-            handle: contact_takleiding_tip
-            field:
-              type: textarea
-              display: 'Tip over Takleiding'
-          -
-            handle: contact_werkjes_email
-            field:
-              type: text
-              display: 'Email Vragen over werkjes'
-          -
-            handle: contact_verhuur_lokalen_email
-            field:
-              type: text
-              display: 'Email Verhuur Lokalen'
-          -
-            handle: contact_verhuur_tenten_email
-            field:
-              type: text
-              display: 'Email Verhuur Tenten'
-      -
         display: 'Groepsleiding Leden'
         instructions: 'De groepsleiding leden worden jaarlijks geupdate. Deze globaal bevat enkel de leden met hun info.'
         fields:
