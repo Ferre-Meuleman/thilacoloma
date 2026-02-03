@@ -86,23 +86,42 @@ tabs:
               instructions: 'Tekst over hoe ouders de takleiding kunnen contacteren'
               default: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
           -
-            handle: contact_werkjes_email
+            handle: contact_emails
             field:
-              type: text
-              display: 'Werkjes Email'
-              default: 'werkjes@thilacoloma.be'
-          -
-            handle: contact_verhuur_lokalen_email
-            field:
-              type: text
-              display: 'Verhuur Lokalen Email'
-              default: 'verhuur@thilacoloma.be'
-          -
-            handle: contact_verhuur_tenten_email
-            field:
-              type: text
-              display: 'Verhuur Tenten Email'
-              default: 'kantjil@thilacoloma.be'
+              type: replicator
+              display: 'Contact Emails'
+              instructions: 'Voeg contactgegevens toe (kan meerdere zijn)'
+              sets:
+                email:
+                  display: 'Email Contact'
+                  fields:
+                    -
+                      handle: label
+                      field:
+                        type: text
+                        display: Label
+                        instructions: 'Bijvoorbeeld: Werkjes, Verhuur lokalen, Verhuur tenten'
+                        required: true
+                    -
+                      handle: icon
+                      field:
+                        type: select
+                        display: Icoon
+                        options:
+                          'fa-tools': Werkjes
+                          'fa-home': Lokalen
+                          'fa-campground': Tenten
+                          'fa-envelope': Algemeen
+                          'fa-phone': Telefoon
+                        default: 'fa-envelope'
+                    -
+                      handle: email
+                      field:
+                        type: text
+                        display: Email
+                        required: true
+                        validate:
+                          - email
 
   # Tab 3: Inschrijvingen
   inschrijvingen:
