@@ -43,37 +43,62 @@ vergaderingen_afwezigheid: |
   [Afwezigheid melden](https://stamhoofd.thilacoloma.be/afwezigheid)
 weekends_kampen_title: 'Weekends & Kampen'
 weekends_kampen_intro: 'Doorheen het jaar organiseren we verschillende weekends en kampen. Elk weekend heeft zijn eigen karakter en doelgroep, van avontuurlijke overlevingsweekends tot gezamenlijke beloftemomenten.'
-weekends_title: Weekends
-weekends_beschrijving: 'Elke tak gaat jaarlijks 3 keer op weekend. Dan zoekt de leiding een scouts- of chirolokaal op een andere locatie om daar een weekendje plezier te maken. De weekends kosten meestal €25 tot €35 - dit is de kost voor de locatie, het eten en soms ook voor een activiteit of een treinticket.'
-weekends_drie_titel: 'De drie jaarlijkse weekends:'
-weekends_herfst_titel: 'Herfstvakantie - Overlevingsweekend:'
-weekends_herfst_tekst: "Voor verkenners en VT's is dit een stapweekend in de Ardennen. Van alle scoutsactiviteiten is dit misschien nog wel het meest scoutesk - rugzak vol, kaart en kompas en het avontuur tegemoet!"
-weekends_kerst_titel: 'Kerstvakantie - Belofteweekend:'
-weekends_kerst_tekst: 'Heel Thila Coloma trekt naar het mooie domein van de Hoge Rielen in Kasterlee. Op zaterdagavond krijgen alle eerstejaars vanaf de jongwelpen hun belofte. Een heel bijzonder moment!'
-weekends_paas_titel: 'Paasvakantie - Kluisweekend:'
-weekends_paas_tekst: 'De drie jongverkennertakken fietsen naar de Kluisberg in Oud-Heverlee om er in tenten te slapen en groepsspelen te spelen met alle jongverkenners van Thila Coloma.'
-weekends_opmerking: "Weekends lopen meestal van vrijdagavond tot zondagnamiddag. Voor kapoenen begint zo'n weekend pas op zaterdag en eindigt het zondag. Sommige takken (voornamelijk de oudere) organiseren ook 24-uursvergaderingen aan het begin en einde van het scoutsjaar - een mini-weekend dat 24 uur lang doorgaat."
-kampen_title: Kampen
-kampen_binnenlands_titel: 'Binnenlands Kamp (3-13 augustus):'
-kampen_binnenlands_tekst: 'Thila Coloma mag zich trots de organisator van het grootste tentenkamp van België noemen! Met meer dan 450 leden, 70 man leiding en een goed uitgeruste kookploeg trekken we ieder jaar naar een mooi veld (meestal in Wallonië) waar we met de hele groep even deconnecteren van de rest van de wereld en 10 dagen ravotten en plezier maken.'
-kampen_dagen_10: '10 dagen voor welpen, Bagheeras, jongverkenners en verkenners.'
-kampen_dagen_7: '7 dagen voor kapoenen en baloes.'
-kampen_activiteiten: 'Een driedaagse, dagtocht, totemdag, woudloperskeuken en kampvuuravond maken steevast deel uit van het kampprogramma'
-kampen_extra: 'Spelletjes, creatieve activiteiten en vrij spel'
-kampen_buitenlands_titel: 'Buitenlands Kamp:'
-kampen_buitenlands_tekst: "Om de drie jaar trekken we met de verkenners, VT's, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer drie weken. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!"
-kampen_inschrijving: 'De inschrijvingstool voor het kamp komt steeds in april online op de site.'
+weekends_content: |
+  ## Weekends
+  
+  Elke tak gaat jaarlijks **3 keer op weekend**. Dan zoekt de leiding een scouts- of chirolokaal op een andere locatie om daar een weekendje plezier te maken. De weekends kosten meestal **€25 tot €35** - dit is de kost voor de locatie, het eten en soms ook voor een activiteit of een treinticket.
+  
+  ### De drie jaarlijkse weekends:
+  
+  **Herfstvakantie - Overlevingsweekend:**  
+  Voor verkenners en VT's is dit een stapweekend in de Ardennen. Van alle scoutsactiviteiten is dit misschien nog wel het meest scoutesk - rugzak vol, kaart en kompas en het avontuur tegemoet!
+  
+  **Kerstvakantie - Belofteweekend:**  
+  Heel Thila Coloma trekt naar het mooie domein van de Hoge Rielen in Kasterlee. Op zaterdagavond krijgen alle eerstejaars vanaf de jongwelpen hun belofte. Een heel bijzonder moment!
+  
+  **Paasvakantie - Kluisweekend:**  
+  De drie jongverkennertakken fietsen naar de Kluisberg in Oud-Heverlee om er in tenten te slapen en groepsspelen te spelen met alle jongverkenners van Thila Coloma.
+  
+  _Weekends lopen meestal van vrijdagavond tot zondagnamiddag. Voor kapoenen begint zo'n weekend pas op zaterdag en eindigt het zondag. Sommige takken (voornamelijk de oudere) organiseren ook 24-uursvergaderingen aan het begin en einde van het scoutsjaar - een mini-weekend dat 24 uur lang doorgaat._
+kampen_content: |
+  ## Kampen
+  
+  ### Binnenlands Kamp (3-13 augustus):
+  
+  Thila Coloma mag zich trots de organisator van het **grootste tentenkamp van België** noemen! Met meer dan 450 leden, 70 man leiding en een goed uitgeruste kookploeg trekken we ieder jaar naar een mooi veld (meestal in Wallonië) waar we met de hele groep even deconnecteren van de rest van de wereld en 10 dagen ravotten en plezier maken.
+  
+  - **10 dagen** voor welpen, Bagheeras, jongverkenners en verkenners
+  - **7 dagen** voor kapoenen en baloes
+  
+  Een driedaagse, dagtocht, totemdag, woudloperskeuken en kampvuuravond maken steevast deel uit van het kampprogramma. Daarnaast: spelletjes, creatieve activiteiten en vrij spel.
+  
+  ### Buitenlands Kamp:
+  
+  Om de drie jaar trekken we met de verkenners, VT's, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer **drie weken**. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!
+  
+  _De inschrijvingstool voor het kamp komt steeds in april online op de site._
 inschrijvingen_title: Inschrijvingen
 inschrijvingen_intro: 'Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot 35 leden. Het online aanmeldingssysteem komt elke zomervakantie beschikbaar - het is niet belangrijk om als eerste te kunnen registreren, maar het is wel belangrijk om de deadline niet te missen!'
-inschrijvingen_hoofdtitel: 'Nieuwe leden & Inschrijvingen'
-inschrijvingen_proef_titel: Proefperiode
-inschrijvingen_proef_tekst: 'Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een inloopperiode. Kinderen kunnen 3 zondagen gratis komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.'
-inschrijvingen_groep_titel: 'Groepsgrootte & Voorrang'
-inschrijvingen_groep_tekst: 'Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met voorrang een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.'
-inschrijvingen_wacht_titel: 'Wachtlijst Systeem'
-inschrijvingen_wacht_tekst: 'Als een tak vol zit, trekken we nog 5 extra namen voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.'
-inschrijvingen_alt_titel: Alternatieven
-inschrijvingen_alt_tekst: 'Als jouw kind op de wachtlijst terechtkomt, kan je altijd proberen bij de scoutsgroep van jullie wijk. In Mechelen zijn er nog scouts bij Sint-Rombout, Onze-Lieve-Vrouw-Waver en FOS Open Scouting.'
+inschrijvingen_content: |
+  ### Proefperiode
+  
+  Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een **inloopperiode**. Kinderen kunnen **3 zondagen gratis** komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.
+  
+  ### Groepsgrootte & Voorrang
+  
+  Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met **voorrang** een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.
+  
+  ### Wachtlijst Systeem
+  
+  Als een tak vol zit, trekken we nog **5 extra namen** voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.
+  
+  ### Alternatieven
+  
+  Als jouw kind op de wachtlijst terechtkomt, kan je altijd proberen bij de scoutsgroep van jullie wijk. In Mechelen zijn er nog scouts bij:
+  
+  - Sint-Rombout
+  - Onze-Lieve-Vrouw-Waver
+  - FOS Open Scouting
 updated_by: 490dab97-40bc-46ac-8e07-29cd20111226
 updated_at: 1757600275
 ---

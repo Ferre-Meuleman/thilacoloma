@@ -148,33 +148,12 @@
             <div class="grid-2">
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-camping"></i> {{ weekends_title ?? 'Weekends' }}</h3>
-                        <p>{{ weekends_beschrijving ?? 'Elke tak gaat jaarlijks 3 keer op weekend. Dan zoekt de leiding een scouts- of chirolokaal op een andere locatie om daar een weekendje plezier te maken. De weekends kosten meestal €25 tot €35 - dit is de kost voor de locatie, het eten en soms ook voor een activiteit of een treinticket.' }}</p>
-                        
-                        <h4>{{ weekends_drie_titel ?? 'De drie jaarlijkse weekends:' }}</h4>
-                        <ul>
-                            <li><strong>{{ weekends_herfst_titel ?? 'Herfstvakantie - Overlevingsweekend:' }}</strong> {{ weekends_herfst_tekst ?? 'Voor verkenners en VT\'s is dit een stapweekend in de Ardennen. Van alle scoutsactiviteiten is dit misschien nog wel het meest scoutesk - rugzak vol, kaart en kompas en het avontuur tegemoet!' }}</li>
-                            <li><strong>{{ weekends_kerst_titel ?? 'Kerstvakantie - Belofteweekend:' }}</strong> {{ weekends_kerst_tekst ?? 'Heel Thila Coloma trekt naar het mooie domein van de Hoge Rielen in Kasterlee. Op zaterdagavond krijgen alle eerstejaars vanaf de jongwelpen hun belofte. Een heel bijzonder moment!' }}</li>
-                            <li><strong>{{ weekends_paas_titel ?? 'Paasvakantie - Kluisweekend:' }}</strong> {{ weekends_paas_tekst ?? 'De drie jongverkennertakken fietsen naar de Kluisberg in Oud-Heverlee om er in tenten te slapen en groepsspelen te spelen met alle jongverkenners van Thila Coloma.' }}</li>
-                        </ul>
-                        <p><small>{{ weekends_opmerking ?? 'Weekends lopen meestal van vrijdagavond tot zondagnamiddag. Voor kapoenen begint zo\'n weekend pas op zaterdag en eindigt het zondag. Sommige takken (voornamelijk de oudere) organiseren ook 24-uursvergaderingen aan het begin en einde van het scoutsjaar - een mini-weekend dat 24 uur lang doorgaat.' }}</small></p>
+                        {{ weekends_content | markdown }}
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-mountain"></i> {{ kampen_title ?? 'Kampen' }}</h3>
-                        <p><strong>{{ kampen_binnenlands_titel ?? 'Binnenlands Kamp (3-13 augustus):' }}</strong> {{ kampen_binnenlands_tekst ?? 'Thila Coloma mag zich trots de organisator van het grootste tentenkamp van België noemen! Met meer dan 450 leden, 70 man leiding en een goed uitgeruste kookploeg trekken we ieder jaar naar een mooi veld (meestal in Wallonië) waar we met de hele groep even deconnecteren van de rest van de wereld en 10 dagen ravotten en plezier maken.' }}</p>
-                        
-                        <ul>
-                            <li><strong>{{ kampen_dagen_10 ?? '10 dagen voor jongwelpen+ en bagheera\'s+' }}</strong></li>
-                            <li><strong>{{ kampen_dagen_7 ?? '7 dagen voor kapoenen en baloes' }}</strong></li>
-                            <li>{{ kampen_activiteiten ?? 'Een driedaagse, dagtocht, totemdag, woudloperskeuken en kampvuuravond maken steevast deel uit van het kampprogramma' }}</li>
-                            <li>{{ kampen_extra ?? 'Spelletjes, creatieve activiteiten en vrij spel' }}</li>
-                        </ul>
-                        
-                        <p><strong>{{ kampen_buitenlands_titel ?? 'Buitenlands Kamp:' }}</strong> {{ kampen_buitenlands_tekst ?? 'Om de drie jaar trekken we met de verkenners, VT\'s, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer drie weken. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!' }}</p>
-                        
-                        <p><small>{{ kampen_inschrijving ?? 'De inschrijvingstool voor het kamp komt steeds in april online op de site.' }}</small></p>
+                        {{ kampen_content | markdown }}
                     </div>
                 </div>
             </div>
@@ -187,23 +166,7 @@
             </p>
             <div class="card">
                 <div class="card-content">
-                    <h3>{{ inschrijvingen_hoofdtitel ?? 'Nieuwe leden & Inschrijvingen' }}</h3>
-                    <div class="grid-2">
-                        <div>
-                            <h4><i class="fas fa-user-plus"></i> {{ inschrijvingen_proef_titel ?? 'Proefperiode' }}</h4>
-                            <p>{{ inschrijvingen_proef_tekst ?? 'Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een inloopperiode. Kinderen kunnen 3 zondagen gratis komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.' }}</p>
-                            
-                            <h4><i class="fas fa-users"></i> {{ inschrijvingen_groep_titel ?? 'Groepsgrootte & Voorrang' }}</h4>
-                            <p>{{ inschrijvingen_groep_tekst ?? 'Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met voorrang een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.' }}</p>
-                        </div>
-                        <div>
-                            <h4><i class="fas fa-list"></i> {{ inschrijvingen_wacht_titel ?? 'Wachtlijst Systeem' }}</h4>
-                            <p>{{ inschrijvingen_wacht_tekst ?? 'Als een tak vol zit, trekken we nog 5 extra namen voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.' }}</p>
-                            
-                            <h4><i class="fas fa-map"></i> {{ inschrijvingen_alt_titel ?? 'Alternatieven' }}</h4>
-                            <p>{{ inschrijvingen_alt_tekst ?? 'Als jouw kind op de wachtlijst terechtkomt, kan je altijd proberen bij de scoutsgroep van jullie wijk. In Mechelen zijn er nog scouts bij Sint-Rombout, Onze-Lieve-Vrouw-Waver en FOS Open Scouting.' }}</p>
-                        </div>
-                    </div>
+                    {{ inschrijvingen_content | markdown }}
                 </div>
             </div>
         </div>
