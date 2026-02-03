@@ -42,12 +42,13 @@ tabs:
                 - orderedlist
                 - quote
 
-  # Tab 2: Groepsleiding
+  # Tab 2: Contact & Groepsleiding
   groepsleiding:
-    display: Groepsleiding
+    display: 'Contact & Groepsleiding'
     sections:
       -
-        display: 'Groepsleiding Info'
+        display: 'Groepsleiding Teksten'
+        instructions: 'Tekstuele info over de groepsleiding. De leden zelf komen uit de Groepsleiding global.'
         fields:
           -
             handle: groepsleiding_intro
@@ -56,55 +57,52 @@ tabs:
               display: 'Groepsleiding Introductie'
               instructions: 'Korte intro over de groepsleiding'
           -
+            handle: groepsleiding_algemeen_tekst
+            field:
+              type: textarea
+              display: 'Algemene Groepsleiding Tekst'
+              instructions: 'Algemene tekst over groepsleiding (zonder namen)'
+          -
+            handle: groepsleiding_email
+            field:
+              type: text
+              display: 'Groepsleiding Email'
+              default: 'groepsleiding@thilacoloma.be'
+          -
             handle: groepsleiding_scoutsjaar
             field:
               type: text
               display: 'Scoutsjaar'
               default: '2025-2026'
+      -
+        display: 'Contactgegevens'
+        instructions: 'Deze gegevens worden gebruikt in de contact tab. De groepsleiding leden zelf worden beheerd in de Groepsleiding global.'
+        fields:
           -
-            handle: groepsleiding_leden
+            handle: contact_takleiding_tip
             field:
-              type: replicator
-              display: 'Groepsleiding Leden'
-              instructions: 'Voeg hier de groepsleidingsleden toe'
-              sets:
-                lid:
-                  display: 'Groepsleiding Lid'
-                  fields:
-                    -
-                      handle: totem
-                      field:
-                        type: text
-                        display: Totem
-                        required: true
-                    -
-                      handle: naam
-                      field:
-                        type: text
-                        display: 'Volledige Naam'
-                        required: true
-                    -
-                      handle: foto
-                      field:
-                        type: assets
-                        display: Foto
-                        container: assets
-                        max_files: 1
-                    -
-                      handle: hoofdtaken
-                      field:
-                        type: text
-                        display: Hoofdtaken
-                    -
-                      handle: beschrijving
-                      field:
-                        type: textarea
-                        display: Beschrijving
-                    -
-                      handle: email
-                      field:
-                        type: text
-                        display: Email
+              type: textarea
+              display: 'Tip Takleiding Contact'
+              instructions: 'Tekst over hoe ouders de takleiding kunnen contacteren'
+              default: 'Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de takleiding. Deze contactgegevens zijn te vinden in de Blauwe Gids. Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.'
+          -
+            handle: contact_werkjes_email
+            field:
+              type: text
+              display: 'Werkjes Email'
+              default: 'werkjes@thilacoloma.be'
+          -
+            handle: contact_verhuur_lokalen_email
+            field:
+              type: text
+              display: 'Verhuur Lokalen Email'
+              default: 'verhuur@thilacoloma.be'
+          -
+            handle: contact_verhuur_tenten_email
+            field:
+              type: text
+              display: 'Verhuur Tenten Email'
+              default: 'kantjil@thilacoloma.be'
 
   # Tab 3: Inschrijvingen
   inschrijvingen:
