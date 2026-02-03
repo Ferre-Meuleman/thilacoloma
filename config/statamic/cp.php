@@ -76,6 +76,10 @@ return [
             'width' => 50,
         ],
         [
+            'type' => 'globals',
+            'width' => 50,
+        ],
+        [
             'type' => 'updater',
             'width' => 50,
         ],
