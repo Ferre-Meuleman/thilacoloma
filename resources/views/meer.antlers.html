@@ -106,56 +106,6 @@
     </div>
 
     <!-- GROEPSLEIDING TAB -->
-    <div id="groepsleiding" class="tab-content">
-        <div class="info-layout">
-            <div class="card contact-card">
-                <div class="card-content">
-                    <h3><i class="fas fa-phone"></i> Direct Contact</h3>
-                    
-                    <p>Heb je een vraag? Contacteer ons gerust op één van onderstaande e-mailadressen.</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <strong>Algemeen:</strong><br>
-                            <a href="mailto:{{ site_instellingen:algemeen_email }}" class="email-link">{{ site_instellingen:algemeen_email }}</a>
-                        </div>
-                        <div class="contact-item">
-                            <strong>Adres:</strong><br>
-                            <span>{{ site_instellingen:adres_lijn_1 }}</span><br>
-                            <span>{{ site_instellingen:adres_lijn_2 }}</span>
-                        </div>
-                    </div>
-                    
-
-                </div>
-            </div>
-
-            <div class="card groepsleiding-card">
-                <div class="card-content">
-                    <h3><i class="fas fa-users"></i> Groepsleiding</h3>
-                    
-                    <p>{{ groepsleiding_intro }}</p>
-                    
-                    <div class="groepsleiding-grid">
-                        {{ groepsleiding_leden }}
-                        <div class="leiding-member">
-                            <div class="leiding-photo">
-                                <img src="{{ foto }}" alt="{{ totem }} - {{ naam }}">
-                            </div>
-                            <div class="leiding-details">
-                                <h4>{{ totem }} - {{ naam }}</h4>
-                                <p><strong>Hoofdtaken:</strong> {{ hoofdtaken }}</p>
-                                <p>{{ beschrijving }}</p>
-                                <a href="mailto:{{ email }}">{{ email }}</a>
-                            </div>
-                        </div>
-                        {{ /groepsleiding_leden }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- INSCHRIJVEN TAB -->
     <div id="inschrijven" class="tab-content">
         <div class="card">
