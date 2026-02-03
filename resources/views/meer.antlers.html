@@ -42,6 +42,51 @@
     <!-- CONTACT TAB -->
     <div id="contact" class="tab-content active">
         <div class="info-layout">
+            <div class="card contact-card">
+                <div class="card-content">
+                    <h3><i class="fas fa-phone"></i> Contact</h3>
+                    
+                    <p>Heb je een vraag? Contacteer ons gerust op één van onderstaande e-mailadressen.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong><i class="fas fa-envelope"></i> Algemeen:</strong><br>
+                            <a href="mailto:{{ groepsleiding_email }}" class="email-link">{{ groepsleiding_email }}</a>
+                        </div>
+                    </div>
+                    
+                    {{ if contact_takleiding_tip }}
+                    <div class="contact-note simple-tip">
+                        <p><strong>Tip:</strong> {{ contact_takleiding_tip }}</p>
+                    </div>
+                    {{ /if }}
+                    
+                    {{ if contact_werkjes_email || contact_verhuur_lokalen_email || contact_verhuur_tenten_email }}
+                    <div class="contact-emails">
+                        <h4>Specifieke vragen:</h4>
+                        {{ if contact_werkjes_email }}
+                        <div class="contact-item">
+                            <strong><i class="fas fa-tools"></i> Werkjes:</strong>
+                            <a href="mailto:{{ contact_werkjes_email }}" class="email-link">{{ contact_werkjes_email }}</a>
+                        </div>
+                        {{ /if }}
+                        {{ if contact_verhuur_lokalen_email }}
+                        <div class="contact-item">
+                            <strong><i class="fas fa-home"></i> Verhuur lokalen:</strong>
+                            <a href="mailto:{{ contact_verhuur_lokalen_email }}" class="email-link">{{ contact_verhuur_lokalen_email }}</a>
+                        </div>
+                        {{ /if }}
+                        {{ if contact_verhuur_tenten_email }}
+                        <div class="contact-item">
+                            <strong><i class="fas fa-campground"></i> Verhuur tenten:</strong>
+                            <a href="mailto:{{ contact_verhuur_tenten_email }}" class="email-link">{{ contact_verhuur_tenten_email }}</a>
+                        </div>
+                        {{ /if }}
+                    </div>
+                    {{ /if }}
+                </div>
+            </div>
+
             <div class="card groepsleiding-card">
                 <div class="card-content">
                     <h3><i class="fas fa-users"></i> Groepsleiding {{ groepsleiding_scoutsjaar }}</h3>
