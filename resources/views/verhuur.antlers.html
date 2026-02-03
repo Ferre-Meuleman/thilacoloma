@@ -64,24 +64,7 @@
                     <div class="card">
                         <div class="card-content">
                             <h3><i class="fas fa-building"></i> {{ lokalen_titel }}</h3>
-                            
-                            <div class="lokaal-item">
-                                <h4>{{ polyvalent_lokaal:titel }}</h4>
-                                <p>{{ polyvalent_lokaal:beschrijving }}</p>
-                                <p><strong>Faciliteiten:</strong> {{ polyvalent_lokaal:faciliteiten }}</p>
-                            </div>
-
-                            <div class="lokaal-item">
-                                <h4>{{ slaaplokalen:titel }}</h4>
-                                <p><strong>Gelijkvloers:</strong> {{ slaaplokalen:gelijkvloers }}</p>
-                                <p><strong>Eerste verdieping:</strong> {{ slaaplokalen:eerste_verdieping }}</p>
-                            </div>
-
-                            <div class="lokaal-item">
-                                <h4>{{ sanitair:titel }}</h4>
-                                <p><strong>Toiletten:</strong> {{ sanitair:toiletten }}</p>
-                                <p><strong>Douches:</strong> {{ sanitair:douches }}</p>
-                            </div>
+                            {{ lokalen_content | markdown }}
                         </div>
                     </div>
 
@@ -113,31 +96,10 @@
 
             <!-- Materiaal Tab -->
             <div id="materiaal" class="tab-content">
-                <!-- Contact materiaal -->
+                <!-- Contact en info -->
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-envelope"></i> {{ materiaal_contact_titel }}</h3>
-                        <p>{{ materiaal_contact_beschrijving }} <span>{{ materiaal_contact_persoon }}</span>:</p>
-                        <a href="mailto:{{ materiaal_contact_email }}" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> {{ materiaal_contact_email }}
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Belangrijke info -->
-                <div class="alert alert-info">
-                    <p>{{ materiaal_info_tekst }}</p>
-                </div>
-
-                <div class="alert alert-warning">
-                    <p><strong>{{ materiaal_waarschuwing }}</strong></p>
-                </div>
-
-                <!-- Prijzen info -->
-                <div class="card">
-                    <div class="card-content">
-                        <h3><i class="fas fa-euro-sign"></i> Prijzen</h3>
-                        <p>{{ materiaal_prijzen_info | raw }}</p>
+                        {{ materiaal_info_content | markdown }}
                     </div>
                 </div>
 

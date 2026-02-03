@@ -16,18 +16,22 @@ contact_email: verhuur@thilacoloma.be
 contact_beschrijving: 'Onze verhuurverantwoordelijke voor de lokalen is'
 waarschuwing_tekst: 'Let op: Wij verhuren niet voor fuiven of andere avondactiviteiten met luide muziek. GEEN LEIDINGSWEEKENDS'
 lokalen_titel: 'Beschikbare Lokalen'
-polyvalent_lokaal:
-  titel: 'Groot polyvalent lokaal'
-  beschrijving: 'Hier kan niet geslapen worden, maar het is wel ideaal om te eten en te koken.'
-  faciliteiten: 'Grote keuken met nodige bestek, borden, tassen, potten en pannen, etc. Ook tafels en banken zijn aanwezig en kunnen gebruikt worden.'
-slaaplokalen:
-  titel: Slaaplokalen
-  gelijkvloers: '4 lokalen'
-  eerste_verdieping: '3 lokalen'
-sanitair:
-  titel: Sanitair
-  toiletten: '7 toiletten, enkele piscines en een gehandicaptentoilet'
-  douches: '4 douches en 1 douche geschikt voor mindervaliden'
+lokalen_content: |
+  ### Groot polyvalent lokaal
+  
+  Hier kan niet geslapen worden, maar het is wel **ideaal om te eten en te koken**.
+  
+  **Faciliteiten:** Grote keuken met nodige bestek, borden, tassen, potten en pannen, etc. Ook tafels en banken zijn aanwezig en kunnen gebruikt worden.
+  
+  ### Slaaplokalen
+  
+  - **Gelijkvloers:** 4 lokalen
+  - **Eerste verdieping:** 3 lokalen
+  
+  ### Sanitair
+  
+  - **Toiletten:** 7 toiletten, enkele piscines en een gehandicaptentoilet
+  - **Douches:** 4 douches en 1 douche geschikt voor mindervaliden
 locatie_titel: 'Locatie & Omgeving'
 adres: 'Geerdegemstraat 80-82, 2800 Mechelen'
 maps_embed_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5022.007832677982!2d4.479685176812431!3d50.99759977170181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e66284c5a445%3A0xf7b0d79b8db8303c!2sScouts%20Thila%20Coloma!5e0!3m2!1snl!2sbe!4v1753229256433!5m2!1snl!2sbe'
@@ -57,13 +61,25 @@ locatie_info:
     type: punt
     icon: 'fas fa-shopping-cart'
     tekst: 'Voorzieningen: Bakker, supermarkt... liggen allemaal heel dicht in de buurt'
-materiaal_contact_titel: 'Contact Materiaal'
-materiaal_contact_persoon: 'Kantjil (Ferre Meuleman)'
 materiaal_contact_email: kantjil@thilacoloma.be
-materiaal_contact_beschrijving: 'Voor beschikbaarheid of vragen over de tenten en het materiaal stuur gerust een mailtje naar'
-materiaal_info_tekst: 'We hebben ook materiaal dat niet op de website staat en mogelijks kunnen verhuren. Indien je naar iets specifiek opzoek bent, twijfel niet om ons te contacteren.'
-materiaal_waarschuwing: 'Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik.'
-materiaal_prijzen_info: 'Transport: €0,5/km met een minimumprijs van €20.<br>Korting: (Oud)Leiding huren aan halve prijs (behalve transportkosten).<br>Langdurig/grootschalig: Er valt te onderhandelen over de prijs.'
+materiaal_info_content: |
+  ### Contact Materiaal
+  
+  Voor beschikbaarheid of vragen over de tenten en het materiaal stuur gerust een mailtje naar **Kantjil (Ferre Meuleman)**: [kantjil@thilacoloma.be](mailto:kantjil@thilacoloma.be)
+  
+  ### Extra Info
+  
+  We hebben ook materiaal dat niet op de website staat en mogelijks kunnen verhuren. Indien je naar iets specifiek opzoek bent, **twijfel niet om ons te contacteren**.
+  
+  ### Waarschuwing
+  
+  **Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik.**
+  
+  ### Prijzen
+  
+  - **Transport:** €0,5/km met een minimumprijs van €20
+  - **Korting:** (Oud)Leiding huren aan halve prijs (behalve transportkosten)
+  - **Langdurig/grootschalig:** Er valt te onderhandelen over de prijs
 materiaal_titel: Materiaal
 materiaal_transport:
   -

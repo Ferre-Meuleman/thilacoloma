@@ -65,70 +65,11 @@ tabs:
               display: 'Lokalen Titel'
               default: 'Beschikbare Lokalen'
           -
-            handle: polyvalent_lokaal
+            handle: lokalen_content
             field:
-              type: group
-              display: 'Polyvalent Lokaal'
-              fields:
-                -
-                  handle: titel
-                  field:
-                    type: text
-                    display: 'Titel'
-                -
-                  handle: beschrijving
-                  field:
-                    type: textarea
-                    display: 'Beschrijving'
-                -
-                  handle: faciliteiten
-                  field:
-                    type: textarea
-                    display: 'Faciliteiten'
-          -
-            handle: slaaplokalen
-            field:
-              type: group
-              display: 'Slaaplokalen'
-              fields:
-                -
-                  handle: titel
-                  field:
-                    type: text
-                    display: 'Titel'
-                    default: 'Slaaplokalen'
-                -
-                  handle: gelijkvloers
-                  field:
-                    type: text
-                    display: 'Gelijkvloers'
-                -
-                  handle: eerste_verdieping
-                  field:
-                    type: text
-                    display: 'Eerste Verdieping'
-          -
-            handle: sanitair
-            field:
-              type: group
-              display: 'Sanitair'
-              fields:
-                -
-                  handle: titel
-                  field:
-                    type: text
-                    display: 'Titel'
-                    default: 'Sanitair'
-                -
-                  handle: toiletten
-                  field:
-                    type: text
-                    display: 'Toiletten'
-                -
-                  handle: douches
-                  field:
-                    type: text
-                    display: 'Douches'
+              type: markdown
+              display: 'Lokalen Beschrijving'
+              instructions: 'Beschrijving van polyvalent lokaal, slaaplokalen en sanitair'
       -
         display: 'Locatie'
         fields:
@@ -173,7 +114,7 @@ tabs:
     display: 'Materiaal'
     sections:
       -
-        display: 'Materiaal Contact'
+        display: 'Materiaal Info'
         fields:
           -
             handle: materiaal_titel
@@ -182,42 +123,18 @@ tabs:
               display: 'Materiaal Titel'
               default: 'Materiaal'
           -
-            handle: materiaal_contact_titel
-            field:
-              type: text
-              display: 'Contact Titel'
-          -
-            handle: materiaal_contact_persoon
-            field:
-              type: text
-              display: 'Contact Persoon'
-          -
             handle: materiaal_contact_email
             field:
               type: text
               display: 'Contact Email'
               input_type: email
+              default: 'kantjil@thilacoloma.be'
           -
-            handle: materiaal_contact_beschrijving
+            handle: materiaal_info_content
             field:
-              type: textarea
-              display: 'Contact Beschrijving'
-          -
-            handle: materiaal_info_tekst
-            field:
-              type: textarea
-              display: 'Extra Info'
-          -
-            handle: materiaal_waarschuwing
-            field:
-              type: textarea
-              display: 'Waarschuwing'
-          -
-            handle: materiaal_prijzen_info
-            field:
-              type: textarea
-              display: 'Prijzen Info'
-              instructions: 'HTML toegestaan'
+              type: markdown
+              display: 'Materiaal Informatie'
+              instructions: 'Contactpersoon, extra info, waarschuwingen en prijzen'
       -
         display: 'Transport'
         fields:
