@@ -39,85 +39,31 @@ tabs:
             field:
               type: text
               display: 'Vergaderingen Titel'
-              instructions: 'Titel voor de sectie over wekelijkse vergaderingen'
               default: 'Wekelijkse Vergaderingen'
           -
             handle: meetings_description
             field:
               type: textarea
               display: 'Vergaderingen Beschrijving'
-              instructions: 'Uitleg over wanneer en waar de vergaderingen plaatsvinden'
               default: 'Elke zondag komen we samen van 14:00 tot 17:00 op onze lokalen in de Hertogstraat. Behalve tijdens schoolvakanties en op bijzondere dagen - check de kalender hieronder voor alle data!'
           -
-            handle: vergaderingen_tijdstip_title
-            field:
-              type: text
-              display: 'Tijdstip Titel'
-              default: 'Tijdstip'
-          -
-            handle: vergaderingen_jongsten_tijd
-            field:
-              type: text
-              display: 'Jongsten Tijd'
-              default: '14:00 tot 17:00'
-          -
-            handle: vergaderingen_jongsten_beschrijving
-            field:
-              type: text
-              display: 'Jongsten Beschrijving'
-              default: 'Kapoenen t/m seniorwelpen & tictak'
-          -
-            handle: vergaderingen_ouderen_tijd
-            field:
-              type: text
-              display: 'Ouderen Tijd'
-              default: '14:00 tot 18:00'
-          -
-            handle: vergaderingen_ouderen_beschrijving
-            field:
-              type: text
-              display: 'Ouderen Beschrijving'
-              default: 'Jongverkenners t/m VT''s'
-          -
-            handle: vergaderingen_uitzonderingen
+            handle: vergaderingen_tijdstip
             field:
               type: textarea
-              display: 'Uitzonderingen'
-              default: 'Tijdens examenperiodes vaak op zaterdagavond vergadering. Afwijkingen worden steeds tijdig meegedeeld.'
+              display: 'Tijdstip Content (Markdown)'
+              instructions: 'Markdown content voor tijdstip card. Gebruik **bold**, _italic_, bullets, etc.'
           -
-            handle: vergaderingen_eerste_zondag_title
-            field:
-              type: text
-              display: 'Eerste Zondag Titel'
-              default: 'Eerste Zondag'
-          -
-            handle: vergaderingen_eerste_zondag_tekst
-            field:
-              type: text
-              display: 'Eerste Zondag Tekst'
-              default: 'Geen scouts op de eerste zondag van de maand!'
-          -
-            handle: vergaderingen_eerste_zondag_uitleg
+            handle: vergaderingen_eerste_zondag
             field:
               type: textarea
-              display: 'Eerste Zondag Uitleg'
-              default: 'Dan hebben de leidingsploegen vergadering.'
+              display: 'Eerste Zondag Content (Markdown)'
+              instructions: 'Markdown content voor eerste zondag card'
           -
-            handle: vergaderingen_eerste_zondag_uitzondering
+            handle: vergaderingen_afwezigheid
             field:
               type: textarea
-              display: 'Eerste Zondag Uitzondering'
-              default: 'Als er een weekend doorgaat, kan deze ''eerste zondag'' toch een scouts-zondag worden.'
-          -
-            handle: vergaderingen_locatie
-            field:
-              type: textarea
-              display: 'Locatie'
-              default: 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen'
-          -
-            handle: vergaderingen_afwezigheid_title
-            field:
-              type: text
+              display: 'Afwezigheid Content (Markdown)'
+              instructions: 'Markdown content voor afwezigheid card. Gebruik [link text](url) voor links'
               display: 'Afwezigheid Titel'
               default: 'Afwezigheid'
           -

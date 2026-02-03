@@ -18,22 +18,29 @@ calendar_error_message: 'Kon evenementen niet laden. Probeer later opnieuw.'
 year_calendar_title: Scoutsjaar
 navigation_previous_text: ‹
 navigation_next_text: ›
-vergaderingen_tijdstip_title: Tijdstip
-vergaderingen_jongsten_tijd: '14:00 tot 17:00'
-vergaderingen_jongsten_beschrijving: 'Kapoenen t/m seniorwelpen & tictak'
-vergaderingen_ouderen_tijd: '14:00 tot 18:00'
-vergaderingen_ouderen_beschrijving: "Jongverkenners t/m VT's"
-vergaderingen_uitzonderingen: 'Tijdens examenperiodes vaak op zaterdagavond vergadering. Afwijkingen worden steeds tijdig meegedeeld.'
-vergaderingen_eerste_zondag_title: 'Eerste Zondag'
-vergaderingen_eerste_zondag_tekst: 'Geen scouts op de eerste zondag van de maand!'
-vergaderingen_eerste_zondag_uitleg: 'Dan hebben de leidingsploegen vergadering.'
-vergaderingen_eerste_zondag_uitzondering: "Als er een weekend doorgaat, kan deze 'eerste zondag' toch een scouts-zondag worden."
-vergaderingen_locatie: 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen'
-vergaderingen_afwezigheid_title: Afwezigheid
-vergaderingen_afwezigheid_tekst: 'Kan je niet komen? Verwittig op tijd (vóór zondag!) zodat de takleiding daar rekening mee kan houden voor de activiteit.'
-vergaderingen_afwezigheid_uitleg: 'Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.'
-vergaderingen_afwezigheid_link: 'https://stamhoofd.thilacoloma.be/afwezigheid'
-vergaderingen_afwezigheid_link_tekst: 'Afwezigheid melden'
+vergaderingen_tijdstip: |
+  **Jongsten:** 14:00 tot 17:00  
+  _Kapoenen t/m seniorwelpen & tictak_
+  
+  **Ouderen:** 14:00 tot 18:00  
+  _Jongverkenners t/m VT's_
+  
+  **Uitzonderingen:** Tijdens examenperiodes vaak op zaterdagavond vergadering. Afwijkingen worden steeds tijdig meegedeeld.
+vergaderingen_eerste_zondag: |
+  **Geen scouts op de eerste zondag van de maand!**
+  
+  Dan hebben de leidingsploegen vergadering.
+  
+  _Uitzondering: Als er een weekend doorgaat, kan deze 'eerste zondag' toch een scouts-zondag worden._
+  
+  **Locatie:** Scoutslokalen Thila Coloma  
+  Jubellaan / Geerdegemstraat, Mechelen
+vergaderingen_afwezigheid: |
+  **Kan je niet komen? Verwittig op tijd (vóór zondag!) zodat de takleiding daar rekening mee kan houden voor de activiteit.**
+  
+  Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.
+  
+  [Afwezigheid melden](https://stamhoofd.thilacoloma.be/afwezigheid)
 weekends_kampen_title: 'Weekends & Kampen'
 weekends_kampen_intro: 'Doorheen het jaar organiseren we verschillende weekends en kampen. Elk weekend heeft zijn eigen karakter en doelgroep, van avontuurlijke overlevingsweekends tot gezamenlijke beloftemomenten.'
 weekends_title: Weekends

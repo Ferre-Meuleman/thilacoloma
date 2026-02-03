@@ -92,38 +92,22 @@
             <div class="grid-3">
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-clock"></i> {{ vergaderingen_tijdstip_title ?? 'Tijdstip' }}</h3>
-                        <p><strong>Jongsten:</strong> <span>{{ vergaderingen_jongsten_tijd ?? '14:00 tot 17:00' }}</span></p>
-                        <p><small>{{ vergaderingen_jongsten_beschrijving ?? 'Kapoenen t/m seniorwelpen & tictak' }}</small></p>
-                        
-                        <p><strong>Ouderen:</strong> <span>{{ vergaderingen_ouderen_tijd ?? '14:00 tot 18:00' }}</span></p>
-                        <p><small>{{ vergaderingen_ouderen_beschrijving ?? 'Jongverkenners t/m VT\'s' }}</small></p>
-                        
-                        <p><strong>Uitzonderingen:</strong> {{ vergaderingen_uitzonderingen ?? 'Tijdens examenperiodes vaak op zaterdagavond vergadering. Afwijkingen worden steeds tijdig meegedeeld.' }}</p>
+                        <h3><i class="fas fa-clock"></i> Tijdstip</h3>
+                        {{ vergaderingen_tijdstip | markdown }}
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-calendar-times"></i> {{ vergaderingen_eerste_zondag_title ?? 'Eerste Zondag' }}</h3>
-                        <p><strong>{{ vergaderingen_eerste_zondag_tekst ?? 'Geen scouts op de eerste zondag van de maand!' }}</strong></p>
-                        
-                        <p>{{ vergaderingen_eerste_zondag_uitleg ?? 'Dan hebben de leidingsploegen vergadering.' }}</p>
-                        
-                        <p><small><strong>Uitzondering:</strong> {{ vergaderingen_eerste_zondag_uitzondering ?? 'Als er een weekend doorgaat, kan deze \'eerste zondag\' toch een scouts-zondag worden.' }}</small></p>
-                        
-                        <p><strong>Locatie:</strong> {{ vergaderingen_locatie ?? 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen' | raw }}</p>
+                        <h3><i class="fas fa-calendar-times"></i> Eerste Zondag</h3>
+                        {{ vergaderingen_eerste_zondag | markdown }}
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <h3><i class="fas fa-exclamation-triangle"></i> {{ vergaderingen_afwezigheid_title ?? 'Afwezigheid' }}</h3>
-                        <p><strong>{{ vergaderingen_afwezigheid_tekst ?? 'Kan je niet komen? Verwittig op tijd (vóór zondag!) zodat de takleiding daar rekening mee kan houden voor de activiteit.' }}</strong></p>
-                        
-                        <p>{{ vergaderingen_afwezigheid_uitleg ?? 'Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.' }}</p>
-                        
-                        <a href="{{ vergaderingen_afwezigheid_link ?? 'https://stamhoofd.thilacoloma.be/afwezigheid' }}" class="btn btn-primary" target="_blank">
-                            <i class="fas fa-calendar-times"></i> {{ vergaderingen_afwezigheid_link_tekst ?? 'Afwezigheid melden' }}
-                        </a>
+                        <h3><i class="fas fa-exclamation-triangle"></i> Afwezigheid</h3>
+                        <div class="markdown-content">
+                            {{ vergaderingen_afwezigheid | markdown }}
+                        </div>
                     </div>
                 </div>
             </div>
