@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31dcfa1b1ea7d5fdea6c26a24f100629",
+    "content-hash": "ce995ee22e3f009a4331da0ffc9875e2",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -5523,6 +5523,54 @@
                 }
             ],
             "time": "2025-02-21T23:40:49+00:00"
+        },
+        {
+            "name": "superinteractive/statamic-super-admin-toolbar",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/superinteractive/statamic-super-admin-toolbar.git",
+                "reference": "ac0918e1c4805fbc071b35c17bd1b992232614bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/superinteractive/statamic-super-admin-toolbar/zipball/ac0918e1c4805fbc071b35c17bd1b992232614bb",
+                "reference": "ac0918e1c4805fbc071b35c17bd1b992232614bb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^8.3",
+                "statamic/cms": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SuperInteractive\\SuperAdminToolbar\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Super Admin Toolbar",
+                    "description": "Super Admin Toolbar for Statamic 6."
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SuperInteractive\\SuperAdminToolbar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Super Admin Toolbar addon for Statamic 6.",
+            "support": {
+                "issues": "https://github.com/superinteractive/statamic-super-admin-toolbar/issues",
+                "source": "https://github.com/superinteractive/statamic-super-admin-toolbar/tree/v2.0.0"
+            },
+            "time": "2026-01-29T15:11:00+00:00"
         },
         {
             "name": "symfony/clock",
