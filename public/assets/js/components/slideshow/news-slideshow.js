@@ -162,19 +162,6 @@ function stopAutoRotation() {
     }
 }
 
-// Add more interactivity to buttons
-document.addEventListener('DOMContentLoaded', function() {
-    // Add click handlers to "Meer info" buttons
-    const meerButtons = document.querySelectorAll('.meer-button');
-    meerButtons.forEach((button, index) => {
-        button.addEventListener('click', function() {
-            // Simple alert for now - in the future this could open a modal
-            const slideTitle = button.closest('.slide').querySelector('h2').textContent;
-            alert('Meer informatie over: ' + slideTitle + '\n\nDeze functionaliteit kan uitgebreid worden met een popup venster of doorverwijzing naar een detailpagina.');
-        });
-    });
-});
-
 // CSS styles for enhanced card stack effect
 const style = document.createElement('style');
 style.textContent = `

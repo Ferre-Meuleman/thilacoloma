@@ -89,7 +89,9 @@
                         {{ groepsleiding:groepsleiding_leden }}
                         <div class="leiding-member">
                             <div class="leiding-photo">
-                                <img src="{{ foto }}" alt="{{ totem }} - {{ naam }}">
+                                {{ totem_parts = totem | explode: ' ' }}
+                                {{ animal_name = totem_parts | last | lower | replace:"'":"-" }}
+                                <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }} - {{ naam }}">
                             </div>
                             <div class="leiding-details">
                                 <h4>{{ totem }} - {{ naam }}</h4>
@@ -174,12 +176,122 @@
 
     <!-- UNIFORM TAB -->
     <div id="uniform" class="tab-content">
-        <div class="card">
-            <div class="card-content">
-                <h3><i class="fas fa-tshirt"></i> Scoutsuniform</h3>
-                <div class="bard-content">
-                    {{ uniform_content }}
+        <div class="uniform-layout">
+            <!-- Linker kolom: Content -->
+            <div class="uniform-content">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-tshirt"></i> Scoutsuniform</h3>
+                        <p>{{ uniform_intro_text ?? 'In onze scoutsgroep is een uniform de traditie.' }}</p>
+                        <p>{{ uniform_fiskehutte_text ?? 'Om een uniform aan te kopen kan je terecht bij Hopper, dé scoutswinkel bij uitstek. De trui, T-shirt en scoutsdas zijn eigen aan onze scouts, die kan je aankopen in de Fiskehutte op ons terrein, voor of na de vergadering op zondag. Hier verkopen we ook enkele tweedehands uniformstukken. Uniformstukken binnenbrengen kan daar ook.' }}</p>
+                        
+                        {{ if uniform_tweedehands_oproep }}
+                        <div class="uniform-callout">
+                            <i class="fas fa-recycle"></i>
+                            <div>
+                                <strong>Oproep binnenbrengen uniformstukken:</strong>
+                                <p>{{ uniform_tweedehands_oproep }}</p>
+                            </div>
+                        </div>
+                        {{ /if }}
+                    </div>
                 </div>
+
+                {{ if hopper_items }}
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-shopping-bag"></i> Uniformstukken Hopper</h3>
+                        {{ if hopper_intro }}
+                        <p>{{ hopper_intro }}</p>
+                        {{ /if }}
+                        {{ if hopper_link }}
+                        <p><strong>Hopper onlinewinkel:</strong> <a href="{{ hopper_link }}" target="_blank" rel="noopener">{{ hopper_link }}</a></p>
+                        {{ /if }}
+                        
+                        <div class="price-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SGV* uniformstuk</th>
+                                        <th>Kinderen (6 tot 16 jaar)</th>
+                                        <th>Volwassenen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ hopper_items }}
+                                    <tr>
+                                        <td>{{ item }}</td>
+                                        <td>{{ prijs_kind }}</td>
+                                        <td>{{ prijs_volwassen }}</td>
+                                    </tr>
+                                    {{ /hopper_items }}
+                                </tbody>
+                            </table>
+                            <p class="table-note">*SGV staat voor 'Scouts en Gidsen Vlaanderen'</p>
+                        </div>
+                    </div>
+                </div>
+                {{ /if }}
+
+                {{ if tc_items }}
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-home"></i> Uniformstukken Thila Coloma (Fiskehutte)</h3>
+                        <div class="price-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Prijs</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ tc_items }}
+                                    <tr>
+                                        <td>{{ item }}</td>
+                                        <td>{{ prijs }}</td>
+                                    </tr>
+                                    {{ /tc_items }}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {{ /if }}
+
+                {{ if tweedehands_items }}
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-recycle"></i> Tweedehands uniformstukken (Fiskehutte)</h3>
+                        {{ if tweedehands_intro }}
+                        <p>{{ tweedehands_intro }}</p>
+                        {{ /if }}
+                        <div class="price-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Prijs</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ tweedehands_items }}
+                                    <tr>
+                                        <td>{{ item }}</td>
+                                        <td>{{ prijs }}</td>
+                                    </tr>
+                                    {{ /tweedehands_items }}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+            
+            <!-- Rechter kolom: Poster -->
+            <div class="uniform-poster">
+                <img src="/assets/images/uniform_poster.png" alt="Uniform Scouts Thila Coloma" />
             </div>
         </div>
     </div>
@@ -648,6 +760,138 @@ blockquote {
     font-size: 1.1em;
     color: var(--text-color);
     border-radius: var(--border-radius-sm);
+}
+
+/* Uniform Layout - 2 kolommen */
+.uniform-layout {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.uniform-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.uniform-poster {
+    position: sticky;
+    top: var(--spacing-xl);
+}
+
+.uniform-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.uniform-callout {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #fff9e6, #fff3d0);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    margin: var(--spacing-lg) 0;
+}
+
+.uniform-callout i {
+    font-size: 2em;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.uniform-callout strong {
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.uniform-callout p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.price-table {
+    margin: var(--spacing-lg) 0;
+}
+
+.price-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.price-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.price-table th {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-family: var(--font-bold);
+    font-weight: normal;
+}
+
+.price-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #eee;
+}
+
+.price-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.price-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.sock-colors {
+    font-size: 0.9em;
+    color: #6c757d;
+    display: block;
+    margin-top: 4px;
+}
+
+.table-note {
+    font-size: 0.9em;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+}
+
+@media (max-width: 1200px) {
+    .uniform-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .uniform-poster {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-table {
+        overflow-x: auto;
+    }
+    
+    .price-table table {
+        font-size: 0.9em;
+    }
+    
+    .price-table th,
+    .price-table td {
+        padding: var(--spacing-sm);
+    }
 }
 
 /* Responsive Design */

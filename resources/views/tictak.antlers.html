@@ -11,7 +11,29 @@
                 </a>
             </div>
             <h1>{{ title }}</h1>
-            <div class="section-intro">{{ content | markdown }}</div>
+        </div>
+
+        <div class="page-section">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-heart"></i> Scouting voor iedereen (AKABE)</h3>
+                        <p>Bij de scouts is er plaats voor iedereen, verschillen zien we als een plus. Scouting is nagenoeg de enige jeugdbeweging met een aanbod voor kinderen en jongeren met een handicap.</p>
+                        <p>In Vlaanderen zijn er ongeveer 25 Akabe-groepen voor kinderen en jongeren met en zonder handicap. Daarnaast zijn er nog ongeveer 20 Akabe-takken waar kinderen met een handicap in een apart deel van een gewone scoutsgroep activiteiten doen.</p>
+                        <p>Wat cijfers betreft: het totale ledenaantal schommelt rond 1500 ingeschreven leden met een beperking. Voor deze kinderen en jongeren staan circa 500 leid(st)ers iedere week paraat. Akabe is dus plezier hebben, vrienden leren kennen, activiteiten doen en ook wel vaak dingen leren.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-users"></i> De Tictak bij Thila Coloma</h3>
+                        <p>In TC noemen we de Akabe-groep de <strong>Tictak</strong>, dat staat voor <strong>T</strong>hila <strong>C</strong>oloma <strong>T</strong>ak <strong>Akabe</strong>. De Tictak werd opgericht in 1997.</p>
+                        <h4>Onze aanpak</h4>
+                        <p>Wij zijn een scoutsgroep, wij zorgen dus niet enkel voor bezigheid maar wij streven ernaar dezelfde scoutsactiviteiten te organiseren als de activiteiten voor kinderen zonder een beperking. Pleinspelen, tochtjes, slapen in tenten en dergelijke zijn ons dus niet vreemd.</p>
+                        <p>Onze leiding zijn allen vrijwilligers, die zich volledig willen engageren om elke zaterdag een toffe vergadering in elkaar te steken. Dit wil ook zeggen dat niet elke leiding een opleiding tot verzorger of pedagoog heeft gehad. We kunnen natuurlijk wel putten uit onze eerdere ervaringen.</p>
+                        <p><em>Voor verdere vragen kan u steeds terecht bij de Tictak-leiding.</em></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page-section">
@@ -47,71 +69,19 @@
                 </div>
             </div>
 
-            <!-- AKABE-specific information sections -->
+            {{ if brochure_link }}
             <div class="info-section">
                 <div class="info-card special-info">
                     <div class="info-content">
-                        <h3><i class="fas fa-heart"></i> Wat maakt AKABE bijzonder?</h3>
-                        <p><strong>AKABE</strong> staat voor <strong>A</strong>nders <strong>K</strong>an <strong>B</strong>est <strong>E</strong>venement. Het is scouting aangepast voor kinderen en jongeren met een beperking. Elke activiteit wordt zorgvuldig aangepast aan de individuele noden en mogelijkheden van elk lid.</p>
-                        <p>Bij <strong>Thila Coloma</strong> noemen we deze groep de <strong>Tictak</strong> - een naam die staat voor <strong>T</strong>hila <strong>C</strong>oloma <strong>T</strong>ak <strong>A</strong>ka<strong>b</strong>e.</p>
+                        <h3><i class="fas fa-file-pdf"></i> Meer informatie</h3>
+                        <p>Voor uitgebreide informatie over de Tictak kun je onze infobrochure downloaden.</p>
+                        <a href="{{ brochure_link }}" target="_blank" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Download Infobrochure
+                        </a>
                     </div>
                 </div>
             </div>
-
-            <div class="info-section">
-                <div class="info-card">
-                    <div class="info-content">
-                        <h3><i class="fas fa-calendar-alt"></i> Wanneer & Waar?</h3>
-                        <p><strong>Wanneer:</strong> Elke zaterdag van 14:00 tot 17:00 (behalve tijdens schoolvakanties)</p>
-                        <p><strong>Waar:</strong> Lokaal Thila Coloma, Jubellaan/Geerdegemstraat, Mechelen</p>
-                        <p><strong>Leeftijd:</strong> Voor kinderen en jongeren met een beperking (alle leeftijden welkom)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-section">
-                <div class="info-card highlight-info">
-                    <div class="info-content">
-                        <h3><i class="fas fa-users"></i> Inclusief & Ondersteunend</h3>
-                        <p>Onze AKABE-leiding is speciaal opgeleid om kinderen en jongeren met verschillende beperkingen te begeleiden. We werken nauw samen met ouders en verzorgers om elke activiteit zo leuk en veilig mogelijk te maken.</p>
-                        <p><strong>Individuele begeleiding</strong> zorgt ervoor dat iedereen op zijn eigen tempo kan meegenieten van het scoutsavontuur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-section">
-                <div class="info-card">
-                    <div class="info-content">
-                        <h3><i class="fas fa-gamepad"></i> Onze Activiteiten</h3>
-                        <div class="activity-grid">
-                            <div class="activity-item">
-                                <i class="fas fa-campfire"></i>
-                                <span>Kampvuren & Verhalen</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-paint-brush"></i>
-                                <span>Creatieve Workshops</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-hiking"></i>
-                                <span>Natuurwandelingen</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-music"></i>
-                                <span>Zingen & Dansen</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-cookie-bite"></i>
-                                <span>Koken & Bakken</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-futbol"></i>
-                                <span>Aangepaste Spellen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{ /if }}
 
             <!-- Leidingsploeg section -->
             <div class="leiding-grid">
@@ -121,7 +91,7 @@
                             <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                                 <div class="leiding-foto">
                                     {{ totem_parts = totem | explode: ' ' }}
-                                    {{ animal_name = totem_parts | last }}
+                                    {{ animal_name = totem_parts | last | lower | replace:"'":"-" }}
                                     <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
                                 </div>
                                 <div class="leiding-info">
@@ -154,6 +124,24 @@
             max-width: 1050px !important;
             margin-left: auto !important;
             margin-right: auto !important;
+        }
+
+        /* Card content h4 styling for subheaders */
+        .card-content h4 {
+            font-family: var(--font-medium);
+            font-size: 1.1em;
+            color: var(--dark-color);
+            margin: var(--spacing-md) 0 var(--spacing-xs) 0;
+        }
+
+        /* Card content paragraph styling */
+        .card-content p {
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
         }
 
         /* Main title styling - H1 with H2 style */

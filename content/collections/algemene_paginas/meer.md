@@ -109,8 +109,7 @@ contact_emails:
   label: Verhuur tenten
   icon: fa-campground
   email: kantjil@thilacoloma.be
----
- UNIFORM TAB ---
+# --- UNIFORM TAB ---
 uniform_content:
   -
     type: heading
@@ -1290,4 +1289,3 @@ extra_geschiedenis:
             type: italic
         text: 'Uitgebreide geschiedenis en tijdlijn volgen binnenkort...'
 ---
-Meer informatie over Thila Coloma, onze geschiedenis en extra services.

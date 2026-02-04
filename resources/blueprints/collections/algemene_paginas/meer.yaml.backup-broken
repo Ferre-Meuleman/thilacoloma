@@ -2,12 +2,19 @@ title: 'Meer Pagina'
 tabs:
   # Tab 1: Contact & Groepsleiding
   groepsleiding:
-    display: 'Contact & Groepsleiding'
+    display: Contact
     sections:
       -
         display: 'Groepsleiding Teksten'
         instructions: 'Tekstuele info over de groepsleiding. De leden zelf komen uit de Groepsleiding global.'
         fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+              default: 'Meer'
           -
             handle: groepsleiding_intro
             field:
@@ -81,13 +88,12 @@ tabs:
                         validate:
                           - email
 
-  # Tab 3: Inschrijvingen
+  # Tab 2: Inschrijvingen
   inschrijvingen:
-    display: Inschrijvingen
+    display: Inschrijven
     sections:
       -
-        display: 'Inschrijvingslinks'
-        instructions: 'Links naar het inschrijvingsformulier en stamhoofd'
+        display: 'Inschrijving Info'
         fields:
           -
             handle: inschrijvingsformulier_link
@@ -105,34 +111,6 @@ tabs:
               type: text
               display: 'Inschrijving Scoutsjaar'
               default: '2025-2026'
-      -
-        display: 'Inschrijvingstekst'
-        instructions: 'Deze tekst verschijnt in de Inschrijven tab op de website'
-        fields:
-          -
-            handle: praktisch_inschrijven
-            field:
-              type: bard
-              display: 'Inschrijven Info'
-              instructions: 'Info over inschrijvingen, wachtlijsten, procedure, AKABE, etc.'
-              buttons:
-                - bold
-                - italic
-                - h2
-                - h3
-                - h4
-                - unorderedlist
-                - orderedlist
-                - anchor
-
-  # Tab 4: Financiën
-  financien:
-    display: Financiën
-    sections:
-      -
-        display: 'Bedragen'
-        instructions: 'Standaard en verminderde tarieven'
-        fields:
           -
             handle: lidgeld_standaard
             field:
@@ -157,10 +135,29 @@ tabs:
               type: text
               display: 'Kampgeld Verminderd'
               default: '€50'
+
+  # Tab 3: Praktisch (Financiën)
+  praktisch:
+    display: Financiën
+    sections:
       -
-        display: 'Betalingen & Lidgeld Tekst'
-        instructions: 'Deze tekst verschijnt in de Financiën tab op de website'
+        display: 'Praktische Info'
         fields:
+          -
+            handle: praktisch_inschrijven
+            field:
+              type: bard
+              display: 'Inschrijven'
+              instructions: 'Info over inschrijvingen, wachtlijsten, procedure, AKABE, etc.'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - anchor
           -
             handle: praktisch_betalingen
             field:
@@ -191,129 +188,30 @@ tabs:
                 - unorderedlist
                 - orderedlist
 
-  # Tab 5: Uniform
+  # Tab 4: Uniform
   uniform:
     display: Uniform
     sections:
       -
-        display: 'Uniform Intro'
-        instructions: 'Algemene intro teksten voor de uniform sectie'
+        display: 'Uniform Info'
         fields:
           -
-            handle: uniform_intro_text
+            handle: uniform_content
             field:
-              type: textarea
-              display: 'Intro Tekst'
-              instructions: 'Algemene introductie over het uniform'
-              default: 'In onze scoutsgroep is een uniform de traditie.'
-          -
-            handle: uniform_fiskehutte_text
-            field:
-              type: textarea
-              display: 'Fiskehutte Tekst'
-              instructions: 'Tekst over de Fiskehutte en hoe uniformstukken te kopen'
-              default: 'Om een uniform aan te kopen kan je terecht bij Hopper, dé scoutswinkel bij uitstek. De trui, T-shirt en scoutsdas zijn eigen aan onze scouts, die kan je aankopen in de Fiskehutte op ons terrein, voor of na de vergadering op zondag. Hier verkopen we ook enkele tweedehands uniformstukken. Uniformstukken binnenbrengen kan daar ook.'
-          -
-            handle: uniform_tweedehands_oproep
-            field:
-              type: textarea
-              display: 'Tweedehands Oproep'
-              instructions: 'Oproep tekst voor binnenbrengen uniformstukken'
-              default: 'Uniformstukken die te klein zijn geworden of niet meer worden gebruikt mogen steeds binnengebracht worden bij de Fiskehutte. Zo vergroot onze voorraad aan tweedehands uniformstukken!'
-      -
-        display: 'Hopper Uniformstukken'
-        instructions: 'Prijzen en info voor uniformstukken van Hopper'
-        fields:
-          -
-            handle: hopper_intro
-            field:
-              type: textarea
-              display: 'Hopper Intro'
-              default: 'Je kan deze uniformstukken kopen in de Hopperwinkel in Leuven of Antwerpen. Je kan ze ook online bestellen en gratis laten leveren in De Banier, in Mechelen.'
-          -
-            handle: hopper_link
-            field:
-              type: text
-              display: 'Hopper Online Link'
-              default: 'https://www.hopper.be/winkel'
-          -
-            handle: hopper_items
-            field:
-              type: grid
-              display: 'Hopper Prijzen'
-              instructions: 'SGV uniformstukken met prijzen voor kinderen en volwassenen'
-              fields:
-                -
-                  handle: item
-                  field:
-                    type: text
-                    display: Item
-                    width: 40
-                -
-                  handle: prijs_kind
-                  field:
-                    type: text
-                    display: 'Prijs Kinderen (6-16j)'
-                    width: 30
-                -
-                  handle: prijs_volwassen
-                  field:
-                    type: text
-                    display: 'Prijs Volwassenen'
-                    width: 30
-              add_row: 'Rij toevoegen'
-      -
-        display: 'Thila Coloma Uniformstukken'
-        instructions: 'Prijzen voor uniformstukken in de Fiskehutte'
-        fields:
-          -
-            handle: tc_items
-            field:
-              type: grid
-              display: 'TC Fiskehutte Prijzen'
-              fields:
-                -
-                  handle: item
-                  field:
-                    type: text
-                    display: Item
-                    width: 70
-                -
-                  handle: prijs
-                  field:
-                    type: text
-                    display: Prijs
-                    width: 30
-              add_row: 'Rij toevoegen'
-      -
-        display: 'Tweedehands Uniformstukken'
-        instructions: 'Prijzen voor tweedehands uniformstukken in de Fiskehutte'
-        fields:
-          -
-            handle: tweedehands_intro
-            field:
-              type: textarea
-              display: 'Tweedehands Intro'
-              default: 'Ons aanbod telt niet alle maten, we verkopen enkel wat we terug krijgen van ouders, kom gerust eens passen ter plaatse!'
-          -
-            handle: tweedehands_items
-            field:
-              type: grid
-              display: 'Tweedehands Prijzen'
-              fields:
-                -
-                  handle: item
-                  field:
-                    type: text
-                    display: Item
-                    width: 70
-                -
-                  handle: prijs
-                  field:
-                    type: text
-                    display: Prijs
-                    width: 30
-              add_row: 'Rij toevoegen'
+              type: bard
+              display: 'Uniform Content'
+              instructions: 'Volledige uniform info: waarom, benodigdheden, waar te koop, kleuren per tak, badges, onderhoud'
+              buttons:
+                - bold
+                - italic
+                - h2
+                - h3
+                - h4
+                - unorderedlist
+                - orderedlist
+                - quote
+                - anchor
+                - image
 
   # Tab 5: Visie
   visie:
@@ -321,15 +219,8 @@ tabs:
     sections:
       -
         display: 'Onze Visie'
-        instructions: 'De centrale visie van Thila Coloma - wat scouting voor ons betekent. Deze tekst verschijnt in de Visie tab op de website'
+        instructions: 'De centrale visie van Thila Coloma - wat scouting voor ons betekent'
         fields:
-          -
-            handle: title
-            field:
-              type: text
-              required: true
-              display: 'Pagina Titel'
-              default: 'Meer'
           -
             handle: visie_intro
             field:

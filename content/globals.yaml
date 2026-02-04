@@ -5,3 +5,9 @@ collections:
   leidingsploegen:
     title: Leidingsploegen
     blueprint: leidingsploegen
+  groepsleiding:
+    title: Groepsleiding
+    blueprint: groepsleiding
+  navigation:
+    title: Navigation
+    blueprint: navigation

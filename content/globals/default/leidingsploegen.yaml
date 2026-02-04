@@ -1,0 +1,1018 @@
+kapoenen:
+    -
+      id: kap1
+      type: leidingsploeg
+      tak_naam: 'Kapoenen 1'
+      tak_groep: kapoenen
+      actief: true
+      leiding:
+        -
+          id: lkap1_1
+          type: leider
+          voornaam: Bert
+          achternaam: 'De Landtsheer'
+          totem: 'Opmerkzame Taipan'
+          email: taipan@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lkap1_2
+          type: leider
+          voornaam: Anne-Sophie
+          achternaam: 'Pypen'
+          totem: 'Ongedwongen Sittelle'
+          email: sittelle@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap1_3
+          type: leider
+          voornaam: Egon
+          achternaam: 'Jacquet'
+          totem: 'Koddige Havik'
+          email: havik@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap1_4
+          type: leider
+          voornaam: Kato
+          achternaam: 'De Troch'
+          totem: 'Zachtaardige Coscoroba'
+          email: coscoroba@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap1_5
+          type: leider
+          voornaam: Lieze
+          achternaam: 'Van Aken'
+          totem: 'Fiere Capreola'
+          email: capreola@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap1_6
+          type: leider
+          voornaam: Simon
+          achternaam: 'Op de Beeck Jaspaert'
+          totem: 'Glunderende Sagittarius'
+          email: sagittarius@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap1_7
+          type: leider
+          voornaam: Witse
+          achternaam: 'Seps'
+          totem: 'Parmantige Caracara'
+          email: caracara@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: kap2
+      type: leidingsploeg
+      tak_naam: 'Kapoenen 2'
+      tak_groep: kapoenen
+      actief: true
+      leiding:
+        -
+          id: lkap2_1
+          type: leider
+          voornaam: Janne
+          achternaam: 'Laurent'
+          totem: 'Dartele Ani'
+          email: ani@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lkap2_2
+          type: leider
+          voornaam: Ides
+          achternaam: 'Vereycken'
+          totem: 'Uitgelaten Corbie'
+          email: corbie@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap2_3
+          type: leider
+          voornaam: Jasper
+          achternaam: 'Rasing'
+          totem: 'Spitsvondige Rhino'
+          email: rhino@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap2_4
+          type: leider
+          voornaam: Rikke
+          achternaam: 'Van der Stichelen'
+          totem: 'Gezellige Das'
+          email: das@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap2_5
+          type: leider
+          voornaam: Simon
+          achternaam: 'Catry'
+          totem: 'Vermakelijke Groenling'
+          email: groenling@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: kap3
+      type: leidingsploeg
+      tak_naam: 'Kapoenen 3'
+      tak_groep: kapoenen
+      actief: true
+      leiding:
+        -
+          id: lkap3_1
+          type: leider
+          voornaam: Robin
+          achternaam: 'Hermans'
+          totem: 'Edelmoedige Turdo'
+          email: turdo@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lkap3_2
+          type: leider
+          voornaam: Jeffe
+          achternaam: 'Claessens'
+          totem: 'Parmantige Landak'
+          email: landak@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap3_3
+          type: leider
+          voornaam: Maarten
+          achternaam: 'Peeters'
+          totem: 'Luchthartige Varaan'
+          email: varaan@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap3_4
+          type: leider
+          voornaam: Olivia
+          achternaam: 'Ladron De Guevara'
+          totem: 'Ondoorgrondelijke Algondae'
+          email: algondae@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lkap3_5
+          type: leider
+          voornaam: Rhune
+          achternaam: 'De Cock'
+          totem: 'Ostentatieve Aldhuera'
+          email: aldhuera@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+welpen:
+    -
+      id: jw
+      type: leidingsploeg
+      tak_naam: 'Jongwelpen'
+      tak_groep: welpen
+      actief: true
+      leiding:
+        -
+          id: ljw_1
+          type: leider
+          voornaam: Mira
+          achternaam: 'Vermeersch'
+          totem: 'Gehechte Okapi'
+          email: okapi@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: ljw_2
+          type: leider
+          voornaam: Daan
+          achternaam: 'Hosten'
+          totem: 'Bedaarde Zeehond'
+          email: zeehond@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljw_3
+          type: leider
+          voornaam: Lars
+          achternaam: 'Maes'
+          totem: 'Schalkse Musara'
+          email: musara@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljw_4
+          type: leider
+          voornaam: Leyla
+          achternaam: 'Watteeuw'
+          totem: 'Standvastige Schorpioen'
+          email: schorpioen@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljw_5
+          type: leider
+          voornaam: Nathan
+          achternaam: 'Heymans'
+          totem: 'Onverstoorbare Liro'
+          email: liro@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljw_6
+          type: leider
+          voornaam: Nima
+          achternaam: 'Horemans'
+          totem: 'Hartelijke Kuda'
+          email: kuda@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: w
+      type: leidingsploeg
+      tak_naam: 'Welpen'
+      tak_groep: welpen
+      actief: true
+      leiding:
+        -
+          id: lw_1
+          type: leider
+          voornaam: Fien
+          achternaam: 'Pans'
+          totem: 'Fiere Kraanvogel'
+          email: kraanvogel@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lw_2
+          type: leider
+          voornaam: Emma
+          achternaam: 'Ongena'
+          totem: 'Ongeveinsde Ghara'
+          email: ghara@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_3
+          type: leider
+          voornaam: Floris
+          achternaam: 'De Coster'
+          totem: 'Onbeschroomde Doornstaart'
+          email: doornstaart@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_4
+          type: leider
+          voornaam: Kato
+          achternaam: 'Raeymaekers'
+          totem: 'Joviale Stari'
+          email: stari@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_5
+          type: leider
+          voornaam: Leon
+          achternaam: 'Schoemans'
+          totem: 'Eigengereide Ijsbeer'
+          email: ijsbeer@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_6
+          type: leider
+          voornaam: Louise
+          achternaam: 'Van Horebeek'
+          totem: 'Zorgeloze Abelii'
+          email: abelii@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_7
+          type: leider
+          voornaam: Noor
+          achternaam: 'De Win'
+          totem: 'Goedlachse Rakoni'
+          email: rakoni@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lw_8
+          type: leider
+          voornaam: Wouter
+          achternaam: 'Hellemans'
+          totem: 'Olijke Wasbeer'
+          email: wasbeer@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: sw
+      type: leidingsploeg
+      tak_naam: 'Seniorwelpen'
+      tak_groep: welpen
+      actief: true
+      leiding:
+        -
+          id: lsw_1
+          type: leider
+          voornaam: Josefien
+          achternaam: 'Poppe'
+          totem: 'Jolige Cardelino'
+          email: cardelino@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lsw_2
+          type: leider
+          voornaam: Achiel
+          achternaam: 'Schoemans'
+          totem: 'Pientere Oropendola'
+          email: oropendola@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_3
+          type: leider
+          voornaam: Arthur
+          achternaam: 'Callebert'
+          totem: 'Schelmse Spriveri'
+          email: spriveri@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_4
+          type: leider
+          voornaam: Christina
+          achternaam: 'Lambot'
+          totem: 'Christina'
+          email: christina@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_5
+          type: leider
+          voornaam: Ilona
+          achternaam: 'Decraemer'
+          totem: 'Parmantige Chigi'
+          email: chigi@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_6
+          type: leider
+          voornaam: Jara
+          achternaam: 'Horemans'
+          totem: 'Gemoedelijke Bintoe'
+          email: bintoe@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_7
+          type: leider
+          voornaam: Len
+          achternaam: 'De Maeyer'
+          totem: 'Gevatte Kaaimansnoek'
+          email: kaaimansnoek@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lsw_8
+          type: leider
+          voornaam: Lorin
+          achternaam: 'Vermeersch'
+          totem: 'Verrassende Caama'
+          email: caama@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+jongverkenners:
+    -
+      id: jv1
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 1'
+      tak_groep: jongverkenners
+      actief: true
+      leiding:
+        -
+          id: ljv1_1
+          type: leider
+          voornaam: Wies
+          achternaam: 'De Troch'
+          totem: 'Ongedwongen Poedel'
+          email: poedel@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: ljv1_2
+          type: leider
+          voornaam: Anna
+          achternaam: 'Delmotte'
+          totem: 'Waardige Zwaan'
+          email: zwaan@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv1_3
+          type: leider
+          voornaam: Elias
+          achternaam: 'Timmermans'
+          totem: 'Elias'
+          email: elias@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv1_4
+          type: leider
+          voornaam: Jasper
+          achternaam: 'Seps'
+          totem: 'Oprechte Streepmuis'
+          email: streepmuis@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv1_5
+          type: leider
+          voornaam: Marnix
+          achternaam: 'Van den Bossche'
+          totem: 'Galante Walloewie'
+          email: walloewie@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv1_6
+          type: leider
+          voornaam: Wout
+          achternaam: 'Festraets Willemen'
+          totem: 'Toegewijde Orso'
+          email: orso@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: jv2
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 2'
+      tak_groep: jongverkenners
+      actief: true
+      leiding:
+        -
+          id: ljv2_1
+          type: leider
+          voornaam: Mette
+          achternaam: 'Van der Stichelen'
+          totem: 'Goedhartige Sulidae'
+          email: sulidae@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: ljv2_2
+          type: leider
+          voornaam: Hannes
+          achternaam: 'Nulens'
+          totem: 'Behaaglijke Ndonge'
+          email: ndonge@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv2_3
+          type: leider
+          voornaam: Janne
+          achternaam: 'Cassaer'
+          totem: 'Gewiekste Laridae'
+          email: laridae@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv2_4
+          type: leider
+          voornaam: Marieke
+          achternaam: 'Vanneste'
+          totem: 'Oriolo'
+          email: oriolo@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv2_5
+          type: leider
+          voornaam: Mattijs
+          achternaam: 'Ryckeboer'
+          totem: 'Goedhartige Bosbok'
+          email: bosbok@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv2_6
+          type: leider
+          voornaam: Miro
+          achternaam: 'Van den Branden'
+          totem: 'Gedreven Slechtvalk'
+          email: slechtvalk@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv2_7
+          type: leider
+          voornaam: Victor
+          achternaam: 'Van Gijseghem'
+          totem: 'Zelfbewuste Mus'
+          email: mus@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: jv3
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 3'
+      tak_groep: jongverkenners
+      actief: true
+      leiding:
+        -
+          id: ljv3_1
+          type: leider
+          voornaam: Simon
+          achternaam: 'Peeters'
+          totem: 'Onverstoorbare Salmo'
+          email: salmo@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: ljv3_2
+          type: leider
+          voornaam: Anders
+          achternaam: 'Floridor'
+          totem: "Volhardende Ka'iporo"
+          email: ka'iporo@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_3
+          type: leider
+          voornaam: Daan
+          achternaam: 'Claes'
+          totem: 'Gezapige Argali'
+          email: argali@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_4
+          type: leider
+          voornaam: Emilie
+          achternaam: 'Delmotte'
+          totem: 'Olijke Myna'
+          email: myna@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_5
+          type: leider
+          voornaam: Laurien
+          achternaam: 'Janssens'
+          totem: 'Laurien'
+          email: laurien@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_6
+          type: leider
+          voornaam: Marie
+          achternaam: 'Plomteux'
+          totem: 'Zachtaardige Scholekster'
+          email: scholekster@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_7
+          type: leider
+          voornaam: Nena
+          achternaam: 'Poels'
+          totem: 'Argeloze Bufo'
+          email: bufo@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ljv3_8
+          type: leider
+          voornaam: Pepijn
+          achternaam: 'Smekens'
+          totem: 'Aanstekelijke Dziggetai'
+          email: dziggetai@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+verkenners:
+    -
+      id: v1
+      type: leidingsploeg
+      tak_naam: 'Verkenners 1'
+      tak_groep: verkenners
+      actief: true
+      leiding:
+        -
+          id: lv1_1
+          type: leider
+          voornaam: Maya
+          achternaam: 'Van den Bossche'
+          totem: 'Felle Kolibrie'
+          email: kolibrie@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lv1_2
+          type: leider
+          voornaam: Flore
+          achternaam: 'Rens'
+          totem: 'Kwetterende Parkiet'
+          email: parkiet@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv1_3
+          type: leider
+          voornaam: Jarno
+          achternaam: 'Maes'
+          totem: 'Snaakse(jonko) Stekelstaarteekhoorn'
+          email: stekelstaarteekhoorn@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv1_4
+          type: leider
+          voornaam: Jules
+          achternaam: 'Poppe'
+          totem: 'Pientere Tuba'
+          email: tuba@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv1_5
+          type: leider
+          voornaam: Lennert
+          achternaam: 'Nulens'
+          totem: 'Ondeugende Salangaan'
+          email: salangaan@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv1_6
+          type: leider
+          voornaam: Simon
+          achternaam: 'Beel'
+          totem: 'Ongedwongen Coelho'
+          email: coelho@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv1_7
+          type: leider
+          voornaam: Vighor
+          achternaam: 'De Cock'
+          totem: 'Leutige Bernesi'
+          email: bernesi@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: v2
+      type: leidingsploeg
+      tak_naam: 'Verkenners 2'
+      tak_groep: verkenners
+      actief: true
+      leiding:
+        -
+          id: lv2_1
+          type: leider
+          voornaam: Luca
+          achternaam: 'Fancello'
+          totem: 'Uitdagende Mustela'
+          email: mustela@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lv2_2
+          type: leider
+          voornaam: Ferre
+          achternaam: 'Meuleman'
+          totem: 'Toegewijde Kantjil'
+          email: kantjil@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv2_3
+          type: leider
+          voornaam: Marte
+          achternaam: 'Pouliart'
+          totem: 'Genietende Secretarisvogel'
+          email: secretarisvogel@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv2_4
+          type: leider
+          voornaam: Nina
+          achternaam: 'Vandersmissen'
+          totem: 'Onbevangen Hippo'
+          email: hippo@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv2_5
+          type: leider
+          voornaam: Simon
+          achternaam: 'Callebert'
+          totem: 'Guitige Lar'
+          email: lar@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+    -
+      id: v3
+      type: leidingsploeg
+      tak_naam: 'Verkenners 3'
+      tak_groep: verkenners
+      actief: true
+      leiding:
+        -
+          id: lv3_1
+          type: leider
+          voornaam: Merlijn
+          achternaam: 'Jacquet'
+          totem: 'Excentrieke Kohola'
+          email: kohola@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lv3_2
+          type: leider
+          voornaam: Aline
+          achternaam: 'Delmotte'
+          totem: 'Gemoedelijke Antilope'
+          email: antilope@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv3_3
+          type: leider
+          voornaam: Janne
+          achternaam: 'Pans'
+          totem: 'Volhardende Steur'
+          email: steur@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv3_4
+          type: leider
+          voornaam: Lowie
+          achternaam: 'Casteels'
+          totem: 'Volhardende Wever'
+          email: wever@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv3_5
+          type: leider
+          voornaam: Sara
+          achternaam: 'Vandenbussche'
+          totem: 'Gevatte Pony'
+          email: pony@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lv3_6
+          type: leider
+          voornaam: Wout
+          achternaam: 'De Win'
+          totem: 'Bedaarde Fura'
+          email: fura@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+voortrekkers:
+    -
+      id: vt
+      type: leidingsploeg
+      tak_naam: 'Voortrekkers'
+      tak_groep: voortrekkers
+      actief: true
+      leiding:
+        -
+          id: lvt_1
+          type: leider
+          voornaam: Laurens
+          achternaam: 'Maddens'
+          totem: 'Scherpzinnige Aloeatta'
+          email: aloeatta@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lvt_2
+          type: leider
+          voornaam: Hymne
+          achternaam: 'Van Impe'
+          totem: 'Olijke Chimango'
+          email: chimango@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lvt_3
+          type: leider
+          voornaam: Kilian
+          achternaam: 'Decraemer'
+          totem: 'Bevlogen Snoek'
+          email: snoek@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lvt_4
+          type: leider
+          voornaam: Nel
+          achternaam: 'De Landtsheer'
+          totem: 'Toegewijde Beerkat'
+          email: beerkat@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lvt_5
+          type: leider
+          voornaam: Thomas
+          achternaam: 'Van De Sompel'
+          totem: 'Gezellige Mpango'
+          email: mpango@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+akabe:
+    -
+      id: akabe
+      type: leidingsploeg
+      tak_naam: 'Akabe'
+      tak_groep: akabe
+      actief: true
+      leiding:
+        -
+          id: lakabe_1
+          type: leider
+          voornaam: Janne
+          achternaam: 'De Coster'
+          totem: 'Trouwhartig Roodborstje'
+          email: roodborstje@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: lakabe_2
+          type: leider
+          voornaam: Fien
+          achternaam: 'Pouliart'
+          totem: 'Fidele Vesikoira'
+          email: vesikoira@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_3
+          type: leider
+          voornaam: Janne
+          achternaam: 'Beterams'
+          totem: 'Wilskrachtige Daru'
+          email: daru@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_4
+          type: leider
+          voornaam: Jarne
+          achternaam: 'Ceulemans - Schaepherders'
+          totem: 'Koddige Woestijnvos'
+          email: woestijnvos@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_5
+          type: leider
+          voornaam: Lucie
+          achternaam: 'Lauryssen'
+          totem: 'Dartele Cynomy'
+          email: cynomy@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_6
+          type: leider
+          voornaam: Malou
+          achternaam: 'De Clercq'
+          totem: 'Betrokken Koala'
+          email: koala@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_7
+          type: leider
+          voornaam: Manu
+          achternaam: 'Van Dorslaer'
+          totem: 'Charmante Mwari'
+          email: mwari@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: lakabe_8
+          type: leider
+          voornaam: Noor
+          achternaam: 'Reinquin'
+          totem: 'Wilskrachtige Perri'
+          email: perri@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true
+tictak:
+    -
+      id: tictak
+      type: leidingsploeg
+      tak_naam: 'Tictak'
+      tak_groep: tictak
+      actief: true
+      leiding:
+        -
+          id: ltictak_1
+          type: leider
+          voornaam: Janne
+          achternaam: 'De Coster'
+          totem: 'Trouwhartig Roodborstje'
+          email: roodborstje@thilacoloma.be
+          functie: takleider
+          enabled: true
+        -
+          id: ltictak_2
+          type: leider
+          voornaam: Fien
+          achternaam: 'Pouliart'
+          totem: 'Fidele Vesikoira'
+          email: vesikoira@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_3
+          type: leider
+          voornaam: Janne
+          achternaam: 'Beterams'
+          totem: 'Wilskrachtige Daru'
+          email: daru@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_4
+          type: leider
+          voornaam: Jarne
+          achternaam: 'Ceulemans - Schaepherders'
+          totem: 'Koddige Woestijnvos'
+          email: woestijnvos@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_5
+          type: leider
+          voornaam: Lucie
+          achternaam: 'Lauryssen'
+          totem: 'Dartele Cynomy'
+          email: cynomy@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_6
+          type: leider
+          voornaam: Malou
+          achternaam: 'De Clercq'
+          totem: 'Betrokken Koala'
+          email: koala@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_7
+          type: leider
+          voornaam: Manu
+          achternaam: 'Van Dorslaer'
+          totem: 'Charmante Mwari'
+          email: mwari@thilacoloma.be
+          functie: leiding
+          enabled: true
+        -
+          id: ltictak_8
+          type: leider
+          voornaam: Noor
+          achternaam: 'Reinquin'
+          totem: 'Wilskrachtige Perri'
+          email: perri@thilacoloma.be
+          functie: leiding
+          enabled: true
+      enabled: true

@@ -26,6 +26,32 @@ error() { echo -e "${RED}❌ $1${NC}"; exit 1; }
 success() { echo -e "${GREEN}✅ $1${NC}"; }
 info() { echo -e "${CYAN}ℹ️  $1${NC}"; }
 
+fix_server_permissions() {
+    log "🔧 Fixing server permissions..."
+    ssh "$SERVER" << 'ENDSSH'
+        cd /var/www/thilacoloma
+        
+        # Set ownership
+        sudo chown -R www-data:www-data . 2>/dev/null || true
+        
+        # Set base permissions
+        sudo find . -type d -exec chmod 755 {} \; 2>/dev/null || true
+        sudo find . -type f -exec chmod 644 {} \; 2>/dev/null || true
+        
+        # Set writable directories
+        sudo chmod -R 775 storage bootstrap/cache content public/assets resources/views 2>/dev/null || true
+        
+        # Make scripts executable
+        sudo chmod +x artisan please *.sh 2>/dev/null || true
+        
+        # Clear caches as www-data user
+        sudo -u www-data php artisan cache:clear 2>/dev/null || true
+        sudo -u www-data php please cache:clear 2>/dev/null || true
+        sudo -u www-data php please stache:clear 2>/dev/null || true
+ENDSSH
+    success "Permissions fixed"
+}
+
 check_connection() {
     log "Checking server connection..."
     if ! ssh -q "$SERVER" exit; then
@@ -173,8 +199,7 @@ sync_push() {
         fi
     done
 
-    log "🧹 Fixing permissions and clearing server caches..."
-    ssh "$SERVER" "sudo chown -R www-data:www-data $REMOTE_PATH/content $REMOTE_PATH/storage $REMOTE_PATH/resources && sudo chmod -R 775 $REMOTE_PATH/content $REMOTE_PATH/storage && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please cache:clear && php please stache:clear && php please view:clear'"
+    fix_server_permissions
     
     success "Push complete! Server content is now identical to Local."
 }
@@ -217,8 +242,9 @@ sync_pull() {
     
     log "🧹 Refreshing local cache..."
     php please stache:clear 2>/dev/null || php artisan cache:clear 2>/dev/null || true
-    
-    success "Pull complete! Local content is now identical to Server."
+        # Fix server permissions to ensure everything is writable
+    fix_server_permissions
+        success "Pull complete! Local content is now identical to Server."
     
     # Offer to commit the changes
     echo ""
@@ -310,8 +336,7 @@ deploy_templates() {
     rsync -av --delete -e ssh "resources/views/" "$SERVER:$REMOTE_PATH/resources/views/"
     rsync -av --delete -e ssh "resources/blueprints/" "$SERVER:$REMOTE_PATH/resources/blueprints/"
     
-    log "🧹 Fixing permissions and clearing caches..."
-    ssh "$SERVER" "sudo chown -R www-data:www-data $REMOTE_PATH/resources && sudo chmod -R 775 $REMOTE_PATH/resources && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please view:clear && php please cache:clear && php please stache:clear'"
+    fix_server_permissions
     
     success "Templates deployed! Changes are now live."
 }
@@ -328,8 +353,7 @@ deploy_file() {
     log "📄 Deploying $file to server..."
     scp "$file" "$SERVER:$REMOTE_PATH/$file"
     
-    log "🧹 Fixing permissions..."
-    ssh "$SERVER" "sudo chown www-data:www-data $REMOTE_PATH/$file && sudo chmod 664 $REMOTE_PATH/$file && sudo -u www-data bash -c 'cd $REMOTE_PATH && php please view:clear'"
+    fix_server_permissions
     
     success "File deployed: $file"
 }

@@ -52,7 +52,7 @@
                             <div class="leiding-card {{ if functie == 'takleider' }}takleider{{ /if }}">
                                 <div class="leiding-foto">
                                     {{ totem_parts = totem | explode: ' ' }}
-                                    {{ animal_name = totem_parts | last }}
+                                    {{ animal_name = totem_parts | last | lower | replace:"'":"-" }}
                                     <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
                                 </div>
                                 <div class="leiding-info">

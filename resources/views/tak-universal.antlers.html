@@ -65,7 +65,7 @@
                                 {{ else }}
                                     {{# Fallback: parse totem to get animal name for photo #}}
                                     {{ totem_parts = totem | explode: ' ' }}
-                                    {{ animal_name = totem_parts | last }}
+                                    {{ animal_name = totem_parts | last | lower | replace:"'":"-" }}
                                     <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
                                 {{ /if }}
                             </div>
