@@ -76,6 +76,10 @@ return [
             'width' => 50,
         ],
         [
+            'type' => 'logbook_stats',
+            'width' => 50,
+        ],
+        [
             'type' => 'updater',
             'width' => 50,
         ],
