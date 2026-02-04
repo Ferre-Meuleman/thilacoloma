@@ -26,5 +26,9 @@
         <!-- JavaScript Files -->
         <script src="/assets/js/slideshow.js"></script>
         <script src="/assets/js/news-slideshow.js"></script>
+        
+        {{ if logged_in }}
+            {{ super_admin_toolbar }}
+        {{ /if }}
     </body>
 </html>

@@ -8,28 +8,32 @@
         <div class="container-upper-right">
             <h1>{{ slideshow_content:news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
             <div class="upper-right box" id="slideshow">
-                {{ slideshow_content:news_slides }}
-                    <div class="slide">
-                        {{ if image }}
-                            <img src="{{ image }}" alt="{{ title }} evenement">
-                        {{ /if }}
-                        <div class="slide-text">
-                            <h2>{{ title }}</h2>
-                            <p>{{ content | nl2br }}</p>
-                            {{ if button_link }}
-                                <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
-                            {{ else }}
-                                <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                {{ collection:slides limit="3" sort="publication_date:desc" }}
+                    {{ if enabled }}
+                        <div class="slide">
+                            {{ if image }}
+                                <img src="{{ image }}" alt="{{ title }} evenement">
                             {{ /if }}
+                            <div class="slide-text">
+                                <h2>{{ title }}</h2>
+                                <p>{{ content | nl2br }}</p>
+                                {{ if button_link }}
+                                    <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
+                                {{ else }}
+                                    <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                                {{ /if }}
+                            </div>
                         </div>
-                    </div>
-                {{ /slideshow_content:news_slides }}
+                    {{ /if }}
+                {{ /collection:slides }}
             </div>
             
             <div class="slideshow-dots">
-                {{ slideshow_content:news_slides }}
-                    <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
-                {{ /slideshow_content:news_slides }}
+                {{ collection:slides limit="3" sort="publication_date:desc" }}
+                    {{ if enabled }}
+                        <span class="dot{{ if first }} active{{ /if }}" data-slide="{{ index }}"></span>
+                    {{ /if }}
+                {{ /collection:slides }}
             </div>
 
             <script>

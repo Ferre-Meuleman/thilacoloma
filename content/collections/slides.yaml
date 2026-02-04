@@ -1,0 +1,15 @@
+title: Slides
+route: '/slides/{slug}'
+date: true
+date_behavior:
+  past: public
+  future: private
+sort_by: publication_date
+sort_dir: desc
+blueprints:
+  - slide
+taxonomies: []
+revisions: false
+default_status: published
+structure:
+  root: false

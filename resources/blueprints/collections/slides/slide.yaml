@@ -1,0 +1,84 @@
+title: 'Nieuwsslide'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Slide Informatie'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: 'Titel'
+              instructions: 'Titel van het nieuws/evenement'
+              width: 50
+          -
+            handle: publication_date
+            field:
+              type: date
+              required: true
+              validate:
+                - required
+              display: 'Publicatiedatum'
+              instructions: 'Datum van publicatie (gebruikt voor sortering - nieuwste eerst)'
+              time_enabled: false
+              default: now
+              width: 50
+          -
+            handle: image
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              display: 'Afbeelding'
+              instructions: 'Hoofdafbeelding voor deze slide (optioneel)'
+              restrict: false
+              allow_uploads: true
+              mode: grid
+          -
+            handle: content
+            field:
+              type: textarea
+              display: 'Inhoud'
+              instructions: 'Korte beschrijving (max 2-3 zinnen voor optimale weergave)'
+              rows: 4
+              character_limit: 250
+              required: true
+          -
+            handle: button_text
+            field:
+              type: text
+              display: 'Knop Tekst'
+              instructions: 'Tekst voor de actieknop'
+              default: 'Meer info'
+              width: 50
+          -
+            handle: button_link
+            field:
+              type: text
+              display: 'Knop Link'
+              instructions: 'URL waar de knop naartoe linkt (optioneel)'
+              width: 50
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        display: Status
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              localizable: true
+          -
+            handle: enabled
+            field:
+              type: toggle
+              display: 'Actief'
+              instructions: 'Uitgeschakelde slides worden niet getoond'
+              default: true

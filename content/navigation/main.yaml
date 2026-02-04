@@ -1,0 +1,19 @@
+tree:
+  -
+    title: Thilala
+    url: /thilala
+  -
+    title: Stamhoofd
+    url: /stamhoofd
+  -
+    title: Kalender
+    url: /kalender
+  -
+    title: Takken
+    url: /takken
+  -
+    title: Verhuur
+    url: /verhuur
+  -
+    title: Meer
+    url: /meer
