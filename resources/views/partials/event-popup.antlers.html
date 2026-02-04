@@ -1,0 +1,522 @@
+{{# Event Popup Component - Slide Details #}}
+<div id="event-popup-overlay" class="event-popup-overlay" style="display: none;" onclick="closeEventPopup(event)">
+    <div class="event-popup" onclick="event.stopPropagation()">
+        <button class="popup-close" onclick="closeEventPopup()" aria-label="Sluiten">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="popup-content">
+            {{# Header met afbeelding #}}
+            <div class="popup-header">
+                <img id="popup-image" src="" alt="" class="popup-image">
+                <div class="popup-header-overlay">
+                    <h2 id="popup-title"></h2>
+                    <div class="popup-meta" id="popup-meta"></div>
+                </div>
+            </div>
+            
+            {{# Body content #}}
+            <div class="popup-body">
+                {{# Event details sidebar #}}
+                <div class="popup-details" id="popup-details">
+                    {{# Wordt dynamisch ingevuld #}}
+                </div>
+                
+                {{# Main content #}}
+                <div class="popup-main">
+                    <div id="popup-description"></div>
+                    
+                    {{# Extra afbeeldingen gallery #}}
+                    <div class="popup-gallery" id="popup-gallery" style="display: none;">
+                        <h4>Foto's</h4>
+                        <div class="gallery-grid" id="gallery-grid"></div>
+                    </div>
+                </div>
+            </div>
+            
+            {{# Footer met actieknoppen #}}
+            <div class="popup-footer" id="popup-footer">
+                {{# Wordt dynamisch ingevuld #}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Popup Overlay */
+.event-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-popup-overlay.visible {
+    opacity: 1;
+}
+
+/* Popup Container */
+.event-popup {
+    background: white;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.event-popup-overlay.visible .event-popup {
+    transform: scale(1) translateY(0);
+}
+
+/* Close button */
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.popup-close:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Header with image */
+.popup-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.popup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup-header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 25px 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+}
+
+.popup-header-overlay h2 {
+    margin: 0 0 8px 0;
+    font-family: var(--font-title);
+    font-size: 1.8em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.popup-meta {
+    font-size: 0.95em;
+    opacity: 0.9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.popup-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Content area */
+.popup-content {
+    overflow-y: auto;
+    max-height: calc(90vh - 60px);
+}
+
+.popup-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    padding: 25px;
+}
+
+/* Details sidebar */
+.popup-details {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.popup-details .detail-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.popup-details .detail-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.popup-details .detail-label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-bottom: 4px;
+    font-family: var(--font-medium);
+}
+
+.popup-details .detail-value {
+    font-family: var(--font-medium);
+    color: var(--primary-color);
+    font-size: 1em;
+}
+
+.popup-details .detail-value.deadline {
+    color: #dc3545;
+}
+
+/* Main content */
+.popup-main {
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.popup-main h3 {
+    color: var(--primary-color);
+    margin: 20px 0 10px 0;
+    font-family: var(--font-medium);
+}
+
+.popup-main ul, .popup-main ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.popup-main li {
+    margin-bottom: 5px;
+}
+
+/* Image gallery */
+.popup-gallery h4 {
+    color: var(--primary-color);
+    margin: 20px 0 15px 0;
+    font-family: var(--font-medium);
+    font-size: 1.1em;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer with buttons */
+.popup-footer {
+    padding: 20px 25px;
+    background: #f8f9fa;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    border-top: 1px solid #e9ecef;
+}
+
+.popup-footer .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-medium);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-footer .btn-primary:hover {
+    background: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.popup-footer .btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-medium);
+    transition: all 0.2s ease;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.popup-footer .btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* No image fallback */
+.popup-header.no-image {
+    height: auto;
+    padding: 30px 25px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+}
+
+.popup-header.no-image .popup-header-overlay {
+    position: static;
+    background: none;
+    padding: 0;
+}
+
+.popup-header.no-image .popup-image {
+    display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .event-popup {
+        max-height: 95vh;
+        border-radius: 12px 12px 0 0;
+        margin-top: auto;
+    }
+    
+    .popup-body {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .popup-details {
+        order: 2;
+    }
+    
+    .popup-header {
+        height: 160px;
+    }
+    
+    .popup-header-overlay h2 {
+        font-size: 1.4em;
+    }
+    
+    .popup-footer {
+        flex-direction: column;
+    }
+    
+    .popup-footer a, .popup-footer button {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+// Slide data wordt ingeladen vanuit de pagina
+let slidesData = {};
+
+function openEventPopup(slideId) {
+    const slide = slidesData[slideId];
+    if (!slide) return;
+    
+    const overlay = document.getElementById('event-popup-overlay');
+    const popup = overlay.querySelector('.event-popup');
+    
+    // Header
+    const headerEl = popup.querySelector('.popup-header');
+    const imageEl = document.getElementById('popup-image');
+    const titleEl = document.getElementById('popup-title');
+    const metaEl = document.getElementById('popup-meta');
+    
+    titleEl.textContent = slide.title;
+    
+    if (slide.image) {
+        headerEl.classList.remove('no-image');
+        imageEl.src = slide.image;
+        imageEl.alt = slide.title;
+    } else {
+        headerEl.classList.add('no-image');
+    }
+    
+    // Meta info
+    let metaHtml = '';
+    if (slide.event_date) {
+        metaHtml += `<span><i class="fas fa-calendar"></i> ${formatDate(slide.event_date, slide.event_end_date)}</span>`;
+    }
+    if (slide.location) {
+        metaHtml += `<span><i class="fas fa-map-marker-alt"></i> ${slide.location}</span>`;
+    }
+    metaEl.innerHTML = metaHtml;
+    
+    // Details sidebar
+    const detailsEl = document.getElementById('popup-details');
+    let detailsHtml = '';
+    
+    if (slide.event_date) {
+        detailsHtml += `
+            <div class="detail-item">
+                <div class="detail-label"><i class="fas fa-calendar"></i> Wanneer</div>
+                <div class="detail-value">${formatDate(slide.event_date, slide.event_end_date)}</div>
+            </div>`;
+    }
+    if (slide.location) {
+        detailsHtml += `
+            <div class="detail-item">
+                <div class="detail-label"><i class="fas fa-map-marker-alt"></i> Waar</div>
+                <div class="detail-value">${slide.location}</div>
+            </div>`;
+    }
+    if (slide.price_info) {
+        detailsHtml += `
+            <div class="detail-item">
+                <div class="detail-label"><i class="fas fa-euro-sign"></i> Prijs</div>
+                <div class="detail-value">${slide.price_info}</div>
+            </div>`;
+    }
+    if (slide.deadline) {
+        const isExpired = new Date(slide.deadline) < new Date();
+        detailsHtml += `
+            <div class="detail-item">
+                <div class="detail-label"><i class="fas fa-clock"></i> Deadline</div>
+                <div class="detail-value ${isExpired ? 'deadline' : ''}">${formatSimpleDate(slide.deadline)}${isExpired ? ' (verlopen)' : ''}</div>
+            </div>`;
+    }
+    if (slide.contact_email) {
+        detailsHtml += `
+            <div class="detail-item">
+                <div class="detail-label"><i class="fas fa-envelope"></i> Contact</div>
+                <div class="detail-value"><a href="mailto:${slide.contact_email}">${slide.contact_email}</a></div>
+            </div>`;
+    }
+    
+    detailsEl.innerHTML = detailsHtml || '<p style="color: #6c757d; font-style: italic;">Geen extra details beschikbaar</p>';
+    
+    // Main content
+    const descriptionEl = document.getElementById('popup-description');
+    descriptionEl.innerHTML = slide.popup_content || `<p>${slide.content}</p>`;
+    
+    // Gallery
+    const galleryEl = document.getElementById('popup-gallery');
+    const galleryGrid = document.getElementById('gallery-grid');
+    if (slide.extra_images && slide.extra_images.length > 0) {
+        galleryEl.style.display = 'block';
+        galleryGrid.innerHTML = slide.extra_images.map(img => 
+            `<img src="${img}" alt="Extra afbeelding" onclick="window.open('${img}', '_blank')">`
+        ).join('');
+    } else {
+        galleryEl.style.display = 'none';
+    }
+    
+    // Footer buttons
+    const footerEl = document.getElementById('popup-footer');
+    let footerHtml = '';
+    
+    if (slide.primary_action_link && slide.primary_action_text) {
+        footerHtml += `<a href="${slide.primary_action_link}" class="btn-primary" target="_blank">${slide.primary_action_text}</a>`;
+    }
+    if (slide.secondary_action_link && slide.secondary_action_text) {
+        footerHtml += `<a href="${slide.secondary_action_link}" class="btn-secondary" target="_blank">${slide.secondary_action_text}</a>`;
+    }
+    if (!footerHtml) {
+        footerHtml = '<button class="btn-secondary" onclick="closeEventPopup()">Sluiten</button>';
+    }
+    
+    footerEl.innerHTML = footerHtml;
+    
+    // Show popup
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+        overlay.classList.add('visible');
+    });
+}
+
+function closeEventPopup(event) {
+    if (event && event.target !== event.currentTarget) return;
+    
+    const overlay = document.getElementById('event-popup-overlay');
+    overlay.classList.remove('visible');
+    
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+// Close on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeEventPopup();
+    }
+});
+
+// Date formatting helpers
+function formatDate(startDate, endDate) {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const start = new Date(startDate);
+    
+    if (endDate) {
+        const end = new Date(endDate);
+        if (start.toDateString() === end.toDateString()) {
+            return start.toLocaleDateString('nl-BE', options);
+        }
+        return `${start.toLocaleDateString('nl-BE', { day: 'numeric', month: 'short' })} - ${end.toLocaleDateString('nl-BE', options)}`;
+    }
+    
+    return start.toLocaleDateString('nl-BE', options);
+}
+
+function formatSimpleDate(date) {
+    return new Date(date).toLocaleDateString('nl-BE', { day: 'numeric', month: 'long' });
+}
+
+// Check for URL hash to open popup on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#event-')) {
+        const slideId = hash.replace('#event-', '');
+        setTimeout(() => openEventPopup(slideId), 500);
+    }
+});
+</script>

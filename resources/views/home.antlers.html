@@ -17,11 +17,7 @@
                             <div class="slide-text">
                                 <h2>{{ title }}</h2>
                                 <p>{{ content | nl2br }}</p>
-                                {{ if button_link }}
-                                    <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
-                                {{ else }}
-                                    <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
-                                {{ /if }}
+                                <a href="/kalender#event-{{ slug }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
                             </div>
                         </div>
                     {{ /if }}

@@ -16,7 +16,7 @@
                     <div id="kalender-slideshow" class="kalender-slideshow">
                         {{ collection:slides limit="3" sort="publication_date:desc" }}
                             {{ if enabled }}
-                                <div class="slide">
+                                <div class="slide" data-slide-id="{{ slug }}">
                                     {{ if image }}
                                         <img src="{{ image }}" alt="{{ title }} evenement">
                                     {{ else }}
@@ -25,11 +25,7 @@
                                     <div class="slide-text">
                                         <h2>{{ title }}</h2>
                                         <p>{{ content | nl2br }}</p>
-                                        {{ if button_link }}
-                                            <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
-                                        {{ else }}
-                                            <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
-                                        {{ /if }}
+                                        <button class="meer-button" onclick="openEventPopup('{{ slug }}')">{{ button_text ?? 'Meer info' }}</button>
                                     </div>
                                 </div>
                             {{ /if }}
@@ -1520,3 +1516,33 @@
             updateScoutsYearCalendar();
         });
     </script>
+
+{{# Event Popup #}}
+{{ partial:partials/event-popup }}
+
+{{# Slides data voor popup #}}
+<script>
+    slidesData = {
+        {{ collection:slides sort="publication_date:desc" }}
+            {{ if enabled }}
+                '{{ slug }}': {
+                    title: "{{ title | entities }}",
+                    content: "{{ content | entities }}",
+                    image: {{ if image }}"{{ image }}"{{ else }}null{{ /if }},
+                    event_date: {{ if event_date }}"{{ event_date }}"{{ else }}null{{ /if }},
+                    event_end_date: {{ if event_end_date }}"{{ event_end_date }}"{{ else }}null{{ /if }},
+                    location: {{ if location }}"{{ location | entities }}"{{ else }}null{{ /if }},
+                    popup_content: {{ if popup_content }}"{{ popup_content | raw | entities }}"{{ else }}null{{ /if }},
+                    extra_images: {{ if extra_images }}[{{ extra_images }}"{{ url }}"{{ unless last }},{{ /unless }}{{ /extra_images }}]{{ else }}[]{{ /if }},
+                    primary_action_text: {{ if primary_action_text }}"{{ primary_action_text | entities }}"{{ else }}null{{ /if }},
+                    primary_action_link: {{ if primary_action_link }}"{{ primary_action_link }}"{{ else }}null{{ /if }},
+                    secondary_action_text: {{ if secondary_action_text }}"{{ secondary_action_text | entities }}"{{ else }}null{{ /if }},
+                    secondary_action_link: {{ if secondary_action_link }}"{{ secondary_action_link }}"{{ else }}null{{ /if }},
+                    price_info: {{ if price_info }}"{{ price_info | entities }}"{{ else }}null{{ /if }},
+                    deadline: {{ if deadline }}"{{ deadline }}"{{ else }}null{{ /if }},
+                    contact_email: {{ if contact_email }}"{{ contact_email }}"{{ else }}null{{ /if }}
+                },
+            {{ /if }}
+        {{ /collection:slides }}
+    };
+</script>

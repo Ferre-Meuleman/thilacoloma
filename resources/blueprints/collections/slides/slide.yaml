@@ -1,10 +1,11 @@
 title: 'Nieuwsslide'
 tabs:
-  main:
-    display: Main
+  slide:
+    display: 'Slide (Beknopt)'
     sections:
       -
-        display: 'Slide Informatie'
+        display: 'Basis Informatie'
+        instructions: 'Deze info verschijnt in de slideshow op home en kalender'
         fields:
           -
             handle: title
@@ -34,8 +35,8 @@ tabs:
               type: assets
               container: assets
               max_files: 1
-              display: 'Afbeelding'
-              instructions: 'Hoofdafbeelding voor deze slide (optioneel)'
+              display: 'Hoofdafbeelding'
+              instructions: 'Afbeelding voor de slide (optioneel)'
               restrict: false
               allow_uploads: true
               mode: grid
@@ -43,8 +44,8 @@ tabs:
             handle: content
             field:
               type: textarea
-              display: 'Inhoud'
-              instructions: 'Korte beschrijving (max 2-3 zinnen voor optimale weergave)'
+              display: 'Korte Beschrijving'
+              instructions: 'Korte samenvatting voor slideshow (max 2-3 zinnen)'
               rows: 4
               character_limit: 250
               required: true
@@ -56,13 +57,116 @@ tabs:
               instructions: 'Tekst voor de actieknop'
               default: 'Meer info'
               width: 50
+  popup:
+    display: 'Popup (Uitgebreid)'
+    sections:
+      -
+        display: 'Evenement Details'
+        instructions: 'Extra informatie die in de popup verschijnt'
+        fields:
           -
-            handle: button_link
+            handle: event_date
+            field:
+              type: date
+              display: 'Evenement Datum'
+              instructions: 'Wanneer vindt dit plaats? (indien van toepassing)'
+              time_enabled: true
+              width: 50
+          -
+            handle: event_end_date
+            field:
+              type: date
+              display: 'Eind Datum'
+              instructions: 'Voor meerdaagse evenementen (optioneel)'
+              time_enabled: true
+              width: 50
+          -
+            handle: location
             field:
               type: text
-              display: 'Knop Link'
-              instructions: 'URL waar de knop naartoe linkt (optioneel)'
+              display: 'Locatie'
+              instructions: 'Waar vindt dit plaats? (bijv. "Scouts lokalen", "Kamp X")'
+          -
+            handle: popup_content
+            field:
+              type: bard
+              display: 'Uitgebreide Beschrijving'
+              instructions: 'Volledige info met opmaak (lijsten, links, etc.)'
+              buttons:
+                - h3
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - anchor
+              toolbar_mode: fixed
+              save_html: false
+              always_show_set_button: false
+          -
+            handle: extra_images
+            field:
+              type: assets
+              container: assets
+              max_files: 5
+              display: 'Extra Afbeeldingen'
+              instructions: 'Extra foto''s voor in de popup (max 5)'
+              restrict: false
+              allow_uploads: true
+              mode: grid
+      -
+        display: 'Actie Knoppen'
+        fields:
+          -
+            handle: primary_action_text
+            field:
+              type: text
+              display: 'Primaire Actie Tekst'
+              instructions: 'Tekst voor hoofdknop (bijv. "Inschrijven", "Bestellen")'
               width: 50
+          -
+            handle: primary_action_link
+            field:
+              type: text
+              display: 'Primaire Actie Link'
+              instructions: 'URL voor de hoofdknop'
+              width: 50
+          -
+            handle: secondary_action_text
+            field:
+              type: text
+              display: 'Secundaire Actie Tekst'
+              instructions: 'Tekst voor tweede knop (optioneel)'
+              width: 50
+          -
+            handle: secondary_action_link
+            field:
+              type: text
+              display: 'Secundaire Actie Link'
+              instructions: 'URL voor tweede knop'
+              width: 50
+      -
+        display: 'Extra Info'
+        fields:
+          -
+            handle: price_info
+            field:
+              type: text
+              display: 'Prijs Info'
+              instructions: 'Prijsinformatie (bijv. "€5 per pizza", "Gratis")'
+          -
+            handle: deadline
+            field:
+              type: date
+              display: 'Deadline'
+              instructions: 'Deadline voor inschrijving/bestelling (optioneel)'
+              time_enabled: false
+          -
+            handle: contact_email
+            field:
+              type: text
+              display: 'Contact Email'
+              instructions: 'Email voor vragen (optioneel)'
+              input_type: email
   sidebar:
     display: Sidebar
     sections:
