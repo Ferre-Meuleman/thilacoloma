@@ -426,8 +426,13 @@ tabs:
                     -
                       handle: afbeelding
                       field:
-                        type: text
+                        type: assets
                         display: 'Afbeelding'
+                        instructions: 'Upload een foto van de tent'
+                        container: assets
+                        folder: verhuur/tenten
+                        max_files: 1
+                        mode: grid
                     -
                       handle: aantal
                       field:

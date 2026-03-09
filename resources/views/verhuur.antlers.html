@@ -242,7 +242,11 @@
                             {{ tenten_lijst }}
                             <div class="tent-item">
                                 <div class="tent-image">
-                                    <img src="/assets/images/{{ afbeelding }}" alt="{{ naam }}">
+                                    {{ if afbeelding }}
+                                        <img src="{{ afbeelding }}" alt="{{ naam }}">
+                                    {{ else }}
+                                        <img src="/assets/images/verhuur/tenten/placeholder.jpg" alt="{{ naam }}">
+                                    {{ /if }}
                                 </div>
                                 <div class="tent-header">
                                     <h4>{{ naam }}</h4>

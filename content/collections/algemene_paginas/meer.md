@@ -78,8 +78,13 @@ groepsleiding_algemeen_tekst: Voor algemene vragen kan je terecht bij de groepsl
   het huidige scoutsjaar. Afhankelijk van je vraag kan je ons gericht contacteren.
 groepsleiding_email: groepsleiding@thilacoloma.be
 groepsleiding_scoutsjaar: 2025-2026
-contact_takleiding_tip: |
-  Voor vragen over een activiteit, van de tak van je kind, contacteer je best iemand van de [takleiding](/takken). Deze contactgegevens zijn te vinden in de [Blauwe Gids](/thilala). Dit handige boekje krijgen de leden mee in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte op de scouts.
+contact_takleiding_tip: 'Voor vragen over een activiteit, van de tak van je kind,
+  contacteer je best iemand van de [takleiding](/takken). Deze contactgegevens zijn
+  te vinden in de [Blauwe Gids](/thilala). Dit handige boekje krijgen de leden mee
+  in het begin van het scoutsjaar. Je kan er eventueel ook eentje vragen aan de Fiskehytte
+  op de scouts.
+
+  '
 contact_werkjes_email: werkjes@thilacoloma.be
 contact_verhuur_lokalen_email: verhuur@thilacoloma.be
 contact_verhuur_tenten_email: kantjil@thilacoloma.be
@@ -109,7 +114,55 @@ contact_emails:
   label: Verhuur tenten
   icon: fa-campground
   email: kantjil@thilacoloma.be
-# --- UNIFORM TAB ---
+uniform_intro_text: In onze scoutsgroep is een uniform de traditie.
+uniform_fiskehutte_text: Om een uniform aan te kopen kan je terecht bij Hopper, dé
+  scoutswinkel bij uitstek. De trui, T-shirt en scoutsdas zijn eigen aan onze scouts,
+  die kan je aankopen in de Fiskehutte op ons terrein, voor of na de vergadering op
+  zondag. Hier verkopen we ook enkele tweedehands uniformstukken. Uniformstukken binnenbrengen
+  kan daar ook.
+uniform_tweedehands_oproep: Uniformstukken die te klein zijn geworden of niet meer
+  worden gebruikt mogen steeds binnengebracht worden bij de Fiskehutte. Zo vergroot
+  onze voorraad aan tweedehands uniformstukken!
+hopper_intro: Je kan deze uniformstukken kopen in de Hopperwinkel in Leuven of Antwerpen.
+  Je kan ze ook online bestellen en gratis laten leveren in De Banier, in Mechelen.
+hopper_link: https://www.hopper.be/winkel
+hopper_items:
+- item: Short of rok
+  prijs_kind: €33
+  prijs_volwassen: €40
+- item: Hemd (voor JV en ouder)
+  prijs_kind: €35
+  prijs_volwassen: €38
+- item: Riem
+  prijs_kind: €15
+  prijs_volwassen: €15
+- item: 'Sokken - Groen: KAP, JW, W, SW - Grijs: JV, V, VT, LEI'
+  prijs_kind: €9,25
+  prijs_volwassen: €9,25
+tc_items:
+- item: Trui
+  prijs: €20
+- item: T-shirt
+  prijs: €10
+- item: Scoutsdas
+  prijs: €9
+- item: Dasring
+  prijs: €2
+- item: Kentekens
+  prijs: €0,50
+tweedehands_intro: Ons aanbod telt niet alle maten, we verkopen enkel wat we terug
+  krijgen van ouders, kom gerust eens passen ter plaatse!
+tweedehands_items:
+- item: T-shirt
+  prijs: €5
+- item: Short of rok
+  prijs: €8
+- item: Hemd
+  prijs: €8
+- item: Trui TC
+  prijs: €8
+---
+ UNIFORM TAB ---
 uniform_content:
   -
     type: heading
@@ -1289,3 +1342,4 @@ extra_geschiedenis:
             type: italic
         text: 'Uitgebreide geschiedenis en tijdlijn volgen binnenkort...'
 ---
+Meer informatie over Thila Coloma, onze geschiedenis en extra services.

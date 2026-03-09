@@ -1,7 +1,26 @@
-/* Responsive Styles */
+/* ============================================================
+   RESPONSIVE STYLES - Thila Coloma
+   Desktop UI = ONAANGETAST. Alle regels zitten in media queries.
+   
+   Breakpoints:
+   - 950px  = tablet (homepage layout)
+   - 768px  = mobile (all pages)  
+   - 480px  = small mobile (extra verfijning)
+   ============================================================ */
+
+/* Mobile bottom nav: hidden on desktop */
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* ===========================================
+   TABLET (max-width: 950px)
+   Homepage layout adjustments
+   =========================================== */
 @media (max-width: 950px) {
-    /* Container Styles */
-    body, html {
+    /* Homepage container */
+    body.home,
+    body.homepage {
         background-size: 200vw;
         background-position: -53vw -70px;
     }
@@ -36,7 +55,7 @@
         margin: 0;
         padding: 15px;
         flex: none;
-        height: 90vh;
+        height: auto;
         overflow: hidden;
     }
 
@@ -52,44 +71,750 @@
         max-height: 400px;
     }
 
+    #slideshow {
+        margin: var(--spacing-md) 0;
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .slideshow-dots {
+        padding-left: 0;
+    }
+
     .navigation-grid {
-        flex-direction: row;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
         height: auto;
-        flex-wrap: wrap;
         padding: 15px;
         flex: none;
         margin-bottom: 15px;
-        height: 80vh;
+        gap: var(--spacing-sm);
         background-color: var(--broken-white);
     }
 
     .nav-button {
-        flex: 1 1 calc(33.33% - 30px);
-        margin: 15px;
-        height: 25vh;
-        margin: var(--spacing-xs) var(--spacing-sm);
+        flex: none;
+        margin: 0;
+        height: 20vh;
+        min-height: 120px;
     }
 
     .slide {
         width: 100%;
-        height: 80vh;
-        position: relative;
+        height: 100%;
+        position: absolute;
         display: flex;
-        flex-direction: column;
+        flex-direction: row-reverse;
     }
 
     .slide img {
-        width: 100%;
-        height: 40vh;
+        width: 33.33%;
+        height: 100%;
         object-fit: cover;
     }
 
     .slide-text {
-        padding: var(--spacing-sm);
-        flex: 1;
+        flex: 2;
+        padding: var(--spacing-md);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: var(--spacing-md);
+        margin-left: var(--spacing-sm);
+    }
+}
+
+/* ===========================================
+   MOBILE (max-width: 768px)
+   Complete mobile experience
+   =========================================== */
+@media (max-width: 768px) {
+
+    /* ------- HEADER: hide desktop, show bottom nav ------- */
+    .simple-header {
+        display: none !important;
+    }
+
+    .header-hover-zone {
+        display: none !important;
+    }
+
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: var(--primary-color);
+        padding: 6px 0 env(safe-area-inset-bottom, 6px) 0;
+        box-shadow: 0 -2px 12px rgba(55, 71, 148, 0.3);
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .mobile-bottom-nav .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none !important;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: var(--font-medium);
+        font-size: 0.6em;
+        padding: 4px 0;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: var(--border-radius-sm);
+        transition: var(--transition-fast);
+        gap: 2px;
+    }
+
+    .mobile-bottom-nav .mobile-nav-item img {
+        width: 22px;
+        height: 22px;
+        filter: brightness(0) invert(1) opacity(0.7);
+        transition: filter var(--transition-fast);
+    }
+
+    .mobile-bottom-nav .mobile-nav-item.active,
+    .mobile-bottom-nav .mobile-nav-item:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-bottom-nav .mobile-nav-item.active img,
+    .mobile-bottom-nav .mobile-nav-item:hover img {
+        filter: brightness(0) invert(1) opacity(1);
+    }
+
+    .mobile-bottom-nav .mobile-nav-item span {
+        text-decoration: none !important;
+        font-family: var(--font-medium);
+        font-size: 1em;
+        color: inherit;
+    }
+
+    /* Mobile search overlay trigger */
+    .mobile-bottom-nav .mobile-search-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: var(--font-medium);
+        font-size: 0.6em;
+        padding: 4px 0;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: var(--border-radius-sm);
+        gap: 2px;
+    }
+
+    .mobile-bottom-nav .mobile-search-btn:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-bottom-nav .mobile-search-btn i {
+        font-size: 18px;
+    }
+
+    .mobile-bottom-nav .mobile-search-btn span {
+        text-decoration: none !important;
+        font-family: var(--font-medium);
+        color: inherit;
+    }
+
+    /* Mobile search overlay */
+    .mobile-search-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .mobile-search-overlay.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobile-search-overlay .mobile-search-box {
+        width: 100%;
+        max-width: 500px;
+        background: white;
+        border-radius: var(--border-radius-md);
+        padding: var(--spacing-md);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-search-overlay .mobile-search-header {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .mobile-search-overlay .mobile-search-input {
+        flex: 1;
+        border: 2px solid var(--primary-color);
+        border-radius: var(--border-radius-sm);
+        padding: 12px 16px;
+        font-size: 1em;
+        font-family: var(--font-regular);
+        outline: none;
+    }
+
+    .mobile-search-overlay .mobile-search-input:focus {
+        border-color: var(--pink-color);
+    }
+
+    .mobile-search-overlay .mobile-search-close {
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        color: var(--primary-color);
+        cursor: pointer;
+        padding: 8px;
+        line-height: 1;
+    }
+
+    .mobile-search-overlay .mobile-search-results {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    /* Body padding zodat content niet achter bottom nav verdwijnt */
+    body {
+        padding-bottom: 70px !important;
+    }
+
+    /* Homepage: geen bottom padding (geen bottom nav daar) */
+    body.home,
+    body.homepage {
+        padding-bottom: 0 !important;
+    }
+
+    /* ------- TYPOGRAPHY SCALING ------- */
+    h1 {
+        font-size: 2em !important;
+    }
+
+    .upper-left h1 {
+        font-size: 2.2em !important;
+    }
+
+    .page-section h2 {
+        font-size: 1.8em !important;
+    }
+
+    .container-upper-right h1 {
+        font-size: 1.1em !important;
+    }
+
+    /* ------- HOMEPAGE MOBILE ------- */
+    body.home,
+    body.homepage {
+        background-size: 250vw;
+        background-position: -80vw -50px;
+    }
+
+    .containerVoorpagina {
+        height: auto;
+    }
+
+    .upper {
+        flex-direction: column;
+        flex: none;
+        padding: 0;
+    }
+
+    .upper-left {
+        margin: var(--spacing-md);
+        padding: var(--spacing-sm);
+    }
+
+    .upper-left p {
+        font-size: 1em;
+        padding: 0;
+    }
+
+    .intro-content {
+        font-size: 0.95em;
+    }
+
+    .container-upper-right {
+        margin: 0;
+        padding: var(--spacing-md);
+        flex: none;
+        height: auto;
+        overflow: visible;
+    }
+
+    #slideshow {
+        margin: var(--spacing-sm) 0;
+        height: 280px;
+        min-height: 280px;
+    }
+
+    .slide {
+        flex-direction: column !important;
+    }
+
+    .slide img {
+        width: 100% !important;
+        height: 140px !important;
+        object-fit: cover;
+    }
+
+    .slide-text {
+        flex: 1;
+        padding: var(--spacing-sm);
+        margin-left: 0 !important;
+    }
+
+    .slide-text h2 {
+        font-size: 1.3em !important;
+    }
+
+    .slide-text p {
+        font-size: 0.9em;
+        line-height: 1.4;
+        /* Limit text lines on mobile */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .slideshow-dots {
+        padding-left: 0;
+        margin-top: var(--spacing-xs);
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Homepage navigation grid: 2 kolommen */
+    .navigation-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        height: auto !important;
+        padding: var(--spacing-sm) !important;
+        gap: var(--spacing-sm) !important;
+        margin-bottom: 0 !important;
+    }
+
+    .nav-button {
+        flex: none !important;
+        margin: 0 !important;
+        height: auto !important;
+        min-height: 100px;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .nav-button img {
+        width: 40% !important;
+        max-width: 60px;
+    }
+
+    .nav-button h3 {
+        font-size: 1.1em !important;
+    }
+
+    /* ------- SUBPAGE CONTENT ------- */
+    .page-content {
+        padding: var(--spacing-sm) var(--spacing-md) !important;
+    }
+
+    /* Back button niet absolute op mobile */
+    .back-to-takken {
+        position: static !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+
+    /* ------- CARDS ------- */
+    .card {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .card-content {
+        padding: var(--spacing-md) !important;
+    }
+
+    /* Compact cards (afwezigheid/betaling) stapelen */
+    .compact-card .card-content {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+
+    .compact-card .card-left {
+        text-align: center;
+    }
+
+    .compact-card .card-right {
+        display: flex;
+        justify-content: center;
+    }
+
+    .compact-card .card-right .btn,
+    .compact-card .card-right .copy-btn,
+    .compact-card .card-right button {
+        width: 100%;
+        justify-content: center !important;
+    }
+
+    /* ------- GRIDS ------- */
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    /* ------- LEIDING GRID (tak pagina's) ------- */
+    .leiding-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--spacing-sm) !important;
+    }
+
+    .leiding-card {
+        padding: var(--spacing-sm) !important;
+    }
+
+    .leiding-foto img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .leiding-info h3 {
+        font-size: 0.9em !important;
+    }
+
+    .leiding-info p {
+        font-size: 0.8em !important;
+    }
+
+    /* ------- TAB NAVIGATION (Verhuur: 3 tabs, Meer: 8 tabs) ------- */
+    .tab-navigation {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        gap: var(--spacing-xs) !important;
+        padding-bottom: var(--spacing-xs);
+    }
+
+    .tab-navigation::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .tab-button {
+        flex-shrink: 0 !important;
+        padding: var(--spacing-sm) var(--spacing-md) !important;
+        font-size: 0.85em !important;
+        white-space: nowrap;
+    }
+
+    /* ------- INFO LAYOUT (Meer pagina) ------- */
+    .info-layout {
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+    }
+
+    /* Groepsleiding grid */
+    .groepsleiding-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .leiding-member {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .leiding-member .leiding-photo {
+        margin: 0 auto var(--spacing-sm) !important;
+    }
+
+    /* Contact emails */
+    .contact-email-item {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    /* ------- KALENDER ------- */
+    .evenementen-layout {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    .kalender-slideshow {
+        height: 250px !important;
+        margin: var(--spacing-md) 0 var(--spacing-sm) 0 !important;
+    }
+
+    .kalender-dots {
+        padding-left: 0 !important;
+    }
+
+    /* Jaarkalender horizontaal scrollbaar */
+    .calendar-container,
+    .jaarkalender-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ------- IFRAME CARDS (Stamhoofd, Verhuur, Thilala) ------- */
+    .iframe-card-header {
+        flex-direction: column !important;
+        gap: var(--spacing-sm);
+        align-items: stretch !important;
+    }
+
+    .iframe-card-info {
+        padding-right: 0 !important;
+    }
+
+    .iframe-card-info h2,
+    .iframe-card-info h3 {
+        font-size: 1.2em !important;
+    }
+
+    .iframe-container iframe {
+        width: 100% !important;
+        height: 60vh !important;
+    }
+
+    .iframe-fallback-toggle {
+        align-self: flex-start !important;
+    }
+
+    /* Two column layout (Stamhoofd) */
+    .two-column-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ------- VERHUUR SPECIFIEK ------- */
+    .lokalen-top-section {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-md);
+    }
+
+    .materiaal-grid,
+    .tent-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ------- TAKKEN OVERZICHTSPAGINA ------- */
+    .tak-card {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .tak-header {
+        flex-direction: row;
+        gap: var(--spacing-sm);
+    }
+
+    .tak-logo {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .tak-leiding {
+        font-size: 0.9em;
+    }
+
+    /* ------- FOOTER ------- */
+    .page-footer {
+        margin-bottom: 70px; /* Ruimte voor bottom nav */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+        padding: var(--spacing-lg) var(--spacing-md) !important;
+        text-align: center;
+    }
+
+    .footer-section a {
+        text-decoration: none !important;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* ------- PAGE SECTIONS ------- */
+    .page-section {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .page-section .section-intro {
+        font-size: 1em !important;
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* ------- BUTTONS op mobile: grotere touch targets ------- */
+    .btn,
+    .meer-button,
+    .btn-primary,
+    .btn-secondary {
+        min-height: 44px;
+        padding: var(--spacing-sm) var(--spacing-md) !important;
+    }
+
+    /* ------- ALERTS ------- */
+    .alert {
+        padding: var(--spacing-md) !important;
+        font-size: 0.9em;
+    }
+
+    /* ------- ARCHIVE GRID (Thilala) ------- */
+    .archive-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ------- YEAR THEME ------- */
+    .year-theme h3 {
+        font-size: 1.5em !important;
+    }
+
+    /* ------- PDF VIEWER ------- */
+    .pdf-viewer {
+        height: 60vh !important;
+    }
+}
+
+/* ===========================================
+   SMALL MOBILE (max-width: 480px)
+   Extra verfijning voor kleine schermen
+   =========================================== */
+@media (max-width: 480px) {
+
+    /* Typography */
+    h1 {
+        font-size: 1.7em !important;
+    }
+
+    .upper-left h1 {
+        font-size: 1.9em !important;
+    }
+
+    .page-section h2 {
+        font-size: 1.5em !important;
+    }
+
+    /* Homepage */
+    body.home,
+    body.homepage {
+        background-size: 300vw;
+        background-position: -100vw -30px;
+    }
+
+    /* Slideshow nog compacter */
+    #slideshow {
+        height: 240px;
+        min-height: 240px;
+    }
+
+    .slide img {
+        height: 110px !important;
+    }
+
+    .slide-text h2 {
+        font-size: 1.1em !important;
+    }
+
+    .slide-text p {
+        -webkit-line-clamp: 2;
+    }
+
+    /* Nav grid */ 
+    .navigation-grid {
+        padding: var(--spacing-xs) !important;
+        gap: var(--spacing-xs) !important;
+    }
+
+    .nav-button {
+        min-height: 85px;
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .nav-button h3 {
+        font-size: 0.95em !important;
+    }
+
+    /* Page content - minder padding */
+    .page-content {
+        padding: var(--spacing-xs) var(--spacing-sm) !important;
+    }
+
+    /* Leiding grid: 1 kolom op heel klein scherm */
+    .leiding-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Tab buttons kleiner op small mobile */
+    .tab-button {
+        padding: var(--spacing-xs) var(--spacing-sm) !important;
+        font-size: 0.78em !important;
+    }
+
+    /* Footer */
+    .footer-content {
+        padding: var(--spacing-md) var(--spacing-sm) !important;
+    }
+
+    /* Cards */
+    .card-content {
+        padding: var(--spacing-sm) !important;
+    }
+
+    /* Iframe kleiner */
+    .iframe-container iframe {
+        height: 50vh !important;
+    }
+
+    /* Kalender slideshow */
+    .kalender-slideshow {
+        height: 220px !important;
+    }
+
+    /* Bottom nav aanpassen */
+    .mobile-bottom-nav .mobile-nav-item {
+        font-size: 0.55em;
+        min-width: 42px;
+    }
+
+    .mobile-bottom-nav .mobile-nav-item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mobile-bottom-nav .mobile-search-btn {
+        font-size: 0.55em;
+    }
+
+    .mobile-bottom-nav .mobile-search-btn i {
+        font-size: 16px;
     }
 }

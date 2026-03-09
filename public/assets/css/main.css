@@ -118,7 +118,7 @@ h1 {
 /* Upper Section */
 .upper {
     display: flex;
-    flex: 0 0 35vh;
+    flex: 3 2 35vh;
 }
 
 .upper-left {
