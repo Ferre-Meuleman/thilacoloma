@@ -14,7 +14,7 @@
         "emran-alhaddad/statamic-logbook": "^1.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "statamic/cms": "6.2.2",
+        "statamic/cms": "^6.5",
         "superinteractive/statamic-super-admin-toolbar": "^2.0"
     },
     "require-dev": {
