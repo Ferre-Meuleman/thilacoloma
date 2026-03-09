@@ -1,8 +1,6 @@
-name: Deploy to Namecheap
+name: Deploy to Namecheap (DISABLED - use deploy.yml)
 
 on:
-  push:
-    branches: [ master ]
   workflow_dispatch:
     inputs:
       server:
